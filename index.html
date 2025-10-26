@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TEMOTIVA</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header fijo con menú -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#inicio" class="logo">TEMOTIVA</a>
+
+      <!-- Botón móvil -->
+      <button id="menuBtn" aria-label="Abrir menú" class="menu-btn">☰</button>
+
+      <nav id="mainNav" class="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#mision">Misión</a>
+        <a href="#producto">Producto</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Inicio -->
+  <section id="inicio" class="section hero">
+    <div class="container">
+      <h1>Bienestar emocional y tecnología</h1>
+      <p>Plataforma sencilla para comprender, cuidar y entrenar el bienestar emocional, basada en ciencia.</p>
+      <a href="#mision" class="btn">Saber más</a>
+    </div>
+  </section>
+
+  <!-- Misión -->
+  <section id="mision" class="section reveal">
+    <div class="container">
+      <h2>Nuestra misión</h2>
+      <p>Crear herramientas accesibles, seguras y útiles que apoyen hábitos saludables, autoobservación y decisión informada.</p>
+      <ul class="bullets">
+        <li>Psicología basada en evidencia</li>
+        <li>Privacidad por diseño</li>
+        <li>Accesibilidad y lenguaje claro</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Producto -->
+  <section id="producto" class="section alt reveal">
+    <div class="container">
+      <h2>Producto</h2>
+      <p>Primera versión, autochequeo diario, micro ejercicios de regulación y panel de progreso.</p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Chequeo</h3>
+          <p>2 a 3 preguntas al día para tomar pulso emocional sin saturar.</p>
+        </div>
+        <div class="card">
+          <h3>Ejercicios</h3>
+          <p>Respiración, reencuadre, plan de acción breve. Todo guiado.</p>
+        </div>
+        <div class="card">
+          <h3>Progreso</h3>
+          <p>Gráficas simples y metas semanales comprensibles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- Frase del día -->
+<section id="frase" class="section reveal">
+  <div class="container">
+    <h2>Frase del día</h2>
+    <p id="fraseTexto" class="frase">Respira. Un paso a la vez.</p>
+    <button id="nuevaFraseBtn" class="btn">Nueva frase</button>
+  </div>
+</section>
+
+  <!-- Equipo -->
+  <section id="equipo" class="section reveal">
+    <div class="container">
+      <h2>Equipo</h2>
+      <div class="grid team">
+        <article class="member">
+          <h3>G. Musterova</h3>
+          <p>Psicología, investigación y dirección.</p>
+        </article>
+        <article class="member">
+          <h3>Colaborador técnico</h3>
+          <p>Front end y producto.</p>
+        </article>
+        <article class="member">
+          <h3>Consejo asesor</h3>
+          <p>Clínica, datos y ética.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="section alt">
+    <div class="container">
+      <h2>Contacto</h2>
+      <form id="contactForm" class="form">
+        <input type="text" id="nombre" placeholder="Tu nombre" required />
+        <input type="email" id="email" placeholder="Tu email" required />
+        <textarea id="mensaje" rows="4" placeholder="¿Cómo podemos ayudarte?" required></textarea>
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+      <p id="formMsg" class="form-msg oculto">Gracias, te contactaremos pronto.</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© TEMOTIVA desde 2024</p>
+      <a href="#inicio" class="back-top">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
