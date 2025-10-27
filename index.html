@@ -1,128 +1,197 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TEMOTIVA | Innovación en bienestar emocional</title>
-  <meta name="description" content="Tecnología emocional para mejorar la salud mental y el autocuidado en la vida cotidiana.">
-  <meta name="keywords" content="bienestar emocional, salud mental, autocuidado, tecnología emocional, temotiva, innovación, psicología digital">
-</head>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TEMOTIVA, tu psicólogo en el bolsillo</title>
+  <meta name="description" content="Acompañamiento emocional continuo para personas y profesionales. Demo gratuita con check-in emocional y ejercicios guiados.">
+  <link rel="icon" href="/favicon.png">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <!-- Header fijo con menú -->
   <header class="site-header">
-    <div class="container nav">
-      <a href="#inicio" class="logo">TEMOTIVA</a>
-
-      <!-- Botón móvil -->
-      <button id="menuBtn" aria-label="Abrir menú" class="menu-btn">☰</button>
-
-      <nav id="mainNav" class="nav-links">
-        <a href="#inicio">Inicio</a>
-        <a href="#mision">Misión</a>
-        <a href="#producto">Producto</a>
-        <a href="#equipo">Equipo</a>
-        <a href="#contacto">Contacto</a>
+    <div class="container header-bar">
+      <a class="brand" href="/">TEMOTIVA</a>
+      <nav class="nav" aria-label="Principal">
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">☰</button>
+        <ul class="nav-links" id="mainNav">
+          <li><a href="#usuarios">Soy usuario</a></li>
+          <li><a href="#profesionales">Soy profesional</a></li>
+          <li><a href="#recursos">Recursos</a></li>
+          <li><a href="#demo">Demo</a></li>
+          <li><a href="#contacto" class="btn">Contacto</a></li>
+        </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Inicio -->
-  <section id="inicio" class="section hero">
-    <div class="container">
-      <h1>Bienestar emocional y tecnología</h1>
-      <p>Plataforma sencilla para comprender, cuidar y entrenar el bienestar emocional, basada en ciencia.</p>
-      <a href="#mision" class="btn">Saber más</a>
-    </div>
-  </section>
-
-  <!-- Misión -->
-  <section id="mision" class="section reveal">
-    <div class="container">
-      <h2>Nuestra misión</h2>
-      <p>Crear herramientas accesibles, seguras y útiles que apoyen hábitos saludables, autoobservación y decisión informada.</p>
-      <ul class="bullets">
-        <li>Psicología basada en evidencia</li>
-        <li>Privacidad por diseño</li>
-        <li>Accesibilidad y lenguaje claro</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Producto -->
-  <section id="producto" class="section alt reveal">
-    <div class="container">
-      <h2>Producto</h2>
-      <p>Primera versión, autochequeo diario, micro ejercicios de regulación y panel de progreso.</p>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Chequeo</h3>
-          <p>2 a 3 preguntas al día para tomar pulso emocional sin saturar.</p>
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>Psicología aplicada a tu día a día</h1>
+          <p class="lead">Entiende lo que sientes, entrena habilidades emocionales, crea hábitos que te cuidan.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#demo">Probar demo</a>
+            <a class="btn ghost" href="#profesionales">Soy psicólogo</a>
+          </div>
+          <p class="micro">Sin promesas mágicas, solo ciencia útil y acompañamiento constante.</p>
         </div>
-        <div class="card">
-          <h3>Ejercicios</h3>
-          <p>Respiración, reencuadre, plan de acción breve. Todo guiado.</p>
-        </div>
-        <div class="card">
-          <h3>Progreso</h3>
-          <p>Gráficas simples y metas semanales comprensibles.</p>
+        <div class="hero-card card">
+          <h3>Qué incluye</h3>
+          <ul class="bullets">
+            <li>Check-in emocional en 30 segundos</li>
+            <li>Ejercicios breves guiados</li>
+            <li>Seguimiento y recordatorios</li>
+          </ul>
+          <a class="btn primary" href="#demo">Entrar a la demo</a>
         </div>
       </div>
-    </div>
-  </section>
-<!-- Frase del día -->
-<section id="frase" class="section reveal">
-  <div class="container">
-    <h2>Frase del día</h2>
-    <p id="fraseTexto" class="frase">Respira. Un paso a la vez.</p>
-    <button id="nuevaFraseBtn" class="btn">Nueva frase</button>
-  </div>
-</section>
+    </section>
 
-  <!-- Equipo -->
-  <section id="equipo" class="section reveal">
-    <div class="container">
-      <h2>Equipo</h2>
-      <div class="grid team">
-        <article class="member">
-          <h3>G. Musterova</h3>
-          <p>Psicología, investigación y dirección.</p>
-        </article>
-        <article class="member">
-          <h3>Colaborador técnico</h3>
-          <p>Front end y producto.</p>
-        </article>
-        <article class="member">
-          <h3>Consejo asesor</h3>
-          <p>Clínica, datos y ética.</p>
-        </article>
+    <!-- Soy usuario -->
+    <section id="usuarios" class="container grid two">
+      <div>
+        <h2>Para personas</h2>
+        <p>Acompañamiento que te ayuda a entender tus emociones y actuar mejor en lo cotidiano. Pequeñas prácticas, impacto real.</p>
+        <ul class="checklist">
+          <li>Diario emocional y balance semanal</li>
+          <li>Ejercicios de regulación sencillos</li>
+          <li>Consejos personalizados y medibles</li>
+        </ul>
+        <a class="btn primary" href="#demo">Probar ahora</a>
       </div>
-    </div>
-  </section>
+      <div class="card">
+        <h3>Resultados que importan</h3>
+        <p class="micro">Seguimiento de energía, tensión y ánimo para ver tu progreso con claridad.</p>
+        <div class="kpis">
+          <div><strong id="kpi1">—</strong><span class="micro">días seguidos</span></div>
+          <div><strong id="kpi2">—</strong><span class="micro">check-ins</span></div>
+          <div><strong id="kpi3">—</strong><span class="micro">ejercicios</span></div>
+        </div>
+      </div>
+    </section>
 
-  <!-- Contacto -->
-  <section id="contacto" class="section alt">
-    <div class="container">
-      <h2>Contacto</h2>
-      <form id="contactForm" class="form">
-        <input type="text" id="nombre" placeholder="Tu nombre" required />
-        <input type="email" id="email" placeholder="Tu email" required />
-        <textarea id="mensaje" rows="4" placeholder="¿Cómo podemos ayudarte?" required></textarea>
-        <button type="submit" class="btn">Enviar</button>
-      </form>
-      <p id="formMsg" class="form-msg oculto">Gracias, te contactaremos pronto.</p>
-    </div>
-  </section>
+    <!-- Soy profesional -->
+    <section id="profesionales" class="container grid two">
+      <div class="card">
+        <h2>Para profesionales</h2>
+        <p>Extiende la consulta al día a día del paciente. Refuerza la adherencia y facilita tareas entre sesiones.</p>
+        <ul class="checklist">
+          <li>Recomendaciones de ejercicios para casa</li>
+          <li>Registro emocional entre sesiones</li>
+          <li>Materiales psicoeducativos listos para usar</li>
+        </ul>
+        <a class="btn ghost" href="#contacto">Solicitar demo profesional</a>
+      </div>
+      <div>
+        <h3>Cómo encaja en tu práctica</h3>
+        <ol class="stepper">
+          <li>Indicas objetivos terapéuticos</li>
+          <li>El paciente practica microacciones</li>
+          <li>Se revisa progreso con evidencia</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Recursos destacados -->
+    <section id="recursos" class="container">
+      <h2>Recursos</h2>
+      <div class="grid three">
+        <article class="card"><h3>Checklist de señales tempranas</h3><p>Guía breve para identificar activadores y señales de carga.</p></article>
+        <article class="card"><h3>Respiración en caja</h3><p>Ejercicio en cuatro tiempos para bajar la activación.</p></article>
+        <article class="card"><h3>Diálogo interno útil</h3><p>Plantilla para transformar rumiación en acción concreta.</p></article>
+      </div>
+    </section>
+
+    <!-- Demo interactiva -->
+    <section id="demo" class="container grid two">
+      <div class="card">
+        <h2>Check-in emocional</h2>
+        <form id="checkinForm" class="stack">
+          <label>Energía
+            <input type="range" min="0" max="10" step="1" id="energia" value="5">
+          </label>
+          <label>Tensión
+            <input type="range" min="0" max="10" step="1" id="tension" value="5">
+          </label>
+          <label>Ánimo
+            <input type="range" min="0" max="10" step="1" id="animo" value="5">
+          </label>
+          <label>¿Qué está pasando?
+            <input type="text" id="nota" placeholder="Una frase basta">
+          </label>
+          <button class="btn primary" type="submit">Guardar check-in</button>
+          <p id="checkinMsg" class="micro oculto" tabindex="-1">Guardado. Mira tu recomendación.</p>
+        </form>
+        <div id="recomendacion" class="reco card muted oculto"></div>
+      </div>
+
+      <div class="card">
+        <h2>Mini test de enfoque</h2>
+        <p class="micro">Marca lo que necesitas ahora mismo y recibe un ejercicio breve.</p>
+        <form id="miniTest" class="stack">
+          <label><input type="radio" name="foco" value="calmar"> Calmar cuerpo y mente</label>
+          <label><input type="radio" name="foco" value="claridad"> Ganar claridad</label>
+          <label><input type="radio" name="foco" value="accion"> Pasar a la acción</label>
+          <button class="btn ghost" type="submit">Obtener ejercicio</button>
+        </form>
+        <div id="ejercicio" class="card muted oculto"></div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="container grid two">
+      <div>
+        <h2>Contacto y demos</h2>
+        <p>Elige tu perfil y te respondemos con el siguiente paso.</p>
+        <form id="contactForm" class="stack">
+          <label>Nombre
+            <input type="text" name="name" required>
+          </label>
+          <label>Email
+            <input type="email" name="email" required>
+          </label>
+          <label>Perfil
+            <select name="perfil" required>
+              <option value="">Selecciona</option>
+              <option>Usuario</option>
+              <option>Profesional</option>
+            </select>
+          </label>
+          <label class="micro"><input type="checkbox" required> Acepto la política de privacidad</label>
+          <button class="btn primary" type="submit">Solicitar demo</button>
+          <p id="formMsg" class="micro oculto" tabindex="-1">Gracias. Te contactamos en breve.</p>
+        </form>
+      </div>
+      <div class="card">
+        <h3>También puedes</h3>
+        <ul class="list">
+          <li><a href="mailto:hola@temotiva.com">Escribirnos por email</a></li>
+          <li><a href="https://cal.com" target="_blank" rel="noopener noreferrer">Agendar una llamada</a></li>
+          <li><a href="#recursos">Descargar recursos</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>© TEMOTIVA desde 2024</p>
-      <a href="#inicio" class="back-top">Volver arriba ↑</a>
+    <div class="container footer-grid">
+      <div><strong>TEMOTIVA</strong><p class="micro">Bienestar emocional con ciencia y práctica.</p></div>
+      <nav aria-label="Secundaria">
+        <ul class="list">
+          <li><a href="/legal.html">Aviso legal</a></li>
+          <li><a href="/privacy.html">Privacidad</a></li>
+          <li><a href="/accessibility.html">Accesibilidad</a></li>
+          <li><a href="/sitemap.xml">Sitemap</a></li>
+        </ul>
+      </nav>
+      <div><p class="micro">© <span id="year"></span> TEMOTIVA</p></div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="/script.js" defer></script>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
 </html>
