@@ -123,6 +123,15 @@
     </div>
   </footer>
 
+  <!-- conexión con Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL = "https://ejhzxwnhqvcqjqxnuvya.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_8nz_638F1vO2JbkFw9DHSw_AxB179qA";
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    console.log("Conectado a Supabase");
+  </script>
+  
   <script src="script.js"></script>
 </body>
 </html>
