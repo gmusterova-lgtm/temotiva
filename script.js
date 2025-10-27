@@ -34,6 +34,7 @@ form.addEventListener("submit", (e) => {
 const frases = [
   "Respira. Un paso a la vez.",
   "Pequeñas acciones, gran tracción.",
+  "Un día a la vez, vive el presente.",
   "Observa, nombra, regula.",
   "Tu progreso también cuenta cuando es silencioso.",
   "Constancia antes que perfección.",
