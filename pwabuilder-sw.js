@@ -1,22 +1,28 @@
-// Service Worker TEMOTIVA v3
-const CACHE = "temotiva-v3";
-const ASSETS = [
-  "/",
-  "/index.html",
-  "/style.css",
-  "/script.js",
-  "/manifest.json",
-  "/icons/icon-192.png",
-  "/icons/icon-512.png"
-];
+// Service Worker TEMOTIVA offline page v1
+/* global workbox */
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js");
 
-// Preload para navegaciones
-self.addEventListener("activate", event => {
+const CACHE = "temotiva-offline-v1";
+const offlineFallbackPage = "/offline.html";
+
+// Mensajes del SW
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "SKIP_WAITING") self.skipWaiting();
+});
+
+// Precache de la página offline
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    caches.open(CACHE).then((cache) => cache.addAll([offlineFallbackPage]))
+  );
+  self.skipWaiting();
+});
+
+// Activación, limpia cachés antiguas y activa navigation preload
+self.addEventListener("activate", (event) => {
   event.waitUntil((async () => {
-    // limpiar cachés antiguas
     const keys = await caches.keys();
     await Promise.all(keys.map(k => (k !== CACHE ? caches.delete(k) : null)));
-    // habilitar navigation preload si está disponible
     if ("navigationPreload" in self.registration) {
       await self.registration.navigationPreload.enable();
     }
@@ -24,54 +30,20 @@ self.addEventListener("activate", event => {
   })());
 });
 
-self.addEventListener("install", event => {
-  event.waitUntil(
-    caches.open(CACHE).then(cache => cache.addAll(ASSETS))
-  );
-  self.skipWaiting();
-});
-
-// Estrategia
-self.addEventListener("fetch", event => {
-  const req = event.request;
-  const url = new URL(req.url);
-
-  // Solo mismo origen y GET
-  if (req.method !== "GET" || url.origin !== self.location.origin) return;
-
-  // Navegaciones a páginas
-  if (req.mode === "navigate") {
+// Fetch: para navegaciones, intenta red, si falla sirve offline.html
+self.addEventListener("fetch", (event) => {
+  if (event.request.mode === "navigate") {
     event.respondWith((async () => {
       try {
-        // Intenta usar navigation preload primero
         const preload = await event.preloadResponse;
         if (preload) return preload;
-        // Luego red
-        const network = await fetch(req);
-        // Guarda copia
-        const copy = network.clone();
-        caches.open(CACHE).then(c => c.put(req, copy));
+        const network = await fetch(event.request);
         return network;
-      } catch {
-        // Fallback a la home si no hay conexión
-        const cached = await caches.match("/index.html");
+      } catch (err) {
+        const cache = await caches.open(CACHE);
+        const cached = await cache.match(offlineFallbackPage);
         return cached || new Response("Sin conexión", { status: 503 });
       }
     })());
-    return;
   }
-
-  // Recursos estáticos cache-first
-  event.respondWith(
-    caches.match(req).then(cached => {
-      if (cached) return cached;
-      return fetch(req)
-        .then(res => {
-          const copy = res.clone();
-          caches.open(CACHE).then(c => c.put(req, copy));
-          return res;
-        })
-        .catch(() => undefined);
-    })
-  );
 });
