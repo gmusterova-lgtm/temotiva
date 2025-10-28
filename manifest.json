@@ -2,7 +2,7 @@
   "id": "/",
   "name": "TEMOTIVA",
   "short_name": "TEMOTIVA",
-  "description": "Tecnología emocional para mejorar tu bienestar y fortalecer tu salud mental a través del autocuidado y el aprendizaje significativo.",
+  "description": "Bienestar emocional para mejorar la salud mental y el autocuidado en la vida cotidiana.",
   "lang": "es-ES",
   "dir": "ltr",
   "start_url": "/",
@@ -13,11 +13,8 @@
   "theme_color": "#F7F7F7",
   "icons": [
     { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
-  ],
-  "screenshots": [
-    { "src": "/icons/screenshot-1080x1920.png", "sizes": "1080x1920", "type": "image/png", "label": "Inicio TEMOTIVA" },
-    { "src": "/icons/screenshot-1280x720.png",  "sizes": "1280x720",  "type": "image/png", "label": "Sección recursos" }
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ],
   "categories": ["health", "education", "lifestyle"],
   "shortcuts": [
@@ -33,5 +30,15 @@
     "method": "GET",
     "enctype": "application/x-www-form-urlencoded",
     "params": { "title": "title", "text": "text", "url": "url" }
-  }
+  },
+  "screenshots": [
+    {
+      "src": "/icons/screenshot-1080x1920.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "label": "Inicio TEMOTIVA",
+      "form_factor": "wide"
+    }
+  ],
+  "prefer_related_applications": false
 }
