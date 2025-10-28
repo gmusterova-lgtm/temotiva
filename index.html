@@ -6,7 +6,12 @@
   <title>TEMOTIVA | Innovación en bienestar emocional</title>
   <meta name="description" content="Bienestar emocional para mejorar la salud mental y el autocuidado en la vida cotidiana.">
   <meta name="keywords" content="bienestar emocional, salud mental, autocuidado, tecnología emocional, temotiva, innovación, psicología digital">
-</head>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#F7F7F7">
+
+  <!-- Estilos -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -72,14 +77,15 @@
       </div>
     </div>
   </section>
-<!-- Frase del día -->
-<section id="frase" class="section reveal">
-  <div class="container">
-    <h2>Frase del día</h2>
-    <p id="fraseTexto" class="frase">Respira. Un paso a la vez.</p>
-    <button id="nuevaFraseBtn" class="btn">Nueva frase</button>
-  </div>
-</section>
+
+  <!-- Frase del día -->
+  <section id="frase" class="section reveal">
+    <div class="container">
+      <h2>Frase del día</h2>
+      <p id="fraseTexto" class="frase">Respira. Un paso a la vez.</p>
+      <button id="nuevaFraseBtn" class="btn">Nueva frase</button>
+    </div>
+  </section>
 
   <!-- Equipo -->
   <section id="equipo" class="section reveal">
@@ -123,7 +129,7 @@
     </div>
   </footer>
 
-  <!-- conexión con Supabase -->
+  <!-- Conexión con Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     const SUPABASE_URL = "https://ejhzxwnhqvcqjqxnuvya.supabase.co";
@@ -131,7 +137,17 @@
     const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     console.log("Conectado a Supabase");
   </script>
-  
+
+  <!-- Tu JS -->
   <script src="script.js"></script>
+
+  <!-- Registro del service worker -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/pwabuilder-sw.js")
+        .then(() => console.log("Service worker registrado"))
+        .catch(console.error);
+    }
+  </script>
 </body>
 </html>
