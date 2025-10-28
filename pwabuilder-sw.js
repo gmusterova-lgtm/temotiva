@@ -1,57 +1,77 @@
-// Service Worker TEMOTIVA (versión 2)
-const CACHE = "temotiva-v2"; // Cambia este número cada vez que modifiques el SW
+// Service Worker TEMOTIVA v3
+const CACHE = "temotiva-v3";
 const ASSETS = [
-  "/",                   // Home
-  "/index.html",         // Página principal
-  "/style.css",          // Estilos
-  "/script.js",          // JS principal
-  "/manifest.json",      // Manifest
-  "/icons/icon-192.png", // Icono pequeño
-  "/icons/icon-512.png"  // Icono grande
+  "/",
+  "/index.html",
+  "/style.css",
+  "/script.js",
+  "/manifest.json",
+  "/icons/icon-192.png",
+  "/icons/icon-512.png"
 ];
 
-// Instalación: guarda los archivos en caché
+// Preload para navegaciones
+self.addEventListener("activate", event => {
+  event.waitUntil((async () => {
+    // limpiar cachés antiguas
+    const keys = await caches.keys();
+    await Promise.all(keys.map(k => (k !== CACHE ? caches.delete(k) : null)));
+    // habilitar navigation preload si está disponible
+    if ("navigationPreload" in self.registration) {
+      await self.registration.navigationPreload.enable();
+    }
+    await self.clients.claim();
+  })());
+});
+
 self.addEventListener("install", event => {
   event.waitUntil(
-    caches.open(CACHE).then(cache => {
-      return cache.addAll(ASSETS);
-    })
+    caches.open(CACHE).then(cache => cache.addAll(ASSETS))
   );
   self.skipWaiting();
 });
 
-// Activación: limpia cachés antiguas
-self.addEventListener("activate", event => {
-  event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(keys.map(key => (key !== CACHE ? caches.delete(key) : null)))
-    )
-  );
-  self.clients.claim();
-});
-
-// Intercepta las peticiones y sirve desde caché (estrategia cache-first)
+// Estrategia
 self.addEventListener("fetch", event => {
-  const request = event.request;
-  const url = new URL(request.url);
+  const req = event.request;
+  const url = new URL(req.url);
 
-  // Ignorar peticiones externas o métodos distintos de GET
-  if (request.method !== "GET" || url.origin !== self.location.origin) return;
+  // Solo mismo origen y GET
+  if (req.method !== "GET" || url.origin !== self.location.origin) return;
 
+  // Navegaciones a páginas
+  if (req.mode === "navigate") {
+    event.respondWith((async () => {
+      try {
+        // Intenta usar navigation preload primero
+        const preload = await event.preloadResponse;
+        if (preload) return preload;
+        // Luego red
+        const network = await fetch(req);
+        // Guarda copia
+        const copy = network.clone();
+        caches.open(CACHE).then(c => c.put(req, copy));
+        return network;
+      } catch {
+        // Fallback a la home si no hay conexión
+        const cached = await caches.match("/index.html");
+        return cached || new Response("Sin conexión", { status: 503 });
+      }
+    })());
+    return;
+  }
+
+  // Recursos estáticos cache-first
   event.respondWith(
-    caches.match(request).then(cached => {
+    caches.match(req).then(cached => {
       if (cached) return cached;
-      return fetch(request)
-        .then(response => {
-          const copy = response.clone();
-          caches.open(CACHE).then(cache => cache.put(request, copy));
-          return response;
+      return fetch(req)
+        .then(res => {
+          const copy = res.clone();
+          caches.open(CACHE).then(c => c.put(req, copy));
+          return res;
         })
-        .catch(() => {
-          // Si falla la red, devuelve la home
-          if (request.mode === "navigate") return caches.match("/index.html");
-        });
+        .catch(() => undefined);
     })
   );
 });
-
