@@ -144,11 +144,15 @@
 
   <!-- Registro del service worker -->
   <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/pwabuilder-sw.js")
-        .then(() => console.log("Service worker registrado"))
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker
+        .register("/pwabuilder-sw.js", { scope: "/" })
+        .then(reg => console.log("Service Worker activo:", reg.scope))
         .catch(console.error);
-    }
-  </script>
+    });
+  }
+</script>
 </body>
 </html>
