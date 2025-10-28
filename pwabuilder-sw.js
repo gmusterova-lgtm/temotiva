@@ -1,49 +1,57 @@
-const CACHE = "temotiva-v1";
+// Service Worker TEMOTIVA (versión 2)
+const CACHE = "temotiva-v2"; // Cambia este número cada vez que modifiques el SW
 const ASSETS = [
-  "/",
-  "/index.html",
-  "/style.css",
-  "/script.js",
-  "/manifest.json",
-  "/icons/icon-192.png",
-  "/icons/icon-512.png"
+  "/",                   // Home
+  "/index.html",         // Página principal
+  "/style.css",          // Estilos
+  "/script.js",          // JS principal
+  "/manifest.json",      // Manifest
+  "/icons/icon-192.png", // Icono pequeño
+  "/icons/icon-512.png"  // Icono grande
 ];
 
+// Instalación: guarda los archivos en caché
 self.addEventListener("install", event => {
-  event.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)));
+  event.waitUntil(
+    caches.open(CACHE).then(cache => {
+      return cache.addAll(ASSETS);
+    })
+  );
   self.skipWaiting();
 });
 
+// Activación: limpia cachés antiguas
 self.addEventListener("activate", event => {
   event.waitUntil(
     caches.keys().then(keys =>
-      Promise.all(keys.map(k => (k !== CACHE ? caches.delete(k) : undefined)))
+      Promise.all(keys.map(key => (key !== CACHE ? caches.delete(key) : null)))
     )
   );
   self.clients.claim();
 });
 
+// Intercepta las peticiones y sirve desde caché (estrategia cache-first)
 self.addEventListener("fetch", event => {
-  const req = event.request;
+  const request = event.request;
+  const url = new URL(request.url);
 
-  // No cacheamos peticiones POST ni navegación externa
-  if (req.method !== "GET" || new URL(req.url).origin !== self.location.origin) {
-    return;
-  }
+  // Ignorar peticiones externas o métodos distintos de GET
+  if (request.method !== "GET" || url.origin !== self.location.origin) return;
 
   event.respondWith(
-    caches.match(req).then(cached => {
+    caches.match(request).then(cached => {
       if (cached) return cached;
-      return fetch(req)
-        .then(res => {
-          const copy = res.clone();
-          caches.open(CACHE).then(c => c.put(req, copy));
-          return res;
+      return fetch(request)
+        .then(response => {
+          const copy = response.clone();
+          caches.open(CACHE).then(cache => cache.put(request, copy));
+          return response;
         })
         .catch(() => {
-          // Fallback mínimo para navegación
-          if (req.mode === "navigate") return caches.match("/index.html");
+          // Si falla la red, devuelve la home
+          if (request.mode === "navigate") return caches.match("/index.html");
         });
     })
   );
 });
+
