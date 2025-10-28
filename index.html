@@ -3,18 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>TEMOTIVA | Innovación en bienestar emocional</title>
   <meta name="description" content="Bienestar emocional para mejorar la salud mental y el autocuidado en la vida cotidiana.">
   <meta name="keywords" content="bienestar emocional, salud mental, autocuidado, tecnología emocional, temotiva, innovación, psicología digital">
 
   <!-- PWA -->
   <link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#F7F7F7">
+  <meta name="theme-color" content="#F7F7F7">
+  <meta name="application-name" content="TEMOTIVA">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
 
   <!-- Estilos -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
+  <noscript>
+    Activa JavaScript para usar TEMOTIVA.
+  </noscript>
+
   <!-- Header fijo con menú -->
   <header class="site-header">
     <div class="container nav">
@@ -129,7 +140,7 @@
     </div>
   </footer>
 
-  <!-- Conexión con Supabase -->
+  <!-- Conexión con Supabase (clave pública/anon, recuerda tener políticas RLS activas en tablas) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     const SUPABASE_URL = "https://ejhzxwnhqvcqjqxnuvya.supabase.co";
@@ -138,24 +149,19 @@
     console.log("Conectado a Supabase");
   </script>
 
-  
   <!-- Tu JS -->
-  <script src="script.js"></script>
+  <script src="/script.js" defer></script>
 
   <!-- Registro del service worker -->
   <script>
-<script>
-  <script>
-  <script>
- <script>
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker
-        .register("/pwabuilder-sw.js", { scope: "/" })
-        .then(reg => console.log("Service Worker activo:", reg.scope))
-        .catch(console.error);
-    });
-  }
-</script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker
+          .register("/pwabuilder-sw.js", { scope: "/" })
+          .then(reg => console.log("Service Worker activo:", reg.scope))
+          .catch(err => console.error("Fallo al registrar el SW:", err));
+      });
+    }
+  </script>
 </body>
 </html>
