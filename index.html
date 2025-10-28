@@ -147,11 +147,12 @@
 <script>
   <script>
   <script>
+ <script>
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
       navigator.serviceWorker
         .register("/pwabuilder-sw.js", { scope: "/" })
-        .then(() => console.log("SW ok"))
+        .then(reg => console.log("Service Worker activo:", reg.scope))
         .catch(console.error);
     });
   }
