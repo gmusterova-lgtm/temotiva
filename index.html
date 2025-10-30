@@ -144,13 +144,53 @@
   <section id="contacto" class="section alt">
     <div class="container">
       <h2>Contacto</h2>
-      <form id="contactForm" class="form">
-        <input type="text" id="nombre" placeholder="Tu nombre" required />
-        <input type="email" id="email" placeholder="Tu email" required />
-        <textarea id="mensaje" rows="4" placeholder="¿Cómo podemos ayudarte?" required></textarea>
-        <button type="submit" class="btn">Enviar</button>
-      </form>
-      <p id="formMsg" class="form-msg oculto">Gracias, te contactaremos pronto.</p>
+     <form id="contactForm" class="form">
+  <input type="hidden" name="_subject" value="Nuevo mensaje desde TEMOTIVA">
+  <input type="hidden" name="_language" value="es">
+
+  <input type="text" name="nombre" placeholder="Tu nombre" required />
+  <input type="email" name="email" placeholder="Tu email" required />
+  <textarea name="mensaje" rows="4" placeholder="¿Cómo podemos ayudarte?" required></textarea>
+
+  <label style="display:flex;gap:8px;align-items:flex-start;font-size:14px;margin:8px 0 12px;">
+    <input type="checkbox" name="consent" required>
+    <span>Acepto la <a href='/privacidad.html'>política de privacidad</a></span>
+  </label>
+
+  <input type="text" name="_gotcha" style="display:none">
+
+  <button type="submit" class="btn">Enviar</button>
+</form>
+
+<p id="formMsg" class="form-msg oculto">Gracias, te contactaremos pronto.</p>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", async function(e){
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector("button[type=submit]");
+  btn.disabled = true;
+
+  try {
+    const resp = await fetch("https://formspree.io/f/xnnobrvn", {
+      method: "POST",
+      headers: { "Accept": "application/json" },
+      body: new FormData(form)
+    });
+    if (resp.ok) {
+      form.reset();
+      document.getElementById("formMsg").classList.remove("oculto");
+    } else {
+      alert("No se pudo enviar, intenta de nuevo más tarde.");
+    }
+  } catch {
+    alert("Error de red, revisa tu conexión.");
+  } finally {
+    btn.disabled = false;
+  }
+});
+</script>
+
     </div>
   </section>
 
