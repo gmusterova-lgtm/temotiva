@@ -4,14 +4,54 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Blog | TEMOTIVA</title>
-  <meta name="description" content="Blog de TEMOTIVA, bienestar emocional y autocuidado.">
+  <meta name="description" content="Blog de TEMOTIVA sobre bienestar emocional, autocuidado y crecimiento personal.">
   <link rel="stylesheet" href="/style.css">
+  <style>
+    .blog-hero {
+      background-color: #f7f7f7;
+      padding: 80px 0 60px 0;
+      text-align: center;
+    }
+    .blog-hero h1 {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+    }
+    .blog-hero p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+    .blog-list {
+      background-color: #fafafa;
+      padding: 60px 0;
+    }
+    .blog-list .card {
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .blog-list h2 a {
+      color: #333;
+      text-decoration: none;
+      transition: color 0.2s ease-in-out;
+    }
+    .blog-list h2 a:hover {
+      color: #666;
+    }
+    .blog-list p {
+      color: #555;
+    }
+  </style>
 </head>
 
 <body>
   <header class="site-header">
     <div class="container nav">
-      <a href="/" class="logo">TEMOTIVA</a>
+      <a href="/" class="logo" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:inherit;">
+        <img src="/icon-192.png" alt="Logo TEMOTIVA" style="width:36px;height:36px;border-radius:8px;">
+        <span>TEMOTIVA</span>
+      </a>
       <nav class="nav-links">
         <a href="/">Inicio</a>
         <a href="/blog/">Blog</a>
@@ -19,20 +59,37 @@
     </div>
   </header>
 
-  <section class="section hero">
+  <section class="blog-hero">
     <div class="container">
       <h1>Blog TEMOTIVA</h1>
-      <p>Reflexiones y prácticas sobre bienestar emocional, autocuidado y vida significativa.</p>
+      <p>Artículos y reflexiones sobre bienestar emocional, autoconocimiento y prácticas que fortalecen la mente y el cuerpo.</p>
     </div>
   </section>
 
-  <section class="section alt reveal">
+  <section class="blog-list">
     <div class="container">
+
+      <!-- Entrada 1 -->
       <article class="card">
         <h2><a href="/blog/bienvenida.html">Bienvenida a TEMOTIVA</a></h2>
-        <p>Este es el espacio donde compartiré ideas, prácticas y recursos de autocuidado y educación emocional.</p>
+        <p>Una introducción al proyecto TEMOTIVA, su visión de bienestar emocional y el propósito de acompañar procesos de autoconocimiento y crecimiento.</p>
         <p><a href="/blog/bienvenida.html" class="btn">Leer más</a></p>
       </article>
+
+      <!-- Entrada 2 -->
+      <article class="card">
+        <h2><a href="/blog/beneficios-meditacion.html">Beneficios de la meditación</a></h2>
+        <p>Exploramos cómo la práctica meditativa impacta en la regulación emocional, la atención plena y la resiliencia psicológica, más allá de los mitos y las modas.</p>
+        <p><a href="/blog/beneficios-meditacion.html" class="btn">Leer más</a></p>
+      </article>
+
+      <!-- Entrada 3 -->
+      <article class="card">
+        <h2><a href="/blog/estrategias-respiracion.html">Estrategias de respiración consciente</a></h2>
+        <p>Una guía práctica para integrar ejercicios respiratorios basados en evidencia, diseñados para reducir la ansiedad y mejorar la concentración.</p>
+        <p><a href="/blog/estrategias-respiracion.html" class="btn">Leer más</a></p>
+      </article>
+
     </div>
   </section>
 
