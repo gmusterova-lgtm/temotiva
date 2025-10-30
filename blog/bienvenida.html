@@ -1,28 +1,83 @@
-<!DOCTYPE html><html lang="es"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bienvenida a TEMOTIVA</title>
-<meta name="description" content="Primer artículo del blog de TEMOTIVA.">
-<style>
-  body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; margin: 0; padding: 24px; line-height: 1.7; max-width: 840px; }
-  header, footer { margin: 8px 0 24px; }
-  a { text-decoration: none; }
-</style>
-</head><body>
-<header>
-  <a href="/blog/">← Volver al blog</a>
-  <h1>Bienvenida a TEMOTIVA</h1>
-  <p>Publicado el 30/10/2025</p>
-</header>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Blog | TEMOTIVA</title>
+  <meta name="description" content="Blog de TEMOTIVA, bienestar emocional y autocuidado.">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    /* Ajustes visuales específicos del blog */
+    .blog-hero {
+      background-color: #f7f7f7;
+      padding: 80px 0 60px 0;
+      text-align: center;
+    }
+    .blog-hero h1 {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+    }
+    .blog-hero p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+    .blog-list {
+      background-color: #fafafa;
+      padding: 60px 0;
+    }
+    .blog-list .card {
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .blog-list h2 a {
+      color: #333;
+      text-decoration: none;
+      transition: color 0.2s ease-in-out;
+    }
+    .blog-list h2 a:hover {
+      color: #666;
+    }
+    .blog-list p {
+      color: #555;
+    }
+  </style>
+</head>
 
-<main>
-  <p>Este blog recogerá ideas prácticas de bienestar emocional y autocuidado, con una mirada basada en evidencia y en la experiencia educativa.</p>
-  <p>Mi objetivo es ayudarte a integrar microhábitos y reflexiones breves que te acerquen a una vida con más calma, sentido y cuidado.</p>
-</main>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="/" class="logo">TEMOTIVA</a>
+      <nav class="nav-links">
+        <a href="/">Inicio</a>
+        <a href="/blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
 
-<footer>
-  <a href="/">Inicio</a> ·
-  <a href="/privacidad.html">Privacidad</a> ·
-  <a href="/cookies.html">Cookies</a> ·
-  <a href="/aviso-legal.html">Aviso legal</a>
-</footer>
-</body></html>
+  <section class="blog-hero">
+    <div class="container">
+      <h1>Blog TEMOTIVA</h1>
+      <p>Reflexiones y prácticas sobre bienestar emocional, autocuidado y vida significativa.</p>
+    </div>
+  </section>
+
+  <section class="blog-list">
+    <div class="container">
+      <article class="card">
+        <h2><a href="/blog/bienvenida.html">Bienvenida a TEMOTIVA</a></h2>
+        <p>Este es el espacio donde compartiré ideas, prácticas y recursos de autocuidado y educación emocional.</p>
+        <p><a href="/blog/bienvenida.html" class="btn">Leer más</a></p>
+      </article>
+    </div>
+  </section>
+
+  <footer style="padding:16px;text-align:center;font-size:14px;">
+    <a href="/privacidad.html">Política de privacidad</a> ·
+    <a href="/cookies.html">Política de cookies</a> ·
+    <a href="/aviso-legal.html">Aviso legal</a>
+  </footer>
+</body>
+</html>
