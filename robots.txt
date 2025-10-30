@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.temotiva.com/sitemap.xml
