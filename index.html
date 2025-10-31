@@ -6,7 +6,7 @@
 
   <title>TEMOTIVA | Innovación en bienestar emocional</title>
   <meta name="description" content="Bienestar emocional para mejorar la salud mental y el autocuidado en la vida cotidiana.">
-  <meta name="keywords" content="bienestar emocional, salud mental, autocuidado, tecnología emocional, temotiva, innovación, psicología digital">
+  <meta name="keywords" content="bienestar emocional, salud mental, autocuidado, psicología, autocuidado diario, regulación emocional, progreso">
   <link rel="canonical" href="https://www.temotiva.com/">
 
   <!-- PWA -->
@@ -15,11 +15,11 @@
   <meta name="application-name" content="TEMOTIVA">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="TEMOTIVA">
   <meta name="color-scheme" content="light dark">
   <link rel="apple-touch-icon" href="/icon-192.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
-  <!-- Icono maskable recomendado por PWABuilder -->
   <link rel="icon" type="image/png" sizes="512x512" href="/icon-maskable-512.png" purpose="maskable">
 
   <!-- Social -->
@@ -29,6 +29,11 @@
   <meta property="og:url" content="https://www.temotiva.com/">
   <meta property="og:image" content="https://www.temotiva.com/screenshot-1.png">
   <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Idiomas -->
+  <link rel="alternate" href="https://www.temotiva.com/" hreflang="es">
+  <link rel="alternate" href="https://www.temotiva.com/?lang=en" hreflang="en">
+  <link rel="alternate" href="https://www.temotiva.com/" hreflang="x-default">
 
   <!-- Rendimiento -->
   <link rel="preload" href="/style.css" as="style">
@@ -45,90 +50,98 @@
     "@type":"WebSite",
     "name":"TEMOTIVA",
     "url":"https://www.temotiva.com/",
-    "description":"Bienestar emocional para mejorar la salud mental y el autocuidado en la vida cotidiana.",
-    "inLanguage":"es"
+    "inLanguage":"es",
+    "description":"Bienestar emocional para mejorar la salud mental y el autocuidado en la vida cotidiana."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"TEMOTIVA",
+    "url":"https://www.temotiva.com/",
+    "logo":"https://www.temotiva.com/icon-512.png",
+    "sameAs":[]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SiteNavigationElement",
+    "name":["Inicio","Misión","Producto","Equipo","Contacto","Blog","Recursos"],
+    "url":[
+      "https://www.temotiva.com/#inicio",
+      "https://www.temotiva.com/#mision",
+      "https://www.temotiva.com/#producto",
+      "https://www.temotiva.com/#equipo",
+      "https://www.temotiva.com/#contacto",
+      "https://www.temotiva.com/blog/",
+      "https://www.temotiva.com/recursos.html"
+    ]
   }
   </script>
 
-  <!-- Estilos mínimos de layout local (mantengo tu CSS base en /style.css) -->
+  <!-- Estilos locales para panel y portada, el resto en /style.css -->
   <style>
-    /* Layout lateral */
-    .layout { display:flex; min-height:100vh; }
-    .sidebar {
-      position:sticky; top:64px; align-self:flex-start;
-      width:250px; padding:20px 16px; background:var(--card); border-right:1px solid #eee;
-      height:calc(100vh - 64px); box-sizing:border-box;
+    /* Accesibilidad */
+    .skip-link{
+      position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
     }
-    .sidebar .logo-side { display:flex; align-items:center; gap:8px; text-decoration:none; color:#111; font-weight:700; }
-    .sidebar .logo-side img { width:32px; height:32px; border-radius:8px; }
-    .menu-list { list-style:none; padding:0; margin:16px 0; }
-    .menu-list li { margin:8px 0; }
-    .menu-list a { text-decoration:none; color:#333; padding:8px 10px; display:block; border-radius:8px; }
-    .menu-list a:hover, .menu-list a:focus { background:#f4f4f4; outline:none; }
-    .privacy-link { display:block; margin-top:12px; font-size:14px; color:#666; text-decoration:none; }
-    .content { flex:1; min-width:0; }
+    .skip-link:focus{
+      position:fixed; left:16px; top:16px; padding:.5rem .75rem; border-radius:10px;
+      background:var(--card); color:var(--ink); z-index:2000; box-shadow:0 8px 24px rgba(0,0,0,.15);
+    }
 
-    /* Header fijo sin tapar contenido */
+    /* Header fijo y acciones */
     .site-header{ position:fixed; top:0; left:0; right:0; height:64px; z-index:1000; background:var(--card); border-bottom:1px solid #ddd; }
     .nav{ height:64px; display:flex; align-items:center; justify-content:space-between; }
     body{ padding-top:64px; }
-
-    /* Portada: imagen completa a la derecha y texto siempre visible */
-    .section.hero {
-      position: relative;
-      text-align: center;
-      padding: 6rem 0 5rem;
-      background: linear-gradient(180deg, #ffffff, #f2f2f2) !important;
-      background-attachment: scroll !important;
-      overflow: hidden;
-      z-index: 0;
-      scroll-margin-top:80px;
-    }
-    .section.hero::after{
-      content:"";
-      position:absolute;
-      top:0; right:0; bottom:0; left:55%;
-      background: url("/chica-meditando.png") right center / contain no-repeat;
-      opacity:.22;
-      pointer-events:none;
-      z-index:-1;
-    }
-    @media (max-width: 900px){
-      .section.hero::after{ left:65%; opacity:.16; }
-      .hero .btn { width:100%; justify-content:center; }
-    }
-    @media (min-width: 1000px){
-      .section.hero{ min-height:520px; }
-    }
-
-    /* Acciones header y móvil */
     .header-actions{ display:flex; align-items:center; gap:.5rem; }
     .icon-btn{
       border:1px solid #ddd; background:var(--card); color:var(--ink);
       padding:.45rem .65rem; border-radius:10px; cursor:pointer; min-height:36px;
     }
     .icon-btn:hover{ background:var(--muted); }
-    @media (max-width: 900px) {
-      .sidebar { position:fixed; left:-270px; top:64px; transition:left .25s ease; z-index:9999; }
-      .sidebar.is-open { left:0; box-shadow:0 6px 28px rgba(0,0,0,.15); }
-      .overlay { position:fixed; inset:0; background:rgba(0,0,0,.25); display:none; z-index:9998; }
-      .overlay.show { display:block; }
-      .content { width:100%; }
-      .site-header .menu-btn { display:inline-block; }
+
+    /* Panel lateral off-canvas accesible */
+    .layout{ display:flex; min-height:100vh; }
+    .sidebar{
+      position:fixed; top:64px; left:-280px; width:260px; height:calc(100vh - 64px);
+      background:var(--card); border-right:1px solid #eee; padding:20px 16px; box-sizing:border-box;
+      transition:left .25s ease; z-index:9999;
+    }
+    .sidebar.is-open{ left:0; box-shadow:0 6px 28px rgba(0,0,0,.15); }
+    .sidebar[aria-hidden="true"]{ visibility:hidden; }
+    .content{ flex:1; min-width:0; }
+    .overlay{ position:fixed; inset:0; background:rgba(0,0,0,.25); display:none; z-index:9998; }
+    .overlay.show{ display:block; }
+
+    .logo-side{ display:flex; align-items:center; gap:8px; text-decoration:none; color:#111; font-weight:700; }
+    .menu-list{ list-style:none; padding:0; margin:16px 0; }
+    .menu-list a{ text-decoration:none; color:#333; padding:8px 10px; display:block; border-radius:8px; }
+    .menu-list a:hover, .menu-list a:focus{ background:#f4f4f4; outline:none; }
+    .privacy-link{ display:block; margin-top:12px; font-size:14px; color:#666; text-decoration:none; }
+
+    /* Hero más limpio y legible, imagen completa en franja derecha */
+    .section.hero{
+      position:relative; text-align:center; padding:6rem 0 5rem;
+      background:linear-gradient(180deg, #ffffff, #f2f2f2);
+      overflow:hidden; z-index:0; scroll-margin-top:80px;
+    }
+    .section.hero::after{
+      content:""; position:absolute; top:0; right:0; bottom:0; left:55%;
+      background:url("/chica-meditando.png") right center / contain no-repeat; opacity:.22; pointer-events:none; z-index:-1;
+    }
+    @media (max-width:900px){ .section.hero::after{ left:65%; opacity:.16; } }
+    @media (min-width:1000px){ .section.hero{ min-height:520px; } }
+
+    /* Modo escritorio: sidebar se muestra solo si el usuario lo pide también */
+    @media (min-width:901px){
+      html:not(.sidebar-persistent) .sidebar{ left:-280px; }
     }
 
-    /* Accesibilidad */
-    .skip-link {
-      position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
-    }
-    .skip-link:focus {
-      position:fixed; left:16px; top:16px; width:auto; height:auto; padding:.5rem .75rem;
-      background:var(--card); color:var(--ink); border-radius:10px; z-index:2000;
-      box-shadow:0 8px 24px rgba(0,0,0,.15);
-    }
-
-    /* Hotfix reveal si el JS no carga */
-    .reveal { opacity:1 !important; transform:none !important; }
+    /* Hotfix reveal si falla el JS */
+    .reveal{ opacity:1 !important; transform:none !important; }
   </style>
 </head>
 <body>
@@ -142,17 +155,14 @@
   <header class="site-header">
     <div class="container nav">
       <a href="#inicio" class="logo" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:inherit;">
-        <img src="/icon-192.png" alt="Logo TEMOTIVA" style="width:36px;height:36px;border-radius:8px;">
+        <img src="/icon-192.png" alt="Logo TEMOTIVA" width="36" height="36" style="border-radius:8px;">
         <span>TEMOTIVA</span>
       </a>
 
       <div class="header-actions">
-        <!-- Idioma -->
         <button id="langBtn" class="icon-btn" aria-label="Cambiar idioma">ES/EN</button>
-        <!-- Tema -->
         <button id="themeBtn" class="icon-btn" aria-label="Cambiar tema">☾/☀︎</button>
-        <!-- Menú móvil -->
-        <button id="menuBtn" aria-label="Abrir menú" class="menu-btn">☰</button>
+        <button id="menuBtn" class="menu-btn icon-btn" aria-label="Abrir menú" aria-controls="sidePanel" aria-expanded="false">☰</button>
       </div>
 
       <nav id="mainNav" class="nav-links" aria-label="Menú principal">
@@ -165,14 +175,14 @@
     </div>
   </header>
 
-  <!-- Layout con barra lateral + contenido -->
+  <!-- Layout con panel lateral invocable -->
   <div class="layout">
-    <nav class="sidebar" aria-label="Menú lateral">
+    <nav id="sidePanel" class="sidebar" aria-label="Menú lateral" aria-hidden="true">
       <a class="logo-side" href="/inicio.html">
-        <img src="/icon-192.png" alt="Logo TEMOTIVA" width="32" height="32">
+        <img src="/icon-192.png" alt="Logo TEMOTIVA" width="32" height="32" style="border-radius:8px;">
         <span>TEMOTIVA</span>
       </a>
-      <ul class="menu-list">
+      <ul class="menu-list" role="list">
         <li><a href="/inicio.html" data-i18n="side.home">Inicio</a></li>
         <li><a href="/blog/index.html" data-i18n="side.blog">Blog</a></li>
         <li><a href="/recursos.html" data-i18n="side.resources">Recursos</a></li>
@@ -195,9 +205,10 @@
         </div>
       </section>
 
+      <!-- CTA blog -->
       <nav style="text-align:center; padding:40px 0;">
-        <a href="/blog/" style="background:#f3f3f3; color:#333; padding:12px 28px; border-radius:30px; text-decoration:none; font-weight:500; letter-spacing:0.3px; box-shadow:0 2px 6px rgba(0,0,0,0.1); transition:all .25s ease-in-out;" data-i18n="blog.enter">
-          Entrar al Blog
+        <a href="/blog/" style="background:#f3f3f3; color:#333; padding:12px 28px; border-radius:30px; text-decoration:none; font-weight:500; letter-spacing:.3px; box-shadow:0 2px 6px rgba(0,0,0,.1); transition:all .25s;">
+          <span data-i18n="blog.enter">Entrar al Blog</span>
         </a>
         <p style="margin-top:12px; color:#555; font-size:15px;" data-i18n="blog.note">Un espacio tranquilo para leer, pensar y cuidarte.</p>
       </nav>
@@ -220,7 +231,6 @@
         <div class="container">
           <h2 data-i18n="product.title">Producto</h2>
           <p data-i18n="product.desc">Primera versión, autochequeo diario, micro ejercicios de regulación y panel de progreso.</p>
-
           <div class="grid">
             <div class="card">
               <h3 data-i18n="product.c1t">Chequeo</h3>
@@ -275,16 +285,13 @@
           <form id="contactForm" class="form">
             <input type="hidden" name="_subject" value="Nuevo mensaje desde TEMOTIVA">
             <input type="hidden" name="_language" value="es">
-
             <input type="text" name="nombre" placeholder="Tu nombre" required data-i18n-placeholder="contact.name" autocomplete="name" />
             <input type="email" name="email" placeholder="Tu email" required data-i18n-placeholder="contact.email" autocomplete="email" />
             <textarea name="mensaje" rows="4" placeholder="¿Cómo podemos ayudarte?" required data-i18n-placeholder="contact.msg"></textarea>
-
             <label style="display:flex;gap:8px;align-items:flex-start;font-size:14px;margin:8px 0 12px;">
               <input type="checkbox" name="consent" required>
               <span data-i18n="contact.gdpr">Acepto la <a href='/privacidad.html'>política de privacidad</a></span>
             </label>
-
             <input type="text" name="_gotcha" style="display:none">
             <button type="submit" class="btn" data-i18n="contact.send">Enviar</button>
           </form>
@@ -317,24 +324,69 @@
   <!-- Tu JS -->
   <script src="/script.js" defer></script>
 
-  <!-- JS de UI: sidebar, tema, idioma, reveal, SW y Formspree -->
+  <!-- UI: panel accesible, tema, idioma, reveal, SW, frase, form -->
   <script>
-    // Sidebar móvil
-    const menuBtn = document.getElementById("menuBtn");
-    const sidebar = document.querySelector(".sidebar");
-    const overlay = document.getElementById("overlay");
-    function toggleSidebar() {
-      sidebar.classList.toggle("is-open");
-      const open = sidebar.classList.contains("is-open");
-      overlay.classList.toggle("show", open);
-      overlay.setAttribute("aria-hidden", String(!open));
+    // Utilidades
+    const qs = s => document.querySelector(s);
+    const qsa = s => Array.from(document.querySelectorAll(s));
+
+    // Panel lateral accesible
+    const body = document.body;
+    const sidebar = qs("#sidePanel");
+    const overlay = qs("#overlay");
+    const menuBtn = qs("#menuBtn");
+    let lastFocus = null;
+
+    function openSidebar(){
+      lastFocus = document.activeElement;
+      sidebar.classList.add("is-open");
+      sidebar.setAttribute("aria-hidden", "false");
+      overlay.classList.add("show");
+      menuBtn.setAttribute("aria-expanded","true");
+      body.style.overflow = "hidden";
+      // Foco al primer link
+      const first = sidebar.querySelector("a, button, input, select, textarea");
+      first && first.focus();
+      trapFocus(true);
     }
+    function closeSidebar(){
+      sidebar.classList.remove("is-open");
+      sidebar.setAttribute("aria-hidden", "true");
+      overlay.classList.remove("show");
+      menuBtn.setAttribute("aria-expanded","false");
+      body.style.overflow = "";
+      trapFocus(false);
+      lastFocus && lastFocus.focus();
+    }
+    function toggleSidebar(){ sidebar.classList.contains("is-open") ? closeSidebar() : openSidebar(); }
+
     menuBtn?.addEventListener("click", toggleSidebar);
-    overlay?.addEventListener("click", toggleSidebar);
+    overlay?.addEventListener("click", closeSidebar);
+    document.addEventListener("keydown", e => {
+      if(e.key === "Escape" && sidebar.classList.contains("is-open")) closeSidebar();
+    });
+
+    // Focus trap básico dentro del panel
+    function trapFocus(enable){
+      if(!enable){
+        document.removeEventListener("keydown", handleTrap);
+        return;
+      }
+      document.addEventListener("keydown", handleTrap);
+      function handleTrap(e){
+        if(e.key !== "Tab") return;
+        const focusables = sidebar.querySelectorAll('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        const list = Array.from(focusables).filter(el => !el.hasAttribute("disabled"));
+        if(!list.length) return;
+        const first = list[0], last = list[list.length - 1];
+        if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+        else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+      }
+    }
 
     // Modo oscuro
-    const themeBtn = document.getElementById("themeBtn");
-    const metaTheme = document.getElementById("meta-theme");
+    const themeBtn = qs("#themeBtn");
+    const metaTheme = qs("#meta-theme");
     const THEME_KEY = "temotiva-theme";
     function applyTheme(t){
       document.documentElement.dataset.theme = t;
@@ -354,8 +406,8 @@
       applyTheme(next);
     });
 
-    // Idioma ES/EN
-    const langBtn = document.getElementById("langBtn");
+    // Idiomas ES/EN
+    const langBtn = qs("#langBtn");
     const LANG_KEY = "temotiva-lang";
     const i18n = {
       es: {
@@ -398,38 +450,31 @@
     function applyLang(lang){
       const dict = i18n[lang] || i18n.es;
       document.documentElement.setAttribute("lang", lang === "en" ? "en" : "es");
-      document.querySelectorAll("[data-i18n]").forEach(el=>{
-        const key = el.getAttribute("data-i18n");
-        if(dict[key]) el.innerHTML = dict[key];
-      });
-      document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{
-        const key = el.getAttribute("data-i18n-placeholder");
-        if(dict[key]) el.setAttribute("placeholder", dict[key]);
-      });
+      qsa("[data-i18n]").forEach(el => { const k = el.getAttribute("data-i18n"); if(dict[k]) el.innerHTML = dict[k]; });
+      qsa("[data-i18n-placeholder]").forEach(el => { const k = el.getAttribute("data-i18n-placeholder"); if(dict[k]) el.setAttribute("placeholder", dict[k]); });
       localStorage.setItem(LANG_KEY, lang);
     }
-    const savedLang = localStorage.getItem(LANG_KEY) || "es";
-    applyLang(savedLang);
-    langBtn?.addEventListener("click", ()=>{
+    const LANG_KEY = "temotiva-lang";
+    applyLang(localStorage.getItem(LANG_KEY) || "es");
+    qs("#langBtn")?.addEventListener("click", ()=>{
       const next = (localStorage.getItem(LANG_KEY) || "es") === "es" ? "en" : "es";
       applyLang(next);
     });
 
     // Reveal con IntersectionObserver
     (function(){
-      const items = document.querySelectorAll('.reveal');
-      if (!('IntersectionObserver' in window)) { items.forEach(el => el.classList.add('visible')); return; }
+      const items = qsa(".reveal");
+      if(!("IntersectionObserver" in window)){ items.forEach(el => el.classList.add("visible")); return; }
       const io = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-      }, { threshold: 0.1, rootMargin: '0px 0px -10% 0px' });
+        entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add("visible"); io.unobserve(e.target); } });
+      }, { threshold: 0.1, rootMargin: "0px 0px -10% 0px" });
       items.forEach(el => io.observe(el));
     })();
 
     // Service Worker
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker
-          .register("/pwabuilder-sw.js", { scope: "/" })
+    if("serviceWorker" in navigator){
+      window.addEventListener("load", ()=>{
+        navigator.serviceWorker.register("/pwabuilder-sw.js", { scope: "/" })
           .then(reg => console.log("Service Worker activo:", reg.scope))
           .catch(err => console.error("Fallo al registrar el SW:", err));
       });
@@ -442,35 +487,23 @@
       "Date permiso para descansar.",
       "Lo que no mides, no mejoras."
     ];
-    document.getElementById("nuevaFraseBtn")?.addEventListener("click", () => {
-      const el = document.getElementById("fraseTexto");
+    qs("#nuevaFraseBtn")?.addEventListener("click", ()=>{
+      const el = qs("#fraseTexto");
       el.textContent = frases[Math.floor(Math.random()*frases.length)];
     });
 
     // Formspree
-    const cf = document.getElementById("contactForm");
-    cf?.addEventListener("submit", async function(e){
+    const cf = qs("#contactForm");
+    cf?.addEventListener("submit", async e=>{
       e.preventDefault();
       const form = e.target;
-      const btn = form.querySelector("button[type=submit]");
+      const btn = form.querySelector('button[type="submit"]');
       btn.disabled = true;
-      try {
-        const resp = await fetch("https://formspree.io/f/xnnobrvn", {
-          method: "POST",
-          headers: { "Accept": "application/json" },
-          body: new FormData(form)
-        });
-        if (resp.ok) {
-          form.reset();
-          document.getElementById("formMsg").classList.remove("oculto");
-        } else {
-          alert("No se pudo enviar, intenta de nuevo más tarde.");
-        }
-      } catch {
-        alert("Error de red, revisa tu conexión.");
-      } finally {
-        btn.disabled = false;
-      }
+      try{
+        const resp = await fetch("https://formspree.io/f/xnnobrvn", { method:"POST", headers:{ "Accept":"application/json" }, body:new FormData(form) });
+        if(resp.ok){ form.reset(); qs("#formMsg").classList.remove("oculto"); } else { alert("No se pudo enviar, intenta de nuevo más tarde."); }
+      }catch{ alert("Error de red, revisa tu conexión."); }
+      finally{ btn.disabled = false; }
     });
   </script>
 
