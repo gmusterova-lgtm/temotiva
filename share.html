@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sin conexión | TEMOTIVA</title>
+<meta name="description" content="Estás sin conexión. Vuelve a intentarlo cuando recuperes internet.">
+<style>
+  :root{ --bg:#f9f9f9; --ink:#222; --card:#fff; --soft:#555; }
+  @media (prefers-color-scheme: dark){ :root{ --bg:#0f1115; --ink:#eaeaea; --card:#151923; --soft:#bbb; } }
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:system-ui,-apple-system,Arial,sans-serif; display:grid; min-height:100vh; place-items:center; }
+  .wrap{ max-width:640px; background:var(--card); border-radius:14px; padding:24px; box-shadow:0 8px 24px rgba(0,0,0,.08); text-align:center; }
+  h1{ margin:0 0 6px; }
+  p{ color:var(--soft); margin:0 0 16px; }
+  a.btn{ display:inline-block; padding:.7rem 1rem; border-radius:10px; background:#000; color:#fff; text-decoration:none; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <img src="/icon-192.png" alt="TEMOTIVA" width="48" height="48" style="border-radius:10px">
+    <h1>Estás sin conexión</h1>
+    <p>Algunas funciones no están disponibles. Vuelve a intentarlo cuando recuperes internet.</p>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+      <a class="btn" href="/index.html">Reintentar</a>
+      <a class="btn" href="/blog/">Ir al blog</a>
+    </div>
+  </div>
+</body>
+</html>
