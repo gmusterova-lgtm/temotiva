@@ -122,7 +122,7 @@
     .menu-list a:hover, .menu-list a:focus{ background:#f4f4f4; outline:none; }
     .privacy-link{ display:block; margin-top:12px; font-size:14px; color:#666; text-decoration:none; }
 
-    /* Hero más limpio y legible, imagen completa en franja derecha */
+    /* Hero legible con imagen completa en franja derecha */
     .section.hero{
       position:relative; text-align:center; padding:6rem 0 5rem;
       background:linear-gradient(180deg, #ffffff, #f2f2f2);
@@ -135,10 +135,24 @@
     @media (max-width:900px){ .section.hero::after{ left:65%; opacity:.16; } }
     @media (min-width:1000px){ .section.hero{ min-height:520px; } }
 
-    /* Modo escritorio: sidebar se muestra solo si el usuario lo pide también */
+    /* Escritorio: sidebar solo si lo pide el usuario */
     @media (min-width:901px){
       html:not(.sidebar-persistent) .sidebar{ left:-280px; }
     }
+
+    /* Banner PWA */
+    .pwa-install {
+      position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%);
+      background: var(--card); color: var(--ink); border: 1px solid #ddd;
+      box-shadow: 0 8px 24px rgba(0,0,0,.15); border-radius: 12px;
+      padding: 12px 16px; z-index: 2000; display: none; max-width: 96%;
+    }
+    .pwa-install.show { display: block; }
+    .pwa-install .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .pwa-install .msg { font-size: 14px; opacity: .9; }
+    .pwa-install .actions { margin-left: auto; display: flex; gap: 8px; }
+    .pwa-install .btn { background: var(--brand); color: #fff; border: 0; border-radius: 10px; padding: .6rem .9rem; cursor: pointer; }
+    .pwa-install .btn.secondary { background: #f0f0f0; color: #222; }
 
     /* Hotfix reveal si falla el JS */
     .reveal{ opacity:1 !important; transform:none !important; }
@@ -162,6 +176,7 @@
       <div class="header-actions">
         <button id="langBtn" class="icon-btn" aria-label="Cambiar idioma">ES/EN</button>
         <button id="themeBtn" class="icon-btn" aria-label="Cambiar tema">☾/☀︎</button>
+        <button id="installBtn" class="icon-btn" aria-label="Instalar TEMOTIVA" hidden>Instalar</button>
         <button id="menuBtn" class="menu-btn icon-btn" aria-label="Abrir menú" aria-controls="sidePanel" aria-expanded="false">☰</button>
       </div>
 
@@ -344,7 +359,6 @@
       overlay.classList.add("show");
       menuBtn.setAttribute("aria-expanded","true");
       body.style.overflow = "hidden";
-      // Foco al primer link
       const first = sidebar.querySelector("a, button, input, select, textarea");
       first && first.focus();
       trapFocus(true);
@@ -366,7 +380,7 @@
       if(e.key === "Escape" && sidebar.classList.contains("is-open")) closeSidebar();
     });
 
-    // Focus trap básico dentro del panel
+    // Focus trap
     function trapFocus(enable){
       if(!enable){
         document.removeEventListener("keydown", handleTrap);
@@ -505,6 +519,102 @@
       }catch{ alert("Error de red, revisa tu conexión."); }
       finally{ btn.disabled = false; }
     });
+  </script>
+
+  <!-- Banner de instalación PWA -->
+  <div id="pwaBanner" class="pwa-install" role="dialog" aria-live="polite" aria-label="Instalar TEMOTIVA">
+    <div class="row">
+      <img src="/icon-192.png" alt="" width="28" height="28" style="border-radius:6px">
+      <div class="msg">Instala TEMOTIVA para un acceso rápido y uso sin conexión.</div>
+      <div class="actions">
+        <button id="pwaInstallNow" class="btn">Instalar</button>
+        <button id="pwaInstallLater" class="btn secondary">Más tarde</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lógica de instalación PWA -->
+  <script>
+    const INSTALL_KEY = "temotiva-install-dismissed";
+    const VISITS_KEY = "temotiva-visit-count";
+    let deferredPrompt = null;
+
+    // Contador de visitas
+    try {
+      const visits = parseInt(localStorage.getItem(VISITS_KEY) || "0", 10) + 1;
+      localStorage.setItem(VISITS_KEY, String(visits));
+    } catch {}
+
+    const installBtn = document.getElementById("installBtn");
+    const banner = document.getElementById("pwaBanner");
+    const installNow = document.getElementById("pwaInstallNow");
+    const installLater = document.getElementById("pwaInstallLater");
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+
+      // Muestra botón en header
+      if (installBtn) installBtn.hidden = false;
+
+      // Banner a partir de la tercera visita si no se descartó
+      const dismissed = localStorage.getItem(INSTALL_KEY) === "1";
+      const visits = parseInt(localStorage.getItem(VISITS_KEY) || "0", 10);
+      if (!dismissed && visits >= 3 && banner) banner.classList.add("show");
+    });
+
+    async function promptInstall(){
+      try {
+        installBtn && (installBtn.hidden = true);
+        const choice = await deferredPrompt.prompt();
+        if (deferredPrompt.userChoice) {
+          const res = await deferredPrompt.userChoice;
+          if (res.outcome === "accepted") hideBanner();
+        } else {
+          hideBanner();
+        }
+      } catch {}
+      deferredPrompt = null;
+    }
+
+    function hideBanner(){ banner?.classList.remove("show"); }
+
+    installBtn?.addEventListener("click", async () => {
+      if (!deferredPrompt) return;
+      await promptInstall();
+    });
+
+    installNow?.addEventListener("click", async () => {
+      if (!deferredPrompt) { hideBanner(); return; }
+      await promptInstall();
+    });
+
+    installLater?.addEventListener("click", () => {
+      localStorage.setItem(INSTALL_KEY, "1");
+      hideBanner();
+    });
+
+    window.addEventListener("appinstalled", () => {
+      try { localStorage.setItem(INSTALL_KEY, "1"); } catch {}
+      hideBanner();
+      if (installBtn) installBtn.hidden = true;
+      console.log("TEMOTIVA instalada");
+    });
+
+    // Oculta controles si ya está en standalone
+    const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
+    if (isStandalone) {
+      installBtn?.setAttribute("hidden", "true");
+      hideBanner();
+    }
+
+    // Pista iOS si no hay beforeinstallprompt
+    const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    if (isIOS && isSafari) {
+      // Opcional: mostrar un pequeño aviso no intrusivo sobre “Añadir a pantalla de inicio”
+      // Puedes activar un mini tooltip aquí si lo deseas
+    }
   </script>
 
   <footer style="padding:16px;text-align:center;font-size:14px;">
