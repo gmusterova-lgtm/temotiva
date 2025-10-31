@@ -20,13 +20,14 @@
 
   <!-- Estilos -->
   <link rel="stylesheet" href="/style.css" />
-  <!-- Estilos mínimos para la barra lateral -->
+  <!-- Estilos mínimos para la barra lateral + FIX portada/header -->
   <style>
+    /* ===== Layout general barra lateral ===== */
     .layout { display:flex; min-height:100vh; }
     .sidebar {
-      position:sticky; top:0; align-self:flex-start;
+      position:sticky; top:64px; align-self:flex-start;
       width:250px; padding:20px 16px; background:#fff; border-right:1px solid #eee;
-      height:100vh; box-sizing:border-box;
+      height:calc(100vh - 64px); box-sizing:border-box;
     }
     .sidebar .logo-side { display:flex; align-items:center; gap:8px; text-decoration:none; color:#111; font-weight:700; }
     .sidebar .logo-side img { width:32px; height:32px; border-radius:8px; }
@@ -36,17 +37,51 @@
     .menu-list a:hover, .menu-list a:focus { background:#f4f4f4; outline:none; }
     .privacy-link { display:block; margin-top:12px; font-size:14px; color:#666; text-decoration:none; }
     .content { flex:1; min-width:0; }
-    /* Móvil */
+
+    /* ===== FIX header fijo que no tape contenido ===== */
+    .site-header{ position:fixed; top:0; left:0; right:0; height:64px; z-index:1000; }
+    .nav{ height:64px; }
+    body{ padding-top:64px; } /* clave para que se vea lo de debajo */
+
+    /* ===== FIX portada: imagen completa sin recorte y texto siempre encima ===== */
+    .section.hero {
+      position: relative;
+      text-align: center;
+      padding: 6rem 0 5rem;
+      background: linear-gradient(180deg, #ffffff, #f2f2f2) !important;
+      background-attachment: scroll !important; /* evita bugs en iOS/Android */
+      overflow: hidden;
+      z-index: 0;
+      scroll-margin-top:80px; /* anclas cómodas */
+    }
+    /* Imagen al fondo, completa, en la franja derecha */
+    .section.hero::after{
+      content:"";
+      position:absolute;
+      top:0; right:0; bottom:0; left:55%;
+      background: url("/chica-meditando.png") right center / contain no-repeat;
+      opacity:.22;
+      pointer-events:none;
+      z-index:-1; /* siempre detrás del texto */
+    }
+    /* En móvil, que moleste menos y deje el texto limpio */
+    @media (max-width: 900px){
+      .section.hero::after{ left:65%; opacity:.16; }
+    }
+    /* Dar aire vertical en desktop para lucir la imagen */
+    @media (min-width: 1000px){
+      .section.hero{ min-height:520px; }
+    }
+
+    /* ===== Móvil: lateral deslizable ===== */
     @media (max-width: 900px) {
-      .sidebar { position:fixed; left:-270px; transition:left .25s ease; z-index:9999; }
+      .sidebar { position:fixed; left:-270px; top:64px; transition:left .25s ease; z-index:9999; }
       .sidebar.is-open { left:0; box-shadow:0 6px 28px rgba(0,0,0,.15); }
       .overlay { position:fixed; inset:0; background:rgba(0,0,0,.25); display:none; z-index:9998; }
       .overlay.show { display:block; }
       .content { width:100%; }
       .site-header .menu-btn { display:inline-block; }
     }
-    /* Asegurar espacio bajo header fijo si lo usas así */
-    .section.hero { scroll-margin-top:80px; }
   </style>
 </head>
 <body>
@@ -155,7 +190,7 @@
       <section id="frase" class="section reveal">
         <div class="container">
           <h2>Frase del día</h2>
-          <p id="fraseTexto" class="frase">Respira. Un paso a la vez.</p>
+        <p id="fraseTexto" class="frase">Respira. Un paso a la vez.</p>
           <button id="nuevaFraseBtn" class="btn">Nueva frase</button>
         </div>
       </section>
