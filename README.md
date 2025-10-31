@@ -34,3 +34,7 @@ Ayudar a las personas a cultivar hábitos de autocuidado, gestionar emociones y 
 
 ## 🗂️ Estructura del proyecto
 
+## Licencia
+Código bajo licencia MIT, ver LICENSE.  
+Marca e imágenes con todos los derechos reservados, ver ASSETS-LICENSE.md.
+
