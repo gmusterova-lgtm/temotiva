@@ -87,16 +87,23 @@ a, button, input, textarea { font: inherit; }
 .section { padding: 4.5rem 0; }
 .section.alt { background: #f4f4f4; }
 
-/* HERO con imagen moderna al fondo (cover) */
+/* ===== HERO sin recorte: imagen completa en franja derecha ===== */
 .hero {
   position: relative;
   text-align: center;
   padding: 6rem 0 5rem;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.9), rgba(242,242,242,0.9)),
-    url("/chica-meditando.png") no-repeat right center / cover;
-  background-attachment: fixed;
+  background: linear-gradient(180deg, #ffffff, #f2f2f2); /* base limpia */
   overflow: hidden;
+  z-index: 0; /* asegura que la imagen quede detrás */
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  top:0; right:0; bottom:0; left:55%;   /* franja derecha del hero */
+  background: url("/chica-meditando.png") right center / contain no-repeat;
+  opacity:.22;
+  pointer-events:none;
+  z-index:-1; /* siempre detrás del texto */
 }
 .hero h1 {
   font-size: clamp(1.8rem, 2.8vw, 3rem);
@@ -107,32 +114,14 @@ a, button, input, textarea { font: inherit; }
   margin: 0 0 1.2rem;
 }
 
-/* Variante opcional para ver la imagen completa sin recorte (activar si la prefieres)
-.hero {
-  position: relative;
-  text-align: center;
-  padding: 6rem 0 5rem;
-  background: linear-gradient(180deg, #ffffff, #f2f2f2);
-  overflow: hidden;
-}
-.hero::after{
-  content:"";
-  position:absolute; inset:0 0 0 55%;
-  background: url("/chica-meditando.png") right center / contain no-repeat;
-  opacity:.22; pointer-events:none;
-}
-@media (max-width: 900px){ .hero::after{ left:65%; opacity:.16; } }
-@media (min-width: 1000px){ .hero{ min-height: 520px; } }
-*/
-
-/* Para pantallas pequeñas: menos fondo, más texto */
+/* Móvil: menos ancho visible de imagen y más legibilidad */
 @media (max-width: 900px) {
-  .hero {
-    background:
-      linear-gradient(180deg, rgba(255,255,255,0.96), rgba(242,242,242,0.96)),
-      url("/chica-meditando.png") no-repeat center 20% / cover;
-    background-attachment: scroll;
-  }
+  .hero::after{ left:65%; opacity:.16; }
+}
+
+/* Desktop: dar altura para que la imagen respire */
+@media (min-width: 1000px) {
+  .hero { min-height: 520px; }
 }
 
 /* Alturas 100dvh para PWAs */
