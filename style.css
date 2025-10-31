@@ -7,9 +7,7 @@
   --muted: #eee;
   --radius: 12px;
   --shadow: 0 8px 24px rgba(0,0,0,.08);
-
-  /* Altura del header para compensar contenido y anclas */
-  --header-h: 64px;
+  --header-h: 64px; /* altura del header */
 }
 
 /* Reset básico */
@@ -21,13 +19,13 @@ body {
   color: var(--ink);
   background: var(--bg);
   line-height: 1.6;
-  padding-top: var(--header-h); /* evita que el header tape el inicio */
+  padding-top: var(--header-h);
 }
 
-/* Layout contenedor */
+/* Contenedor general */
 .container { width: min(1100px, 92%); margin: 0 auto; }
 
-/* Header y navegación */
+/* Header fijo */
 .site-header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
   background: var(--card);
@@ -55,52 +53,37 @@ body {
 .section { padding: 4.5rem 0; }
 .section.alt { background: #f4f4f4; }
 
-/* Hero con imagen de apoyo a la derecha, detrás del texto */
+/* HERO con imagen moderna al fondo */
 .hero {
-  background: linear-gradient(180deg, #ffffff, #f2f2f2);
+  position: relative;
   text-align: center;
   padding: 6rem 0 5rem;
-  position: relative;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.9), rgba(242,242,242,0.9)),
+    url("/chica-meditando.png") no-repeat right center / cover;
+  background-attachment: fixed;
   overflow: hidden;
 }
-.hero h1 { font-size: clamp(1.8rem, 2.8vw, 3rem); margin: 0 0 .6rem; }
-.hero p { color: var(--ink-soft); margin: 0 0 1.2rem; }
-
-/* Imagen del hero, coloca /hero-right.png en tu sitio o cambia la ruta */
-.hero::after {
-  content: "";
-  position: absolute; inset: 0 0 0 50%;
-  background: url("/hero-right.png") no-repeat right center / contain;
-  opacity: .18;
-  pointer-events: none;
+.hero h1 {
+  font-size: clamp(1.8rem, 2.8vw, 3rem);
+  margin: 0 0 .6rem;
+}
+.hero p {
+  color: var(--ink-soft);
+  margin: 0 0 1.2rem;
 }
 
-/* En pantallas anchas, un poco más de presencia */
-@media (min-width: 1100px){
-  .hero::after { opacity: .22; }
-}
-
-/* En móvil, menos ancho visible para no molestar */
-@media (max-width: 900px){
-  .hero::after {
-    left: 60%;
-    opacity: .14;
+/* Para pantallas pequeñas: menos fondo, más texto */
+@media (max-width: 900px) {
+  .hero {
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.96), rgba(242,242,242,0.96)),
+      url("/chica-meditando.png") no-repeat center 20% / cover;
+    background-attachment: scroll;
   }
 }
 
-/* Opcional, si quieres balancear texto e imagen en desktop
-.hero .container{
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: center;
-  gap: 24px;
-  text-align: left;
-}
-@media (max-width: 900px){
-  .hero .container{ display: block; text-align: center; }
-}
-*/
-
+/* Listas */
 .bullets { margin: 1rem 0 0; padding: 0 1rem; }
 .bullets li { margin: .4rem 0; }
 
@@ -131,7 +114,7 @@ body {
 .back-top { text-decoration: none; margin-left: 1rem; color: var(--ink-soft); }
 .back-top:hover { color: var(--ink); }
 
-/* Menú lateral, si lo usas */
+/* Menú lateral (por si se usa) */
 .layout { display: flex; min-height: 100vh; }
 .sidebar {
   position: sticky; top: var(--header-h); align-self: flex-start;
@@ -147,7 +130,7 @@ body {
 .privacy-link { display: block; margin-top: 12px; font-size: 14px; color: #666; text-decoration: none; }
 .content { flex: 1; min-width: 0; }
 
-/* Responsive navegación superior */
+/* Responsive navegación */
 @media (max-width: 900px) {
   .grid { grid-template-columns: 1fr; }
   .menu-btn { display: inline-block; }
@@ -167,7 +150,6 @@ body {
   }
   .nav-links.open { display: flex; }
 
-  /* Lateral oculto en móvil, si lo usas */
   .sidebar {
     position: fixed; left: -270px; top: var(--header-h); z-index: 9999;
     height: calc(100vh - var(--header-h));
@@ -177,7 +159,7 @@ body {
   .sidebar.is-open { left: 0; box-shadow: 0 6px 28px rgba(0,0,0,.15); }
 }
 
-/* Animaciones suaves al hacer scroll */
+/* Animaciones suaves */
 .reveal {
   opacity: 0;
   transform: translateY(14px);
@@ -188,7 +170,7 @@ body {
   transform: translateY(0);
 }
 
-/* Entrada hero agradable */
+/* Entrada hero */
 .hero .container {
   animation: fadeUp .8s ease both;
 }
@@ -197,7 +179,7 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Estilo de la frase */
+/* Frase */
 .frase {
   font-size: clamp(1.1rem, 2.2vw, 1.4rem);
   color: var(--ink-soft);
