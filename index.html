@@ -10,19 +10,21 @@
 
   <!-- PWA -->
   <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#F7F7F7">
+  <meta name="theme-color" content="#F7F7F7" id="meta-theme">
   <meta name="application-name" content="TEMOTIVA">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="apple-touch-icon" href="/icon-192.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+  <meta name="color-scheme" content="light dark">
 
-  <!-- Estilos -->
+  <!-- Estilos globales -->
   <link rel="stylesheet" href="/style.css" />
-  <!-- Estilos mínimos para la barra lateral + FIX portada/header -->
+
+  <!-- Estilos mínimos para portada, header y sidebar -->
   <style>
-    /* ===== Layout general barra lateral ===== */
+    /* Layout lateral */
     .layout { display:flex; min-height:100vh; }
     .sidebar {
       position:sticky; top:64px; align-self:flex-start;
@@ -38,23 +40,22 @@
     .privacy-link { display:block; margin-top:12px; font-size:14px; color:#666; text-decoration:none; }
     .content { flex:1; min-width:0; }
 
-    /* ===== FIX header fijo que no tape contenido ===== */
-    .site-header{ position:fixed; top:0; left:0; right:0; height:64px; z-index:1000; }
-    .nav{ height:64px; }
-    body{ padding-top:64px; } /* clave para que se vea lo de debajo */
+    /* Header fijo sin tapar contenido */
+    .site-header{ position:fixed; top:0; left:0; right:0; height:64px; z-index:1000; background:var(--card); border-bottom:1px solid #ddd; }
+    .nav{ height:64px; display:flex; align-items:center; justify-content:space-between; }
+    body{ padding-top:64px; }
 
-    /* ===== FIX portada: imagen completa sin recorte y texto siempre encima ===== */
+    /* Portada: imagen completa a la derecha y texto siempre visible */
     .section.hero {
       position: relative;
       text-align: center;
       padding: 6rem 0 5rem;
       background: linear-gradient(180deg, #ffffff, #f2f2f2) !important;
-      background-attachment: scroll !important; /* evita bugs en iOS/Android */
+      background-attachment: scroll !important;
       overflow: hidden;
       z-index: 0;
-      scroll-margin-top:80px; /* anclas cómodas */
+      scroll-margin-top:80px;
     }
-    /* Imagen al fondo, completa, en la franja derecha */
     .section.hero::after{
       content:"";
       position:absolute;
@@ -62,18 +63,24 @@
       background: url("/chica-meditando.png") right center / contain no-repeat;
       opacity:.22;
       pointer-events:none;
-      z-index:-1; /* siempre detrás del texto */
+      z-index:-1;
     }
-    /* En móvil, que moleste menos y deje el texto limpio */
     @media (max-width: 900px){
       .section.hero::after{ left:65%; opacity:.16; }
     }
-    /* Dar aire vertical en desktop para lucir la imagen */
     @media (min-width: 1000px){
       .section.hero{ min-height:520px; }
     }
 
-    /* ===== Móvil: lateral deslizable ===== */
+    /* Botonera de acciones en header */
+    .header-actions{ display:flex; align-items:center; gap:.5rem; }
+    .icon-btn{
+      border:1px solid #ddd; background:var(--card); color:var(--ink);
+      padding:.45rem .65rem; border-radius:10px; cursor:pointer; min-height:36px;
+    }
+    .icon-btn:hover{ background:var(--muted); }
+
+    /* Móvil: sidebar deslizable */
     @media (max-width: 900px) {
       .sidebar { position:fixed; left:-270px; top:64px; transition:left .25s ease; z-index:9999; }
       .sidebar.is-open { left:0; box-shadow:0 6px 28px rgba(0,0,0,.15); }
@@ -82,6 +89,9 @@
       .content { width:100%; }
       .site-header .menu-btn { display:inline-block; }
     }
+
+    /* Hotfix reveal por si el JS no carga */
+    .reveal { opacity:1 !important; transform:none !important; }
   </style>
 </head>
 <body>
@@ -90,7 +100,7 @@
   <!-- Overlay móvil -->
   <div id="overlay" class="overlay" aria-hidden="true"></div>
 
-  <!-- Header fijo con menú superior existente -->
+  <!-- Header -->
   <header class="site-header">
     <div class="container nav">
       <a href="#inicio" class="logo" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:inherit;">
@@ -98,67 +108,71 @@
         <span>TEMOTIVA</span>
       </a>
 
-      <!-- Botón móvil -->
-      <button id="menuBtn" aria-label="Abrir menú" class="menu-btn">☰</button>
+      <div class="header-actions">
+        <!-- Idioma -->
+        <button id="langBtn" class="icon-btn" aria-label="Cambiar idioma">ES/EN</button>
+        <!-- Tema -->
+        <button id="themeBtn" class="icon-btn" aria-label="Cambiar tema">☾/☀︎</button>
+        <!-- Menú móvil -->
+        <button id="menuBtn" aria-label="Abrir menú" class="menu-btn">☰</button>
+      </div>
 
       <nav id="mainNav" class="nav-links">
-        <a href="#inicio">Inicio</a>
-        <a href="#mision">Misión</a>
-        <a href="#producto">Producto</a>
-        <a href="#equipo">Equipo</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#inicio" data-i18n="nav.home">Inicio</a>
+        <a href="#mision" data-i18n="nav.mission">Misión</a>
+        <a href="#producto" data-i18n="nav.product">Producto</a>
+        <a href="#equipo" data-i18n="nav.team">Equipo</a>
+        <a href="#contacto" data-i18n="nav.contact">Contacto</a>
       </nav>
     </div>
   </header>
 
-  <!-- Layout con barra lateral + contenido existente -->
+  <!-- Layout con barra lateral + contenido -->
   <div class="layout">
-    <!-- Sidebar pack 1 -->
     <nav class="sidebar" aria-label="Menú lateral">
       <a class="logo-side" href="/inicio.html">
         <img src="/icon-192.png" alt="Logo TEMOTIVA">
         <span>TEMOTIVA</span>
       </a>
       <ul class="menu-list">
-        <li><a href="/inicio.html">Inicio</a></li>
-        <li><a href="/blog/index.html">Blog</a></li>
-        <li><a href="/recursos.html">Recursos</a></li>
-        <li><a href="/contacto.html">Contacto</a></li>
-        <li><a href="/login.html">Iniciar sesión</a></li>
+        <li><a href="/inicio.html" data-i18n="side.home">Inicio</a></li>
+        <li><a href="/blog/index.html" data-i18n="side.blog">Blog</a></li>
+        <li><a href="/recursos.html" data-i18n="side.resources">Recursos</a></li>
+        <li><a href="/contacto.html" data-i18n="side.contact">Contacto</a></li>
+        <li><a href="/login.html" data-i18n="side.login">Iniciar sesión</a></li>
       </ul>
-      <a class="privacy-link" href="/privacidad.html">Privacidad</a>
+      <a class="privacy-link" href="/privacidad.html" data-i18n="side.privacy">Privacidad</a>
     </nav>
 
-    <!-- Contenido original intacto -->
     <main class="content" id="app">
       <!-- Inicio -->
       <section id="inicio" class="section hero">
         <div class="container">
-          <h1>Bienestar emocional y tecnología</h1>
-          <p>Plataforma sencilla para comprender, cuidar y entrenar el bienestar emocional, basada en ciencia.</p>
+          <h1 data-i18n="hero.title">Bienestar emocional y tecnología</h1>
+          <p data-i18n="hero.subtitle">Plataforma sencilla para comprender, cuidar y entrenar el bienestar emocional, basada en ciencia.</p>
           <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:24px;">
-            <a href="/particular.html" class="btn">Soy particular</a>
-            <a href="/organizacion.html" class="btn">Soy organización</a>
+            <a href="/particular.html" class="btn" data-i18n="hero.ctaUser">Soy particular</a>
+            <a href="/organizacion.html" class="btn" data-i18n="hero.ctaOrg">Soy organización</a>
           </div>
         </div>
       </section>
 
       <nav style="text-align:center; padding:40px 0;">
-        <a href="/blog/" style="background:#f3f3f3; color:#333; padding:12px 28px; border-radius:30px; text-decoration:none; font-weight:500; letter-spacing:0.3px; box-shadow:0 2px 6px rgba(0,0,0,0.1); transition:all .25s ease-in-out;">
+        <a href="/blog/" style="background:#f3f3f3; color:#333; padding:12px 28px; border-radius:30px; text-decoration:none; font-weight:500; letter-spacing:0.3px; box-shadow:0 2px 6px rgba(0,0,0,0.1); transition:all .25s ease-in-out;" data-i18n="blog.enter">
           Entrar al Blog
         </a>
-        <p style="margin-top:12px; color:#555; font-size:15px;">Un espacio tranquilo para leer, pensar y cuidarte.</p>
+        <p style="margin-top:12px; color:#555; font-size:15px;" data-i18n="blog.note">Un espacio tranquilo para leer, pensar y cuidarte.</p>
       </nav>
 
       <!-- Misión -->
       <section id="mision" class="section reveal">
         <div class="container">
-          <h2>Nuestra misión</h2>
-          <p>Crear herramientas accesibles, seguras y útiles que apoyen hábitos saludables, autoobservación y decisión informada.</p>
+          <h2 data-i18n="mission.title">Nuestra misión</h2>
+          <p data-i18n="mission.desc">Crear herramientas accesibles, seguras y útiles que apoyen hábitos saludables, autoobservación y decisión informada.</p>
           <ul class="bullets">
-            <li>Psicología basada en evidencia</li>
-            <li>Privacidad por diseño</li>
-            <li>Accesibilidad y lenguaje claro</li>
+            <li data-i18n="mission.b1">Psicología basada en evidencia</li>
+            <li data-i18n="mission.b2">Privacidad por diseño</li>
+            <li data-i18n="mission.b3">Accesibilidad y lenguaje claro</li>
           </ul>
         </div>
       </section>
@@ -166,21 +180,21 @@
       <!-- Producto -->
       <section id="producto" class="section alt reveal">
         <div class="container">
-          <h2>Producto</h2>
-          <p>Primera versión, autochequeo diario, micro ejercicios de regulación y panel de progreso.</p>
+          <h2 data-i18n="product.title">Producto</h2>
+          <p data-i18n="product.desc">Primera versión, autochequeo diario, micro ejercicios de regulación y panel de progreso.</p>
 
           <div class="grid">
             <div class="card">
-              <h3>Chequeo</h3>
-              <p>2 a 3 preguntas al día para tomar pulso emocional sin saturar.</p>
+              <h3 data-i18n="product.c1t">Chequeo</h3>
+              <p data-i18n="product.c1d">2 a 3 preguntas al día para tomar pulso emocional sin saturar.</p>
             </div>
             <div class="card">
-              <h3>Ejercicios</h3>
-              <p>Respiración, reencuadre, plan de acción breve. Todo guiado.</p>
+              <h3 data-i18n="product.c2t">Ejercicios</h3>
+              <p data-i18n="product.c2d">Respiración, reencuadre, plan de acción breve. Todo guiado.</p>
             </div>
             <div class="card">
-              <h3>Progreso</h3>
-              <p>Gráficas simples y metas semanales comprensibles.</p>
+              <h3 data-i18n="product.c3t">Progreso</h3>
+              <p data-i18n="product.c3d">Gráficas simples y metas semanales comprensibles.</p>
             </div>
           </div>
         </div>
@@ -189,28 +203,28 @@
       <!-- Frase del día -->
       <section id="frase" class="section reveal">
         <div class="container">
-          <h2>Frase del día</h2>
-        <p id="fraseTexto" class="frase">Respira. Un paso a la vez.</p>
-          <button id="nuevaFraseBtn" class="btn">Nueva frase</button>
+          <h2 data-i18n="quote.title">Frase del día</h2>
+          <p id="fraseTexto" class="frase">Respira. Un paso a la vez.</p>
+          <button id="nuevaFraseBtn" class="btn" data-i18n="quote.new">Nueva frase</button>
         </div>
       </section>
 
       <!-- Equipo -->
       <section id="equipo" class="section reveal">
         <div class="container">
-          <h2>Equipo</h2>
+          <h2 data-i18n="team.title">Equipo</h2>
           <div class="grid team">
             <article class="member">
               <h3>G. Musterova</h3>
-              <p>Psicología, investigación y dirección.</p>
+              <p data-i18n="team.m1">Psicología, investigación y dirección.</p>
             </article>
             <article class="member">
-              <h3>Colaborador técnico</h3>
-              <p>Front end y producto.</p>
+              <h3 data-i18n="team.m2t">Colaborador técnico</h3>
+              <p data-i18n="team.m2">Front end y producto.</p>
             </article>
             <article class="member">
-              <h3>Consejo asesor</h3>
-              <p>Clínica, datos y ética.</p>
+              <h3 data-i18n="team.m3t">Consejo asesor</h3>
+              <p data-i18n="team.m3">Clínica, datos y ética.</p>
             </article>
           </div>
         </div>
@@ -219,34 +233,37 @@
       <!-- Contacto -->
       <section id="contacto" class="section alt">
         <div class="container">
-          <h2>Contacto</h2>
+          <h2 data-i18n="contact.title">Contacto</h2>
           <form id="contactForm" class="form">
             <input type="hidden" name="_subject" value="Nuevo mensaje desde TEMOTIVA">
             <input type="hidden" name="_language" value="es">
-            <input type="text" name="nombre" placeholder="Tu nombre" required />
-            <input type="email" name="email" placeholder="Tu email" required />
-            <textarea name="mensaje" rows="4" placeholder="¿Cómo podemos ayudarte?" required></textarea>
+
+            <input type="text" name="nombre" placeholder="Tu nombre" required data-i18n-placeholder="contact.name" />
+            <input type="email" name="email" placeholder="Tu email" required data-i18n-placeholder="contact.email" />
+            <textarea name="mensaje" rows="4" placeholder="¿Cómo podemos ayudarte?" required data-i18n-placeholder="contact.msg"></textarea>
+
             <label style="display:flex;gap:8px;align-items:flex-start;font-size:14px;margin:8px 0 12px;">
               <input type="checkbox" name="consent" required>
-              <span>Acepto la <a href='/privacidad.html'>política de privacidad</a></span>
+              <span data-i18n="contact.gdpr">Acepto la <a href='/privacidad.html'>política de privacidad</a></span>
             </label>
+
             <input type="text" name="_gotcha" style="display:none">
-            <button type="submit" class="btn">Enviar</button>
+            <button type="submit" class="btn" data-i18n="contact.send">Enviar</button>
           </form>
-          <p id="formMsg" class="form-msg oculto">Gracias, te contactaremos pronto.</p>
+          <p id="formMsg" class="form-msg oculto" data-i18n="contact.ok">Gracias, te contactaremos pronto.</p>
         </div>
       </section>
 
       <footer class="site-footer">
         <div class="container">
           <p>© TEMOTIVA desde 2024</p>
-          <a href="#inicio" class="back-top">Volver arriba ↑</a>
+          <a href="#inicio" class="back-top" data-i18n="footer.top">Volver arriba ↑</a>
         </div>
       </footer>
     </main>
   </div>
 
-  <!-- Conexión con Supabase -->
+  <!-- Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     const SUPABASE_URL = "https://ejhzxwnhqvcqjqxnuvya.supabase.co";
@@ -258,9 +275,9 @@
   <!-- Tu JS -->
   <script src="/script.js" defer></script>
 
-  <!-- Registro del service worker -->
+  <!-- JS de UI: sidebar, tema, idioma, reveal, SW -->
   <script>
-    // Toggle lateral en móvil
+    // Sidebar móvil
     const menuBtn = document.getElementById("menuBtn");
     const sidebar = document.querySelector(".sidebar");
     const overlay = document.getElementById("overlay");
@@ -273,7 +290,112 @@
     if (menuBtn) menuBtn.addEventListener("click", toggleSidebar);
     if (overlay) overlay.addEventListener("click", toggleSidebar);
 
-    // SW
+    // Modo oscuro
+    const themeBtn = document.getElementById("themeBtn");
+    const metaTheme = document.getElementById("meta-theme");
+    const THEME_KEY = "temotiva-theme";
+    function applyTheme(t){
+      document.documentElement.dataset.theme = t; // para CSS si quieres
+      if(t === "dark"){
+        metaTheme.setAttribute("content", "#0f1115");
+        document.documentElement.classList.add("theme-dark");
+      }else{
+        metaTheme.setAttribute("content", "#F7F7F7");
+        document.documentElement.classList.remove("theme-dark");
+      }
+      localStorage.setItem(THEME_KEY, t);
+    }
+    const savedTheme = localStorage.getItem(THEME_KEY);
+    if(savedTheme){ applyTheme(savedTheme); }
+    if(themeBtn){
+      themeBtn.addEventListener("click", () => {
+        const next = document.documentElement.classList.contains("theme-dark") ? "light" : "dark";
+        applyTheme(next);
+      });
+    }
+
+    // Idiomas ES/EN con diccionario mínimo
+    const langBtn = document.getElementById("langBtn");
+    const LANG_KEY = "temotiva-lang";
+    const i18n = {
+      es: {
+        "nav.home":"Inicio","nav.mission":"Misión","nav.product":"Producto","nav.team":"Equipo","nav.contact":"Contacto",
+        "side.home":"Inicio","side.blog":"Blog","side.resources":"Recursos","side.contact":"Contacto","side.login":"Iniciar sesión","side.privacy":"Privacidad",
+        "hero.title":"Bienestar emocional y tecnología",
+        "hero.subtitle":"Plataforma sencilla para comprender, cuidar y entrenar el bienestar emocional, basada en ciencia.",
+        "hero.ctaUser":"Soy particular","hero.ctaOrg":"Soy organización",
+        "blog.enter":"Entrar al Blog","blog.note":"Un espacio tranquilo para leer, pensar y cuidarte.",
+        "mission.title":"Nuestra misión","mission.desc":"Crear herramientas accesibles, seguras y útiles que apoyen hábitos saludables, autoobservación y decisión informada.",
+        "mission.b1":"Psicología basada en evidencia","mission.b2":"Privacidad por diseño","mission.b3":"Accesibilidad y lenguaje claro",
+        "product.title":"Producto","product.desc":"Primera versión, autochequeo diario, micro ejercicios de regulación y panel de progreso.",
+        "product.c1t":"Chequeo","product.c1d":"2 a 3 preguntas al día para tomar pulso emocional sin saturar.",
+        "product.c2t":"Ejercicios","product.c2d":"Respiración, reencuadre, plan de acción breve. Todo guiado.",
+        "product.c3t":"Progreso","product.c3d":"Gráficas simples y metas semanales comprensibles.",
+        "quote.title":"Frase del día","quote.new":"Nueva frase",
+        "team.title":"Equipo","team.m1":"Psicología, investigación y dirección.","team.m2t":"Colaborador técnico","team.m2":"Front end y producto.","team.m3t":"Consejo asesor","team.m3":"Clínica, datos y ética.",
+        "contact.title":"Contacto","contact.name":"Tu nombre","contact.email":"Tu email","contact.msg":"¿Cómo podemos ayudarte?","contact.gdpr":"Acepto la <a href='/privacidad.html'>política de privacidad</a>","contact.send":"Enviar","contact.ok":"Gracias, te contactaremos pronto.",
+        "footer.top":"Volver arriba ↑"
+      },
+      en: {
+        "nav.home":"Home","nav.mission":"Mission","nav.product":"Product","nav.team":"Team","nav.contact":"Contact",
+        "side.home":"Home","side.blog":"Blog","side.resources":"Resources","side.contact":"Contact","side.login":"Log in","side.privacy":"Privacy",
+        "hero.title":"Emotional wellbeing and technology",
+        "hero.subtitle":"A simple platform to understand, care for, and train emotional wellbeing, grounded in science.",
+        "hero.ctaUser":"I am an individual","hero.ctaOrg":"I am an organization",
+        "blog.enter":"Go to Blog","blog.note":"A calm space to read, think, and take care of yourself.",
+        "mission.title":"Our mission","mission.desc":"Create accessible, safe, and useful tools that support healthy habits, self-observation, and informed decisions.",
+        "mission.b1":"Evidence-based psychology","mission.b2":"Privacy by design","mission.b3":"Accessibility and clear language",
+        "product.title":"Product","product.desc":"First version, daily self-check, micro regulation exercises, and a progress panel.",
+        "product.c1t":"Check-in","product.c1d":"2 to 3 questions a day to gauge your emotional pulse without overwhelm.",
+        "product.c2t":"Exercises","product.c2d":"Breathing, reframing, brief action plan. Fully guided.",
+        "product.c3t":"Progress","product.c3d":"Simple charts and understandable weekly goals.",
+        "quote.title":"Quote of the day","quote.new":"New quote",
+        "team.title":"Team","team.m1":"Psychology, research, and direction.","team.m2t":"Tech collaborator","team.m2":"Front end and product.","team.m3t":"Advisory board","team.m3":"Clinic, data, and ethics.",
+        "contact.title":"Contact","contact.name":"Your name","contact.email":"Your email","contact.msg":"How can we help you?","contact.gdpr":"I accept the <a href='/privacidad.html'>privacy policy</a>","contact.send":"Send","contact.ok":"Thanks, we will contact you soon.",
+        "footer.top":"Back to top ↑"
+      }
+    };
+    function applyLang(lang){
+      const dict = i18n[lang] || i18n.es;
+      document.documentElement.setAttribute("lang", lang === "en" ? "en" : "es");
+      // text nodes
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const key = el.getAttribute("data-i18n");
+        if(dict[key]) el.innerHTML = dict[key];
+      });
+      // placeholders
+      document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{
+        const key = el.getAttribute("data-i18n-placeholder");
+        if(dict[key]) el.setAttribute("placeholder", el.tagName==="TEXTAREA" ? dict[key] : dict[key]);
+      });
+      localStorage.setItem(LANG_KEY, lang);
+    }
+    const savedLang = localStorage.getItem(LANG_KEY) || "es";
+    applyLang(savedLang);
+    if(langBtn){
+      langBtn.addEventListener("click", ()=>{
+        const next = (localStorage.getItem(LANG_KEY) || "es") === "es" ? "en" : "es";
+        applyLang(next);
+      });
+    }
+
+    // Animación reveal correcta
+    document.documentElement.classList.add('js-ready');
+    (function(){
+      const items = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(el => el.classList.add('visible'));
+        return;
+      }
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -10% 0px' });
+      items.forEach(el => io.observe(el));
+    })();
+
+    // Service Worker
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
         navigator.serviceWorker
@@ -313,7 +435,7 @@
   </script>
 
   <footer style="padding:16px;text-align:center;font-size:14px;">
-    <a href="/privacidad.html">Política de privacidad</a> ·
+    <a href="/privacidad.html" data-i18n="side.privacy">Política de privacidad</a> ·
     <a href="/cookies.html">Política de cookies</a> ·
     <a href="/aviso-legal.html">Aviso legal</a>
   </footer>
