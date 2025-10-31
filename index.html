@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="auto">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -81,81 +81,161 @@
   }
   </script>
 
-  <!-- Estilos locales para panel y portada, el resto en /style.css -->
+  <!-- Estilos locales de layout y refinado visual -->
   <style>
-    /* Accesibilidad */
+    /* Tipografía y escala vertical */
+    :root{
+      --bg:#f9f9f9; --ink:#222; --ink-soft:#555; --brand:#111; --card:#fff; --muted:#eee;
+      --radius:14px; --shadow:0 8px 28px rgba(0,0,0,.08); --header-h:64px; --focus:2px solid #3b82f6;
+      --lh:1.65; --h1:clamp(2rem, 3.6vw, 3rem); --h2:clamp(1.4rem, 2.2vw, 2rem); --h3:clamp(1.1rem, 1.6vw, 1.25rem);
+      color-scheme: light dark;
+    }
+    /* Tema oscuro por data-theme para Safari y Chrome */
+    html[data-theme="dark"]{
+      --bg:#0f1115; --ink:#eaeaea; --ink-soft:#c9c9c9; --brand:#eaeaea; --card:#151923; --muted:#262a36;
+      --shadow:0 8px 24px rgba(0,0,0,.45);
+      color-scheme: dark;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; scroll-padding-top:var(--header-h); }
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--ink); background:var(--bg); line-height:var(--lh); padding-top:var(--header-h);
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    img, video{ max-width:100%; height:auto; display:block; }
+    a, button, input, textarea{ font:inherit; }
+    a{ color:inherit; text-decoration:none; }
+    :focus-visible{ outline:var(--focus); outline-offset:3px; border-radius:10px; }
+    .container{ width:min(1100px, 92%); margin:0 auto; }
+
+    /* Header fijo con sombra en scroll */
+    .site-header{
+      position:fixed; inset:0 0 auto 0; height:var(--header-h); z-index:1000; background:var(--card);
+      border-bottom:1px solid rgba(0,0,0,.08); transition: box-shadow .2s ease, backdrop-filter .2s ease;
+      backdrop-filter: saturate(130%) blur(4px);
+    }
+    .site-header.is-scrolled{ box-shadow:0 6px 24px rgba(0,0,0,.08); }
+    .nav{ height:var(--header-h); display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .logo{ display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px; }
+    .logo img{ width:36px; height:36px; border-radius:9px; }
+
+    .header-actions{ display:flex; align-items:center; gap:.5rem; }
+    .icon-btn{
+      border:1px solid rgba(0,0,0,.12); background:var(--card); color:var(--ink);
+      padding:.5rem .7rem; border-radius:12px; cursor:pointer; min-height:40px; transition:background .15s ease, transform .05s ease;
+    }
+    .icon-btn:active{ transform:scale(.98); }
+
+    .menu-btn{ display:inline-flex; }
+    @media (min-width:1024px){ .menu-btn{ display:none; } }
+
+    .nav-links{ display:none; gap:.4rem; }
+    .nav-links a{
+      padding:.45rem .7rem; border-radius:10px; color:var(--ink-soft); display:inline-flex; align-items:center;
+    }
+    .nav-links a:hover, .nav-links a.active{ background:var(--muted); color:var(--ink); }
+    @media (min-width:1024px){ .nav-links{ display:flex; } }
+
+    /* Sidebar off-canvas móvil, fijo escritorio opcional por botón */
+    .layout{ display:flex; min-height:100vh; }
+    #sidePanel{
+      position:fixed; top:var(--header-h); left:-280px; width:260px; height:calc(100vh - var(--header-h));
+      background:var(--card); border-right:1px solid rgba(0,0,0,.08); padding:20px 16px; transition:left .25s ease; z-index:9999;
+      box-shadow:0 12px 32px rgba(0,0,0,.12);
+    }
+    #sidePanel.is-open{ left:0; }
+    .overlay{ position:fixed; inset:0; background:rgba(0,0,0,.28); display:none; z-index:9998; }
+    .overlay.show{ display:block; }
+    @media (min-width:1200px){
+      /* escritorio: empieza cerrado y se abre con botón, no ocupa layout si no quieres */
+      #sidePanel{ left:-280px; }
+      .overlay{ display:none !important; }
+    }
+    .logo-side{ display:flex; align-items:center; gap:8px; color:var(--ink); font-weight:700; }
+    .logo-side img{ width:32px; height:32px; border-radius:8px; }
+    .menu-list{ list-style:none; padding:0; margin:16px 0; }
+    .menu-list a{ display:block; padding:10px 12px; border-radius:10px; color:var(--ink); }
+    .menu-list a:hover{ background:var(--muted); }
+    .privacy-link{ display:block; margin-top:12px; font-size:14px; color:var(--ink-soft); }
+
+    .content{ flex:1; min-width:0; }
+
+    /* Hero con grid interno y franja ilustrada derecha */
+    .section{ padding:4.5rem 0; }
+    .section.alt{ background:#f4f4f4; }
+    html[data-theme="dark"] .section.alt{ background:#161a24; }
+
+    .hero{
+      position:relative; isolation:isolate;
+      background:linear-gradient(180deg, #ffffff, #f3f5f7);
+      display:grid; place-items:center; padding:5.5rem 0 5rem;
+    }
+    html[data-theme="dark"] .hero{ background:linear-gradient(180deg, #121621, #0f131d); }
+    .hero::after{
+      content:""; position:absolute; inset:0 0 0 55%;
+      background:url("/chica-meditando.png") right center / contain no-repeat; opacity:.22; z-index:-1; pointer-events:none;
+    }
+    @media (max-width:900px){ .hero::after{ inset:0 0 0 65%; opacity:.15; } }
+
+    .hero h1{ font-size:var(--h1); margin:0 0 .6rem; letter-spacing:.2px; }
+    .hero p{ color:var(--ink-soft); margin:0 0 1.2rem; max-width:42ch; margin-inline:auto; }
+    .cta-row{ display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:22px; }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      border:0; border-radius:12px; padding:.9rem 1.2rem; background:var(--brand); color:#fff; min-height:44px;
+      line-height:1; letter-spacing:.2px; text-decoration:none; transition:filter .15s ease, transform .05s ease;
+    }
+    .btn:hover{ filter:brightness(.92); }
+    .btn:active{ transform:translateY(1px); }
+
+    /* Cards producto con micro elevación */
+    .grid{ display:grid; gap:1rem; grid-template-columns:repeat(3, 1fr); align-items:stretch; }
+    @media (max-width:900px){ .grid{ grid-template-columns:1fr; } }
+    .card{
+      background:var(--card); border-radius:var(--radius); padding:1.1rem 1.2rem; box-shadow:var(--shadow);
+      border:1px solid rgba(0,0,0,.05); transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    }
+    .card:hover{ transform:translateY(-2px); box-shadow:0 14px 36px rgba(0,0,0,.10); border-color:rgba(0,0,0,.08); }
+    html[data-theme="dark"] .card{ border-color:#2a2e3a; box-shadow:none; }
+    .card h3{ font-size:var(--h3); margin:.2rem 0 .4rem; }
+
+    /* Frase del día */
+    .frase{ font-size:clamp(1.1rem, 2.1vw, 1.3rem); color:var(--ink-soft); margin:.6rem 0 1rem; }
+
+    /* Footer */
+    .site-footer{
+      border-top:1px solid rgba(0,0,0,.08); padding:1.4rem 0; background:var(--card);
+      padding-left:max(0px, env(safe-area-inset-left)); padding-right:max(0px, env(safe-area-inset-right));
+    }
+
+    /* Accesibilidad extra */
     .skip-link{
       position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
     }
     .skip-link:focus{
-      position:fixed; left:16px; top:16px; padding:.5rem .75rem; border-radius:10px;
-      background:var(--card); color:var(--ink); z-index:2000; box-shadow:0 8px 24px rgba(0,0,0,.15);
+      position:fixed; left:16px; top:16px; padding:.55rem .8rem; border-radius:10px; background:var(--card); color:var(--ink);
+      z-index:2000; box-shadow:0 8px 24px rgba(0,0,0,.15);
     }
 
-    /* Header fijo y acciones */
-    .site-header{ position:fixed; top:0; left:0; right:0; height:64px; z-index:1000; background:var(--card); border-bottom:1px solid #ddd; }
-    .nav{ height:64px; display:flex; align-items:center; justify-content:space-between; }
-    body{ padding-top:64px; }
-    .header-actions{ display:flex; align-items:center; gap:.5rem; }
-    .icon-btn{
-      border:1px solid #ddd; background:var(--card); color:var(--ink);
-      padding:.45rem .65rem; border-radius:10px; cursor:pointer; min-height:36px;
-    }
-    .icon-btn:hover{ background:var(--muted); }
-
-    /* Panel lateral off-canvas accesible */
-    .layout{ display:flex; min-height:100vh; }
-    .sidebar{
-      position:fixed; top:64px; left:-280px; width:260px; height:calc(100vh - 64px);
-      background:var(--card); border-right:1px solid #eee; padding:20px 16px; box-sizing:border-box;
-      transition:left .25s ease; z-index:9999;
-    }
-    .sidebar.is-open{ left:0; box-shadow:0 6px 28px rgba(0,0,0,.15); }
-    .sidebar[aria-hidden="true"]{ visibility:hidden; }
-    .content{ flex:1; min-width:0; }
-    .overlay{ position:fixed; inset:0; background:rgba(0,0,0,.25); display:none; z-index:9998; }
-    .overlay.show{ display:block; }
-
-    .logo-side{ display:flex; align-items:center; gap:8px; text-decoration:none; color:#111; font-weight:700; }
-    .menu-list{ list-style:none; padding:0; margin:16px 0; }
-    .menu-list a{ text-decoration:none; color:#333; padding:8px 10px; display:block; border-radius:8px; }
-    .menu-list a:hover, .menu-list a:focus{ background:#f4f4f4; outline:none; }
-    .privacy-link{ display:block; margin-top:12px; font-size:14px; color:#666; text-decoration:none; }
-
-    /* Hero legible con imagen completa en franja derecha */
-    .section.hero{
-      position:relative; text-align:center; padding:6rem 0 5rem;
-      background:linear-gradient(180deg, #ffffff, #f2f2f2);
-      overflow:hidden; z-index:0; scroll-margin-top:80px;
-    }
-    .section.hero::after{
-      content:""; position:absolute; top:0; right:0; bottom:0; left:55%;
-      background:url("/chica-meditando.png") right center / contain no-repeat; opacity:.22; pointer-events:none; z-index:-1;
-    }
-    @media (max-width:900px){ .section.hero::after{ left:65%; opacity:.16; } }
-    @media (min-width:1000px){ .section.hero{ min-height:520px; } }
-
-    /* Escritorio: sidebar solo si lo pide el usuario */
-    @media (min-width:901px){
-      html:not(.sidebar-persistent) .sidebar{ left:-280px; }
-    }
+    /* Animación reveal solo si hay JS */
+    html.js-ready .reveal{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
+    html.js-ready .reveal.visible{ opacity:1; transform:none; }
 
     /* Banner PWA */
-    .pwa-install {
-      position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%);
-      background: var(--card); color: var(--ink); border: 1px solid #ddd;
-      box-shadow: 0 8px 24px rgba(0,0,0,.15); border-radius: 12px;
-      padding: 12px 16px; z-index: 2000; display: none; max-width: 96%;
+    .pwa-install{
+      position:fixed; left:50%; bottom:16px; transform:translateX(-50%);
+      background:var(--card); color:var(--ink); border:1px solid rgba(0,0,0,.12);
+      box-shadow:0 8px 24px rgba(0,0,0,.15); border-radius:12px; padding:12px 14px; z-index:2000; display:none; max-width:96%;
     }
-    .pwa-install.show { display: block; }
-    .pwa-install .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-    .pwa-install .msg { font-size: 14px; opacity: .9; }
-    .pwa-install .actions { margin-left: auto; display: flex; gap: 8px; }
-    .pwa-install .btn { background: var(--brand); color: #fff; border: 0; border-radius: 10px; padding: .6rem .9rem; cursor: pointer; }
-    .pwa-install .btn.secondary { background: #f0f0f0; color: #222; }
-
-    /* Hotfix reveal si falla el JS */
-    .reveal{ opacity:1 !important; transform:none !important; }
+    .pwa-install.show{ display:block; }
+    .pwa-install .row{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+    .pwa-install .msg{ font-size:14px; opacity:.9; }
+    .pwa-install .actions{ margin-left:auto; display:flex; gap:8px; }
+    .pwa-install .btn{ background:var(--brand); color:#fff; border:0; border-radius:10px; padding:.6rem .9rem; }
+    .pwa-install .btn.secondary{ background:#f0f0f0; color:#222; }
   </style>
 </head>
 <body>
@@ -166,19 +246,12 @@
   <div id="overlay" class="overlay" aria-hidden="true"></div>
 
   <!-- Header -->
-  <header class="site-header">
+  <header class="site-header" id="siteHeader">
     <div class="container nav">
-      <a href="#inicio" class="logo" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:inherit;">
-        <img src="/icon-192.png" alt="Logo TEMOTIVA" width="36" height="36" style="border-radius:8px;">
+      <a href="#inicio" class="logo" aria-label="Volver al inicio">
+        <img src="/icon-192.png" alt="Logo TEMOTIVA">
         <span>TEMOTIVA</span>
       </a>
-
-      <div class="header-actions">
-        <button id="langBtn" class="icon-btn" aria-label="Cambiar idioma">ES/EN</button>
-        <button id="themeBtn" class="icon-btn" aria-label="Cambiar tema">☾/☀︎</button>
-        <button id="installBtn" class="icon-btn" aria-label="Instalar TEMOTIVA" hidden>Instalar</button>
-        <button id="menuBtn" class="menu-btn icon-btn" aria-label="Abrir menú" aria-controls="sidePanel" aria-expanded="false">☰</button>
-      </div>
 
       <nav id="mainNav" class="nav-links" aria-label="Menú principal">
         <a href="#inicio" data-i18n="nav.home">Inicio</a>
@@ -187,141 +260,151 @@
         <a href="#equipo" data-i18n="nav.team">Equipo</a>
         <a href="#contacto" data-i18n="nav.contact">Contacto</a>
       </nav>
+
+      <div class="header-actions">
+        <button id="langBtn" class="icon-btn" aria-label="Cambiar idioma">ES/EN</button>
+        <button id="themeBtn" class="icon-btn" aria-label="Cambiar tema" title="Tema">☾/☀︎</button>
+        <button id="installBtn" class="icon-btn" aria-label="Instalar TEMOTIVA" hidden>Instalar</button>
+        <button id="menuBtn" class="menu-btn icon-btn" aria-label="Abrir panel lateral" aria-controls="sidePanel" aria-expanded="false">☰</button>
+      </div>
     </div>
   </header>
 
-  <!-- Layout con panel lateral invocable -->
-  <div class="layout">
-    <nav id="sidePanel" class="sidebar" aria-label="Menú lateral" aria-hidden="true">
-      <a class="logo-side" href="/inicio.html">
-        <img src="/icon-192.png" alt="Logo TEMOTIVA" width="32" height="32" style="border-radius:8px;">
-        <span>TEMOTIVA</span>
+  <!-- Panel lateral -->
+  <nav id="sidePanel" class="sidebar" aria-label="Menú lateral" aria-hidden="true">
+    <a class="logo-side" href="/inicio.html">
+      <img src="/icon-192.png" alt="" aria-hidden="true">
+      <span>TEMOTIVA</span>
+    </a>
+    <ul class="menu-list" role="list">
+      <li><a href="/inicio.html" data-i18n="side.home">Inicio</a></li>
+      <li><a href="/blog/index.html" data-i18n="side.blog">Blog</a></li>
+      <li><a href="/recursos.html" data-i18n="side.resources">Recursos</a></li>
+      <li><a href="/contacto.html" data-i18n="side.contact">Contacto</a></li>
+      <li><a href="/login.html" data-i18n="side.login">Iniciar sesión</a></li>
+    </ul>
+    <a class="privacy-link" href="/privacidad.html" data-i18n="side.privacy">Privacidad</a>
+  </nav>
+
+  <main class="content" id="app">
+    <!-- Inicio -->
+    <section id="inicio" class="section hero">
+      <div class="container">
+        <h1 data-i18n="hero.title">Bienestar emocional y tecnología</h1>
+        <p data-i18n="hero.subtitle">Plataforma sencilla para comprender, cuidar y entrenar el bienestar emocional, basada en ciencia.</p>
+        <div class="cta-row">
+          <a href="/particular.html" class="btn" data-i18n="hero.ctaUser">Soy particular</a>
+          <a href="/organizacion.html" class="btn" data-i18n="hero.ctaOrg">Soy organización</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA blog -->
+    <nav style="text-align:center; padding:40px 0;">
+      <a href="/blog/" style="background:#f3f3f3; color:#333; padding:12px 28px; border-radius:30px; text-decoration:none; font-weight:500; letter-spacing:.3px; box-shadow:0 2px 6px rgba(0,0,0,.1); transition:all .25s;">
+        <span data-i18n="blog.enter">Entrar al Blog</span>
       </a>
-      <ul class="menu-list" role="list">
-        <li><a href="/inicio.html" data-i18n="side.home">Inicio</a></li>
-        <li><a href="/blog/index.html" data-i18n="side.blog">Blog</a></li>
-        <li><a href="/recursos.html" data-i18n="side.resources">Recursos</a></li>
-        <li><a href="/contacto.html" data-i18n="side.contact">Contacto</a></li>
-        <li><a href="/login.html" data-i18n="side.login">Iniciar sesión</a></li>
-      </ul>
-      <a class="privacy-link" href="/privacidad.html" data-i18n="side.privacy">Privacidad</a>
+      <p style="margin-top:12px; color:#555; font-size:15px;" data-i18n="blog.note">Un espacio tranquilo para leer, pensar y cuidarte.</p>
     </nav>
 
-    <main class="content" id="app">
-      <!-- Inicio -->
-      <section id="inicio" class="section hero">
-        <div class="container">
-          <h1 data-i18n="hero.title">Bienestar emocional y tecnología</h1>
-          <p data-i18n="hero.subtitle">Plataforma sencilla para comprender, cuidar y entrenar el bienestar emocional, basada en ciencia.</p>
-          <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:24px;">
-            <a href="/particular.html" class="btn" data-i18n="hero.ctaUser">Soy particular</a>
-            <a href="/organizacion.html" class="btn" data-i18n="hero.ctaOrg">Soy organización</a>
-          </div>
-        </div>
-      </section>
+    <!-- Misión -->
+    <section id="mision" class="section reveal">
+      <div class="container">
+        <h2 style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="mission.title">Nuestra misión</h2>
+        <p data-i18n="mission.desc">Crear herramientas accesibles, seguras y útiles que apoyen hábitos saludables, autoobservación y decisión informada.</p>
+        <ul class="bullets">
+          <li data-i18n="mission.b1">Psicología basada en evidencia</li>
+          <li data-i18n="mission.b2">Privacidad por diseño</li>
+          <li data-i18n="mission.b3">Accesibilidad y lenguaje claro</li>
+        </ul>
+      </div>
+    </section>
 
-      <!-- CTA blog -->
-      <nav style="text-align:center; padding:40px 0;">
-        <a href="/blog/" style="background:#f3f3f3; color:#333; padding:12px 28px; border-radius:30px; text-decoration:none; font-weight:500; letter-spacing:.3px; box-shadow:0 2px 6px rgba(0,0,0,.1); transition:all .25s;">
-          <span data-i18n="blog.enter">Entrar al Blog</span>
-        </a>
-        <p style="margin-top:12px; color:#555; font-size:15px;" data-i18n="blog.note">Un espacio tranquilo para leer, pensar y cuidarte.</p>
-      </nav>
-
-      <!-- Misión -->
-      <section id="mision" class="section reveal">
-        <div class="container">
-          <h2 data-i18n="mission.title">Nuestra misión</h2>
-          <p data-i18n="mission.desc">Crear herramientas accesibles, seguras y útiles que apoyen hábitos saludables, autoobservación y decisión informada.</p>
-          <ul class="bullets">
-            <li data-i18n="mission.b1">Psicología basada en evidencia</li>
-            <li data-i18n="mission.b2">Privacidad por diseño</li>
-            <li data-i18n="mission.b3">Accesibilidad y lenguaje claro</li>
-          </ul>
+    <!-- Producto -->
+    <section id="producto" class="section alt reveal">
+      <div class="container">
+        <h2 style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="product.title">Producto</h2>
+        <p data-i18n="product.desc">Primera versión, autochequeo diario, micro ejercicios de regulación y panel de progreso.</p>
+        <div class="grid" role="list">
+          <article class="card" role="listitem">
+            <h3 data-i18n="product.c1t">Chequeo</h3>
+            <p data-i18n="product.c1d">2 a 3 preguntas al día para tomar pulso emocional sin saturar.</p>
+          </article>
+          <article class="card" role="listitem">
+            <h3 data-i18n="product.c2t">Ejercicios</h3>
+            <p data-i18n="product.c2d">Respiración, reencuadre, plan de acción breve. Todo guiado.</p>
+          </article>
+          <article class="card" role="listitem">
+            <h3 data-i18n="product.c3t">Progreso</h3>
+            <p data-i18n="product.c3d">Gráficas simples y metas semanales comprensibles.</p>
+          </article>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Producto -->
-      <section id="producto" class="section alt reveal">
-        <div class="container">
-          <h2 data-i18n="product.title">Producto</h2>
-          <p data-i18n="product.desc">Primera versión, autochequeo diario, micro ejercicios de regulación y panel de progreso.</p>
-          <div class="grid">
-            <div class="card">
-              <h3 data-i18n="product.c1t">Chequeo</h3>
-              <p data-i18n="product.c1d">2 a 3 preguntas al día para tomar pulso emocional sin saturar.</p>
-            </div>
-            <div class="card">
-              <h3 data-i18n="product.c2t">Ejercicios</h3>
-              <p data-i18n="product.c2d">Respiración, reencuadre, plan de acción breve. Todo guiado.</p>
-            </div>
-            <div class="card">
-              <h3 data-i18n="product.c3t">Progreso</h3>
-              <p data-i18n="product.c3d">Gráficas simples y metas semanales comprensibles.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+    <!-- Frase del día -->
+    <section id="frase" class="section reveal">
+      <div class="container">
+        <h2 style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="quote.title">Frase del día</h2>
+        <p id="fraseTexto" class="frase">Respira. Un paso a la vez.</p>
+        <button id="nuevaFraseBtn" class="btn" data-i18n="quote.new">Nueva frase</button>
+      </div>
+    </section>
 
-      <!-- Frase del día -->
-      <section id="frase" class="section reveal">
-        <div class="container">
-          <h2 data-i18n="quote.title">Frase del día</h2>
-          <p id="fraseTexto" class="frase">Respira. Un paso a la vez.</p>
-          <button id="nuevaFraseBtn" class="btn" data-i18n="quote.new">Nueva frase</button>
+    <!-- Equipo -->
+    <section id="equipo" class="section reveal">
+      <div class="container">
+        <h2 style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="team.title">Equipo</h2>
+        <div class="grid team">
+          <article class="card member">
+            <h3>G. Musterova</h3>
+            <p data-i18n="team.m1">Psicología, investigación y dirección.</p>
+          </article>
+          <article class="card member">
+            <h3 data-i18n="team.m2t">Colaborador técnico</h3>
+            <p data-i18n="team.m2">Front end y producto.</p>
+          </article>
+          <article class="card member">
+            <h3 data-i18n="team.m3t">Consejo asesor</h3>
+            <p data-i18n="team.m3">Clínica, datos y ética.</p>
+          </article>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Equipo -->
-      <section id="equipo" class="section reveal">
-        <div class="container">
-          <h2 data-i18n="team.title">Equipo</h2>
-          <div class="grid team">
-            <article class="member">
-              <h3>G. Musterova</h3>
-              <p data-i18n="team.m1">Psicología, investigación y dirección.</p>
-            </article>
-            <article class="member">
-              <h3 data-i18n="team.m2t">Colaborador técnico</h3>
-              <p data-i18n="team.m2">Front end y producto.</p>
-            </article>
-            <article class="member">
-              <h3 data-i18n="team.m3t">Consejo asesor</h3>
-              <p data-i18n="team.m3">Clínica, datos y ética.</p>
-            </article>
-          </div>
-        </div>
-      </section>
+    <!-- Contacto -->
+    <section id="contacto" class="section alt">
+      <div class="container">
+        <h2 style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="contact.title">Contacto</h2>
+        <form id="contactForm" class="form">
+          <input type="hidden" name="_subject" value="Nuevo mensaje desde TEMOTIVA">
+          <input type="hidden" name="_language" value="es">
+          <input type="text" name="nombre" placeholder="Tu nombre" required data-i18n-placeholder="contact.name" autocomplete="name" />
+          <input type="email" name="email" placeholder="Tu email" required data-i18n-placeholder="contact.email" autocomplete="email" />
+          <textarea name="mensaje" rows="4" placeholder="¿Cómo podemos ayudarte?" required data-i18n-placeholder="contact.msg"></textarea>
+          <label style="display:flex;gap:8px;align-items:flex-start;font-size:14px;margin:8px 0 12px;">
+            <input type="checkbox" name="consent" required>
+            <span data-i18n="contact.gdpr">Acepto la <a href='/privacidad.html'>política de privacidad</a></span>
+          </label>
+          <input type="text" name="_gotcha" style="display:none">
+          <button type="submit" class="btn" data-i18n="contact.send">Enviar</button>
+        </form>
+        <p id="formMsg" class="form-msg oculto" data-i18n="contact.ok" style="color:#1a7f37;">Gracias, te contactaremos pronto.</p>
+      </div>
+    </section>
 
-      <!-- Contacto -->
-      <section id="contacto" class="section alt">
-        <div class="container">
-          <h2 data-i18n="contact.title">Contacto</h2>
-          <form id="contactForm" class="form">
-            <input type="hidden" name="_subject" value="Nuevo mensaje desde TEMOTIVA">
-            <input type="hidden" name="_language" value="es">
-            <input type="text" name="nombre" placeholder="Tu nombre" required data-i18n-placeholder="contact.name" autocomplete="name" />
-            <input type="email" name="email" placeholder="Tu email" required data-i18n-placeholder="contact.email" autocomplete="email" />
-            <textarea name="mensaje" rows="4" placeholder="¿Cómo podemos ayudarte?" required data-i18n-placeholder="contact.msg"></textarea>
-            <label style="display:flex;gap:8px;align-items:flex-start;font-size:14px;margin:8px 0 12px;">
-              <input type="checkbox" name="consent" required>
-              <span data-i18n="contact.gdpr">Acepto la <a href='/privacidad.html'>política de privacidad</a></span>
-            </label>
-            <input type="text" name="_gotcha" style="display:none">
-            <button type="submit" class="btn" data-i18n="contact.send">Enviar</button>
-          </form>
-          <p id="formMsg" class="form-msg oculto" data-i18n="contact.ok">Gracias, te contactaremos pronto.</p>
+    <footer class="site-footer">
+      <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
+        <p style="margin:0;">© TEMOTIVA desde 2024</p>
+        <div style="display:flex; gap:10px; align-items:center;">
+          <a href="/privacidad.html" data-i18n="side.privacy">Política de privacidad</a>
+          <a href="/cookies.html">Política de cookies</a>
+          <a href="/aviso-legal.html">Aviso legal</a>
+          <a href="#inicio" class="back-top" data-i18n="footer.top" style="color:var(--ink-soft);">Volver arriba ↑</a>
         </div>
-      </section>
-
-      <footer class="site-footer">
-        <div class="container">
-          <p>© TEMOTIVA desde 2024</p>
-          <a href="#inicio" class="back-top" data-i18n="footer.top">Volver arriba ↑</a>
-        </div>
-      </footer>
-    </main>
-  </div>
+      </div>
+    </footer>
+  </main>
 
   <!-- Supabase (defer para no bloquear) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
@@ -336,96 +419,85 @@
     });
   </script>
 
-  <!-- Tu JS -->
+  <!-- Tu JS base -->
   <script src="/script.js" defer></script>
 
-  <!-- UI: panel accesible, tema, idioma, reveal, SW, frase, form -->
+  <!-- UI mejorada: panel, tema auto/dark/light, idioma, reveal, SW, frase, form, header shadow, PWA -->
   <script>
-    // Utilidades
-    const qs = s => document.querySelector(s);
-    const qsa = s => Array.from(document.querySelectorAll(s));
+    document.documentElement.classList.add('js-ready');
 
-    // Panel lateral accesible
+    const $ = s => document.querySelector(s);
+    const $$ = s => Array.from(document.querySelectorAll(s));
+
+    /* Header sombra en scroll */
+    const siteHeader = $("#siteHeader");
+    const onScrollHeader = () => {
+      const y = window.scrollY || window.pageYOffset;
+      siteHeader.classList.toggle("is-scrolled", y > 8);
+    };
+    onScrollHeader();
+    document.addEventListener("scroll", onScrollHeader, { passive: true });
+
+    /* Panel lateral accesible */
     const body = document.body;
-    const sidebar = qs("#sidePanel");
-    const overlay = qs("#overlay");
-    const menuBtn = qs("#menuBtn");
-    let lastFocus = null;
+    const sidebar = $("#sidePanel");
+    const overlay = $("#overlay");
+    const menuBtn = $("#menuBtn");
 
     function openSidebar(){
-      lastFocus = document.activeElement;
       sidebar.classList.add("is-open");
-      sidebar.setAttribute("aria-hidden", "false");
+      sidebar.setAttribute("aria-hidden","false");
       overlay.classList.add("show");
-      menuBtn.setAttribute("aria-expanded","true");
       body.style.overflow = "hidden";
+      menuBtn?.setAttribute("aria-expanded","true");
       const first = sidebar.querySelector("a, button, input, select, textarea");
       first && first.focus();
-      trapFocus(true);
     }
     function closeSidebar(){
       sidebar.classList.remove("is-open");
-      sidebar.setAttribute("aria-hidden", "true");
+      sidebar.setAttribute("aria-hidden","true");
       overlay.classList.remove("show");
-      menuBtn.setAttribute("aria-expanded","false");
       body.style.overflow = "";
-      trapFocus(false);
-      lastFocus && lastFocus.focus();
+      menuBtn?.setAttribute("aria-expanded","false");
     }
-    function toggleSidebar(){ sidebar.classList.contains("is-open") ? closeSidebar() : openSidebar(); }
-
-    menuBtn?.addEventListener("click", toggleSidebar);
+    menuBtn?.addEventListener("click", () => sidebar.classList.contains("is-open") ? closeSidebar() : openSidebar());
     overlay?.addEventListener("click", closeSidebar);
-    document.addEventListener("keydown", e => {
-      if(e.key === "Escape" && sidebar.classList.contains("is-open")) closeSidebar();
+    document.addEventListener("keydown", e => { if(e.key === "Escape") closeSidebar(); });
+
+    /* Tema: auto -> dark -> light */
+    const metaTheme = $("#meta-theme");
+    const THEME_KEY = "temotiva-theme-mode"; // "auto" | "dark" | "light"
+    const mDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+    function applyTheme(mode){
+      const root = document.documentElement;
+      if(mode === "dark"){
+        root.setAttribute("data-theme", "dark");
+        metaTheme?.setAttribute("content", "#0f1115");
+      } else if(mode === "light"){
+        root.setAttribute("data-theme", "light");
+        metaTheme?.setAttribute("content", "#F7F7F7");
+      } else {
+        // auto
+        root.setAttribute("data-theme", mDark.matches ? "dark" : "light");
+        metaTheme?.setAttribute("content", mDark.matches ? "#0f1115" : "#F7F7F7");
+      }
+      localStorage.setItem(THEME_KEY, mode);
+    }
+    mDark.addEventListener("change", () => {
+      if((localStorage.getItem(THEME_KEY) || "auto") === "auto") applyTheme("auto");
     });
-
-    // Focus trap
-    function trapFocus(enable){
-      if(!enable){
-        document.removeEventListener("keydown", handleTrap);
-        return;
-      }
-      document.addEventListener("keydown", handleTrap);
-      function handleTrap(e){
-        if(e.key !== "Tab") return;
-        const focusables = sidebar.querySelectorAll('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
-        const list = Array.from(focusables).filter(el => !el.hasAttribute("disabled"));
-        if(!list.length) return;
-        const first = list[0], last = list[list.length - 1];
-        if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
-        else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
-      }
-    }
-
-    // Modo oscuro
-    const themeBtn = qs("#themeBtn");
-    const metaTheme = qs("#meta-theme");
-    const THEME_KEY = "temotiva-theme";
-    function applyTheme(t){
-      document.documentElement.dataset.theme = t;
-      if(t === "dark"){
-        metaTheme.setAttribute("content", "#0f1115");
-        document.documentElement.classList.add("theme-dark");
-      }else{
-        metaTheme.setAttribute("content", "#F7F7F7");
-        document.documentElement.classList.remove("theme-dark");
-      }
-      localStorage.setItem(THEME_KEY, t);
-    }
-    const savedTheme = localStorage.getItem(THEME_KEY);
-    if(savedTheme){ applyTheme(savedTheme); }
-    themeBtn?.addEventListener("click", () => {
-      const next = document.documentElement.classList.contains("theme-dark") ? "light" : "dark";
+    $("#themeBtn")?.addEventListener("click", () => {
+      const cur = localStorage.getItem(THEME_KEY) || "auto";
+      const next = cur === "auto" ? "dark" : cur === "dark" ? "light" : "auto";
       applyTheme(next);
     });
+    applyTheme(localStorage.getItem(THEME_KEY) || "auto");
 
-    // Idiomas ES/EN
-    const langBtn = qs("#langBtn");
+    /* Idiomas ES/EN */
     const LANG_KEY = "temotiva-lang";
     const i18n = {
-      es: {
-        "nav.home":"Inicio","nav.mission":"Misión","nav.product":"Producto","nav.team":"Equipo","nav.contact":"Contacto",
+      es: { "nav.home":"Inicio","nav.mission":"Misión","nav.product":"Producto","nav.team":"Equipo","nav.contact":"Contacto",
         "side.home":"Inicio","side.blog":"Blog","side.resources":"Recursos","side.contact":"Contacto","side.login":"Iniciar sesión","side.privacy":"Privacidad",
         "hero.title":"Bienestar emocional y tecnología",
         "hero.subtitle":"Plataforma sencilla para comprender, cuidar y entrenar el bienestar emocional, basada en ciencia.",
@@ -442,8 +514,7 @@
         "contact.title":"Contacto","contact.name":"Tu nombre","contact.email":"Tu email","contact.msg":"¿Cómo podemos ayudarte?","contact.gdpr":"Acepto la <a href='/privacidad.html'>política de privacidad</a>","contact.send":"Enviar","contact.ok":"Gracias, te contactaremos pronto.",
         "footer.top":"Volver arriba ↑"
       },
-      en: {
-        "nav.home":"Home","nav.mission":"Mission","nav.product":"Product","nav.team":"Team","nav.contact":"Contact",
+      en: { "nav.home":"Home","nav.mission":"Mission","nav.product":"Product","nav.team":"Team","nav.contact":"Contact",
         "side.home":"Home","side.blog":"Blog","side.resources":"Resources","side.contact":"Contact","side.login":"Log in","side.privacy":"Privacy",
         "hero.title":"Emotional wellbeing and technology",
         "hero.subtitle":"A simple platform to understand, care for, and train emotional wellbeing, grounded in science.",
@@ -464,28 +535,34 @@
     function applyLang(lang){
       const dict = i18n[lang] || i18n.es;
       document.documentElement.setAttribute("lang", lang === "en" ? "en" : "es");
-      qsa("[data-i18n]").forEach(el => { const k = el.getAttribute("data-i18n"); if(dict[k]) el.innerHTML = dict[k]; });
-      qsa("[data-i18n-placeholder]").forEach(el => { const k = el.getAttribute("data-i18n-placeholder"); if(dict[k]) el.setAttribute("placeholder", dict[k]); });
-      localStorage.setItem(LANG_KEY, lang);
+      $$(".nav-links a, [data-i18n], [data-i18n-placeholder]").forEach(el => {
+        const k = el.getAttribute("data-i18n") || el.getAttribute("data-i18n-placeholder");
+        if(!k) return;
+        if(el.hasAttribute("data-i18n-placeholder")){
+          if(dict[k]) el.setAttribute("placeholder", dict[k]);
+        } else {
+          if(dict[k]) el.innerHTML = dict[k];
+        }
+      });
+      localStorage.setItem("temotiva-lang", lang);
     }
-    const LANG_KEY = "temotiva-lang";
-    applyLang(localStorage.getItem(LANG_KEY) || "es");
-    qs("#langBtn")?.addEventListener("click", ()=>{
-      const next = (localStorage.getItem(LANG_KEY) || "es") === "es" ? "en" : "es";
+    applyLang(localStorage.getItem("temotiva-lang") || "es");
+    $("#langBtn")?.addEventListener("click", ()=>{
+      const next = (localStorage.getItem("temotiva-lang") || "es") === "es" ? "en" : "es";
       applyLang(next);
     });
 
-    // Reveal con IntersectionObserver
+    /* Reveal con IO */
     (function(){
-      const items = qsa(".reveal");
+      const items = $$(".reveal");
       if(!("IntersectionObserver" in window)){ items.forEach(el => el.classList.add("visible")); return; }
       const io = new IntersectionObserver(entries => {
         entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add("visible"); io.unobserve(e.target); } });
-      }, { threshold: 0.1, rootMargin: "0px 0px -10% 0px" });
+      }, { threshold: .12, rootMargin: "0px 0px -8% 0px" });
       items.forEach(el => io.observe(el));
     })();
 
-    // Service Worker
+    /* Service Worker */
     if("serviceWorker" in navigator){
       window.addEventListener("load", ()=>{
         navigator.serviceWorker.register("/pwabuilder-sw.js", { scope: "/" })
@@ -494,20 +571,20 @@
       });
     }
 
-    // Frase del día
+    /* Frase del día */
     const frases = [
       "Respira. Un paso a la vez.",
       "Tu progreso importa, aunque sea pequeño.",
       "Date permiso para descansar.",
       "Lo que no mides, no mejoras."
     ];
-    qs("#nuevaFraseBtn")?.addEventListener("click", ()=>{
-      const el = qs("#fraseTexto");
+    $("#nuevaFraseBtn")?.addEventListener("click", ()=>{
+      const el = $("#fraseTexto");
       el.textContent = frases[Math.floor(Math.random()*frases.length)];
     });
 
-    // Formspree
-    const cf = qs("#contactForm");
+    /* Formspree */
+    const cf = $("#contactForm");
     cf?.addEventListener("submit", async e=>{
       e.preventDefault();
       const form = e.target;
@@ -515,10 +592,54 @@
       btn.disabled = true;
       try{
         const resp = await fetch("https://formspree.io/f/xnnobrvn", { method:"POST", headers:{ "Accept":"application/json" }, body:new FormData(form) });
-        if(resp.ok){ form.reset(); qs("#formMsg").classList.remove("oculto"); } else { alert("No se pudo enviar, intenta de nuevo más tarde."); }
+        if(resp.ok){ form.reset(); $("#formMsg").classList.remove("oculto"); } else { alert("No se pudo enviar, intenta de nuevo más tarde."); }
       }catch{ alert("Error de red, revisa tu conexión."); }
       finally{ btn.disabled = false; }
     });
+
+    /* PWA install */
+    const INSTALL_KEY = "temotiva-install-dismissed";
+    const VISITS_KEY = "temotiva-visit-count";
+    let deferredPrompt = null;
+    try {
+      const v = parseInt(localStorage.getItem(VISITS_KEY) || "0", 10) + 1;
+      localStorage.setItem(VISITS_KEY, String(v));
+    } catch {}
+    const installBtn = $("#installBtn");
+    const banner = $("#pwaBanner");
+    const installNow = $("#pwaInstallNow");
+    const installLater = $("#pwaInstallLater");
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installBtn && (installBtn.hidden = false);
+      const dismissed = localStorage.getItem(INSTALL_KEY) === "1";
+      const visits = parseInt(localStorage.getItem(VISITS_KEY) || "0", 10);
+      if (!dismissed && visits >= 3 && banner) banner.classList.add("show");
+    });
+    async function promptInstall(){
+      try{
+        installBtn && (installBtn.hidden = true);
+        await deferredPrompt.prompt();
+        const res = await deferredPrompt.userChoice;
+        if (!res || res.outcome !== "accepted") banner?.classList.remove("show");
+      }catch{}
+      deferredPrompt = null;
+    }
+    installBtn?.addEventListener("click", ()=> deferredPrompt && promptInstall());
+    installNow?.addEventListener("click", ()=> deferredPrompt ? promptInstall() : banner?.classList.remove("show"));
+    installLater?.addEventListener("click", ()=> { localStorage.setItem(INSTALL_KEY,"1"); banner?.classList.remove("show"); });
+
+    window.addEventListener("appinstalled", () => {
+      try { localStorage.setItem(INSTALL_KEY, "1"); } catch {}
+      banner?.classList.remove("show");
+      installBtn && (installBtn.hidden = true);
+      console.log("TEMOTIVA instalada");
+    });
+
+    const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
+    if (isStandalone) { installBtn?.setAttribute("hidden","true"); banner?.classList.remove("show"); }
   </script>
 
   <!-- Banner de instalación PWA -->
@@ -532,95 +653,5 @@
       </div>
     </div>
   </div>
-
-  <!-- Lógica de instalación PWA -->
-  <script>
-    const INSTALL_KEY = "temotiva-install-dismissed";
-    const VISITS_KEY = "temotiva-visit-count";
-    let deferredPrompt = null;
-
-    // Contador de visitas
-    try {
-      const visits = parseInt(localStorage.getItem(VISITS_KEY) || "0", 10) + 1;
-      localStorage.setItem(VISITS_KEY, String(visits));
-    } catch {}
-
-    const installBtn = document.getElementById("installBtn");
-    const banner = document.getElementById("pwaBanner");
-    const installNow = document.getElementById("pwaInstallNow");
-    const installLater = document.getElementById("pwaInstallLater");
-
-    window.addEventListener("beforeinstallprompt", (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-
-      // Muestra botón en header
-      if (installBtn) installBtn.hidden = false;
-
-      // Banner a partir de la tercera visita si no se descartó
-      const dismissed = localStorage.getItem(INSTALL_KEY) === "1";
-      const visits = parseInt(localStorage.getItem(VISITS_KEY) || "0", 10);
-      if (!dismissed && visits >= 3 && banner) banner.classList.add("show");
-    });
-
-    async function promptInstall(){
-      try {
-        installBtn && (installBtn.hidden = true);
-        const choice = await deferredPrompt.prompt();
-        if (deferredPrompt.userChoice) {
-          const res = await deferredPrompt.userChoice;
-          if (res.outcome === "accepted") hideBanner();
-        } else {
-          hideBanner();
-        }
-      } catch {}
-      deferredPrompt = null;
-    }
-
-    function hideBanner(){ banner?.classList.remove("show"); }
-
-    installBtn?.addEventListener("click", async () => {
-      if (!deferredPrompt) return;
-      await promptInstall();
-    });
-
-    installNow?.addEventListener("click", async () => {
-      if (!deferredPrompt) { hideBanner(); return; }
-      await promptInstall();
-    });
-
-    installLater?.addEventListener("click", () => {
-      localStorage.setItem(INSTALL_KEY, "1");
-      hideBanner();
-    });
-
-    window.addEventListener("appinstalled", () => {
-      try { localStorage.setItem(INSTALL_KEY, "1"); } catch {}
-      hideBanner();
-      if (installBtn) installBtn.hidden = true;
-      console.log("TEMOTIVA instalada");
-    });
-
-    // Oculta controles si ya está en standalone
-    const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
-    if (isStandalone) {
-      installBtn?.setAttribute("hidden", "true");
-      hideBanner();
-    }
-
-    // Pista iOS si no hay beforeinstallprompt
-    const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-    if (isIOS && isSafari) {
-      // Opcional: mostrar un pequeño aviso no intrusivo sobre “Añadir a pantalla de inicio”
-      // Puedes activar un mini tooltip aquí si lo deseas
-    }
-  </script>
-
-  <footer style="padding:16px;text-align:center;font-size:14px;">
-    <a href="/privacidad.html" data-i18n="side.privacy">Política de privacidad</a> ·
-    <a href="/cookies.html">Política de cookies</a> ·
-    <a href="/aviso-legal.html">Aviso legal</a>
-  </footer>
 </body>
 </html>
