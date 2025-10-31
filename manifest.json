@@ -1,17 +1,111 @@
 {
-  "id": "https://www.temotiva.com/",
+  "id": "/",
   "name": "TEMOTIVA",
   "short_name": "TEMOTIVA",
   "description": "Bienestar emocional para mejorar la salud mental y el autocuidado en la vida cotidiana.",
   "lang": "es-ES",
-  "start_url": "/?source=pwa",
+  "dir": "ltr",
+  "start_url": "/inicio.html?source=pwa",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#FFFFFF",
   "theme_color": "#F7F7F7",
+  "categories": ["health", "education", "lifestyle", "productivity"],
+  "iarc_rating_id": "e10plus",
+  "prefer_related_applications": false,
+  "screenshots": [
+    {
+      "src": "/screenshot-1.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Pantalla de inicio TEMOTIVA"
+    },
+    {
+      "src": "/screenshot-2.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Interfaz del blog TEMOTIVA"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Blog",
+      "short_name": "Blog",
+      "description": "Lee artículos sobre bienestar emocional y autocuidado.",
+      "url": "/blog/",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Recursos",
+      "short_name": "Recursos",
+      "description": "Accede a guías y ejercicios descargables.",
+      "url": "/recursos.html",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Contacto",
+      "short_name": "Contacto",
+      "description": "Escríbenos o envíanos tus comentarios.",
+      "url": "/contacto.html"
+    }
+  ],
   "icons": [
-    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
-    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
-  ]
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+temotiva",
+      "url": "/inicio.html?data=%s"
+    }
+  ],
+  "file_handlers": [
+    {
+      "action": "/inicio.html",
+      "accept": { "text/plain": [".txt"], "application/pdf": [".pdf"] }
+    }
+  ],
+  "share_target": {
+    "action": "/share.html",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [{ "name": "file", "accept": ["image/*"] }]
+    }
+  },
+  "display_override": ["window-controls-overlay", "fullscreen", "standalone"]
 }
