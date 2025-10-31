@@ -16,6 +16,7 @@
       --soft: #555;
       --bg: #f9f9f9;
       --card: #fff;
+      color-scheme: light dark;
     }
     @media (prefers-color-scheme: dark) {
       :root {
@@ -53,6 +54,10 @@
       font-size: 1.8rem;
       margin-top: 0;
     }
+    h2 {
+      margin-top: 1.6rem;
+      font-size: 1.15rem;
+    }
     p {
       color: var(--soft);
     }
@@ -66,6 +71,16 @@
       color: inherit;
       text-decoration: underline;
     }
+    ul { padding-left: 1.1rem; }
+    .box {
+      background: rgba(0,0,0,.035);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin: 12px 0;
+    }
+    @media (prefers-color-scheme: dark) {
+      .box { background: rgba(255,255,255,.06); }
+    }
   </style>
 </head>
 <body>
@@ -78,4 +93,48 @@
 
   <main>
     <h1>Aviso legal</h1>
-    <p><strong>TEMOTIVA</strong> es una plataforma dedicada al bienestar emocional y la educación psicológica. Su contenido tiene carácter informativo y educativo, sin sustituir el diagnóstico, tratamiento ni la intervenci
+
+    <p><strong>TEMOTIVA</strong> es una plataforma dedicada al bienestar emocional y la educación psicológica. Su contenido tiene carácter informativo y educativo, sin sustituir el diagnóstico, tratamiento ni la intervención de profesionales de la salud mental o sanitaria.</p>
+
+    <div class="box">
+      <p>Ante una urgencia, contacta con el <strong>112</strong> o acude a los servicios de emergencia de tu zona.  
+      Si tienes dudas sobre tu salud o bienestar, consulta siempre con profesionales cualificados.</p>
+    </div>
+
+    <h2>Propiedad intelectual</h2>
+    <p>El nombre, logotipo, estructura, diseño y contenidos de TEMOTIVA son propiedad de su autora. Los textos y materiales pueden citarse con atribución, pero no modificarse ni reproducirse con fines comerciales sin consentimiento previo.</p>
+
+    <h2>Condiciones de uso</h2>
+    <ul>
+      <li>El acceso a la web implica la aceptación de este aviso legal.</li>
+      <li>El uso debe ser conforme a la buena fe y la legislación vigente.</li>
+      <li>El usuario se compromete a no utilizar los contenidos con fines ilícitos o que puedan dañar la imagen o intereses de TEMOTIVA.</li>
+    </ul>
+
+    <h2>Limitación de responsabilidad</h2>
+    <p>El uso de la información publicada es responsabilidad exclusiva del usuario. TEMOTIVA no garantiza la disponibilidad permanente del sitio ni la ausencia de errores técnicos, aunque se esfuerza en mantenerlo actualizado y seguro.</p>
+
+    <h2>Enlaces externos</h2>
+    <p>La web puede contener enlaces a recursos de terceros con fines informativos. TEMOTIVA no se responsabiliza del contenido, exactitud ni seguridad de dichos sitios, ni del tratamiento de datos que realicen.</p>
+
+    <h2>Imágenes y material gráfico</h2>
+    <p>Las imágenes utilizadas son de uso libre o generadas mediante inteligencia artificial con fines ilustrativos. No representan a personas reales ni implican derechos de imagen o propiedad ajena.</p>
+
+    <h2>Protección de datos</h2>
+    <p>Los datos personales se tratan conforme al Reglamento General de Protección de Datos (RGPD) y se detallan en la <a href="/privacidad.html">Política de privacidad</a>.</p>
+
+    <h2>Contacto</h2>
+    <p>Responsable: <strong>Gabriela Musterova</strong><br>
+    Correo electrónico: <a href="mailto:gmusterova@gmail.com">gmusterova@gmail.com</a><br>
+    Ubicación: Valencia, España</p>
+
+    <p><small>Última actualización: 30 de octubre de 2025</small></p>
+  </main>
+
+  <footer>
+    <p>© TEMOTIVA 2024–2025 · Todos los derechos reservados</p>
+    <a href="/privacidad.html">Política de privacidad</a> · 
+    <a href="/cookies.html">Política de cookies</a>
+  </footer>
+</body>
+</html>
