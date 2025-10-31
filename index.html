@@ -7,6 +7,7 @@
   <title>TEMOTIVA | Innovación en bienestar emocional</title>
   <meta name="description" content="Bienestar emocional para mejorar la salud mental y el autocuidado en la vida cotidiana.">
   <meta name="keywords" content="bienestar emocional, salud mental, autocuidado, tecnología emocional, temotiva, innovación, psicología digital">
+  <link rel="canonical" href="https://www.temotiva.com/">
 
   <!-- PWA -->
   <link rel="manifest" href="/manifest.json">
@@ -14,21 +15,48 @@
   <meta name="application-name" content="TEMOTIVA">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="color-scheme" content="light dark">
   <link rel="apple-touch-icon" href="/icon-192.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
-  <meta name="color-scheme" content="light dark">
+  <!-- Icono maskable recomendado por PWABuilder -->
+  <link rel="icon" type="image/png" sizes="512x512" href="/icon-maskable-512.png" purpose="maskable">
 
-  <!-- Estilos globales -->
+  <!-- Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TEMOTIVA, bienestar emocional y tecnología">
+  <meta property="og:description" content="Chequeos diarios, micro ejercicios, progreso claro, privacidad por diseño.">
+  <meta property="og:url" content="https://www.temotiva.com/">
+  <meta property="og:image" content="https://www.temotiva.com/screenshot-1.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Rendimiento -->
+  <link rel="preload" href="/style.css" as="style">
   <link rel="stylesheet" href="/style.css" />
+  <link rel="preload" as="image" href="/chica-meditando.png" imagesrcset="/chica-meditando.png 1x">
+  <link rel="preconnect" href="https://ejhzxwnhqvcqjqxnuvya.supabase.co" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://formspree.io" crossorigin>
 
-  <!-- Estilos mínimos para portada, header y sidebar -->
+  <!-- Datos estructurados -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"TEMOTIVA",
+    "url":"https://www.temotiva.com/",
+    "description":"Bienestar emocional para mejorar la salud mental y el autocuidado en la vida cotidiana.",
+    "inLanguage":"es"
+  }
+  </script>
+
+  <!-- Estilos mínimos de layout local (mantengo tu CSS base en /style.css) -->
   <style>
     /* Layout lateral */
     .layout { display:flex; min-height:100vh; }
     .sidebar {
       position:sticky; top:64px; align-self:flex-start;
-      width:250px; padding:20px 16px; background:#fff; border-right:1px solid #eee;
+      width:250px; padding:20px 16px; background:var(--card); border-right:1px solid #eee;
       height:calc(100vh - 64px); box-sizing:border-box;
     }
     .sidebar .logo-side { display:flex; align-items:center; gap:8px; text-decoration:none; color:#111; font-weight:700; }
@@ -67,20 +95,19 @@
     }
     @media (max-width: 900px){
       .section.hero::after{ left:65%; opacity:.16; }
+      .hero .btn { width:100%; justify-content:center; }
     }
     @media (min-width: 1000px){
       .section.hero{ min-height:520px; }
     }
 
-    /* Botonera de acciones en header */
+    /* Acciones header y móvil */
     .header-actions{ display:flex; align-items:center; gap:.5rem; }
     .icon-btn{
       border:1px solid #ddd; background:var(--card); color:var(--ink);
       padding:.45rem .65rem; border-radius:10px; cursor:pointer; min-height:36px;
     }
     .icon-btn:hover{ background:var(--muted); }
-
-    /* Móvil: sidebar deslizable */
     @media (max-width: 900px) {
       .sidebar { position:fixed; left:-270px; top:64px; transition:left .25s ease; z-index:9999; }
       .sidebar.is-open { left:0; box-shadow:0 6px 28px rgba(0,0,0,.15); }
@@ -90,12 +117,23 @@
       .site-header .menu-btn { display:inline-block; }
     }
 
-    /* Hotfix reveal por si el JS no carga */
+    /* Accesibilidad */
+    .skip-link {
+      position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+    }
+    .skip-link:focus {
+      position:fixed; left:16px; top:16px; width:auto; height:auto; padding:.5rem .75rem;
+      background:var(--card); color:var(--ink); border-radius:10px; z-index:2000;
+      box-shadow:0 8px 24px rgba(0,0,0,.15);
+    }
+
+    /* Hotfix reveal si el JS no carga */
     .reveal { opacity:1 !important; transform:none !important; }
   </style>
 </head>
 <body>
-  <noscript>Activa JavaScript para usar TEMOTIVA.</noscript>
+  <a href="#app" class="skip-link">Saltar al contenido</a>
+  <noscript><div style="padding:12px;text-align:center;background:#fff4cd;color:#7a5d00">Activa JavaScript para usar TEMOTIVA.</div></noscript>
 
   <!-- Overlay móvil -->
   <div id="overlay" class="overlay" aria-hidden="true"></div>
@@ -117,7 +155,7 @@
         <button id="menuBtn" aria-label="Abrir menú" class="menu-btn">☰</button>
       </div>
 
-      <nav id="mainNav" class="nav-links">
+      <nav id="mainNav" class="nav-links" aria-label="Menú principal">
         <a href="#inicio" data-i18n="nav.home">Inicio</a>
         <a href="#mision" data-i18n="nav.mission">Misión</a>
         <a href="#producto" data-i18n="nav.product">Producto</a>
@@ -131,7 +169,7 @@
   <div class="layout">
     <nav class="sidebar" aria-label="Menú lateral">
       <a class="logo-side" href="/inicio.html">
-        <img src="/icon-192.png" alt="Logo TEMOTIVA">
+        <img src="/icon-192.png" alt="Logo TEMOTIVA" width="32" height="32">
         <span>TEMOTIVA</span>
       </a>
       <ul class="menu-list">
@@ -238,8 +276,8 @@
             <input type="hidden" name="_subject" value="Nuevo mensaje desde TEMOTIVA">
             <input type="hidden" name="_language" value="es">
 
-            <input type="text" name="nombre" placeholder="Tu nombre" required data-i18n-placeholder="contact.name" />
-            <input type="email" name="email" placeholder="Tu email" required data-i18n-placeholder="contact.email" />
+            <input type="text" name="nombre" placeholder="Tu nombre" required data-i18n-placeholder="contact.name" autocomplete="name" />
+            <input type="email" name="email" placeholder="Tu email" required data-i18n-placeholder="contact.email" autocomplete="email" />
             <textarea name="mensaje" rows="4" placeholder="¿Cómo podemos ayudarte?" required data-i18n-placeholder="contact.msg"></textarea>
 
             <label style="display:flex;gap:8px;align-items:flex-start;font-size:14px;margin:8px 0 12px;">
@@ -263,19 +301,23 @@
     </main>
   </div>
 
-  <!-- Supabase -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- Supabase (defer para no bloquear) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
   <script>
-    const SUPABASE_URL = "https://ejhzxwnhqvcqjqxnuvya.supabase.co";
-    const SUPABASE_ANON_KEY = "sb_publishable_8nz_638F1vO2JbkFw9DHSw_AxB179qA";
-    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-    console.log("Conectado a Supabase");
+    window.addEventListener("load", () => {
+      try {
+        const SUPABASE_URL = "https://ejhzxwnhqvcqjqxnuvya.supabase.co";
+        const SUPABASE_ANON_KEY = "sb_publishable_8nz_638F1vO2JbkFw9DHSw_AxB179qA";
+        const supabase = window.supabase?.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        console.log("Conectado a Supabase", !!supabase);
+      } catch(e){ console.warn("Supabase no disponible", e); }
+    });
   </script>
 
   <!-- Tu JS -->
   <script src="/script.js" defer></script>
 
-  <!-- JS de UI: sidebar, tema, idioma, reveal, SW -->
+  <!-- JS de UI: sidebar, tema, idioma, reveal, SW y Formspree -->
   <script>
     // Sidebar móvil
     const menuBtn = document.getElementById("menuBtn");
@@ -287,15 +329,15 @@
       overlay.classList.toggle("show", open);
       overlay.setAttribute("aria-hidden", String(!open));
     }
-    if (menuBtn) menuBtn.addEventListener("click", toggleSidebar);
-    if (overlay) overlay.addEventListener("click", toggleSidebar);
+    menuBtn?.addEventListener("click", toggleSidebar);
+    overlay?.addEventListener("click", toggleSidebar);
 
     // Modo oscuro
     const themeBtn = document.getElementById("themeBtn");
     const metaTheme = document.getElementById("meta-theme");
     const THEME_KEY = "temotiva-theme";
     function applyTheme(t){
-      document.documentElement.dataset.theme = t; // para CSS si quieres
+      document.documentElement.dataset.theme = t;
       if(t === "dark"){
         metaTheme.setAttribute("content", "#0f1115");
         document.documentElement.classList.add("theme-dark");
@@ -307,14 +349,12 @@
     }
     const savedTheme = localStorage.getItem(THEME_KEY);
     if(savedTheme){ applyTheme(savedTheme); }
-    if(themeBtn){
-      themeBtn.addEventListener("click", () => {
-        const next = document.documentElement.classList.contains("theme-dark") ? "light" : "dark";
-        applyTheme(next);
-      });
-    }
+    themeBtn?.addEventListener("click", () => {
+      const next = document.documentElement.classList.contains("theme-dark") ? "light" : "dark";
+      applyTheme(next);
+    });
 
-    // Idiomas ES/EN con diccionario mínimo
+    // Idioma ES/EN
     const langBtn = document.getElementById("langBtn");
     const LANG_KEY = "temotiva-lang";
     const i18n = {
@@ -358,39 +398,29 @@
     function applyLang(lang){
       const dict = i18n[lang] || i18n.es;
       document.documentElement.setAttribute("lang", lang === "en" ? "en" : "es");
-      // text nodes
       document.querySelectorAll("[data-i18n]").forEach(el=>{
         const key = el.getAttribute("data-i18n");
         if(dict[key]) el.innerHTML = dict[key];
       });
-      // placeholders
       document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{
         const key = el.getAttribute("data-i18n-placeholder");
-        if(dict[key]) el.setAttribute("placeholder", el.tagName==="TEXTAREA" ? dict[key] : dict[key]);
+        if(dict[key]) el.setAttribute("placeholder", dict[key]);
       });
       localStorage.setItem(LANG_KEY, lang);
     }
     const savedLang = localStorage.getItem(LANG_KEY) || "es";
     applyLang(savedLang);
-    if(langBtn){
-      langBtn.addEventListener("click", ()=>{
-        const next = (localStorage.getItem(LANG_KEY) || "es") === "es" ? "en" : "es";
-        applyLang(next);
-      });
-    }
+    langBtn?.addEventListener("click", ()=>{
+      const next = (localStorage.getItem(LANG_KEY) || "es") === "es" ? "en" : "es";
+      applyLang(next);
+    });
 
-    // Animación reveal correcta
-    document.documentElement.classList.add('js-ready');
+    // Reveal con IntersectionObserver
     (function(){
       const items = document.querySelectorAll('.reveal');
-      if (!('IntersectionObserver' in window)) {
-        items.forEach(el => el.classList.add('visible'));
-        return;
-      }
+      if (!('IntersectionObserver' in window)) { items.forEach(el => el.classList.add('visible')); return; }
       const io = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-        });
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
       }, { threshold: 0.1, rootMargin: '0px 0px -10% 0px' });
       items.forEach(el => io.observe(el));
     })();
@@ -405,33 +435,43 @@
       });
     }
 
+    // Frase del día
+    const frases = [
+      "Respira. Un paso a la vez.",
+      "Tu progreso importa, aunque sea pequeño.",
+      "Date permiso para descansar.",
+      "Lo que no mides, no mejoras."
+    ];
+    document.getElementById("nuevaFraseBtn")?.addEventListener("click", () => {
+      const el = document.getElementById("fraseTexto");
+      el.textContent = frases[Math.floor(Math.random()*frases.length)];
+    });
+
     // Formspree
     const cf = document.getElementById("contactForm");
-    if (cf) {
-      cf.addEventListener("submit", async function(e){
-        e.preventDefault();
-        const form = e.target;
-        const btn = form.querySelector("button[type=submit]");
-        btn.disabled = true;
-        try {
-          const resp = await fetch("https://formspree.io/f/xnnobrvn", {
-            method: "POST",
-            headers: { "Accept": "application/json" },
-            body: new FormData(form)
-          });
-          if (resp.ok) {
-            form.reset();
-            document.getElementById("formMsg").classList.remove("oculto");
-          } else {
-            alert("No se pudo enviar, intenta de nuevo más tarde.");
-          }
-        } catch {
-          alert("Error de red, revisa tu conexión.");
-        } finally {
-          btn.disabled = false;
+    cf?.addEventListener("submit", async function(e){
+      e.preventDefault();
+      const form = e.target;
+      const btn = form.querySelector("button[type=submit]");
+      btn.disabled = true;
+      try {
+        const resp = await fetch("https://formspree.io/f/xnnobrvn", {
+          method: "POST",
+          headers: { "Accept": "application/json" },
+          body: new FormData(form)
+        });
+        if (resp.ok) {
+          form.reset();
+          document.getElementById("formMsg").classList.remove("oculto");
+        } else {
+          alert("No se pudo enviar, intenta de nuevo más tarde.");
         }
-      });
-    }
+      } catch {
+        alert("Error de red, revisa tu conexión.");
+      } finally {
+        btn.disabled = false;
+      }
+    });
   </script>
 
   <footer style="padding:16px;text-align:center;font-size:14px;">
