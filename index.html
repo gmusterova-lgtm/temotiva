@@ -20,20 +20,48 @@
 
   <!-- Estilos -->
   <link rel="stylesheet" href="/style.css" />
+  <!-- Estilos mínimos para la barra lateral -->
+  <style>
+    .layout { display:flex; min-height:100vh; }
+    .sidebar {
+      position:sticky; top:0; align-self:flex-start;
+      width:250px; padding:20px 16px; background:#fff; border-right:1px solid #eee;
+      height:100vh; box-sizing:border-box;
+    }
+    .sidebar .logo-side { display:flex; align-items:center; gap:8px; text-decoration:none; color:#111; font-weight:700; }
+    .sidebar .logo-side img { width:32px; height:32px; border-radius:8px; }
+    .menu-list { list-style:none; padding:0; margin:16px 0; }
+    .menu-list li { margin:8px 0; }
+    .menu-list a { text-decoration:none; color:#333; padding:8px 10px; display:block; border-radius:8px; }
+    .menu-list a:hover, .menu-list a:focus { background:#f4f4f4; outline:none; }
+    .privacy-link { display:block; margin-top:12px; font-size:14px; color:#666; text-decoration:none; }
+    .content { flex:1; min-width:0; }
+    /* Móvil */
+    @media (max-width: 900px) {
+      .sidebar { position:fixed; left:-270px; transition:left .25s ease; z-index:9999; }
+      .sidebar.is-open { left:0; box-shadow:0 6px 28px rgba(0,0,0,.15); }
+      .overlay { position:fixed; inset:0; background:rgba(0,0,0,.25); display:none; z-index:9998; }
+      .overlay.show { display:block; }
+      .content { width:100%; }
+      .site-header .menu-btn { display:inline-block; }
+    }
+    /* Asegurar espacio bajo header fijo si lo usas así */
+    .section.hero { scroll-margin-top:80px; }
+  </style>
 </head>
 <body>
-  <noscript>
-    Activa JavaScript para usar TEMOTIVA.
-  </noscript>
+  <noscript>Activa JavaScript para usar TEMOTIVA.</noscript>
 
-  <!-- Header fijo con menú -->
+  <!-- Overlay móvil -->
+  <div id="overlay" class="overlay" aria-hidden="true"></div>
+
+  <!-- Header fijo con menú superior existente -->
   <header class="site-header">
     <div class="container nav">
-    <a href="#inicio" class="logo" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:inherit;">
-  <img src="/icon-192.png" alt="Logo TEMOTIVA" style="width:36px;height:36px;border-radius:8px;">
-  <span>TEMOTIVA</span>
-</a>
-
+      <a href="#inicio" class="logo" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:inherit;">
+        <img src="/icon-192.png" alt="Logo TEMOTIVA" style="width:36px;height:36px;border-radius:8px;">
+        <span>TEMOTIVA</span>
+      </a>
 
       <!-- Botón móvil -->
       <button id="menuBtn" aria-label="Abrir menú" class="menu-btn">☰</button>
@@ -48,160 +76,142 @@
     </div>
   </header>
 
-  <!-- Inicio -->
-  <section id="inicio" class="section hero">
-    <div class="container">
-      <h1>Bienestar emocional y tecnología</h1>
-      <p>Plataforma sencilla para comprender, cuidar y entrenar el bienestar emocional, basada en ciencia.</p>
-     <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:24px;">
-  <a href="/particular.html" class="btn">Soy particular</a>
-  <a href="/organizacion.html" class="btn">Soy organización</a>
-</div>
-    </div>
-  </section>
-
- <nav style="text-align:center; padding:40px 0;">
-  <a href="/blog/" 
-     style="background:#f3f3f3; color:#333; padding:12px 28px; border-radius:30px; 
-            text-decoration:none; font-weight:500; letter-spacing:0.3px; 
-            box-shadow:0 2px 6px rgba(0,0,0,0.1); transition:all .25s ease-in-out;">
-    Entrar al Blog
-  </a>
-  <p style="margin-top:12px; color:#555; font-size:15px;">
-    
-    Un espacio tranquilo para leer, pensar y cuidarte.
-  </p>
-</nav>
-
-
-  <!-- Misión -->
-  <section id="mision" class="section reveal">
-    <div class="container">
-      <h2>Nuestra misión</h2>
-      <p>Crear herramientas accesibles, seguras y útiles que apoyen hábitos saludables, autoobservación y decisión informada.</p>
-      <ul class="bullets">
-        <li>Psicología basada en evidencia</li>
-        <li>Privacidad por diseño</li>
-        <li>Accesibilidad y lenguaje claro</li>
+  <!-- Layout con barra lateral + contenido existente -->
+  <div class="layout">
+    <!-- Sidebar pack 1 -->
+    <nav class="sidebar" aria-label="Menú lateral">
+      <a class="logo-side" href="/inicio.html">
+        <img src="/icon-192.png" alt="Logo TEMOTIVA">
+        <span>TEMOTIVA</span>
+      </a>
+      <ul class="menu-list">
+        <li><a href="/inicio.html">Inicio</a></li>
+        <li><a href="/blog/index.html">Blog</a></li>
+        <li><a href="/recursos.html">Recursos</a></li>
+        <li><a href="/contacto.html">Contacto</a></li>
+        <li><a href="/login.html">Iniciar sesión</a></li>
       </ul>
-    </div>
-  </section>
+      <a class="privacy-link" href="/privacidad.html">Privacidad</a>
+    </nav>
 
-  <!-- Producto -->
-  <section id="producto" class="section alt reveal">
-    <div class="container">
-      <h2>Producto</h2>
-      <p>Primera versión, autochequeo diario, micro ejercicios de regulación y panel de progreso.</p>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Chequeo</h3>
-          <p>2 a 3 preguntas al día para tomar pulso emocional sin saturar.</p>
+    <!-- Contenido original intacto -->
+    <main class="content" id="app">
+      <!-- Inicio -->
+      <section id="inicio" class="section hero">
+        <div class="container">
+          <h1>Bienestar emocional y tecnología</h1>
+          <p>Plataforma sencilla para comprender, cuidar y entrenar el bienestar emocional, basada en ciencia.</p>
+          <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:24px;">
+            <a href="/particular.html" class="btn">Soy particular</a>
+            <a href="/organizacion.html" class="btn">Soy organización</a>
+          </div>
         </div>
-        <div class="card">
-          <h3>Ejercicios</h3>
-          <p>Respiración, reencuadre, plan de acción breve. Todo guiado.</p>
+      </section>
+
+      <nav style="text-align:center; padding:40px 0;">
+        <a href="/blog/" style="background:#f3f3f3; color:#333; padding:12px 28px; border-radius:30px; text-decoration:none; font-weight:500; letter-spacing:0.3px; box-shadow:0 2px 6px rgba(0,0,0,0.1); transition:all .25s ease-in-out;">
+          Entrar al Blog
+        </a>
+        <p style="margin-top:12px; color:#555; font-size:15px;">Un espacio tranquilo para leer, pensar y cuidarte.</p>
+      </nav>
+
+      <!-- Misión -->
+      <section id="mision" class="section reveal">
+        <div class="container">
+          <h2>Nuestra misión</h2>
+          <p>Crear herramientas accesibles, seguras y útiles que apoyen hábitos saludables, autoobservación y decisión informada.</p>
+          <ul class="bullets">
+            <li>Psicología basada en evidencia</li>
+            <li>Privacidad por diseño</li>
+            <li>Accesibilidad y lenguaje claro</li>
+          </ul>
         </div>
-        <div class="card">
-          <h3>Progreso</h3>
-          <p>Gráficas simples y metas semanales comprensibles.</p>
+      </section>
+
+      <!-- Producto -->
+      <section id="producto" class="section alt reveal">
+        <div class="container">
+          <h2>Producto</h2>
+          <p>Primera versión, autochequeo diario, micro ejercicios de regulación y panel de progreso.</p>
+
+          <div class="grid">
+            <div class="card">
+              <h3>Chequeo</h3>
+              <p>2 a 3 preguntas al día para tomar pulso emocional sin saturar.</p>
+            </div>
+            <div class="card">
+              <h3>Ejercicios</h3>
+              <p>Respiración, reencuadre, plan de acción breve. Todo guiado.</p>
+            </div>
+            <div class="card">
+              <h3>Progreso</h3>
+              <p>Gráficas simples y metas semanales comprensibles.</p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- Frase del día -->
-  <section id="frase" class="section reveal">
-    <div class="container">
-      <h2>Frase del día</h2>
-      <p id="fraseTexto" class="frase">Respira. Un paso a la vez.</p>
-      <button id="nuevaFraseBtn" class="btn">Nueva frase</button>
-    </div>
-  </section>
+      <!-- Frase del día -->
+      <section id="frase" class="section reveal">
+        <div class="container">
+          <h2>Frase del día</h2>
+          <p id="fraseTexto" class="frase">Respira. Un paso a la vez.</p>
+          <button id="nuevaFraseBtn" class="btn">Nueva frase</button>
+        </div>
+      </section>
 
-  <!-- Equipo -->
-  <section id="equipo" class="section reveal">
-    <div class="container">
-      <h2>Equipo</h2>
-      <div class="grid team">
-        <article class="member">
-          <h3>G. Musterova</h3>
-          <p>Psicología, investigación y dirección.</p>
-        </article>
-        <article class="member">
-          <h3>Colaborador técnico</h3>
-          <p>Front end y producto.</p>
-        </article>
-        <article class="member">
-          <h3>Consejo asesor</h3>
-          <p>Clínica, datos y ética.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+      <!-- Equipo -->
+      <section id="equipo" class="section reveal">
+        <div class="container">
+          <h2>Equipo</h2>
+          <div class="grid team">
+            <article class="member">
+              <h3>G. Musterova</h3>
+              <p>Psicología, investigación y dirección.</p>
+            </article>
+            <article class="member">
+              <h3>Colaborador técnico</h3>
+              <p>Front end y producto.</p>
+            </article>
+            <article class="member">
+              <h3>Consejo asesor</h3>
+              <p>Clínica, datos y ética.</p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-  <!-- Contacto -->
-  <section id="contacto" class="section alt">
-    <div class="container">
-      <h2>Contacto</h2>
-     <form id="contactForm" class="form">
-  <input type="hidden" name="_subject" value="Nuevo mensaje desde TEMOTIVA">
-  <input type="hidden" name="_language" value="es">
+      <!-- Contacto -->
+      <section id="contacto" class="section alt">
+        <div class="container">
+          <h2>Contacto</h2>
+          <form id="contactForm" class="form">
+            <input type="hidden" name="_subject" value="Nuevo mensaje desde TEMOTIVA">
+            <input type="hidden" name="_language" value="es">
+            <input type="text" name="nombre" placeholder="Tu nombre" required />
+            <input type="email" name="email" placeholder="Tu email" required />
+            <textarea name="mensaje" rows="4" placeholder="¿Cómo podemos ayudarte?" required></textarea>
+            <label style="display:flex;gap:8px;align-items:flex-start;font-size:14px;margin:8px 0 12px;">
+              <input type="checkbox" name="consent" required>
+              <span>Acepto la <a href='/privacidad.html'>política de privacidad</a></span>
+            </label>
+            <input type="text" name="_gotcha" style="display:none">
+            <button type="submit" class="btn">Enviar</button>
+          </form>
+          <p id="formMsg" class="form-msg oculto">Gracias, te contactaremos pronto.</p>
+        </div>
+      </section>
 
-  <input type="text" name="nombre" placeholder="Tu nombre" required />
-  <input type="email" name="email" placeholder="Tu email" required />
-  <textarea name="mensaje" rows="4" placeholder="¿Cómo podemos ayudarte?" required></textarea>
+      <footer class="site-footer">
+        <div class="container">
+          <p>© TEMOTIVA desde 2024</p>
+          <a href="#inicio" class="back-top">Volver arriba ↑</a>
+        </div>
+      </footer>
+    </main>
+  </div>
 
-  <label style="display:flex;gap:8px;align-items:flex-start;font-size:14px;margin:8px 0 12px;">
-    <input type="checkbox" name="consent" required>
-    <span>Acepto la <a href='/privacidad.html'>política de privacidad</a></span>
-  </label>
-
-  <input type="text" name="_gotcha" style="display:none">
-
-  <button type="submit" class="btn">Enviar</button>
-</form>
-
-<p id="formMsg" class="form-msg oculto">Gracias, te contactaremos pronto.</p>
-
-<script>
-document.getElementById("contactForm").addEventListener("submit", async function(e){
-  e.preventDefault();
-  const form = e.target;
-  const btn = form.querySelector("button[type=submit]");
-  btn.disabled = true;
-
-  try {
-    const resp = await fetch("https://formspree.io/f/xnnobrvn", {
-      method: "POST",
-      headers: { "Accept": "application/json" },
-      body: new FormData(form)
-    });
-    if (resp.ok) {
-      form.reset();
-      document.getElementById("formMsg").classList.remove("oculto");
-    } else {
-      alert("No se pudo enviar, intenta de nuevo más tarde.");
-    }
-  } catch {
-    alert("Error de red, revisa tu conexión.");
-  } finally {
-    btn.disabled = false;
-  }
-});
-</script>
-
-    </div>
-  </section>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>© TEMOTIVA desde 2024</p>
-      <a href="#inicio" class="back-top">Volver arriba ↑</a>
-    </div>
-  </footer>
-
-  <!-- Conexión con Supabase (clave pública/anon, recuerda tener políticas RLS activas en tablas) -->
+  <!-- Conexión con Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     const SUPABASE_URL = "https://ejhzxwnhqvcqjqxnuvya.supabase.co";
@@ -215,6 +225,20 @@ document.getElementById("contactForm").addEventListener("submit", async function
 
   <!-- Registro del service worker -->
   <script>
+    // Toggle lateral en móvil
+    const menuBtn = document.getElementById("menuBtn");
+    const sidebar = document.querySelector(".sidebar");
+    const overlay = document.getElementById("overlay");
+    function toggleSidebar() {
+      sidebar.classList.toggle("is-open");
+      const open = sidebar.classList.contains("is-open");
+      overlay.classList.toggle("show", open);
+      overlay.setAttribute("aria-hidden", String(!open));
+    }
+    if (menuBtn) menuBtn.addEventListener("click", toggleSidebar);
+    if (overlay) overlay.addEventListener("click", toggleSidebar);
+
+    // SW
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
         navigator.serviceWorker
@@ -223,11 +247,40 @@ document.getElementById("contactForm").addEventListener("submit", async function
           .catch(err => console.error("Fallo al registrar el SW:", err));
       });
     }
+
+    // Formspree
+    const cf = document.getElementById("contactForm");
+    if (cf) {
+      cf.addEventListener("submit", async function(e){
+        e.preventDefault();
+        const form = e.target;
+        const btn = form.querySelector("button[type=submit]");
+        btn.disabled = true;
+        try {
+          const resp = await fetch("https://formspree.io/f/xnnobrvn", {
+            method: "POST",
+            headers: { "Accept": "application/json" },
+            body: new FormData(form)
+          });
+          if (resp.ok) {
+            form.reset();
+            document.getElementById("formMsg").classList.remove("oculto");
+          } else {
+            alert("No se pudo enviar, intenta de nuevo más tarde.");
+          }
+        } catch {
+          alert("Error de red, revisa tu conexión.");
+        } finally {
+          btn.disabled = false;
+        }
+      });
+    }
   </script>
-<footer style="padding:16px;text-align:center;font-size:14px;">
-  <a href="/privacidad.html">Política de privacidad</a> ·
-  <a href="/cookies.html">Política de cookies</a> ·
-  <a href="/aviso-legal.html">Aviso legal</a>
-</footer>
+
+  <footer style="padding:16px;text-align:center;font-size:14px;">
+    <a href="/privacidad.html">Política de privacidad</a> ·
+    <a href="/cookies.html">Política de cookies</a> ·
+    <a href="/aviso-legal.html">Aviso legal</a>
+  </footer>
 </body>
 </html>
