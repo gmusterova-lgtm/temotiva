@@ -281,6 +281,67 @@ html:not(.js-ready) .reveal {
   color: var(--ink-soft);
   margin: .6rem 0 1rem;
 }
+/* ==== Mejora incremental de contraste, accesibilidad y layout ==== */
+
+/* 1) Contraste de secciones claras y uniformidad de texto */
+.section,
+.section.alt {
+  color: var(--ink); /* fuerza texto legible en ambas */
+}
+
+/* 2) Menú flotante móvil por encima del header y tarjetas */
+.nav-links { z-index: 1200; }
+
+/* 3) Estados de foco y selección más visibles (AA/AAA) */
+::selection { background: #dbeafe; color: #111; }
+.theme-dark ::selection { background: #1f2937; color: #eaeaea; }
+
+.nav-links a:focus-visible,
+.menu-list a:focus-visible,
+.btn:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: var(--focus);
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+/* 4) Mejoras en oscuro para elementos con borde */
+.theme-dark .nav-links { border-color: #2a2e3a; }
+.theme-dark .menu-list a:hover,
+.theme-dark .menu-list a:focus { background: #1f2330; }
+
+/* 5) Tipografía fluida suave (no invasiva) */
+body { font-size: clamp(15.5px, 1.2vw, 16.5px); }
+
+/* 6) Botones: pequeña ganancia de contraste al hover en claro/oscuro */
+.btn:hover { filter: none; opacity: .92; }
+
+/* 7) Hero: asegura contraste del texto sobre fondos oscuros/claros */
+.hero h1, .hero p { text-shadow: 0 0 1px rgba(0,0,0,.04); }
+.theme-dark .hero h1, .theme-dark .hero p { text-shadow: 0 0 1px rgba(0,0,0,.12); }
+
+/* 8) Accesibilidad extra: alto contraste del borde si el usuario lo pide */
+@media (prefers-contrast: more) {
+  .card, .site-header, .site-footer, .nav-links { border-width: 2px; }
+  .menu-list a:hover, .menu-list a:focus { outline: 2px solid currentColor; }
+}
+
+/* 9) Scrollbar discreto (solo navegadores compatibles) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #b9c6ff transparent;
+}
+*::-webkit-scrollbar { height: 10px; width: 10px; }
+*::-webkit-scrollbar-thumb { border-radius: 8px; background: rgba(0,0,0,.22); }
+.theme-dark *::-webkit-scrollbar-thumb { background: rgba(255,255,255,.18); }
+
+/* 10) Panel lateral cuando está abierto: evita “scroll de fondo” en iOS */
+.sidebar.is-open { overscroll-behavior: contain; }
+
+/* 11) Utilidades */
+.hidden { display: none !important; }
+.text-soft { color: var(--ink-soft) !important; }
 
 /* Toasts PWA */
 .pwa-toast {
