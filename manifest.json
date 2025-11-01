@@ -1,16 +1,14 @@
 {
+  "id": "/",
   "name": "TEMOTIVA",
   "short_name": "TEMOTIVA",
   "description": "Bienestar emocional para mejorar la salud mental y el autocuidado en la vida cotidiana.",
   "lang": "es-ES",
   "dir": "ltr",
-
-  "start_url": "/inicio.html?source=pwa",
+  "start_url": "/inicio.html",
   "scope": "/",
   "display": "standalone",
-  "display_override": ["window-controls-overlay", "standalone"],
   "orientation": "portrait",
-
   "theme_color": "#F7F7F7",
   "background_color": "#FFFFFF",
   "categories": ["health", "education", "lifestyle", "productivity"],
@@ -28,9 +26,9 @@
 
   "screenshots": [
     { "src": "/screenshot-1.png", "sizes": "1080x1920", "type": "image/png", "form_factor": "narrow", "label": "Pantalla de inicio TEMOTIVA" },
-    { "src": "/screenshot-2.png", "sizes": "1920x1080", "type": "image/png", "form_factor": "wide", "label": "Interfaz del blog TEMOTIVA" },
-    { "src": "/screenshot-3.png", "sizes": "750x1334", "type": "image/png", "form_factor": "narrow", "label": "Chequeo diario" },
-    { "src": "/screenshot-4.png", "sizes": "1242x2688", "type": "image/png", "form_factor": "narrow", "label": "Ejercicios guiados" }
+    { "src": "/screenshot-2.png", "sizes": "1080x1920", "type": "image/png", "form_factor": "narrow", "label": "Interfaz del blog TEMOTIVA" },
+    { "src": "/screenshot-3.png", "sizes": "1080x1920", "type": "image/png", "form_factor": "narrow", "label": "Chequeo diario" },
+    { "src": "/screenshot-4.png", "sizes": "1080x1920", "type": "image/png", "form_factor": "narrow", "label": "Ejercicios guiados" }
   ],
 
   "shortcuts": [
@@ -63,5 +61,6 @@
 
   "launch_handler": { "client_mode": "focus-existing" },
   "handle_links": "preferred",
+
   "edge_side_panel": { "preferred_width": 420 }
 }
