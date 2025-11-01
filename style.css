@@ -116,17 +116,24 @@ a { color: inherit; }
 .theme-dark .hero {
   background: linear-gradient(180deg, #121621, #0f131d);
 }
-.hero::after{
+.hero::after {
   content:"";
   position:absolute;
   top:0; right:0; bottom:0; left:55%;
-  background: url("/chica-meditando.png") right center / contain no-repeat;
+  background:
+    image-set(
+      url("/img/chica-meditando-1600.webp") type("image/webp"),
+      url("/img/chica-meditando-1600.png") type("image/png")
+    )
+    right center / contain no-repeat;
   opacity:.22;
   pointer-events:none;
   z-index:-1;
 }
+
 /* En oscuro, baja un poco la opacidad para más contraste */
 .theme-dark .hero::after { opacity:.18; }
+
 
 .hero h1 {
   font-size: clamp(1.8rem, 2.8vw, 3rem);
