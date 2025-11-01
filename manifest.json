@@ -5,62 +5,199 @@
   "description": "Bienestar emocional para mejorar la salud mental y el autocuidado en la vida cotidiana.",
   "lang": "es-ES",
   "dir": "ltr",
-
   "start_url": "/inicio.html",
   "scope": "/",
   "display": "standalone",
+  "display_override": [
+    "standalone",
+    "window-controls-overlay",
+    "tabbed"
+  ],
   "orientation": "portrait",
-
   "theme_color": "#F7F7F7",
   "background_color": "#FFFFFF",
-  "categories": ["health", "education", "lifestyle", "productivity"],
+  "color_scheme": "light dark",
+  "categories": [
+    "health",
+    "education",
+    "lifestyle",
+    "productivity"
+  ],
   "prefer_related_applications": false,
-
   "icons": [
-    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-
-    /* Temporal, reutilizamos los mismos hasta subir maskable reales */
-    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
-    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-mono-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "monochrome"
+    }
   ],
-
   "screenshots": [
-    { "src": "/screenshot-1.png", "sizes": "1080x1920", "type": "image/png", "form_factor": "narrow", "label": "Pantalla de inicio TEMOTIVA" },
-    { "src": "/screenshot-2.png", "sizes": "1920x1080", "type": "image/png", "form_factor": "wide",   "label": "Interfaz del blog TEMOTIVA" },
-    { "src": "/screenshot-3.png", "sizes": "750x1334",  "type": "image/png", "form_factor": "narrow", "label": "Chequeo diario" },
-    { "src": "/screenshot-4.png", "sizes": "1242x2688", "type": "image/png", "form_factor": "narrow", "label": "Ejercicios guiados" }
+    {
+      "src": "/screenshot-1.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Pantalla de inicio TEMOTIVA"
+    },
+    {
+      "src": "/screenshot-2.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Interfaz del blog TEMOTIVA"
+    },
+    {
+      "src": "/screenshot-3.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Chequeo diario"
+    },
+    {
+      "src": "/screenshot-4.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Ejercicios guiados"
+    }
   ],
-
   "shortcuts": [
     {
       "name": "Blog",
       "short_name": "Blog",
       "description": "Lee artículos sobre bienestar emocional y autocuidado.",
       "url": "/blog/",
-      "icons": [{ "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
     },
     {
       "name": "Recursos",
       "short_name": "Recursos",
       "description": "Accede a guías y ejercicios descargables.",
       "url": "/recursos.html",
-      "icons": [{ "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
     },
     {
       "name": "Contacto",
       "short_name": "Contacto",
       "description": "Escríbenos o envíanos tus comentarios.",
       "url": "/contacto.html",
-      "icons": [{ "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
     }
   ],
-
-  "protocol_handlers": [
-    { "protocol": "web+temotiva", "url": "/inicio.html?data=%s" }
+  "share_target": {
+    "action": "/share.html",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "file",
+          "accept": [
+            "image/*"
+          ]
+        }
+      ]
+    }
+  },
+  "file_handlers": [
+    {
+      "action": "/open.html",
+      "accept": {
+        "text/plain": [
+          ".txt",
+          ".md"
+        ],
+        "image/*": [
+          ".png",
+          ".jpg",
+          ".jpeg",
+          ".webp"
+        ]
+      }
+    }
   ],
-
-  "launch_handler": { "client_mode": "focus-existing" },
+  "protocol_handlers": [
+    {
+      "protocol": "web+temotiva",
+      "url": "/inicio.html?data=%s"
+    }
+  ],
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
   "handle_links": "preferred",
-  "edge_side_panel": { "preferred_width": 420 }
+  "edge_side_panel": {
+    "preferred_width": 420
+  },
+  "note_taking": {
+    "new_note_url": "/nota.html"
+  },
+  "tabs": [
+    {
+      "url": "/inicio.html",
+      "title": "Inicio"
+    },
+    {
+      "url": "/blog/",
+      "title": "Blog"
+    }
+  ]
 }
