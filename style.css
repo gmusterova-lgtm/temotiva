@@ -351,3 +351,118 @@ body { font-size: clamp(15.5px, 1.2vw, 16.5px); }
 }
 .theme-dark .pwa-toast { border-color: #2a2e3a; }
 .pwa-install { display: none; }
+
+/* ===== Append-only: mejoras seguras TEMOTIVA ===== */
+
+/* 0) Dark mode coherente con data-theme (sin quitar .theme-dark existente) */
+html[data-theme="dark"] {
+  --bg: #0f1115;
+  --ink: #eaeaea;
+  --ink-soft: #c9c9c9;
+  --brand: #eaeaea;
+  --card: #151923;
+  --muted: #262a36;
+  --shadow: 0 8px 24px rgba(0,0,0,.45);
+}
+
+/* 1) Variantes de botón y estados */
+.btn.secondary {
+  background: #f0f0f0; color: #222;
+}
+html[data-theme="dark"] .btn.secondary {
+  background: #222733; color: #eaeaea;
+}
+.btn.ghost {
+  background: transparent; color: var(--ink); border: 1px solid rgba(0,0,0,.15);
+}
+html[data-theme="dark"] .btn.ghost {
+  border-color: rgba(255,255,255,.18);
+}
+
+/* 2) Estados de formulario accesibles */
+.form input:invalid, .form textarea:invalid {
+  border-color: #ef4444;
+}
+.form input:valid, .form textarea:valid {
+  border-color: #10b981;
+}
+.form label { user-select: none; }
+
+/* 3) Nav: indicador sutil del enlace activo */
+.nav-links a.active {
+  box-shadow: inset 0 -2px 0 currentColor;
+}
+
+/* 4) Banner PWA (#pwaBanner) y botón de instalar (#installBtn) */
+#pwaBanner {
+  position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%) translateY(100px);
+  background: var(--card); color: var(--ink);
+  border: 1px solid rgba(0,0,0,.12);
+  box-shadow: 0 8px 24px rgba(0,0,0,.15);
+  border-radius: 12px; padding: 12px 14px; z-index: 2000;
+  display: none; opacity: 0; transition: transform .3s ease, opacity .3s ease;
+  max-width: min(640px, 96%); width: max-content;
+}
+#pwaBanner.show { display: block; opacity: 1; transform: translateX(-50%) translateY(0); }
+#pwaBanner .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+#installBtn[hidden] { display: none !important; }
+
+/* 5) Toast de red (#netToast) */
+#netToast {
+  position: fixed; left: 50%; bottom: 1.5rem; transform: translateX(-50%) translateY(80px);
+  background: var(--card); color: var(--ink);
+  border: 1px solid rgba(0,0,0,.1);
+  box-shadow: 0 4px 20px rgba(0,0,0,.12);
+  border-radius: 10px; padding: .75rem 1.2rem;
+  font-size: .95rem; font-weight: 500;
+  opacity: 0; pointer-events: none;
+  transition: all .35s ease; z-index: 9999;
+}
+#netToast.show { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+html[data-theme="dark"] #netToast { border-color: rgba(255,255,255,.1); }
+
+/* 6) Utilidades de grid reutilizables */
+.grid-2 { display: grid; gap: 1rem; grid-template-columns: repeat(2, 1fr); }
+.grid-3 { display: grid; gap: 1rem; grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+}
+
+/* 7) Imágenes utilitarias */
+.img-cover { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+/* 8) Ventana con título overlay (Windows) */
+.titlebar {
+  position: fixed;
+  height: env(titlebar-area-height, 38px);
+  left: env(titlebar-area-x, 0px);
+  top: env(titlebar-area-y, 0px);
+  width: env(titlebar-area-width, 100%);
+  -webkit-app-region: drag;
+  app-region: drag;
+  z-index: 1500;
+}
+.titlebar .controls { -webkit-app-region: no-drag; app-region: no-drag; }
+
+/* 9) Mejoras de impresión */
+@media print {
+  .site-header, .sidebar, #pwaBanner, #netToast { display: none !important; }
+  .btn, a { color: #000 !important; background: transparent !important; border: 1px solid #000 !important; }
+  .card { box-shadow: none !important; border: 1px solid #000 !important; }
+}
+
+/* 10) Accesibilidad refinada: alto contraste cuando se solicita */
+@media (prefers-contrast: more) {
+  .btn, .form input, .form textarea, .card, .nav-links { border-width: 2px; }
+  .btn { box-shadow: none; }
+}
+
+/* 11) Soporte de “reduce motion” en animaciones existentes */
+@media (prefers-reduced-motion: reduce) {
+  #pwaBanner, #netToast { transition: none !important; }
+}
+
+/* 12) Mini utilidades */
+.container-narrow { width: min(800px, 92%); margin: 0 auto; }
+.muted { color: var(--ink-soft); }
+
