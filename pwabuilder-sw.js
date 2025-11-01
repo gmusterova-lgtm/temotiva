@@ -1,18 +1,26 @@
-/* TEMOTIVA Service Worker, optimizado */
-const CACHE_VERSION = "v2"; // súbelo cuando cambies PRECACHE o estrategias
+/* TEMOTIVA Service Worker, optimizado y robusto */
+const CACHE_VERSION = "v3"; // súbelo cuando cambies PRECACHE o estrategias
 const CACHE_NAME = `temotiva-${CACHE_VERSION}`;
 const OFFLINE_URL = "/offline.html";
 
-/* Archivos críticos a precachear */
-const PRECACHE = [
-  "/", "/index.html", "/style.css", "/manifest.json",
-  "/icon-192.png", "/icon-512.png",
-  "/chica-meditando.png",
+/* Archivos críticos a precachear para Lighthouse y uso real */
+const PRECACHE_ESSENTIAL = [
+  "/inicio.html",        // start_url de la PWA
+  "/style.css",
   "/script.js",
+  "/manifest.json",
+  "/icon-192.png",
+  "/icon-512.png",
+  OFFLINE_URL
+];
+
+/* Archivos opcionales. Si no existen, no se rompe la instalación */
+const PRECACHE_OPTIONAL = [
+  "/index.html",
+  "/chica-meditando.png",
   "/share.html",
-  OFFLINE_URL,
-  // Si ya las tienes, añade tus capturas:
-  "/screenshot-1.png", "/screenshot-2.png"
+  "/screenshot-1.png",
+  "/screenshot-2.png"
 ];
 
 /* Placeholder de imagen en data URL por si falla la red y no hay caché */
@@ -28,29 +36,43 @@ const FALLBACK_IMAGE_SVG =
     </svg>`
   );
 
-/* Install: precache */
+/* Install: precache esencial y luego opcional sin romper si falta algo */
 self.addEventListener("install", event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(PRECACHE))
-  );
+  event.waitUntil((async () => {
+    const cache = await caches.open(CACHE_NAME);
+    // Esenciales: si falla aquí, avisará para que corrijas la ruta
+    await cache.addAll(PRECACHE_ESSENTIAL);
+
+    // Opcionales: best effort, no bloquean la instalación
+    await Promise.allSettled(
+      PRECACHE_OPTIONAL.map(async url => {
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (res && res.ok) await cache.put(url, res.clone());
+        } catch {
+          /* ignorar faltantes */
+        }
+      })
+    );
+  })());
   self.skipWaiting();
 });
 
 /* Activate: limpiar cachés viejas y activar Navigation Preload si existe */
 self.addEventListener("activate", event => {
   event.waitUntil((async () => {
-    // Limpieza de cachés antigüas
     const keys = await caches.keys();
-    await Promise.all(keys.map(k => k !== CACHE_NAME ? caches.delete(k) : Promise.resolve()));
-    // Navigation preload acelera la primera respuesta en navegaciones
+    await Promise.all(
+      keys.map(k => (k !== CACHE_NAME ? caches.delete(k) : Promise.resolve()))
+    );
     if ("navigationPreload" in self.registration) {
       await self.registration.navigationPreload.enable();
     }
+    await self.clients.claim();
   })());
-  self.clients.claim();
 });
 
-/* Util: timeout de promesa */
+/* Util: timeout de promesa para evitar cuelgues largos de red */
 const timeout = (ms, promise) =>
   new Promise((resolve, reject) => {
     const id = setTimeout(() => reject(new Error("timeout")), ms);
@@ -65,17 +87,18 @@ self.addEventListener("fetch", event => {
   const url = new URL(req.url);
   const sameOrigin = url.origin === self.location.origin;
 
-  // Navegaciones a páginas: Network first con preload y fallback offline
+  // Evitar interferir con analytics y consent
+  const skipHosts = ["google-analytics.com", "googletagmanager.com", "axept.io"];
+  if (skipHosts.some(h => url.hostname.includes(h))) return;
+
+  // Navegaciones a páginas: network first con preload y fallback offline
   if (req.mode === "navigate") {
     event.respondWith((async () => {
       try {
-        // Usa la respuesta de navigation preload si está disponible
         const preload = await event.preloadResponse;
         if (preload) return preload;
 
-        // Red con timeout para no colgarse
         const netRes = await timeout(5000, fetch(req));
-        // Guarda copia en caché en segundo plano
         const cache = await caches.open(CACHE_NAME);
         cache.put(req, netRes.clone());
         return netRes;
@@ -83,36 +106,42 @@ self.addEventListener("fetch", event => {
         // Si hay caché de la página solicitada, úsala
         const cached = await caches.match(req);
         if (cached) return cached;
+
+        // Sirve inicio precacheado si piden raíz o inicio
+        const precache = await caches.open(CACHE_NAME);
+        if (url.pathname === "/" || url.pathname === "/inicio.html") {
+          const start = await precache.match("/inicio.html");
+          if (start) return start;
+        }
         // Último recurso: página offline
-        const offline = await caches.match(OFFLINE_URL);
+        const offline = await precache.match(OFFLINE_URL);
         return offline || new Response("Offline", { status: 503, headers: { "Content-Type": "text/plain" } });
       }
     })());
     return;
   }
 
-  // Estáticos de mismo origen: CSS, JS, imágenes => Stale while revalidate
+  // Estáticos de mismo origen: CSS, JS, imágenes, fonts => stale while revalidate
   if (sameOrigin && (req.destination === "style" || req.destination === "script" || req.destination === "image" || req.destination === "font")) {
     event.respondWith((async () => {
       const cache = await caches.open(CACHE_NAME);
       const cached = await cache.match(req);
+
       const fetchPromise = fetch(req).then(netRes => {
-        // Solo cachea respuestas válidas
-        if (netRes && netRes.status === 200 && netRes.type === "basic") {
+        if (netRes && netRes.status === 200 && (netRes.type === "basic" || netRes.type === "cors")) {
           cache.put(req, netRes.clone());
         }
         return netRes;
       }).catch(() => null);
-      // Devuelve lo que haya ya en caché, y actualiza cuando llegue la red
+
       if (cached) return cached;
-      // Si no hay caché, intenta red
+
       const netRes = await fetchPromise;
       if (netRes) return netRes;
-      // Fallback de imagen si procede
+
       if (req.destination === "image") {
         return fetch(FALLBACK_IMAGE_SVG);
       }
-      // Como último recurso, intenta offline.html para HTML embebido
       if (req.headers.get("accept")?.includes("text/html")) {
         const offline = await caches.match(OFFLINE_URL);
         if (offline) return offline;
@@ -122,13 +151,13 @@ self.addEventListener("fetch", event => {
     return;
   }
 
-  // API o JSON de mismo origen: Network first con fallback caché
+  // API o JSON de mismo origen: network first con fallback caché
   if (sameOrigin && (req.headers.get("accept")?.includes("application/json"))) {
     event.respondWith((async () => {
       try {
         const netRes = await timeout(5000, fetch(req));
         const cache = await caches.open(CACHE_NAME);
-        if (netRes && netRes.status === 200) cache.put(req, netRes.clone());
+        if (netRes && netRes.ok) cache.put(req, netRes.clone());
         return netRes;
       } catch {
         const cached = await caches.match(req);
@@ -138,10 +167,9 @@ self.addEventListener("fetch", event => {
     return;
   }
 
-  // Resto: Cache first con fallback red
+  // Resto: cache first con fallback red
   event.respondWith(
     caches.match(req).then(cached => cached || fetch(req).catch(() => {
-      // Fallback para imágenes externas si falla
       if (req.destination === "image") return fetch(FALLBACK_IMAGE_SVG);
       return new Response(null, { status: 504 });
     }))
