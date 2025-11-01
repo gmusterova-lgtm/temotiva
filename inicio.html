@@ -1,20 +1,118 @@
-<!DOCTYPE html><html lang="es"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Inicio | TEMOTIVA</title>
-<link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#F7F7F7">
-<link rel="stylesheet" href="/style.css">
-</head><body>
-<header class="site-header"><div class="container nav">
-  <a href="/inicio.html" class="logo" style="display:flex;gap:8px;align-items:center;text-decoration:none;color:inherit;">
-    <img src="/icon-192.png" alt="Logo" style="width:32px;height:32px;border-radius:8px;"><span>TEMOTIVA</span>
-  </a>
-</div></header>
-<main class="section"><div class="container">
-  <h1>Bienvenido a TEMOTIVA</h1>
-  <p>Aquí encontrarás prácticas sencillas de autocuidado, un blog con ideas claras y recursos listos para usar. La idea, ayudarte a sentirte un poco mejor cada día.</p>
-  <p><a class="btn" href="/blog/">Ir al blog</a></p>
-</div></main>
-<footer class="site-footer"><div class="container">
-  <a href="/privacidad.html">Política de privacidad</a>
-</div></footer>
-</body></html>
+<!DOCTYPE html>
+<html lang="es" data-theme="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>Inicio | TEMOTIVA</title>
+  <meta name="description" content="Bienestar emocional para mejorar la salud mental y el autocuidado en la vida cotidiana. Prácticas sencillas de autocuidado, blog y recursos listos para usar.">
+  <link rel="canonical" href="https://www.temotiva.com/inicio.html">
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F7F7F7" id="meta-theme">
+  <meta name="application-name" content="TEMOTIVA">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+
+  <!-- Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TEMOTIVA | Bienestar emocional en tu día a día">
+  <meta property="og:description" content="Autocuidado simple, chequeos diarios y recursos para mejorar tu bienestar emocional.">
+  <meta property="og:url" content="https://www.temotiva.com/inicio.html">
+  <meta property="og:image" content="https://www.temotiva.com/screenshot-1.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- CSS -->
+  <link rel="preload" href="/style.css" as="style">
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- Accesibilidad si falta JS -->
+  <noscript><style>html{scroll-behavior:auto}</style></noscript>
+</head>
+<body>
+  <a href="#main" class="sr-only">Saltar al contenido</a>
+
+  <!-- Barra de título opcional para Window Controls Overlay (no molesta si no se usa) -->
+  <div class="titlebar" role="banner" aria-label="Barra de título TEMOTIVA">
+    <div class="container" style="height:100%; display:flex; align-items:center; justify-content:space-between;">
+      <a href="/inicio.html" class="logo" style="text-decoration:none; display:flex; align-items:center; gap:8px;">
+        <img src="/icon-192.png" alt="" width="20" height="20" style="border-radius:4px">
+        <span style="font-weight:700; letter-spacing:.3px;">TEMOTIVA</span>
+      </a>
+      <div class="controls" aria-hidden="true" style="display:flex; gap:8px;"></div>
+    </div>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container nav">
+      <a href="/inicio.html" class="logo" style="display:flex;gap:8px;align-items:center;text-decoration:none;color:inherit;">
+        <img src="/icon-192.png" alt="Logo TEMOTIVA" style="width:32px;height:32px;border-radius:8px" loading="lazy">
+        <span>TEMOTIVA</span>
+      </a>
+      <!-- Botón instalar PWA visible cuando haya prompt -->
+      <div class="header-actions">
+        <button id="installBtn" class="icon-btn" aria-label="Instalar TEMOTIVA" hidden>Instalar</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="section">
+    <div class="container">
+      <h1>Bienvenido a TEMOTIVA</h1>
+      <p>Aquí encontrarás prácticas sencillas de autocuidado, un blog con ideas claras y recursos listos para usar. La idea, ayudarte a sentirte un poco mejor cada día.</p>
+      <p><a class="btn" href="/blog/">Ir al blog</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;">
+      <p style="margin:0">© TEMOTIVA</p>
+      <nav aria-label="Legal">
+        <a href="/privacidad.html">Política de privacidad</a>
+        <span class="text-soft"> | </span>
+        <a href="/cookies.html">Política de cookies</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Banner de instalación PWA -->
+  <div id="pwaBanner" class="pwa-install" role="dialog" aria-modal="false" aria-label="Instalar TEMOTIVA">
+    <div class="row">
+      <img src="/icon-192.png" alt="" width="28" height="28" style="border-radius:6px">
+      <div class="msg">Instala TEMOTIVA para acceso rápido y uso sin conexión.</div>
+      <div class="actions" style="margin-left:auto; display:flex; gap:8px;">
+        <button id="pwaInstallNow" class="btn">Instalar</button>
+        <button id="pwaInstallLater" class="btn secondary">Más tarde</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast de estado de red -->
+  <div id="netToast" role="status" aria-live="polite"></div>
+
+  <!-- Script principal: registra SW, métricas y UX ya definidas -->
+  <script src="/script.js" defer></script>
+
+  <!-- Registro del Service Worker, idempotente y seguro -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/pwabuilder-sw.js", { scope: "/" })
+          .then(reg => console.log("SW listo:", reg.scope))
+          .catch(err => console.warn("SW error:", err));
+      });
+    }
+  </script>
+
+  <!-- Google Analytics (si lo usas en todas las páginas) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DM1M9GM27Z"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag("js", new Date());
+    gtag("config", "G-DM1M9GM27Z", { "anonymize_ip": true });
+  </script>
+</body>
+</html>
