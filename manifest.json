@@ -6,60 +6,33 @@
   "lang": "es-ES",
   "dir": "ltr",
 
-  "start_url": "/inicio.html?utm_source=pwa",
+  "start_url": "/inicio.html",
   "scope": "/",
-
   "display": "standalone",
-  "display_override": ["standalone", "window-controls-overlay"],
   "orientation": "portrait",
 
-  "background_color": "#FFFFFF",
   "theme_color": "#F7F7F7",
-
+  "background_color": "#FFFFFF",
   "categories": ["health", "education", "lifestyle", "productivity"],
+  "prefer_related_applications": false,
 
   "icons": [
-    {
-      "src": "/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/icon-1024.png",
-      "sizes": "1024x1024",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/icon-mono-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "monochrome"
-    }
+    { "src": "/icon-192.png",            "sizes": "192x192",  "type": "image/png", "purpose": "any" },
+    { "src": "/icon-256.png",            "sizes": "256x256",  "type": "image/png", "purpose": "any" },
+    { "src": "/icon-384.png",            "sizes": "384x384",  "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png",            "sizes": "512x512",  "type": "image/png", "purpose": "any" },
+
+    { "src": "/icon-maskable-192.png",   "sizes": "192x192",  "type": "image/png", "purpose": "maskable" },
+    { "src": "/icon-maskable-512.png",   "sizes": "512x512",  "type": "image/png", "purpose": "maskable" },
+
+    { "src": "/icon-mono-192.png",       "sizes": "192x192",  "type": "image/png", "purpose": "monochrome" }
   ],
 
   "screenshots": [
-    {
-      "src": "/screenshot-1.png",
-      "sizes": "1080x1920",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Pantalla de inicio TEMOTIVA"
-    },
-    {
-      "src": "/screenshot-2.png",
-      "sizes": "1920x1080",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "Interfaz del blog TEMOTIVA"
-    }
+    { "src": "/screenshot-1.png", "sizes": "1080x1920",  "type": "image/png", "form_factor": "narrow",   "label": "Pantalla de inicio TEMOTIVA" },
+    { "src": "/screenshot-2.png", "sizes": "1920x1080",  "type": "image/png", "form_factor": "wide",     "label": "Interfaz del blog TEMOTIVA" },
+    { "src": "/screenshot-3.png", "sizes": "750x1334",   "type": "image/png", "form_factor": "narrow",   "label": "Chequeo diario" },
+    { "src": "/screenshot-4.png", "sizes": "1242x2688",  "type": "image/png", "form_factor": "narrow",   "label": "Ejercicios guiados" }
   ],
 
   "shortcuts": [
@@ -87,46 +60,11 @@
   ],
 
   "protocol_handlers": [
-    {
-      "protocol": "web+temotiva",
-      "url": "/inicio.html?data=%s"
-    }
+    { "protocol": "web+temotiva", "url": "/inicio.html?data=%s" }
   ],
 
-  "file_handlers": [
-    {
-      "action": "/inicio.html",
-      "accept": {
-        "text/plain": [".txt"],
-        "application/pdf": [".pdf"]
-      }
-    }
-  ],
-
-  "share_target": {
-    "action": "/share.html",
-    "method": "POST",
-    "enctype": "multipart/form-data",
-    "params": {
-      "title": "title",
-      "text": "text",
-      "url": "url",
-      "files": [
-        {
-          "name": "file",
-          "accept": ["image/*"]
-        }
-      ]
-    }
-  },
-
-  "launch_handler": {
-    "client_mode": "focus-existing"
-  },
-
+  "launch_handler": { "client_mode": "focus-existing" },
   "handle_links": "preferred",
 
-  "edge_side_panel": {
-    "preferred_width": 420
-  }
+  "edge_side_panel": { "preferred_width": 420 }
 }
