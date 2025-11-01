@@ -369,27 +369,58 @@
       </div>
     </section>
 
-    <!-- Producto -->
-    <section id="producto" class="section alt reveal" aria-labelledby="product-title">
-      <div class="container">
-        <h2 id="product-title" style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="product.title">Producto</h2>
-        <p data-i18n="product.desc">Primera versión, autochequeo diario, micro ejercicios de regulación y panel de progreso.</p>
-        <div class="grid" role="list">
-          <article class="card" role="listitem">
-            <h3 data-i18n="product.c1t">Chequeo</h3>
-            <p data-i18n="product.c1d">2 a 3 preguntas al día para tomar pulso emocional sin saturar.</p>
-          </article>
-          <article class="card" role="listitem">
-            <h3 data-i18n="product.c2t">Ejercicios</h3>
-            <p data-i18n="product.c2d">Respiración, reencuadre, plan de acción breve. Todo guiado.</p>
-          </article>
-          <article class="card" role="listitem">
-            <h3 data-i18n="product.c3t">Progreso</h3>
-            <p data-i18n="product.c3d">Gráficas simples y metas semanales comprensibles.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+  <!-- Producto -->
+<section id="producto" class="section alt reveal" aria-labelledby="product-title">
+  <div class="container">
+    <h2 id="product-title" style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="product.title">Producto</h2>
+    <p data-i18n="product.desc">Primera versión, autochequeo diario, micro ejercicios de regulación y panel de progreso.</p>
+
+    <div class="grid" role="list">
+      <article class="card" role="listitem">
+        <h3 data-i18n="product.c1t">Chequeo</h3>
+        <p data-i18n="product.c1d">2 a 3 preguntas al día para tomar pulso emocional sin saturar.</p>
+      </article>
+      <article class="card" role="listitem">
+        <h3 data-i18n="product.c2t">Ejercicios</h3>
+        <p data-i18n="product.c2d">Respiración, reencuadre, plan de acción breve. Todo guiado.</p>
+      </article>
+      <article class="card" role="listitem">
+        <h3 data-i18n="product.c3t">Progreso</h3>
+        <p data-i18n="product.c3d">Gráficas simples y metas semanales comprensibles.</p>
+      </article>
+    </div>
+
+    <!-- Ilustración complementaria de la sección Producto -->
+    <div class="product-media" aria-hidden="true">
+      <picture>
+        <source
+          type="image/webp"
+          srcset="
+            /img/chica-meditando-800.webp 800w,
+            /img/chica-meditando-1200.webp 1200w,
+            /img/chica-meditando-1600.webp 1600w"
+          sizes="(max-width: 900px) 80vw, 40vw">
+        <source
+          type="image/png"
+          srcset="
+            /img/chica-meditando-800.png 800w,
+            /img/chica-meditando-1200.png 1200w,
+            /img/chica-meditando-1600.png 1600w"
+          sizes="(max-width: 900px) 80vw, 40vw">
+        <img
+          src="/img/chica-meditando-1200.png"
+          alt=""
+          width="1200" height="900"
+          loading="lazy"
+          decoding="async"
+          fetchpriority="low"
+          class="product-img">
+      </picture>
+    </div>
+
+  </div>
+</section>
+
 
     <!-- Frase del día -->
     <section id="frase" class="section reveal" aria-labelledby="quote-title">
