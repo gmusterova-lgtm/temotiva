@@ -1,14 +1,14 @@
 {
-  "id": "/",
   "name": "TEMOTIVA",
   "short_name": "TEMOTIVA",
   "description": "Bienestar emocional para mejorar la salud mental y el autocuidado en la vida cotidiana.",
   "lang": "es-ES",
   "dir": "ltr",
 
-  "start_url": "/inicio.html",
+  "start_url": "/inicio.html?source=pwa",
   "scope": "/",
   "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone"],
   "orientation": "portrait",
 
   "theme_color": "#F7F7F7",
@@ -17,22 +17,20 @@
   "prefer_related_applications": false,
 
   "icons": [
-    { "src": "/icon-192.png",            "sizes": "192x192",  "type": "image/png", "purpose": "any" },
-    { "src": "/icon-256.png",            "sizes": "256x256",  "type": "image/png", "purpose": "any" },
-    { "src": "/icon-384.png",            "sizes": "384x384",  "type": "image/png", "purpose": "any" },
-    { "src": "/icon-512.png",            "sizes": "512x512",  "type": "image/png", "purpose": "any" },
-
-    { "src": "/icon-maskable-192.png",   "sizes": "192x192",  "type": "image/png", "purpose": "maskable" },
-    { "src": "/icon-maskable-512.png",   "sizes": "512x512",  "type": "image/png", "purpose": "maskable" },
-
-    { "src": "/icon-mono-192.png",       "sizes": "192x192",  "type": "image/png", "purpose": "monochrome" }
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-256.png", "sizes": "256x256", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-384.png", "sizes": "384x384", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "/icon-mono-192.png", "sizes": "192x192", "type": "image/png", "purpose": "monochrome" }
   ],
 
   "screenshots": [
-    { "src": "/screenshot-1.png", "sizes": "1080x1920",  "type": "image/png", "form_factor": "narrow",   "label": "Pantalla de inicio TEMOTIVA" },
-    { "src": "/screenshot-2.png", "sizes": "1920x1080",  "type": "image/png", "form_factor": "wide",     "label": "Interfaz del blog TEMOTIVA" },
-    { "src": "/screenshot-3.png", "sizes": "750x1334",   "type": "image/png", "form_factor": "narrow",   "label": "Chequeo diario" },
-    { "src": "/screenshot-4.png", "sizes": "1242x2688",  "type": "image/png", "form_factor": "narrow",   "label": "Ejercicios guiados" }
+    { "src": "/screenshot-1.png", "sizes": "1080x1920", "type": "image/png", "form_factor": "narrow", "label": "Pantalla de inicio TEMOTIVA" },
+    { "src": "/screenshot-2.png", "sizes": "1920x1080", "type": "image/png", "form_factor": "wide", "label": "Interfaz del blog TEMOTIVA" },
+    { "src": "/screenshot-3.png", "sizes": "750x1334", "type": "image/png", "form_factor": "narrow", "label": "Chequeo diario" },
+    { "src": "/screenshot-4.png", "sizes": "1242x2688", "type": "image/png", "form_factor": "narrow", "label": "Ejercicios guiados" }
   ],
 
   "shortcuts": [
@@ -65,6 +63,5 @@
 
   "launch_handler": { "client_mode": "focus-existing" },
   "handle_links": "preferred",
-
   "edge_side_panel": { "preferred_width": 420 }
 }
