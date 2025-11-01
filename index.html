@@ -56,7 +56,7 @@
   <!-- Rendimiento -->
   <link rel="preload" href="/style.css" as="style">
   <link rel="stylesheet" href="/style.css" />
-  <link rel="preload" as="image" href="/chica-meditando.png" imagesrcset="/chica-meditando.png 1x">
+ 
   <link rel="preconnect" href="https://ejhzxwnhqvcqjqxnuvya.supabase.co" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://formspree.io" crossorigin>
@@ -606,11 +606,12 @@
       $$(".nav-links a, [data-i18n], [data-i18n-placeholder]").forEach(el => {
         const k = el.getAttribute("data-i18n") || el.getAttribute("data-i18n-placeholder");
         if(!k) return;
-        if(el.hasAttribute("data-i18n-placeholder")){
-          if(dict[k]) el.setAttribute("placeholder", dict[k]);
-        } else {
-          if(dict[k]) el.innerHTML = dict[k]);
-        }
+        if (el.hasAttribute("data-i18n-placeholder")) {
+  if (dict[k]) el.setAttribute("placeholder", dict[k]);
+} else {
+  if (dict[k]) el.innerHTML = dict[k];
+}
+
       });
       localStorage.setItem("temotiva-lang", lang);
     }
