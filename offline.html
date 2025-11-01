@@ -4,21 +4,75 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>TEMOTIVA sin conexión</title>
+  <meta name="theme-color" content="#F7F7F7">
+  <meta name="description" content="Bienestar emocional para mejorar la salud mental y el autocuidado en la vida cotidiana.">
   <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; padding: 2rem; color: #222; background: #fafafa; }
-    .card { max-width: 600px; margin: 10vh auto; background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 16px rgba(0,0,0,.06); }
-    h1 { margin: 0 0 .5rem 0; font-size: 1.4rem; }
-    p { margin: .4rem 0; line-height: 1.5; }
-    a { color: #0b57d0; text-decoration: none; }
-    .muted { color: #666; font-size: .95rem; }
+    :root {
+      --bg: #fafafa;
+      --card: #ffffff;
+      --ink: #222;
+      --link: #0b57d0;
+      --muted: #666;
+    }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .card {
+      max-width: 600px;
+      background: var(--card);
+      border: 1px solid #eee;
+      border-radius: 14px;
+      padding: 2rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,.06);
+      text-align: center;
+    }
+    h1 {
+      margin-top: 0;
+      font-size: 1.6rem;
+      color: var(--ink);
+    }
+    p {
+      margin: 0.6rem 0;
+      line-height: 1.6;
+    }
+    .muted {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    a {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.7rem 1.2rem;
+      background: var(--link);
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    a:hover {
+      background: #084bb5;
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>TEMOTIVA está sin conexión</h1>
-    <p>No se pudo cargar la página. Revisa tu conexión y vuelve a intentarlo.</p>
-    <p class="muted">Cuando recuperes conexión, abre la app para actualizar el contenido en caché.</p>
-    <p><a href="/">Ir al inicio</a></p>
+  <div class="container">
+    <div class="card" role="alert" aria-live="polite">
+      <h1>TEMOTIVA está sin conexión</h1>
+      <p>No se pudo cargar la página en este momento.</p>
+      <p class="muted">Cuando recuperes conexión, abre la app para actualizar el contenido en caché.</p>
+      <a href="/inicio.html">Volver al inicio</a>
+    </div>
   </div>
 </body>
 </html>
