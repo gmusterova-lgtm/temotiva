@@ -175,6 +175,61 @@ self.addEventListener("fetch", event => {
     }))
   );
 });
+/* ===== Background Sync para reintentar el formulario ===== */
+async function readAllQueued() {
+  return new Promise((res, rej) => {
+    const req = indexedDB.open("temotiva-db", 1);
+    req.onupgradeneeded = () => req.result.createObjectStore("form-queue", { keyPath: "id", autoIncrement: true });
+    req.onsuccess = () => {
+      const db = req.result;
+      const tx = db.transaction("form-queue", "readonly");
+      const store = tx.objectStore("form-queue");
+      const getAll = store.getAll();
+      getAll.onsuccess = () => res({ db, items: getAll.result || [] });
+      getAll.onerror = () => rej(getAll.error);
+    };
+    req.onerror = () => rej(req.error);
+  });
+}
+async function clearQueued(ids) {
+  const db = await new Promise((res, rej) => {
+    const req = indexedDB.open("temotiva-db", 1);
+    req.onsuccess = () => res(req.result);
+    req.onerror = () => rej(req.error);
+  });
+  const tx = db.transaction("form-queue", "readwrite");
+  const store = tx.objectStore("form-queue");
+  ids.forEach(id => store.delete(id));
+  return new Promise((res, rej) => {
+    tx.oncomplete = () => res(true);
+    tx.onerror = () => rej(tx.error);
+  });
+}
+
+self.addEventListener("sync", (event) => {
+  if (event.tag === "temotiva-form-sync") {
+    event.waitUntil((async () => {
+      try {
+        const { items } = await readAllQueued();
+        if (!items.length) return;
+
+        const succeeded = [];
+        for (const it of items) {
+          const fd = new FormData();
+          Object.entries(it.data || {}).forEach(([k, v]) => fd.append(k, v));
+          fd.append("_source", "pwa-sync");
+
+          const resp = await fetch(it.action, { method: "POST", body: fd });
+          if (resp && resp.ok) succeeded.push(it.id);
+        }
+        if (succeeded.length) await clearQueued(succeeded);
+      } catch (e) {
+        // sin red o error de servidor: el SyncManager reintentará luego
+      }
+    })());
+  }
+});
+
 
 /* Mensajería: permitir skipWaiting manual desde la app */
 self.addEventListener("message", event => {
