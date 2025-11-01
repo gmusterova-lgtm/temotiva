@@ -694,6 +694,25 @@
       </div>
     </div>
   </div>
+<script>
+  // Cuando alguien hace clic en "Instalar"
+  document.getElementById("pwaInstallNow").addEventListener("click", function() {
+    gtag('event', 'click_instalar', {
+      'event_category': 'PWA',
+      'event_label': 'Botón Instalar TEMOTIVA'
+    });
+  });
+
+  // Cuando alguien hace clic en "Más tarde"
+  document.getElementById("pwaInstallLater").addEventListener("click", function() {
+    gtag('event', 'click_instalar_mas_tarde', {
+      'event_category': 'PWA',
+      'event_label': 'Botón Más tarde'
+    });
+  });
+</script>
+
+  
   <footer class="site-footer">
   <p>© 2025 TEMOTIVA. Código bajo licencia MIT. Marca e imágenes, todos los derechos reservados.</p>
 </footer>
