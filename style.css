@@ -466,3 +466,30 @@ html[data-theme="dark"] #netToast { border-color: rgba(255,255,255,.1); }
 .container-narrow { width: min(800px, 92%); margin: 0 auto; }
 .muted { color: var(--ink-soft); }
 
+/* Desactiva solo en esta página el ::after si usas <picture> */
+body .hero::after { content: none; }
+
+/* Contenedor y estilo de la imagen del héroe */
+.hero-media {
+  position: absolute;
+  inset: 0 0 0 auto; /* ocupa la franja derecha */
+  width: 40%;
+  display: grid;
+  place-items: center;
+  pointer-events: none; /* decorativa */
+  z-index: -1; /* detrás del contenido */
+}
+.hero-img {
+  max-width: min(560px, 90%);
+  height: auto;
+  opacity: .22;
+  transform: translateX(8%);
+}
+
+/* Ajustes por modo oscuro y responsive */
+html[data-theme="dark"] .hero-img { opacity: .18; }
+@media (max-width: 900px) {
+  .hero-media { width: 35%; }
+  .hero-img { opacity: .16; transform: translateX(4%); }
+}
+
