@@ -228,3 +228,63 @@ const langBtn = $("#langBtn");
 const themeBtn = $("#themeBtn");
 on(langBtn, "click", () => track("lang_toggle", { event_category: "UI", event_label: (document.documentElement.lang || "es") }));
 on(themeBtn, "click", () => track("theme_toggle", { event_category: "UI", event_label: (document.documentElement.getAttribute("data-theme") || "auto") }));
+
+/* ===== Cola de envíos de formulario (offline-ready) ===== */
+// Mini wrapper IndexedDB sencillo
+const FormDB = (() => {
+  const DB_NAME = "temotiva-db";
+  const STORE = "form-queue";
+  let dbPromise = null;
+
+  function open() {
+    if (dbPromise) return dbPromise;
+    dbPromise = new Promise((res, rej) => {
+      const req = indexedDB.open(DB_NAME, 1);
+      req.onupgradeneeded = () => req.result.createObjectStore(STORE, { keyPath: "id", autoIncrement: true });
+      req.onsuccess = () => res(req.result);
+      req.onerror = () => rej(req.error);
+    });
+    return dbPromise;
+  }
+  async function add(payload) {
+    const db = await open();
+    return new Promise((res, rej) => {
+      const tx = db.transaction(STORE, "readwrite");
+      tx.objectStore(STORE).add(payload);
+      tx.oncomplete = () => res(true);
+      tx.onerror = () => rej(tx.error);
+    });
+  }
+  return { add };
+})();
+
+// Hook al formulario existente (no duplica listeners)
+(function enableBackgroundSyncForm(){
+  const form = document.getElementById("contactForm");
+  if (!form) return;
+
+  const action = form.getAttribute("action") || "https://formspree.io/f/xnnobrvn";
+
+  form.addEventListener("submit", async (e) => {
+    // Si tu listener original ya hizo preventDefault, esto no rompe nada.
+    // Aquí solo añadimos la lógica offline y el registro de sync.
+    if (!navigator.onLine) {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      await FormDB.add({ when: Date.now(), action, data });
+      try {
+        if ("serviceWorker" in navigator && "SyncManager" in window) {
+          const reg = await navigator.serviceWorker.ready;
+          await reg.sync.register("temotiva-form-sync");
+        }
+      } catch {}
+      // Feedback suave (reutiliza tu #formMsg si existe)
+      const msg = document.getElementById("formMsg");
+      if (msg) {
+        msg.textContent = "Sin conexión. Enviaremos tu mensaje automáticamente al volver la red.";
+        msg.classList.remove("oculto");
+        setTimeout(() => msg.classList.add("oculto"), 3500);
+      }
+    }
+  }, { capture: true }); // capture para interceptar antes de que otro listener haga fetch
+})();
