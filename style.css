@@ -7,12 +7,12 @@
   --muted: #eee;
   --radius: 12px;
   --shadow: 0 8px 24px rgba(0,0,0,.08);
-  --header-h: 64px; /* altura del header */
+  --header-h: 64px;
   --focus: 2px solid #3b82f6;
-  color-scheme: light dark; /* PWA: anuncia soporte claro/oscuro */
+  color-scheme: light dark;
 }
 
-/* Modo oscuro automático por sistema */
+/* Modo oscuro automático */
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #0f1115;
@@ -25,7 +25,7 @@
   }
 }
 
-/* Modo oscuro manual por clase (tu botón añade .theme-dark al <html>) */
+/* Modo oscuro manual */
 .theme-dark {
   --bg: #0f1115;
   --ink: #eaeaea;
@@ -51,14 +51,14 @@ body {
 }
 img, video { max-width: 100%; height: auto; display: block; }
 a, button, input, textarea { font: inherit; }
-a { color: inherit; }
+a { color: inherit; text-decoration: none; }
 :focus-visible { outline: var(--focus); outline-offset: 2px; border-radius: 8px; }
 .sr-only {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
 }
 
-/* Respeto reducción de movimiento */
+/* Reduce motion */
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
@@ -66,7 +66,7 @@ a { color: inherit; }
 /* Contenedor */
 .container { width: min(1100px, 92%); margin: 0 auto; }
 
-/* Header fijo */
+/* Header */
 .site-header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
   background: var(--card);
@@ -94,7 +94,7 @@ a { color: inherit; }
 /* Navegación */
 .nav-links { display: flex; gap: 1rem; }
 .nav-links a {
-  text-decoration: none; color: var(--ink-soft); padding: .4rem .6rem; border-radius: 8px;
+  color: var(--ink-soft); padding: .4rem .6rem; border-radius: 8px;
   min-height: 44px; display: inline-flex; align-items: center;
 }
 .nav-links a:hover, .nav-links a.active { background: var(--muted); color: var(--ink); }
@@ -104,37 +104,44 @@ a { color: inherit; }
 .section.alt { background: #f4f4f4; }
 .theme-dark .section.alt { background: #161a24; }
 
-/* ===== HERO sin recorte: imagen completa a la derecha ===== */
+/* HERO */
 .hero {
   position: relative;
   text-align: center;
   padding: 6rem 0 5rem;
-  background: linear-gradient(180deg, #ffffff, #f2f2f2); /* base clara */
+  background: linear-gradient(180deg, #ffffff, #f2f2f2);
   overflow: hidden;
   z-index: 0;
 }
 .theme-dark .hero {
   background: linear-gradient(180deg, #121621, #0f131d);
 }
-.hero::after {
-  content:"";
-  position:absolute;
-  top:0; right:0; bottom:0; left:55%;
-  background:
-    image-set(
-      url("/img/chica-meditando-1600.webp") type("image/webp"),
-      url("/img/chica-meditando-1600.png") type("image/png")
-    )
-    right center / contain no-repeat;
-  opacity:.22;
-  pointer-events:none;
-  z-index:-1;
+
+/* Imagen hero como <picture> */
+.hero-media {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 40%;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  z-index: -1;
 }
-
-/* En oscuro, baja un poco la opacidad para más contraste */
-.theme-dark .hero::after { opacity:.18; }
-
-
+.hero-img {
+  max-width: min(560px, 90%);
+  height: auto;
+  opacity: .22;
+  transform: translateX(8%);
+  transition: opacity .2s ease;
+}
+html[data-theme="dark"] .hero-img { opacity: .18; }
+@media (max-width: 900px) {
+  .hero-media { width: 35%; }
+  .hero-img { opacity: .16; transform: translateX(4%); }
+}
+@media (min-width: 1000px) {
+  .hero .container { padding-right: 42%; }
+}
 .hero h1 {
   font-size: clamp(1.8rem, 2.8vw, 3rem);
   margin: 0 0 .6rem;
@@ -144,51 +151,56 @@ a { color: inherit; }
   margin: 0 0 1.2rem;
 }
 
-/* Móvil: menos franja de imagen */
-@media (max-width: 900px) {
-  .hero::after{ left:65%; opacity:.16; }
-  .theme-dark .hero::after{ opacity:.14; }
-}
-
-/* Desktop: aire vertical */
-@media (min-width: 1000px) {
-  .hero { min-height: 520px; }
-}
-
-/* Alturas PWA */
-@supports (height: 100dvh) {
-  .full-height { min-height: 100dvh; }
-}
-
 /* Listas */
 .bullets { margin: 1rem 0 0; padding: 0 1rem; }
 .bullets li { margin: .4rem 0; }
 
-/* Botones y tarjetas */
+/* Botones */
 .btn {
   display: inline-block; border: 0; border-radius: 10px; padding: .8rem 1.2rem;
   background: var(--brand); color: #fff; text-decoration: none; cursor: pointer;
   min-height: 44px; line-height: 1; user-select: none;
+  transition: transform .05s ease, box-shadow .2s ease, opacity .15s ease;
 }
-.btn:hover { filter: brightness(.9); }
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover { opacity: .94; box-shadow: 0 10px 24px rgba(0,0,0,.18); }
+}
+.btn:active { transform: translateY(1px); }
+.btn.secondary { background: #f0f0f0; color: #222; }
+html[data-theme="dark"] .btn.secondary { background: #222733; color: #eaeaea; }
 
 /* Grid y cards */
 .grid { display: grid; gap: 1rem; grid-template-columns: repeat(3, 1fr); }
 @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
-
 .card {
-  background: var(--card); border-radius: var(--radius); padding: 1rem 1.2rem; box-shadow: var(--shadow);
-  border: 1px solid rgba(0,0,0,0.04);
+  background: var(--card); border-radius: var(--radius); padding: 1rem 1.2rem;
+  box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,0.04);
 }
 .theme-dark .card { border-color: #2a2e3a; box-shadow: none; }
 
-.team .member { background: var(--card); border-radius: var(--radius); padding: 1rem; box-shadow: var(--shadow); }
-.theme-dark .team .member { border: 1px solid #2a2e3a; box-shadow: none; }
+/* Imagen decorativa de Producto */
+.product-media {
+  text-align: center;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+.product-img {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.12);
+  transition: transform .4s ease, opacity .4s ease;
+  opacity: .96;
+}
+.product-img:hover { transform: scale(1.02); }
+html[data-theme="dark"] .product-img { box-shadow: 0 6px 24px rgba(0,0,0,.45); }
 
 /* Formulario */
 .form { display: grid; gap: .8rem; max-width: 520px; }
 .form input, .form textarea {
-  width: 100%; padding: .8rem 1rem; border-radius: 10px; border: 1px solid #ccc; background: #fff;
+  width: 100%; padding: .8rem 1rem; border-radius: 10px;
+  border: 1px solid #ccc; background: #fff;
 }
 .theme-dark .form input, .theme-dark .form textarea {
   background: #0f1115; border-color: #3a3f4e; color: var(--ink);
@@ -206,81 +218,44 @@ a { color: inherit; }
 }
 .theme-dark .site-footer { border-top-color: #2a2e3a; }
 .site-footer p { margin: 0; }
-.back-top { text-decoration: none; margin-left: 1rem; color: var(--ink-soft); }
+.back-top { color: var(--ink-soft); margin-left: 1rem; }
 .back-top:hover { color: var(--ink); }
 
 /* Menú lateral */
-.layout { display: flex; min-height: 100vh; }
 .sidebar {
-  position: sticky; top: var(--header-h); align-self: flex-start;
-  width: 250px; padding: 20px 16px; background: var(--card); border-right: 1px solid #eee;
-  height: calc(100vh - var(--header-h)); box-sizing: border-box;
+  position: fixed; left: -270px; top: var(--header-h); z-index: 9999;
+  width: 250px; height: calc(100vh - var(--header-h));
+  background: var(--card); border-right: 1px solid #eee;
+  padding: 20px 16px; transition: left .25s ease;
+  box-shadow: none;
 }
+.sidebar.is-open { left: 0; box-shadow: 0 6px 28px rgba(0,0,0,.15); }
 .theme-dark .sidebar { border-right-color: #2a2e3a; }
-.sidebar .logo-side { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--ink); font-weight: 700; }
-.sidebar .logo-side img { width: 32px; height: 32px; border-radius: 8px; }
 .menu-list { list-style: none; padding: 0; margin: 16px 0; }
-.menu-list li { margin: 8px 0; }
-.menu-list a { text-decoration: none; color: var(--ink); padding: 8px 10px; display: block; border-radius: 8px; min-height: 44px; }
+.menu-list a { display: block; padding: 8px 10px; color: var(--ink); border-radius: 8px; }
 .menu-list a:hover, .menu-list a:focus { background: var(--muted); outline: none; }
-.privacy-link { display: block; margin-top: 12px; font-size: 14px; color: var(--ink-soft); text-decoration: none; }
-.content { flex: 1; min-width: 0; }
 
-/* Responsive navegación */
+/* Responsive nav */
 @media (max-width: 900px) {
   .menu-btn { display: inline-block; }
-
   .nav-links {
-    position: absolute;
-    right: 4%;
-    top: var(--header-h);
-    background: var(--card);
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: .6rem;
-    display: none;
-    flex-direction: column;
-    gap: .4rem;
-    box-shadow: var(--shadow);
+    position: absolute; right: 4%; top: var(--header-h);
+    background: var(--card); border: 1px solid #ddd; border-radius: 12px;
+    padding: .6rem; display: none; flex-direction: column; gap: .4rem;
+    box-shadow: var(--shadow); z-index: 1200;
   }
   .theme-dark .nav-links { border-color: #2a2e3a; }
-
   .nav-links.open { display: flex; }
-
-  .sidebar {
-    position: fixed; left: -270px; top: var(--header-h); z-index: 9999;
-    height: calc(100vh - var(--header-h));
-    transition: left .25s ease;
-    box-shadow: none;
-  }
-  .sidebar.is-open { left: 0; box-shadow: 0 6px 28px rgba(0,0,0,.15); }
 }
 
-/* Animaciones suaves (solo si JS marca .js-ready en <html>) */
-html.js-ready .reveal {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity .6s ease, transform .6s ease;
-}
-html.js-ready .reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Fallback: si el JS no carga, mostrar el contenido igualmente */
-html:not(.js-ready) .reveal {
-  opacity: 1;
-  transform: none;
-}
+/* Animaciones suaves */
+html.js-ready .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+html.js-ready .reveal.visible { opacity: 1; transform: translateY(0); }
+html:not(.js-ready) .reveal { opacity: 1; transform: none; }
 
 /* Entrada hero */
-.hero .container {
-  animation: fadeUp .8s ease both;
-}
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+.hero .container { animation: fadeUp .8s ease both; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 
 /* Frase */
 .frase {
@@ -288,215 +263,43 @@ html:not(.js-ready) .reveal {
   color: var(--ink-soft);
   margin: .6rem 0 1rem;
 }
-/* ==== Mejora incremental de contraste, accesibilidad y layout ==== */
 
-/* 1) Contraste de secciones claras y uniformidad de texto */
-.section,
-.section.alt {
-  color: var(--ink); /* fuerza texto legible en ambas */
-}
-
-/* 2) Menú flotante móvil por encima del header y tarjetas */
-.nav-links { z-index: 1200; }
-
-/* 3) Estados de foco y selección más visibles (AA/AAA) */
+/* Accesibilidad y contraste */
+.section, .section.alt { color: var(--ink); }
 ::selection { background: #dbeafe; color: #111; }
 .theme-dark ::selection { background: #1f2937; color: #eaeaea; }
-
 .nav-links a:focus-visible,
 .menu-list a:focus-visible,
 .btn:focus-visible,
 input:focus-visible,
-textarea:focus-visible {
-  outline: var(--focus);
-  outline-offset: 2px;
-  border-radius: 10px;
-}
+textarea:focus-visible { outline: var(--focus); outline-offset: 2px; border-radius: 10px; }
 
-/* 4) Mejoras en oscuro para elementos con borde */
-.theme-dark .nav-links { border-color: #2a2e3a; }
-.theme-dark .menu-list a:hover,
-.theme-dark .menu-list a:focus { background: #1f2330; }
-
-/* 5) Tipografía fluida suave (no invasiva) */
-body { font-size: clamp(15.5px, 1.2vw, 16.5px); }
-
-/* 6) Botones: pequeña ganancia de contraste al hover en claro/oscuro */
-.btn:hover { filter: none; opacity: .92; }
-
-/* 7) Hero: asegura contraste del texto sobre fondos oscuros/claros */
-.hero h1, .hero p { text-shadow: 0 0 1px rgba(0,0,0,.04); }
-.theme-dark .hero h1, .theme-dark .hero p { text-shadow: 0 0 1px rgba(0,0,0,.12); }
-
-/* 8) Accesibilidad extra: alto contraste del borde si el usuario lo pide */
-@media (prefers-contrast: more) {
-  .card, .site-header, .site-footer, .nav-links { border-width: 2px; }
-  .menu-list a:hover, .menu-list a:focus { outline: 2px solid currentColor; }
-}
-
-/* 9) Scrollbar discreto (solo navegadores compatibles) */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #b9c6ff transparent;
-}
+/* Scrollbar discreto */
+* { scrollbar-width: thin; scrollbar-color: #b9c6ff transparent; }
 *::-webkit-scrollbar { height: 10px; width: 10px; }
 *::-webkit-scrollbar-thumb { border-radius: 8px; background: rgba(0,0,0,.22); }
 .theme-dark *::-webkit-scrollbar-thumb { background: rgba(255,255,255,.18); }
 
-/* 10) Panel lateral cuando está abierto: evita “scroll de fondo” en iOS */
+/* Panel lateral abierto */
 .sidebar.is-open { overscroll-behavior: contain; }
 
-/* 11) Utilidades */
+/* Utilidades */
 .hidden { display: none !important; }
 .text-soft { color: var(--ink-soft) !important; }
+.u-center { display: grid; place-items: center; }
+.u-gap-xs { gap: .25rem; } .u-gap-s { gap: .5rem; } .u-gap { gap: 1rem; } .u-gap-l { gap: 1.5rem; }
+.container-narrow { width: min(820px, 92%); margin: 0 auto; }
 
-/* Toasts PWA */
-.pwa-toast {
-  position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%);
-  background: var(--card); color: var(--ink); border: 1px solid #ddd;
-  box-shadow: var(--shadow); border-radius: 12px; padding: 12px 16px; z-index: 2000;
-}
-.theme-dark .pwa-toast { border-color: #2a2e3a; }
-.pwa-install { display: none; }
-
-/* ===== Append-only: mejoras seguras TEMOTIVA ===== */
-
-/* 0) Dark mode coherente con data-theme (sin quitar .theme-dark existente) */
-html[data-theme="dark"] {
-  --bg: #0f1115;
-  --ink: #eaeaea;
-  --ink-soft: #c9c9c9;
-  --brand: #eaeaea;
-  --card: #151923;
-  --muted: #262a36;
-  --shadow: 0 8px 24px rgba(0,0,0,.45);
+/* Performance */
+.section { contain: layout style paint; }
+.section.reveal { contain: layout paint; }
+@supports (content-visibility: auto) {
+  .section { content-visibility: auto; contain-intrinsic-size: 800px; }
 }
 
-/* 1) Variantes de botón y estados */
-.btn.secondary {
-  background: #f0f0f0; color: #222;
-}
-html[data-theme="dark"] .btn.secondary {
-  background: #222733; color: #eaeaea;
-}
-.btn.ghost {
-  background: transparent; color: var(--ink); border: 1px solid rgba(0,0,0,.15);
-}
-html[data-theme="dark"] .btn.ghost {
-  border-color: rgba(255,255,255,.18);
-}
+/* Titlebar */
+.titlebar { pointer-events: none; }
+.titlebar .controls { pointer-events: auto; }
 
-/* 2) Estados de formulario accesibles */
-.form input:invalid, .form textarea:invalid {
-  border-color: #ef4444;
-}
-.form input:valid, .form textarea:valid {
-  border-color: #10b981;
-}
-.form label { user-select: none; }
-
-/* 3) Nav: indicador sutil del enlace activo */
-.nav-links a.active {
-  box-shadow: inset 0 -2px 0 currentColor;
-}
-
-/* 4) Banner PWA (#pwaBanner) y botón de instalar (#installBtn) */
-#pwaBanner {
-  position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%) translateY(100px);
-  background: var(--card); color: var(--ink);
-  border: 1px solid rgba(0,0,0,.12);
-  box-shadow: 0 8px 24px rgba(0,0,0,.15);
-  border-radius: 12px; padding: 12px 14px; z-index: 2000;
-  display: none; opacity: 0; transition: transform .3s ease, opacity .3s ease;
-  max-width: min(640px, 96%); width: max-content;
-}
-#pwaBanner.show { display: block; opacity: 1; transform: translateX(-50%) translateY(0); }
-#pwaBanner .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-#installBtn[hidden] { display: none !important; }
-
-/* 5) Toast de red (#netToast) */
-#netToast {
-  position: fixed; left: 50%; bottom: 1.5rem; transform: translateX(-50%) translateY(80px);
-  background: var(--card); color: var(--ink);
-  border: 1px solid rgba(0,0,0,.1);
-  box-shadow: 0 4px 20px rgba(0,0,0,.12);
-  border-radius: 10px; padding: .75rem 1.2rem;
-  font-size: .95rem; font-weight: 500;
-  opacity: 0; pointer-events: none;
-  transition: all .35s ease; z-index: 9999;
-}
-#netToast.show { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
-html[data-theme="dark"] #netToast { border-color: rgba(255,255,255,.1); }
-
-/* 6) Utilidades de grid reutilizables */
-.grid-2 { display: grid; gap: 1rem; grid-template-columns: repeat(2, 1fr); }
-.grid-3 { display: grid; gap: 1rem; grid-template-columns: repeat(3, 1fr); }
-@media (max-width: 900px) {
-  .grid-2, .grid-3 { grid-template-columns: 1fr; }
-}
-
-/* 7) Imágenes utilitarias */
-.img-cover { width: 100%; height: 100%; object-fit: cover; object-position: center; }
-
-/* 8) Ventana con título overlay (Windows) */
-.titlebar {
-  position: fixed;
-  height: env(titlebar-area-height, 38px);
-  left: env(titlebar-area-x, 0px);
-  top: env(titlebar-area-y, 0px);
-  width: env(titlebar-area-width, 100%);
-  -webkit-app-region: drag;
-  app-region: drag;
-  z-index: 1500;
-}
-.titlebar .controls { -webkit-app-region: no-drag; app-region: no-drag; }
-
-/* 9) Mejoras de impresión */
-@media print {
-  .site-header, .sidebar, #pwaBanner, #netToast { display: none !important; }
-  .btn, a { color: #000 !important; background: transparent !important; border: 1px solid #000 !important; }
-  .card { box-shadow: none !important; border: 1px solid #000 !important; }
-}
-
-/* 10) Accesibilidad refinada: alto contraste cuando se solicita */
-@media (prefers-contrast: more) {
-  .btn, .form input, .form textarea, .card, .nav-links { border-width: 2px; }
-  .btn { box-shadow: none; }
-}
-
-/* 11) Soporte de “reduce motion” en animaciones existentes */
-@media (prefers-reduced-motion: reduce) {
-  #pwaBanner, #netToast { transition: none !important; }
-}
-
-/* 12) Mini utilidades */
-.container-narrow { width: min(800px, 92%); margin: 0 auto; }
-.muted { color: var(--ink-soft); }
-
-/* Desactiva solo en esta página el ::after si usas <picture> */
-body .hero::after { content: none; }
-
-/* Contenedor y estilo de la imagen del héroe */
-.hero-media {
-  position: absolute;
-  inset: 0 0 0 auto; /* ocupa la franja derecha */
-  width: 40%;
-  display: grid;
-  place-items: center;
-  pointer-events: none; /* decorativa */
-  z-index: -1; /* detrás del contenido */
-}
-.hero-img {
-  max-width: min(560px, 90%);
-  height: auto;
-  opacity: .22;
-  transform: translateX(8%);
-}
-
-/* Ajustes por modo oscuro y responsive */
-html[data-theme="dark"] .hero-img { opacity: .18; }
-@media (max-width: 900px) {
-  .hero-media { width: 35%; }
-  .hero-img { opacity: .16; transform: translateX(4%); }
-}
-
+/* Safari iOS fix */
+.sidebar.is-open { touch-action: none; }
