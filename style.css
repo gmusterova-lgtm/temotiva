@@ -303,3 +303,70 @@ textarea:focus-visible { outline: var(--focus); outline-offset: 2px; border-radi
 
 /* Safari iOS fix */
 .sidebar.is-open { touch-action: none; }
+/* ===== PWA: instalación y modo offline ===== */
+
+/* Banner de instalación */
+#pwaBanner {
+  position: fixed;
+  left: 50%;
+  bottom: 1rem;
+  transform: translateX(-50%) translateY(100%);
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.15);
+  padding: .8rem 1rem;
+  z-index: 3000;
+  max-width: 96%;
+  opacity: 0;
+  pointer-events: none;
+  transition: all .3s ease;
+}
+#pwaBanner.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+#pwaBanner .row {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#pwaBanner .btn.secondary {
+  background: #f3f4f6;
+  color: #111;
+}
+html[data-theme="dark"] #pwaBanner .btn.secondary {
+  background: #222733;
+  color: #eaeaea;
+}
+
+/* Mensaje “sin conexión” */
+.offline-card {
+  max-width: 600px;
+  margin: 10vh auto;
+  background: var(--card);
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,.06);
+  text-align: center;
+}
+.offline-card h1 {
+  font-size: 1.4rem;
+  margin-bottom: .5rem;
+}
+.offline-card p {
+  margin: .4rem 0;
+  line-height: 1.5;
+}
+.offline-card a {
+  color: #0b57d0;
+}
+html[data-theme="dark"] .offline-card {
+  border-color: #2a2e3a;
+  box-shadow: 0 2px 16px rgba(0,0,0,.3);
+}
