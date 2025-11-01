@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="auto">
 <head>
-  <!-- Google Analytics -->
+  <!-- Analítica -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DM1M9GM27Z"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-DM1M9GM27Z', { 'anonymize_ip': true });
   </script>
 
   <!-- Axeptio Cookies -->
   <script>
-    window.axeptioSettings = {
-      clientId: "69055200683c996cd378866f",
-      cookiesVersion: "Spain GDPR Spanish Cookies"
-    };
-    (function(d,s){
-      var t=d.getElementsByTagName(s)[0], e=d.createElement(s);
-      e.async=true; e.src="https://static.axept.io/sdk.js";
-      t.parentNode.insertBefore(e,t);
-    })(document,"script");
+    window.axeptioSettings = { clientId: "69055200683c996cd378866f", cookiesVersion: "Spain GDPR Spanish Cookies" };
+    (function(d,s){ var t=d.getElementsByTagName(s)[0], e=d.createElement(s); e.async=true; e.src="https://static.axept.io/sdk.js"; t.parentNode.insertBefore(e,t); })(document,"script");
   </script>
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index,follow" />
+  <meta http-equiv="x-ua-compatible" content="IE=edge" />
 
   <title>TEMOTIVA | Innovación en bienestar emocional</title>
   <meta name="description" content="Bienestar emocional para mejorar la salud mental y el autocuidado en la vida cotidiana. Descubre prácticas simples para cuidar tu mente y tu equilibrio día a día.">
   <meta name="keywords" content="bienestar emocional, salud mental, autocuidado, psicología, autocuidado diario, regulación emocional, progreso">
+
+  <!-- Open Graph y Twitter -->
+  <meta property="og:type" content="website">
   <meta property="og:title" content="TEMOTIVA | Bienestar emocional y autocuidado en la vida cotidiana">
   <meta property="og:description" content="Cuidar tu mente, tu bienestar y tu día a día de forma sencilla.">
   <meta property="og:image" content="https://www.temotiva.com/icon-512.png">
   <meta property="og:url" content="https://www.temotiva.com/">
+  <meta property="og:locale" content="es_ES">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="canonical" href="https://www.temotiva.com/">
@@ -45,18 +44,9 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="TEMOTIVA">
   <meta name="color-scheme" content="light dark">
-  <link rel="apple-touch-icon" href="/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/icon-maskable-512.png" purpose="maskable">
-
-  <!-- Social -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="TEMOTIVA, bienestar emocional y tecnología">
-  <meta property="og:description" content="Chequeos diarios, micro ejercicios, progreso claro, privacidad por diseño.">
-  <meta property="og:url" content="https://www.temotiva.com/">
-  <meta property="og:image" content="https://www.temotiva.com/screenshot-1.png">
-  <meta name="twitter:card" content="summary_large_image">
 
   <!-- Idiomas -->
   <link rel="alternate" href="https://www.temotiva.com/" hreflang="es">
@@ -70,6 +60,10 @@
   <link rel="preconnect" href="https://ejhzxwnhqvcqjqxnuvya.supabase.co" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://formspree.io" crossorigin>
+  <!-- Prefetch de páginas frecuentes -->
+  <link rel="prefetch" href="/inicio.html" as="document">
+  <link rel="prefetch" href="/blog/index.html" as="document">
+  <link rel="prefetch" href="/recursos.html" as="document">
 
   <!-- Datos estructurados -->
   <script type="application/ld+json">
@@ -98,7 +92,7 @@
     "@type":"SiteNavigationElement",
     "name":["Inicio","Misión","Producto","Equipo","Contacto","Blog","Recursos"],
     "url":[
-      "https://www.temotiva.com/#inicio",
+      "https://www.temotiva.com/inicio.html",
       "https://www.temotiva.com/#mision",
       "https://www.temotiva.com/#producto",
       "https://www.temotiva.com/#equipo",
@@ -108,23 +102,35 @@
     ]
   }
   </script>
+  <!-- Opcional: describe PWA como app para tiendas -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SoftwareApplication",
+    "name":"TEMOTIVA",
+    "applicationCategory":"HealthApplication",
+    "operatingSystem":"Web, Android, iOS, Windows",
+    "offers": { "@type":"Offer", "price":"0", "priceCurrency":"EUR" }
+  }
+  </script>
 
-  <!-- Estilos locales de layout y refinado visual -->
+  <!-- Estilos locales y utilidades -->
   <style>
-    /* Tipografía y escala vertical */
     :root{
       --bg:#f9f9f9; --ink:#222; --ink-soft:#555; --brand:#111; --card:#fff; --muted:#eee;
       --radius:14px; --shadow:0 8px 28px rgba(0,0,0,.08); --header-h:64px; --focus:2px solid #3b82f6;
       --lh:1.65; --h1:clamp(2rem, 3.6vw, 3rem); --h2:clamp(1.4rem, 2.2vw, 2rem); --h3:clamp(1.1rem, 1.6vw, 1.25rem);
+      --container: min(1100px, 92%);
       color-scheme: light dark;
     }
-    /* Tema oscuro por data-theme para Safari y Chrome */
     html[data-theme="dark"]{
       --bg:#0f1115; --ink:#eaeaea; --ink-soft:#c9c9c9; --brand:#eaeaea; --card:#151923; --muted:#262a36;
       --shadow:0 8px 24px rgba(0,0,0,.45);
       color-scheme: dark;
     }
-
+    @media (prefers-reduced-motion: reduce){
+      * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    }
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; scroll-padding-top:var(--header-h); }
     body{
@@ -132,16 +138,25 @@
       color:var(--ink); background:var(--bg); line-height:var(--lh); padding-top:var(--header-h);
       -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     }
+    .container{ width:var(--container); margin:0 auto; }
     img, video{ max-width:100%; height:auto; display:block; }
-    a, button, input, textarea{ font:inherit; }
+    a, button, input, textarea, select{ font:inherit; }
     a{ color:inherit; text-decoration:none; }
     :focus-visible{ outline:var(--focus); outline-offset:3px; border-radius:10px; }
-    .container{ width:min(1100px, 92%); margin:0 auto; }
 
-    /* Header fijo con sombra en scroll */
+    /* Utilidades */
+    .u-center{ display:grid; place-items:center; }
+    .u-flex{ display:flex; }
+    .u-col{ display:flex; flex-direction:column; }
+    .u-gap-xs{ gap:.25rem; } .u-gap-s{ gap:.5rem; } .u-gap{ gap:1rem; } .u-gap-l{ gap:1.5rem; }
+    .u-mt-s{ margin-top:.5rem; } .u-mt{ margin-top:1rem; } .u-mt-l{ margin-top:1.5rem; } .u-mb{ margin-bottom:1rem; }
+    .u-hidden{ display:none !important; }
+
+    /* Header */
     .site-header{
       position:fixed; inset:0 0 auto 0; height:var(--header-h); z-index:1000; background:var(--card);
-      border-bottom:1px solid rgba(0,0,0,.08); transition: box-shadow .2s ease, backdrop-filter .2s ease;
+      border-bottom:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      transition: box-shadow .2s ease, backdrop-filter .2s ease;
       backdrop-filter: saturate(130%) blur(4px);
     }
     .site-header.is-scrolled{ box-shadow:0 6px 24px rgba(0,0,0,.08); }
@@ -151,9 +166,13 @@
 
     .header-actions{ display:flex; align-items:center; gap:.5rem; }
     .icon-btn{
-      border:1px solid rgba(0,0,0,.12); background:var(--card); color:var(--ink);
-      padding:.5rem .7rem; border-radius:12px; cursor:pointer; min-height:40px; transition:background .15s ease, transform .05s ease;
+      border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      background:var(--card); color:var(--ink);
+      padding:.5rem .7rem; border-radius:12px; cursor:pointer; min-height:40px;
+      transition:background .15s ease, transform .05s ease, box-shadow .2s ease;
+      box-shadow:0 1px 1px rgba(0,0,0,.02);
     }
+    .icon-btn:hover{ box-shadow:0 6px 20px rgba(0,0,0,.08); }
     .icon-btn:active{ transform:scale(.98); }
 
     .menu-btn{ display:inline-flex; }
@@ -162,43 +181,44 @@
     .nav-links{ display:none; gap:.4rem; }
     .nav-links a{
       padding:.45rem .7rem; border-radius:10px; color:var(--ink-soft); display:inline-flex; align-items:center;
+      position:relative;
     }
     .nav-links a:hover, .nav-links a.active{ background:var(--muted); color:var(--ink); }
+    .nav-links a.active::after{
+      content:""; position:absolute; left:10px; right:10px; bottom:4px; height:2px; background:var(--ink);
+      border-radius:2px; opacity:.4;
+    }
     @media (min-width:1024px){ .nav-links{ display:flex; } }
 
-    /* Sidebar off-canvas móvil, fijo escritorio opcional por botón */
-    .layout{ display:flex; min-height:100vh; }
+    /* Sidebar */
     #sidePanel{
       position:fixed; top:var(--header-h); left:-280px; width:260px; height:calc(100vh - var(--header-h));
-      background:var(--card); border-right:1px solid rgba(0,0,0,.08); padding:20px 16px; transition:left .25s ease; z-index:9999;
+      background:var(--card); border-right:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      padding:20px 16px; transition:left .25s ease; z-index:9999;
       box-shadow:0 12px 32px rgba(0,0,0,.12);
     }
     #sidePanel.is-open{ left:0; }
     .overlay{ position:fixed; inset:0; background:rgba(0,0,0,.28); display:none; z-index:9998; }
     .overlay.show{ display:block; }
-    @media (min-width:1200px){
-      /* escritorio: empieza cerrado y se abre con botón, no ocupa layout si no quieres */
-      #sidePanel{ left:-280px; }
-      .overlay{ display:none !important; }
-    }
+    @media (min-width:1200px){ .overlay{ display:none !important; } }
     .logo-side{ display:flex; align-items:center; gap:8px; color:var(--ink); font-weight:700; }
     .logo-side img{ width:32px; height:32px; border-radius:8px; }
-    .menu-list{ list-style:none; padding:0; margin:16px 0; }
+    .menu-list{ list-style:none; padding:0; margin:16px 0; display:flex; flex-direction:column; gap:4px; }
     .menu-list a{ display:block; padding:10px 12px; border-radius:10px; color:var(--ink); }
     .menu-list a:hover{ background:var(--muted); }
     .privacy-link{ display:block; margin-top:12px; font-size:14px; color:var(--ink-soft); }
 
+    /* Layout principal */
     .content{ flex:1; min-width:0; }
-
-    /* Hero con grid interno y franja ilustrada derecha */
     .section{ padding:4.5rem 0; }
     .section.alt{ background:#f4f4f4; }
     html[data-theme="dark"] .section.alt{ background:#161a24; }
 
+    /* Hero */
     .hero{
       position:relative; isolation:isolate;
       background:linear-gradient(180deg, #ffffff, #f3f5f7);
-      display:grid; place-items:center; padding:5.5rem 0 5rem;
+      display:grid; place-items:center; padding:5.5rem 0 5rem; overflow:hidden;
     }
     html[data-theme="dark"] .hero{ background:linear-gradient(180deg, #121621, #0f131d); }
     .hero::after{
@@ -206,40 +226,40 @@
       background:url("/chica-meditando.png") right center / contain no-repeat; opacity:.22; z-index:-1; pointer-events:none;
     }
     @media (max-width:900px){ .hero::after{ inset:0 0 0 65%; opacity:.15; } }
-
     .hero h1{ font-size:var(--h1); margin:0 0 .6rem; letter-spacing:.2px; }
     .hero p{ color:var(--ink-soft); margin:0 0 1.2rem; max-width:42ch; margin-inline:auto; }
     .cta-row{ display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:22px; }
-
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       border:0; border-radius:12px; padding:.9rem 1.2rem; background:var(--brand); color:#fff; min-height:44px;
-      line-height:1; letter-spacing:.2px; text-decoration:none; transition:filter .15s ease, transform .05s ease;
+      line-height:1; letter-spacing:.2px; text-decoration:none; transition:filter .15s ease, transform .05s ease, box-shadow .2s ease;
     }
-    .btn:hover{ filter:brightness(.92); }
+    .btn:hover{ filter:brightness(.92); box-shadow:0 10px 24px rgba(0,0,0,.18); }
     .btn:active{ transform:translateY(1px); }
 
-    /* Cards producto con micro elevación */
+    /* Cards */
     .grid{ display:grid; gap:1rem; grid-template-columns:repeat(3, 1fr); align-items:stretch; }
     @media (max-width:900px){ .grid{ grid-template-columns:1fr; } }
     .card{
       background:var(--card); border-radius:var(--radius); padding:1.1rem 1.2rem; box-shadow:var(--shadow);
-      border:1px solid rgba(0,0,0,.05); transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+      border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
     }
-    .card:hover{ transform:translateY(-2px); box-shadow:0 14px 36px rgba(0,0,0,.10); border-color:rgba(0,0,0,.08); }
+    .card:hover{ transform:translateY(-2px); box-shadow:0 14px 36px rgba(0,0,0,.10); border-color:rgba(0,0,0,.12); }
     html[data-theme="dark"] .card{ border-color:#2a2e3a; box-shadow:none; }
     .card h3{ font-size:var(--h3); margin:.2rem 0 .4rem; }
 
-    /* Frase del día */
+    /* Frase */
     .frase{ font-size:clamp(1.1rem, 2.1vw, 1.3rem); color:var(--ink-soft); margin:.6rem 0 1rem; }
 
     /* Footer */
     .site-footer{
-      border-top:1px solid rgba(0,0,0,.08); padding:1.4rem 0; background:var(--card);
+      border-top:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      padding:1.4rem 0; background:var(--card);
       padding-left:max(0px, env(safe-area-inset-left)); padding-right:max(0px, env(safe-area-inset-right));
     }
 
-    /* Accesibilidad extra */
+    /* Accesibilidad */
     .skip-link{
       position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
     }
@@ -248,61 +268,47 @@
       z-index:2000; box-shadow:0 8px 24px rgba(0,0,0,.15);
     }
 
-    /* Animación reveal solo si hay JS */
+    /* Reveal */
     html.js-ready .reveal{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
     html.js-ready .reveal.visible{ opacity:1; transform:none; }
 
     /* Banner PWA */
     .pwa-install{
       position:fixed; left:50%; bottom:16px; transform:translateX(-50%);
-      background:var(--card); color:var(--ink); border:1px solid rgba(0,0,0,.12);
+      background:var(--card); color:var(--ink); border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
       box-shadow:0 8px 24px rgba(0,0,0,.15); border-radius:12px; padding:12px 14px; z-index:2000; display:none; max-width:96%;
     }
     .pwa-install.show{ display:block; }
     .pwa-install .row{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
     .pwa-install .msg{ font-size:14px; opacity:.9; }
     .pwa-install .actions{ margin-left:auto; display:flex; gap:8px; }
-    .pwa-install .btn{ background:var(--brand); color:#fff; border:0; border-radius:10px; padding:.6rem .9rem; }
     .pwa-install .btn.secondary{ background:#f0f0f0; color:#222; }
   </style>
-  <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TEMOTIVA | Bienestar emocional y autocuidado</title>
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DM1M9GM27Z"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-DM1M9GM27Z');
-  </script>
 </head>
 <body>
   <a href="#app" class="skip-link">Saltar al contenido</a>
   <noscript><div style="padding:12px;text-align:center;background:#fff4cd;color:#7a5d00">Activa JavaScript para usar TEMOTIVA.</div></noscript>
 
-  <!-- Overlay móvil -->
+  <!-- Overlay -->
   <div id="overlay" class="overlay" aria-hidden="true"></div>
 
   <!-- Header -->
-  <header class="site-header" id="siteHeader">
+  <header class="site-header" id="siteHeader" role="banner">
     <div class="container nav">
-      <a href="#inicio" class="logo" aria-label="Volver al inicio">
+      <a href="/inicio.html" class="logo" aria-label="Ir a inicio">
         <img src="/icon-192.png" alt="Logo TEMOTIVA">
         <span>TEMOTIVA</span>
       </a>
 
       <nav id="mainNav" class="nav-links" aria-label="Menú principal">
-        <a href="#inicio" data-i18n="nav.home">Inicio</a>
+        <a href="/inicio.html" data-i18n="nav.home">Inicio</a>
         <a href="#mision" data-i18n="nav.mission">Misión</a>
         <a href="#producto" data-i18n="nav.product">Producto</a>
         <a href="#equipo" data-i18n="nav.team">Equipo</a>
         <a href="#contacto" data-i18n="nav.contact">Contacto</a>
       </nav>
 
-      <div class="header-actions">
+      <div class="header-actions" role="group" aria-label="Acciones">
         <button id="langBtn" class="icon-btn" aria-label="Cambiar idioma">ES/EN</button>
         <button id="themeBtn" class="icon-btn" aria-label="Cambiar tema" title="Tema">☾/☀︎</button>
         <button id="installBtn" class="icon-btn" aria-label="Instalar TEMOTIVA" hidden>Instalar</button>
@@ -327,31 +333,33 @@
     <a class="privacy-link" href="/privacidad.html" data-i18n="side.privacy">Privacidad</a>
   </nav>
 
-  <main class="content" id="app">
-    <!-- Inicio -->
-    <section id="inicio" class="section hero">
-      <div class="container">
-        <h1 data-i18n="hero.title">Innovación en bienestar emocional</h1>
+  <main class="content" id="app" role="main">
+    <!-- Hero -->
+    <section id="inicio" class="section hero" aria-labelledby="hero-title">
+      <div class="container u-col u-gap">
+        <h1 id="hero-title" data-i18n="hero.title">Innovación en bienestar emocional</h1>
         <p data-i18n="hero.subtitle">Plataforma sencilla para comprender, cuidar y entrenar el bienestar emocional, basada en ciencia.</p>
         <div class="cta-row">
-          <a href="/particular.html" class="btn" data-i18n="hero.ctaUser">Soy particular</a>
-          <a href="/organizacion.html" class="btn" data-i18n="hero.ctaOrg">Soy organización</a>
+          <a href="/particular.html" class="btn" data-i18n="hero.ctaUser" rel="next">Soy particular</a>
+          <a href="/organizacion.html" class="btn" data-i18n="hero.ctaOrg" rel="next">Soy organización</a>
         </div>
       </div>
     </section>
 
     <!-- CTA blog -->
-    <nav style="text-align:center; padding:40px 0;">
-      <a href="/blog/" style="background:#f3f3f3; color:#333; padding:12px 28px; border-radius:30px; text-decoration:none; font-weight:500; letter-spacing:.3px; box-shadow:0 2px 6px rgba(0,0,0,.1); transition:all .25s;">
-        <span data-i18n="blog.enter">Entrar al Blog</span>
-      </a>
-      <p style="margin-top:12px; color:#555; font-size:15px;" data-i18n="blog.note">Un espacio tranquilo para leer, pensar y cuidarte.</p>
+    <nav aria-label="Acceso al blog" class="u-center" style="padding:40px 0;">
+      <div class="u-col u-gap-s" style="align-items:center;">
+        <a href="/blog/" style="background:#f3f3f3; color:#333; padding:12px 28px; border-radius:30px; text-decoration:none; font-weight:500; letter-spacing:.3px; box-shadow:0 2px 6px rgba(0,0,0,.1); transition:all .25s;">
+          <span data-i18n="blog.enter">Entrar al Blog</span>
+        </a>
+        <p style="margin:0; color:#555; font-size:15px;" data-i18n="blog.note">Un espacio tranquilo para leer, pensar y cuidarte.</p>
+      </div>
     </nav>
 
     <!-- Misión -->
-    <section id="mision" class="section reveal">
+    <section id="mision" class="section reveal" aria-labelledby="mission-title">
       <div class="container">
-        <h2 style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="mission.title">Nuestra misión</h2>
+        <h2 id="mission-title" style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="mission.title">Nuestra misión</h2>
         <p data-i18n="mission.desc">Crear herramientas accesibles, seguras y útiles que apoyen hábitos saludables, autoobservación y decisión informada.</p>
         <ul class="bullets">
           <li data-i18n="mission.b1">Psicología basada en evidencia</li>
@@ -362,9 +370,9 @@
     </section>
 
     <!-- Producto -->
-    <section id="producto" class="section alt reveal">
+    <section id="producto" class="section alt reveal" aria-labelledby="product-title">
       <div class="container">
-        <h2 style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="product.title">Producto</h2>
+        <h2 id="product-title" style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="product.title">Producto</h2>
         <p data-i18n="product.desc">Primera versión, autochequeo diario, micro ejercicios de regulación y panel de progreso.</p>
         <div class="grid" role="list">
           <article class="card" role="listitem">
@@ -384,18 +392,18 @@
     </section>
 
     <!-- Frase del día -->
-    <section id="frase" class="section reveal">
+    <section id="frase" class="section reveal" aria-labelledby="quote-title">
       <div class="container">
-        <h2 style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="quote.title">Frase del día</h2>
+        <h2 id="quote-title" style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="quote.title">Frase del día</h2>
         <p id="fraseTexto" class="frase">Respira. Un paso a la vez.</p>
         <button id="nuevaFraseBtn" class="btn" data-i18n="quote.new">Nueva frase</button>
       </div>
     </section>
 
     <!-- Equipo -->
-    <section id="equipo" class="section reveal">
+    <section id="equipo" class="section reveal" aria-labelledby="team-title">
       <div class="container">
-        <h2 style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="team.title">Equipo</h2>
+        <h2 id="team-title" style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="team.title">Equipo</h2>
         <div class="grid team">
           <article class="card member">
             <h3>G. Musterova</h3>
@@ -414,10 +422,10 @@
     </section>
 
     <!-- Contacto -->
-    <section id="contacto" class="section alt">
+    <section id="contacto" class="section alt" aria-labelledby="contact-title">
       <div class="container">
-        <h2 style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="contact.title">Contacto</h2>
-        <form id="contactForm" class="form">
+        <h2 id="contact-title" style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="contact.title">Contacto</h2>
+        <form id="contactForm" class="form" novalidate>
           <input type="hidden" name="_subject" value="Nuevo mensaje desde TEMOTIVA">
           <input type="hidden" name="_language" value="es">
           <input type="text" name="nombre" placeholder="Tu nombre" required data-i18n-placeholder="contact.name" autocomplete="name" />
@@ -430,14 +438,15 @@
           <input type="text" name="_gotcha" style="display:none">
           <button type="submit" class="btn" data-i18n="contact.send">Enviar</button>
         </form>
-        <p id="formMsg" class="form-msg oculto" data-i18n="contact.ok" style="color:#1a7f37;">Gracias, te contactaremos pronto.</p>
+        <p id="formMsg" class="form-msg u-hidden" data-i18n="contact.ok" style="color:#1a7f37;">Gracias, te contactaremos pronto.</p>
       </div>
     </section>
 
-    <footer class="site-footer">
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
       <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
         <p style="margin:0;">© TEMOTIVA desde 2024</p>
-        <div style="display:flex; gap:10px; align-items:center;">
+        <div class="u-flex u-gap-s" style="align-items:center;">
           <a href="/privacidad.html" data-i18n="side.privacy">Política de privacidad</a>
           <a href="/cookies.html">Política de cookies</a>
           <a href="/aviso-legal.html">Aviso legal</a>
@@ -447,7 +456,7 @@
     </footer>
   </main>
 
-  <!-- Supabase (defer para no bloquear) -->
+  <!-- Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
   <script>
     window.addEventListener("load", () => {
@@ -460,32 +469,52 @@
     });
   </script>
 
-  <!-- Tu JS base -->
+  <!-- JS base -->
   <script src="/script.js" defer></script>
 
-  <!-- UI mejorada: panel, tema auto/dark/light, idioma, reveal, SW, frase, form, header shadow, PWA -->
+  <!-- UI, accesibilidad, PWA -->
   <script>
     document.documentElement.classList.add('js-ready');
-
     const $ = s => document.querySelector(s);
     const $$ = s => Array.from(document.querySelectorAll(s));
 
-    /* Header sombra en scroll */
+    /* Header sombra y nav activa por sección */
     const siteHeader = $("#siteHeader");
+    const sections = ["mision","producto","equipo","contacto"].map(id => document.getElementById(id));
+    const navLinks = $$("#mainNav a");
+    function setActive(hash){
+      navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("href") === hash || a.getAttribute("href") === location.pathname + hash));
+    }
     const onScrollHeader = () => {
       const y = window.scrollY || window.pageYOffset;
       siteHeader.classList.toggle("is-scrolled", y > 8);
     };
     onScrollHeader();
     document.addEventListener("scroll", onScrollHeader, { passive: true });
+    if ("IntersectionObserver" in window){
+      const ioNav = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting){ setActive(`#${e.target.id}`); } });
+      }, { threshold:.5 });
+      sections.forEach(s => s && ioNav.observe(s));
+    }
 
     /* Panel lateral accesible */
     const body = document.body;
     const sidebar = $("#sidePanel");
     const overlay = $("#overlay");
     const menuBtn = $("#menuBtn");
-
+    let lastFocus = null;
+    function trapFocus(e){
+      const focusables = sidebar.querySelectorAll('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      if (!focusables.length) return;
+      const first = focusables[0], last = focusables[focusables.length - 1];
+      if (e.key === "Tab"){
+        if (e.shiftKey && document.activeElement === first){ last.focus(); e.preventDefault(); }
+        else if (!e.shiftKey && document.activeElement === last){ first.focus(); e.preventDefault(); }
+      }
+    }
     function openSidebar(){
+      lastFocus = document.activeElement;
       sidebar.classList.add("is-open");
       sidebar.setAttribute("aria-hidden","false");
       overlay.classList.add("show");
@@ -493,6 +522,7 @@
       menuBtn?.setAttribute("aria-expanded","true");
       const first = sidebar.querySelector("a, button, input, select, textarea");
       first && first.focus();
+      sidebar.addEventListener("keydown", trapFocus);
     }
     function closeSidebar(){
       sidebar.classList.remove("is-open");
@@ -500,6 +530,8 @@
       overlay.classList.remove("show");
       body.style.overflow = "";
       menuBtn?.setAttribute("aria-expanded","false");
+      sidebar.removeEventListener("keydown", trapFocus);
+      lastFocus && lastFocus.focus();
     }
     menuBtn?.addEventListener("click", () => sidebar.classList.contains("is-open") ? closeSidebar() : openSidebar());
     overlay?.addEventListener("click", closeSidebar);
@@ -507,9 +539,8 @@
 
     /* Tema: auto -> dark -> light */
     const metaTheme = $("#meta-theme");
-    const THEME_KEY = "temotiva-theme-mode"; // "auto" | "dark" | "light"
+    const THEME_KEY = "temotiva-theme-mode";
     const mDark = window.matchMedia("(prefers-color-scheme: dark)");
-
     function applyTheme(mode){
       const root = document.documentElement;
       if(mode === "dark"){
@@ -519,15 +550,12 @@
         root.setAttribute("data-theme", "light");
         metaTheme?.setAttribute("content", "#F7F7F7");
       } else {
-        // auto
         root.setAttribute("data-theme", mDark.matches ? "dark" : "light");
         metaTheme?.setAttribute("content", mDark.matches ? "#0f1115" : "#F7F7F7");
       }
       localStorage.setItem(THEME_KEY, mode);
     }
-    mDark.addEventListener("change", () => {
-      if((localStorage.getItem(THEME_KEY) || "auto") === "auto") applyTheme("auto");
-    });
+    mDark.addEventListener("change", () => { if((localStorage.getItem(THEME_KEY) || "auto") === "auto") applyTheme("auto"); });
     $("#themeBtn")?.addEventListener("click", () => {
       const cur = localStorage.getItem(THEME_KEY) || "auto";
       const next = cur === "auto" ? "dark" : cur === "dark" ? "light" : "auto";
@@ -536,7 +564,6 @@
     applyTheme(localStorage.getItem(THEME_KEY) || "auto");
 
     /* Idiomas ES/EN */
-    const LANG_KEY = "temotiva-lang";
     const i18n = {
       es: { "nav.home":"Inicio","nav.mission":"Misión","nav.product":"Producto","nav.team":"Equipo","nav.contact":"Contacto",
         "side.home":"Inicio","side.blog":"Blog","side.resources":"Recursos","side.contact":"Contacto","side.login":"Iniciar sesión","side.privacy":"Privacidad",
@@ -582,7 +609,7 @@
         if(el.hasAttribute("data-i18n-placeholder")){
           if(dict[k]) el.setAttribute("placeholder", dict[k]);
         } else {
-          if(dict[k]) el.innerHTML = dict[k];
+          if(dict[k]) el.innerHTML = dict[k]);
         }
       });
       localStorage.setItem("temotiva-lang", lang);
@@ -603,7 +630,7 @@
       items.forEach(el => io.observe(el));
     })();
 
-    /* Service Worker */
+    /* Service Worker: mantenemos tu ruta actual */
     if("serviceWorker" in navigator){
       window.addEventListener("load", ()=>{
         navigator.serviceWorker.register("/pwabuilder-sw.js", { scope: "/" })
@@ -624,7 +651,7 @@
       el.textContent = frases[Math.floor(Math.random()*frases.length)];
     });
 
-    /* Formspree */
+    /* Formspree con feedback */
     const cf = $("#contactForm");
     cf?.addEventListener("submit", async e=>{
       e.preventDefault();
@@ -633,7 +660,7 @@
       btn.disabled = true;
       try{
         const resp = await fetch("https://formspree.io/f/xnnobrvn", { method:"POST", headers:{ "Accept":"application/json" }, body:new FormData(form) });
-        if(resp.ok){ form.reset(); $("#formMsg").classList.remove("oculto"); } else { alert("No se pudo enviar, intenta de nuevo más tarde."); }
+        if(resp.ok){ form.reset(); $("#formMsg").classList.remove("u-hidden"); } else { alert("No se pudo enviar, intenta de nuevo más tarde."); }
       }catch{ alert("Error de red, revisa tu conexión."); }
       finally{ btn.disabled = false; }
     });
@@ -642,10 +669,7 @@
     const INSTALL_KEY = "temotiva-install-dismissed";
     const VISITS_KEY = "temotiva-visit-count";
     let deferredPrompt = null;
-    try {
-      const v = parseInt(localStorage.getItem(VISITS_KEY) || "0", 10) + 1;
-      localStorage.setItem(VISITS_KEY, String(v));
-    } catch {}
+    try { const v = parseInt(localStorage.getItem(VISITS_KEY) || "0", 10) + 1; localStorage.setItem(VISITS_KEY, String(v)); } catch {}
     const installBtn = $("#installBtn");
     const banner = $("#pwaBanner");
     const installNow = $("#pwaInstallNow");
@@ -694,27 +718,15 @@
       </div>
     </div>
   </div>
-<script>
-  // Cuando alguien hace clic en "Instalar"
-  document.getElementById("pwaInstallNow").addEventListener("click", function() {
-    gtag('event', 'click_instalar', {
-      'event_category': 'PWA',
-      'event_label': 'Botón Instalar TEMOTIVA'
-    });
-  });
 
-  // Cuando alguien hace clic en "Más tarde"
-  document.getElementById("pwaInstallLater").addEventListener("click", function() {
-    gtag('event', 'click_instalar_mas_tarde', {
-      'event_category': 'PWA',
-      'event_label': 'Botón Más tarde'
+  <!-- Eventos GA del banner -->
+  <script>
+    document.getElementById("pwaInstallNow")?.addEventListener("click", function() {
+      gtag('event', 'click_instalar', { 'event_category': 'PWA', 'event_label': 'Botón Instalar TEMOTIVA' });
     });
-  });
-</script>
-
-  
-  <footer class="site-footer">
-  <p>© 2025 TEMOTIVA. Código bajo licencia MIT. Marca e imágenes, todos los derechos reservados.</p>
-</footer>
+    document.getElementById("pwaInstallLater")?.addEventListener("click", function() {
+      gtag('event', 'click_instalar_mas_tarde', { 'event_category': 'PWA', 'event_label': 'Botón Más tarde' });
+    });
+  </script>
 </body>
 </html>
