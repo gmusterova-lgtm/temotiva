@@ -69,35 +69,35 @@
     }
   ],
   "screenshots": [
-    {
-      "src": "/screenshot-1.png",
-      "sizes": "1080x1920",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Pantalla de inicio TEMOTIVA"
-    },
-    {
-      "src": "/screenshot-2.png",
-      "sizes": "1080x1920",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Interfaz del blog TEMOTIVA"
-    },
-    {
-      "src": "/screenshot-3.png",
-      "sizes": "1080x1920",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Chequeo diario"
-    },
-    {
-      "src": "/screenshot-4.png",
-      "sizes": "1080x1920",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Ejercicios guiados"
-    }
-  ],
+  {
+    "src": "/screenshot-1.png",
+    "sizes": "828x1792",
+    "type": "image/png",
+    "form_factor": "narrow",
+    "label": "Pantalla de inicio TEMOTIVA"
+  },
+  {
+    "src": "/screenshot-2.png",
+    "sizes": "828x1792",
+    "type": "image/png",
+    "form_factor": "narrow",
+    "label": "Interfaz del blog TEMOTIVA"
+  },
+  {
+    "src": "/screenshot-3.png",
+    "sizes": "828x1792",
+    "type": "image/png",
+    "form_factor": "narrow",
+    "label": "Chequeo diario"
+  },
+  {
+    "src": "/screenshot-4.png",
+    "sizes": "828x1792",
+    "type": "image/png",
+    "form_factor": "narrow",
+    "label": "Ejercicios guiados"
+  }
+],
   "shortcuts": [
     {
       "name": "Blog",
