@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.temotiva.app",
+    "sha256_cert_fingerprints": [
+      "2A:1D:16:9B:77:71:9D:12:C0:5E:68:A1:4C:C4:C3:C8:F2:A5:95:0F:5F:B3:EC:BF:3E:69:03:24:F9:FE:60:0B"
+    ]
+  }
+}]
