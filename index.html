@@ -60,12 +60,11 @@
   <link rel="preconnect" href="https://ejhzxwnhqvcqjqxnuvya.supabase.co" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://formspree.io" crossorigin>
-  <!-- Prefetch de páginas frecuentes -->
   <link rel="prerender" href="/inicio.html">
   <link rel="prefetch" href="/blog/index.html" as="document">
   <link rel="prefetch" href="/recursos.html" as="document">
 
-  <!-- Datos estructurados -->
+  <!-- Datos estructurados base -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -84,33 +83,6 @@
     "url":"https://www.temotiva.com/",
     "logo":"https://www.temotiva.com/icon-512.png",
     "sameAs":[]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"SiteNavigationElement",
-    "name":["Inicio","Misión","Producto","Equipo","Contacto","Blog","Recursos"],
-    "url":[
-      "https://www.temotiva.com/inicio.html",
-      "https://www.temotiva.com/#mision",
-      "https://www.temotiva.com/#producto",
-      "https://www.temotiva.com/#equipo",
-      "https://www.temotiva.com/#contacto",
-      "https://www.temotiva.com/blog/",
-      "https://www.temotiva.com/recursos.html"
-    ]
-  }
-  </script>
-  <!-- Opcional: describe PWA como app para tiendas -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"SoftwareApplication",
-    "name":"TEMOTIVA",
-    "applicationCategory":"HealthApplication",
-    "operatingSystem":"Web, Android, iOS, Windows",
-    "offers": { "@type":"Offer", "price":"0", "priceCurrency":"EUR" }
   }
   </script>
 
@@ -144,10 +116,8 @@
     a{ color:inherit; text-decoration:none; }
     :focus-visible{ outline:var(--focus); outline-offset:3px; border-radius:10px; }
 
-    /* Utilidades */
     .u-center{ display:grid; place-items:center; }
-    .u-flex{ display:flex; }
-    .u-col{ display:flex; flex-direction:column; }
+    .u-flex{ display:flex; } .u-col{ display:flex; flex-direction:column; }
     .u-gap-xs{ gap:.25rem; } .u-gap-s{ gap:.5rem; } .u-gap{ gap:1rem; } .u-gap-l{ gap:1.5rem; }
     .u-mt-s{ margin-top:.5rem; } .u-mt{ margin-top:1rem; } .u-mt-l{ margin-top:1.5rem; } .u-mb{ margin-bottom:1rem; }
     .u-hidden{ display:none !important; }
@@ -214,7 +184,7 @@
     .section.alt{ background:#f4f4f4; }
     html[data-theme="dark"] .section.alt{ background:#141923; }
 
-    /* Hero */
+    /* Hero con imagen visible */
     .hero{
       position:relative; isolation:isolate;
       background:linear-gradient(180deg, #ffffff, #f3f5f7);
@@ -222,13 +192,12 @@
     }
     html[data-theme="dark"] .hero{ background:linear-gradient(180deg, #121621, #0f131d); }
     .hero::after{
-      content:""; position:absolute; inset:0 0 0 55%;
-      background:url("/chica-meditando.webp") right center / contain no-repeat; opacity:.22; z-index:-1; pointer-events:none;
+      content:""; position:absolute; inset:0 0 0 50%;
+      background:url("/chica-meditando.png") right center / contain no-repeat; opacity:.35; z-index:-1; pointer-events:none;
     }
-    @media (max-width:900px){ .hero::after{ inset:0 0 0 65%; opacity:.15; } }
-    @media (min-width:901px){ .hero::after{ content:none !important; } }
+    @media (max-width:900px){ .hero::after{ inset:0 0 0 60%; opacity:.22; } }
     .hero h1{ font-size:var(--h1); margin:0 0 .6rem; letter-spacing:.2px; }
-    .hero p{ color:var(--ink-soft); margin:0 0 1.2rem; max-width:42ch; margin-inline:auto; }
+    .hero p{ color:var(--ink-soft); margin:0 0 1.2rem; max-width:48ch; margin-inline:auto; }
     .cta-row{ display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:22px; }
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
@@ -251,8 +220,44 @@
     html[data-theme="dark"] .card{ border-color:#2a2e3a; box-shadow:none; }
     .card h3{ font-size:var(--h3); margin:.2rem 0 .4rem; }
 
-    /* Frase */
+    /* Frase y reseñas */
     .frase{ font-size:clamp(1.1rem, 2.1vw, 1.3rem); color:var(--ink-soft); margin:.6rem 0 1rem; }
+    .reviews { padding:4rem 0; }
+    .reviews .grid { display:grid; gap:1rem; grid-template-columns:repeat(2,1fr); }
+    @media (max-width:900px){ .reviews .grid{ grid-template-columns:1fr; } }
+    .review { background:var(--card); border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      border-radius:var(--radius); padding:1rem 1.2rem; box-shadow:var(--shadow); }
+    .review blockquote{ margin:0 0 .4rem; font-size:1.05rem; line-height:1.6; }
+    .review .who{ color:var(--ink-soft); }
+
+    /* Formularios pro, consent en línea con grid */
+    .form-pro input, .form-pro textarea {
+      width:100%; padding:.85rem 1rem; border-radius:12px; border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      background:var(--card); color:var(--ink); transition:border-color .15s ease, box-shadow .15s ease;
+    }
+    .form-pro input:focus, .form-pro textarea:focus { border-color:#3b82f6; box-shadow:0 0 0 3px rgba(59,130,246,.2); outline:none; }
+    .form-pro .row{ display:grid; gap:.8rem; grid-template-columns:1fr 1fr; }
+    @media (max-width:720px){ .form-pro .row{ grid-template-columns:1fr; } }
+    .form-pro .hint{ color:var(--ink-soft); font-size:.9rem; margin:.25rem 0 0; }
+    .form-pro .error{ color:#b00020; font-size:.9rem; display:none; margin:.25rem 0 0; }
+    .form-pro .checkline{
+      display:grid; grid-template-columns:20px 1fr; align-items:center; column-gap:.6rem;
+      margin-top:.75rem;
+    }
+    .form-pro .checkline input{ width:18px; height:18px; }
+    .form-pro button[type="submit"]{ min-width:140px; }
+
+    /* App CTA */
+    .app-cta { background:var(--card); border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      border-radius:var(--radius); padding:1.2rem; box-shadow:var(--shadow); }
+
+    /* Producto imagen inferior visible */
+    .product-media { position:relative; isolation:isolate; margin-top:1rem; }
+    .product-media img, .product-media picture { display:block; width:100%; border-radius:12px; }
+    .product-media::after{
+      content:""; position:absolute; inset:0; pointer-events:none; border-radius:12px;
+      box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent);
+    }
 
     /* Footer */
     .site-footer{
@@ -261,14 +266,10 @@
       padding-left:max(0px, env(safe-area-inset-left)); padding-right:max(0px, env(safe-area-inset-right));
     }
 
-    /* Accesibilidad */
-    .skip-link{
-      position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
-    }
-    .skip-link:focus{
-      position:fixed; left:16px; top:16px; padding:.55rem .8rem; border-radius:10px; background:var(--card); color:var(--ink);
-      z-index:2000; box-shadow:0 8px 24px rgba(0,0,0,.15);
-    }
+    /* Accesibilidad básica */
+    .skip-link{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip-link:focus{ position:fixed; left:16px; top:16px; padding:.55rem .8rem; border-radius:10px; background:var(--card); color:var(--ink);
+      z-index:2000; box-shadow:0 8px 24px rgba(0,0,0,.15); }
 
     /* Reveal */
     html.js-ready .reveal{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
@@ -284,42 +285,6 @@
     .pwa-install .row{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
     .pwa-install .msg{ font-size:14px; opacity:.9; }
     .pwa-install .actions{ margin-left:auto; display:flex; gap:8px; }
-
-    /* Reseñas */
-    .reviews { padding:4rem 0; }
-    .reviews .grid { display:grid; gap:1rem; grid-template-columns:repeat(2,1fr); }
-    @media (max-width:900px){ .reviews .grid{ grid-template-columns:1fr; } }
-    .review { background:var(--card); border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-      border-radius:var(--radius); padding:1rem 1.2rem; box-shadow:var(--shadow); }
-    .review blockquote{ margin:0 0 .4rem; font-size:1.05rem; line-height:1.6; }
-    .review .who{ color:var(--ink-soft); }
-
-    /* Inputs pro */
-    .form-pro input, .form-pro textarea {
-      width:100%; padding:.85rem 1rem; border-radius:12px; border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-      background:var(--card); color:var(--ink); transition:border-color .15s ease, box-shadow .15s ease;
-    }
-    .form-pro input:focus, .form-pro textarea:focus { border-color:#3b82f6; box-shadow:0 0 0 3px rgba(59,130,246,.2); outline:none; }
-    .form-pro .row{ display:grid; gap:.8rem; grid-template-columns:1fr 1fr; }
-    @media (max-width:720px){ .form-pro .row{ grid-template-columns:1fr; } }
-    .form-pro .hint{ color:var(--ink-soft); font-size:.9rem; margin:.25rem 0 0; }
-    .form-pro .error{ color:#b00020; font-size:.9rem; display:none; margin:.25rem 0 0; }
-    .form-pro .checkline{ display:flex; gap:.6rem; align-items:flex-start; font-size:.95rem; color:var(--ink); }
-    .form-pro .checkline input{ margin-top:.2rem; }
-    .form-pro button[type="submit"]{ min-width:140px; }
-
-    /* Aviso app y foto inferior */
-    .app-cta { background:var(--card); border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-      border-radius:var(--radius); padding:1.2rem; box-shadow:var(--shadow); }
-    .product-media { position:relative; isolation:isolate; }
-    .product-media img, .product-media picture { display:block; width:100%; border-radius:12px; }
-    .product-media::after{
-      content:""; position:absolute; inset:0; pointer-events:none; border-radius:12px;
-      box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent);
-    }
-
-    /* Mejoras dark */
-    html[data-theme="dark"] .review { border-color:#2a2e3a; background:#151923; }
   </style>
 </head>
 <body>
@@ -341,7 +306,7 @@
         <a href="/inicio.html" data-i18n="nav.home">Inicio</a>
         <a href="#mision" data-i18n="nav.mission">Misión</a>
         <a href="#producto" data-i18n="nav.product">Producto</a>
-        <a href="#equipo" data-i18n="nav.team">Equipo</a>
+        <!-- Eliminamos Equipo del menú -->
         <a href="#contacto" data-i18n="nav.contact">Contacto</a>
       </nav>
 
@@ -364,7 +329,8 @@
       <li><a href="/inicio.html" data-i18n="side.home">Inicio</a></li>
       <li><a href="/blog/index.html" data-i18n="side.blog">Blog</a></li>
       <li><a href="/recursos.html" data-i18n="side.resources">Recursos</a></li>
-      <li><a href="/contacto.html" data-i18n="side.contact">Contacto</a></li>
+      <!-- Quitamos Contacto del sidebar si no quieres duplicarlo, déjalo si te interesa -->
+      <li><a href="/contacto.html" class="u-hidden" data-i18n="side.contact">Contacto</a></li>
       <li><a href="/login.html" data-i18n="side.login">Iniciar sesión</a></li>
     </ul>
     <a class="privacy-link" href="/privacidad.html" data-i18n="side.privacy">Privacidad</a>
@@ -372,144 +338,22 @@
 
   <main class="content" id="app" role="main">
     <!-- Hero -->
-    <section id="inicio" class="section hero" aria-labelledby="hero-title">
+    <section id="inicio" class="section hero reveal" aria-labelledby="hero-title">
       <div class="container u-col u-gap">
-        <h1 id="hero-title" data-i18n="hero.title">Innovación en bienestar emocional</h1>
-        <p data-i18n="hero.subtitle">Plataforma sencilla para comprender, cuidar y entrenar el bienestar emocional, basada en ciencia.</p>
+        <h1 id="hero-title">Innovación en bienestar digital</h1>
+        <p>Plataforma sencilla para comprender, cuidar y entrenar tu bienestar, diseñada para el día a día y basada en ciencia.</p>
         <div class="cta-row">
-          <a href="/particular.html" class="btn" data-i18n="hero.ctaUser" data-gtag="cta_particular_click" rel="next">Soy particular</a>
-          <a href="/organizacion.html" class="btn" data-i18n="hero.ctaOrg" data-gtag="cta_org_click" rel="next">Soy organización</a>
+          <a href="/particular.html" class="btn" data-gtag="cta_particular_click" rel="next">Soy particular</a>
+          <a href="/organizacion.html" class="btn" data-gtag="cta_org_click" rel="next">Soy organización</a>
         </div>
       </div>
     </section>
 
-    <!-- CTA blog -->
-    <nav aria-label="Acceso al blog" class="u-center" style="padding:40px 0;">
-      <div class="u-col u-gap-s" style="align-items:center;">
-        <a href="/blog/" style="background:#f3f3f3; color:#333; padding:12px 28px; border-radius:30px; text-decoration:none; font-weight:500; letter-spacing:.3px; box-shadow:0 2px 6px rgba(0,0,0,.1); transition:all .25s;" data-gtag="cta_blog_click">
-          <span data-i18n="blog.enter">Entrar al Blog</span>
-        </a>
-        <p style="margin:0; color:#555; font-size:15px;" data-i18n="blog.note">Un espacio tranquilo para leer, pensar y cuidarte.</p>
-      </div>
-    </nav>
-
-    <!-- Misión -->
-    <section id="mision" class="section reveal" aria-labelledby="mission-title">
-      <div class="container">
-        <h2 id="mission-title" style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="mission.title">Nuestra misión</h2>
-        <p data-i18n="mission.desc">Crear herramientas accesibles, seguras y útiles que apoyen hábitos saludables, autoobservación y decisión informada.</p>
-        <ul class="bullets">
-          <li data-i18n="mission.b1">Psicología basada en evidencia</li>
-          <li data-i18n="mission.b2">Privacidad por diseño</li>
-          <li data-i18n="mission.b3">Accesibilidad y lenguaje claro</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Producto -->
-    <section id="producto" class="section alt reveal" aria-labelledby="product-title">
-      <div class="container">
-        <h2 id="product-title" style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="product.title">Producto</h2>
-        <p data-i18n="product.desc">Primera versión, autochequeo diario, micro ejercicios de regulación y panel de progreso.</p>
-
-        <div class="grid" role="list">
-          <article class="card" role="listitem">
-            <h3 data-i18n="product.c1t">Chequeo</h3>
-            <p data-i18n="product.c1d">2 a 3 preguntas al día para tomar pulso emocional sin saturar.</p>
-          </article>
-          <article class="card" role="listitem">
-            <h3 data-i18n="product.c2t">Ejercicios</h3>
-            <p data-i18n="product.c2d">Respiración, reencuadre, plan de acción breve. Todo guiado.</p>
-          </article>
-          <article class="card" role="listitem">
-            <h3 data-i18n="product.c3t">Progreso</h3>
-            <p data-i18n="product.c3d">Gráficas simples y metas semanales comprensibles.</p>
-          </article>
-        </div>
-
-        <!-- Ilustración complementaria de la sección Producto -->
-        <div class="product-media" aria-hidden="true">
-          <picture>
-            <source
-              type="image/webp"
-              srcset="
-                /img/chica-meditando-800.webp 800w,
-                /img/chica-meditando-1200.webp 1200w,
-                /img/chica-meditando-1600.webp 1600w"
-              sizes="(max-width: 900px) 80vw, 40vw">
-            <source
-              type="image/png"
-              srcset="
-                /img/chica-meditando-800.png 800w,
-                /img/chica-meditando-1200.png 1200w,
-                /img/chica-meditando-1600.png 1600w"
-              sizes="(max-width: 900px) 80vw, 40vw">
-            <img
-              src="/img/chica-meditando-1200.png"
-              alt=""
-              width="1200" height="900"
-              loading="lazy"
-              decoding="async"
-              fetchpriority="low"
-              class="product-img">
-          </picture>
-        </div>
-      </div>
-    </section>
-
-    <!-- Frase del día -->
-    <section id="frase" class="section reveal" aria-labelledby="quote-title">
-      <div class="container">
-        <h2 id="quote-title" style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="quote.title">Frase del día</h2>
-        <p id="fraseTexto" class="frase">Respira. Un paso a la vez.</p>
-        <button id="nuevaFraseBtn" class="btn" data-i18n="quote.new" type="button">Nueva frase</button>
-      </div>
-    </section>
-
-    <!-- Equipo -->
-    <section id="equipo" class="section reveal" aria-labelledby="team-title">
-      <div class="container">
-        <h2 id="team-title" style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="team.title">Equipo</h2>
-        <div class="grid team">
-          <article class="card member">
-            <h3>G. Musterova</h3>
-            <p data-i18n="team.m1">Psicología, investigación y dirección.</p>
-          </article>
-          <article class="card member">
-            <h3 data-i18n="team.m2t">Colaborador técnico</h3>
-            <p data-i18n="team.m2">Front end y producto.</p>
-          </article>
-          <article class="card member">
-            <h3 data-i18n="team.m3t">Consejo asesor</h3>
-            <p data-i18n="team.m3">Clínica, datos y ética.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Reseñas -->
-    <section id="resenas" class="section reviews reveal" aria-labelledby="reviews-title">
-      <div class="container">
-        <h2 id="reviews-title" style="font-size:var(--h2); margin:0 0 .6rem;">Reseñas</h2>
-        <p class="frase" style="margin-top:.2rem;">Experiencias reales con rutinas simples y resultados claros.</p>
-        <div class="grid">
-          <article class="review" itemprop="review" itemscope itemtype="https://schema.org/Review">
-            <blockquote itemprop="reviewBody">Con cinco minutos al día consigo bajar revoluciones y dormir mejor.</blockquote>
-            <div class="who"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">María</span></span></div>
-          </article>
-          <article class="review" itemprop="review" itemscope itemtype="https://schema.org/Review">
-            <blockquote itemprop="reviewBody">El diario emocional me ayuda a entender mis picos de ansiedad y prevenirlos.</blockquote>
-            <div class="who"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Rubén</span></span></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- App próximamente -->
-    <section id="app" class="section reveal" aria-labelledby="app-title">
+    <!-- App próximamente, formato más novedoso -->
+    <section id="lanzamiento" class="section reveal" aria-labelledby="app-title">
       <div class="container app-cta">
-        <h2 id="app-title" style="font-size:var(--h2); margin:0 0 .6rem;">TEMOTIVA app, disponible muy pronto</h2>
-        <p class="frase" style="margin-top:.2rem;">Añádela a tu móvil, úsala sin conexión y recibe recordatorios de autocuidado. Experiencia optimizada en Android y iOS.</p>
+        <h2 id="app-title" style="font-size:var(--h2); margin:0 0 .6rem;">Muy pronto en tu móvil</h2>
+        <p class="frase" style="margin-top:.2rem;">Recordatorios suaves, uso sin conexión, privacidad por diseño. TEMOTIVA como app, lista para acompañarte cada día.</p>
         <form id="launchForm" action="https://example.com/newsletter" method="post" class="form-pro u-col u-gap-s" novalidate>
           <div class="row">
             <div>
@@ -522,23 +366,98 @@
               <div class="error" id="launch-email-error">Introduce un correo válido.</div>
             </div>
           </div>
-          <label class="checkline">
+          <label class="checkline" for="launch-consent">
             <input id="launch-consent" type="checkbox" required>
-            <span>Autorizo el uso de mi correo para avisarme del lanzamiento. Consulta la <a href="/privacidad.html">política de privacidad</a>.</span>
+            <span>Autorizo el uso de mi correo para recibir un único aviso del lanzamiento. Consulta la <a href="/privacidad.html">política de privacidad</a>.</span>
           </label>
           <div class="u-flex u-gap-s">
             <button class="btn" type="submit" id="launch-submit" disabled>Avisadme</button>
-            <small class="hint">Sin spam, un único aviso en el lanzamiento.</small>
+            <small class="hint">Sin spam, un aviso cuando esté disponible.</small>
           </div>
         </form>
       </div>
     </section>
 
+    <!-- Misión, enfoque marketing -->
+    <section id="mision" class="section reveal" aria-labelledby="mission-title">
+      <div class="container">
+        <h2 id="mission-title" style="font-size:var(--h2); margin:0 0 .6rem;">Nuestra misión</h2>
+        <p style="max-width:70ch;">Hacer fácil lo importante. Convertimos la psicología basada en evidencia en microacciones diarias que mejoran tu estado de ánimo, tu claridad mental y tu autocuidado, sin pantallas infinitas ni ruido.</p>
+        <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:1rem;">
+          <article class="card">
+            <h3>Hábitos que se sostienen</h3>
+            <p>Rutinas breves que encajan en tu día, sin fricción, con seguimiento amable.</p>
+          </article>
+          <article class="card">
+            <h3>Privacidad primero</h3>
+            <p>Datos mínimos, control en tus manos, opciones sin conexión y exportación sencilla.</p>
+          </article>
+          <article class="card">
+            <h3>Lenguaje claro</h3>
+            <p>Explicamos el porqué de cada paso, para que entiendas y decidas con calma.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Producto, más valor y claridad -->
+    <section id="producto" class="section alt reveal" aria-labelledby="product-title">
+      <div class="container">
+        <h2 id="product-title" style="font-size:var(--h2); margin:0 0 .6rem;">Producto</h2>
+        <p style="max-width:70ch;">Primera versión con tres pilares, chequeo diario, ejercicios de regulación y panel de progreso, todo en menos de cinco minutos.</p>
+
+        <div class="grid" role="list">
+          <article class="card" role="listitem">
+            <h3>Chequeo diario</h3>
+            <p>Dos o tres preguntas para tomar el pulso emocional sin agobio. Detecta patrones reales.</p>
+          </article>
+          <article class="card" role="listitem">
+            <h3>Ejercicios guiados</h3>
+            <p>Respiración, reencuadre, pausa activa, plan breve. Eficaces, sencillos, repetibles.</p>
+          </article>
+          <article class="card" role="listitem">
+            <h3>Progreso claro</h3>
+            <p>Gráficas simples, metas semanales y logros que te motivan sin presión.</p>
+          </article>
+        </div>
+
+        <div class="product-media" aria-hidden="true">
+          <picture>
+            <source type="image/webp"
+              srcset="/img/chica-meditando-800.webp 800w, /img/chica-meditando-1200.webp 1200w, /img/chica-meditando-1600.webp 1600w"
+              sizes="(max-width: 900px) 90vw, 60vw">
+            <source type="image/png"
+              srcset="/img/chica-meditando-800.png 800w, /img/chica-meditando-1200.png 1200w, /img/chica-meditando-1600.png 1600w"
+              sizes="(max-width: 900px) 90vw, 60vw">
+            <img src="/img/chica-meditando-1200.png" alt="" width="1200" height="900" loading="lazy" decoding="async" fetchpriority="low">
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reseñas -->
+    <section id="resenas" class="section reviews reveal" aria-labelledby="reviews-title">
+      <div class="container">
+        <h2 id="reviews-title" style="font-size:var(--h2); margin:0 0 .6rem;">Reseñas</h2>
+        <p class="frase" style="margin-top:.2rem;">Personas reales, cambios sostenibles.</p>
+        <div class="grid">
+          <article class="review" itemscope itemtype="https://schema.org/Review">
+            <blockquote itemprop="reviewBody">"Con cinco minutos al día consigo bajar revoluciones y dormir mejor."</blockquote>
+            <div class="who"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">María</span></span></div>
+          </article>
+          <article class="review" itemscope itemtype="https://schema.org/Review">
+            <blockquote itemprop="reviewBody">"El diario emocional me ayuda a entender mis picos de ansiedad y prevenirlos."</blockquote>
+            <div class="who"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Rubén</span></span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- SPLIT HERE -->
     <!-- Contacto -->
-    <section id="contacto" class="section alt" aria-labelledby="contact-title">
+    <section id="contacto" class="section alt reveal" aria-labelledby="contact-title">
       <div class="container">
-        <h2 id="contact-title" style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="contact.title">Contacto</h2>
+        <h2 id="contact-title" style="font-size:var(--h2); margin:0 0 .6rem;">Contacto</h2>
 
         <form id="contactForm" class="form form-pro" novalidate>
           <input type="hidden" name="_subject" value="Nuevo mensaje desde TEMOTIVA">
@@ -563,10 +482,13 @@
             <div class="error" id="cf-msg-error">Cuéntanos brevemente tu consulta.</div>
           </div>
 
-          <label class="checkline u-mt" for="cf-consent">
-            <input id="cf-consent" type="checkbox" name="consent" required>
-            <span>Acepto la <a href="/privacidad.html">política de privacidad</a> y el tratamiento de mis datos para responder a mi consulta.</span>
-          </label>
+          <!-- Consentimiento alineado bajo el bloque -->
+          <div class="u-mt">
+            <label class="checkline" for="cf-consent">
+              <input id="cf-consent" type="checkbox" name="consent" required>
+              <span>Acepto la <a href="/privacidad.html">política de privacidad</a> y el tratamiento de mis datos para responder a mi consulta.</span>
+            </label>
+          </div>
 
           <input type="text" name="_gotcha" class="u-hidden" aria-hidden="true" autocomplete="off">
 
@@ -576,8 +498,9 @@
           </div>
         </form>
 
-        <p id="formMsg" class="form-msg u-hidden" style="color:#1a7f37;">
-          Gracias, te contactaremos pronto. Si lo deseas, puedes enviar un mensaje a <a href="mailto:info@temotiva.com">info@temotiva.com</a>, estaremos encantados de atenderte.
+        <p id="formMsg" class="form-msg u-hidden" style="color:#1a7f37; margin-top:1rem;">
+          Gracias, te contactaremos pronto. Si lo deseas, puedes enviar un mensaje a
+          <a href="mailto:info@temotiva.com">info@temotiva.com</a>, estaremos encantados de atenderte.
         </p>
       </div>
     </section>
@@ -587,10 +510,10 @@
       <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
         <p style="margin:0;">© TEMOTIVA desde 2024</p>
         <div class="u-flex u-gap-s" style="align-items:center;">
-          <a href="/privacidad.html" data-i18n="side.privacy">Política de privacidad</a>
+          <a href="/privacidad.html">Política de privacidad</a>
           <a href="/cookies.html">Política de cookies</a>
           <a href="/aviso-legal.html">Aviso legal</a>
-          <a href="#inicio" class="back-top" data-i18n="footer.top" style="color:var(--ink-soft);">Volver arriba ↑</a>
+          <a href="#inicio" class="back-top" style="color:var(--ink-soft);">Volver arriba ↑</a>
         </div>
       </div>
     </footer>
@@ -620,7 +543,7 @@
 
     /* Header sombra y nav activa por sección */
     const siteHeader = $("#siteHeader");
-    const sections = ["mision","producto","equipo","resenas","app","contacto"].map(id => document.getElementById(id));
+    const sections = ["mision","producto","resenas","lanzamiento","contacto"].map(id => document.getElementById(id));
     const navLinks = $$("#mainNav a");
     function setActive(hash){
       navLinks.forEach(a => {
@@ -630,8 +553,7 @@
       });
     }
     const onScrollHeader = () => {
-      const y = window.scrollY || window.pageYOffset;
-      siteHeader.classList.toggle("is-scrolled", y > 8);
+      siteHeader.classList.toggle("is-scrolled", (window.scrollY || window.pageYOffset) > 8);
     };
     onScrollHeader();
     document.addEventListener("scroll", onScrollHeader, { passive: true });
@@ -642,7 +564,7 @@
       sections.forEach(s => s && ioNav.observe(s));
     }
 
-    /* Panel lateral accesible con inert */
+    /* Panel lateral accesible */
     const body = document.body;
     const sidebar = $("#sidePanel");
     const overlay = $("#overlay");
@@ -657,12 +579,6 @@
         else if (!e.shiftKey && document.activeElement === last){ first.focus(); e.preventDefault(); }
       }
     }
-    function setInert(on){
-      const main = document.querySelector('main');
-      const header = document.querySelector('header.site-header');
-      if(on){ main?.setAttribute('inert',''); header?.setAttribute('inert',''); }
-      else { main?.removeAttribute('inert'); header?.removeAttribute('inert'); }
-    }
     function openSidebar(){
       lastFocus = document.activeElement;
       sidebar.classList.add("is-open");
@@ -670,7 +586,6 @@
       overlay.classList.add("show");
       body.style.overflow = "hidden";
       menuBtn?.setAttribute("aria-expanded","true");
-      setInert(true);
       const first = sidebar.querySelector("a, button, input, select, textarea");
       first && first.focus();
       sidebar.addEventListener("keydown", trapFocus);
@@ -681,7 +596,6 @@
       overlay.classList.remove("show");
       body.style.overflow = "";
       menuBtn?.setAttribute("aria-expanded","false");
-      setInert(false);
       sidebar.removeEventListener("keydown", trapFocus);
       lastFocus && lastFocus.focus();
     }
@@ -689,7 +603,7 @@
     overlay?.addEventListener("click", closeSidebar);
     document.addEventListener("keydown", e => { if(e.key === "Escape") closeSidebar(); });
 
-    /* Tema: auto -> dark -> light con theme-color sincronizado */
+    /* Tema: auto -> dark -> light con theme-color */
     const metaTheme = $("#meta-theme");
     const THEME_KEY = "temotiva-theme-mode";
     const mDark = window.matchMedia("(prefers-color-scheme: dark)");
@@ -716,52 +630,17 @@
     });
     applyTheme(localStorage.getItem(THEME_KEY) || "auto");
 
-    /* Idiomas ES/EN */
+    /* i18n mínimo para el menú (contenido estático nuevo sin claves) */
     const i18n = {
-      es: { "nav.home":"Inicio","nav.mission":"Misión","nav.product":"Producto","nav.team":"Equipo","nav.contact":"Contacto",
-        "side.home":"Inicio","side.blog":"Blog","side.resources":"Recursos","side.contact":"Contacto","side.login":"Iniciar sesión","side.privacy":"Privacidad",
-        "hero.title":"Bienestar emocional y tecnología",
-        "hero.subtitle":"Plataforma sencilla para comprender, cuidar y entrenar el bienestar emocional, basada en ciencia.",
-        "hero.ctaUser":"Soy particular","hero.ctaOrg":"Soy organización",
-        "blog.enter":"Entrar al Blog","blog.note":"Un espacio tranquilo para leer, pensar y cuidarte.",
-        "mission.title":"Nuestra misión","mission.desc":"Crear herramientas accesibles, seguras y útiles que apoyen hábitos saludables, autoobservación y decisión informada.",
-        "mission.b1":"Psicología basada en evidencia","mission.b2":"Privacidad por diseño","mission.b3":"Accesibilidad y lenguaje claro",
-        "product.title":"Producto","product.desc":"Primera versión, autochequeo diario, micro ejercicios de regulación y panel de progreso.",
-        "product.c1t":"Chequeo","product.c1d":"2 a 3 preguntas al día para tomar pulso emocional sin saturar.",
-        "product.c2t":"Ejercicios","product.c2d":"Respiración, reencuadre, plan de acción breve. Todo guiado.",
-        "product.c3t":"Progreso","product.c3d":"Gráficas simples y metas semanales comprensibles.",
-        "quote.title":"Frase del día","quote.new":"Nueva frase",
-        "team.title":"Equipo","team.m1":"Psicología, investigación y dirección.","team.m2t":"Colaborador técnico","team.m2":"Front end y producto.","team.m3t":"Consejo asesor","team.m3":"Clínica, datos y ética.",
-        "contact.title":"Contacto","contact.name":"Tu nombre","contact.email":"Tu email","contact.msg":"¿Cómo podemos ayudarte?","contact.gdpr":"Acepto la <a href='/privacidad.html'>política de privacidad</a>","contact.send":"Enviar","contact.ok":"Gracias, te contactaremos pronto.","footer.top":"Volver arriba ↑"
-      },
-      en: { "nav.home":"Home","nav.mission":"Mission","nav.product":"Product","nav.team":"Team","nav.contact":"Contact",
-        "side.home":"Home","side.blog":"Blog","side.resources":"Resources","side.contact":"Contact","side.login":"Log in","side.privacy":"Privacy",
-        "hero.title":"Emotional wellbeing and technology",
-        "hero.subtitle":"A simple platform to understand, care for, and train emotional wellbeing, grounded in science.",
-        "hero.ctaUser":"I am an individual","hero.ctaOrg":"I am an organization",
-        "blog.enter":"Go to Blog","blog.note":"A calm space to read, think, and take care of yourself.",
-        "mission.title":"Our mission","mission.desc":"Create accessible, safe, and useful tools that support healthy habits, self-observation, and informed decisions.",
-        "mission.b1":"Evidence-based psychology","mission.b2":"Privacy by design","mission.b3":"Accessibility and clear language",
-        "product.title":"Product","product.desc":"First version, daily self-check, micro regulation exercises, and a progress panel.",
-        "product.c1t":"Check-in","product.c1d":"2 to 3 questions a day to gauge your emotional pulse without overwhelm.",
-        "product.c2t":"Exercises","product.c2d":"Breathing, reframing, brief action plan. Fully guided.",
-        "product.c3t":"Progress","product.c3d":"Simple charts and understandable weekly goals.",
-        "quote.title":"Quote of the day","quote.new":"New quote",
-        "team.title":"Team","team.m1":"Psychology, research, and direction.","team.m2t":"Tech collaborator","team.m2":"Front end and product.","team.m3t":"Advisory board","team.m3":"Clinic, data, and ethics.",
-        "contact.title":"Contact","contact.name":"Your name","contact.email":"Your email","contact.msg":"How can we help you?","contact.gdpr":"I accept the <a href='/privacidad.html'>privacy policy</a>","contact.send":"Send","contact.ok":"Thanks, we will contact you soon.","footer.top":"Back to top ↑"
-      }
+      es: { "nav.home":"Inicio","nav.mission":"Misión","nav.product":"Producto","nav.contact":"Contacto" },
+      en: { "nav.home":"Home","nav.mission":"Mission","nav.product":"Product","nav.contact":"Contact" }
     };
     function applyLang(lang){
       const dict = i18n[lang] || i18n.es;
       document.documentElement.setAttribute("lang", lang === "en" ? "en" : "es");
-      $$(".nav-links a, [data-i18n], [data-i18n-placeholder]").forEach(el => {
-        const k = el.getAttribute("data-i18n") || el.getAttribute("data-i18n-placeholder");
-        if(!k) return;
-        if (el.hasAttribute("data-i18n-placeholder")) {
-          if (dict[k]) el.setAttribute("placeholder", dict[k]);
-        } else {
-          if (dict[k]) el.innerHTML = dict[k];
-        }
+      $$("#mainNav a").forEach(el => {
+        const k = el.getAttribute("data-i18n");
+        if(k && dict[k]) el.textContent = dict[k];
       });
       localStorage.setItem("temotiva-lang", lang);
     }
@@ -781,7 +660,7 @@
       items.forEach(el => io.observe(el));
     })();
 
-    /* Service Worker: mantenemos tu ruta actual */
+    /* Service Worker */
     if("serviceWorker" in navigator){
       window.addEventListener("load", ()=>{
         navigator.serviceWorker.register("/pwabuilder-sw.js", { scope: "/" })
@@ -790,7 +669,7 @@
       });
     }
 
-    /* Frase del día */
+    /* Frase del día (si está presente el botón) */
     const frases = [
       "Respira. Un paso a la vez.",
       "Tu progreso importa, aunque sea pequeño.",
