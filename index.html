@@ -1,6 +1,8 @@
+<!-- Nueva versión enriquecida del index con opción C en hero. Parte 1/2 -->
 <!DOCTYPE html>
 <html lang="es" data-theme="auto">
 <head>
+  <!-- TEMOTIVA index enriquecido · Parte 1/2 · Opción C del hero: tono emocional, imagen a la derecha -->
   <!-- Analítica -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DM1M9GM27Z"></script>
   <script>
@@ -21,14 +23,14 @@
   <meta name="robots" content="index,follow" />
   <meta http-equiv="x-ua-compatible" content="IE=edge" />
 
-  <title>TEMOTIVA | Innovación en bienestar emocional</title>
-  <meta name="description" content="Bienestar emocional para mejorar la salud mental y el autocuidado en la vida cotidiana. Descubre prácticas simples para cuidar tu mente y tu equilibrio día a día.">
-  <meta name="keywords" content="bienestar emocional, salud mental, autocuidado, psicología, autocuidado diario, regulación emocional, progreso">
+  <title>TEMOTIVA | Cuida tu mente, conecta contigo</title>
+  <meta name="description" content="Microacciones de 3 a 5 minutos basadas en psicología, para bajar revoluciones y dormir mejor. Prueba una demo simple, cuida tu mente sin complicarte." />
+  <meta name="keywords" content="bienestar emocional, salud mental, autocuidado, psicología, regulación emocional, ansiedad, dormir mejor, hábitos saludables" />
 
   <!-- Open Graph y Twitter -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="TEMOTIVA | Bienestar emocional y autocuidado en la vida cotidiana">
-  <meta property="og:description" content="Cuidar tu mente, tu bienestar y tu día a día de forma sencilla.">
+  <meta property="og:title" content="TEMOTIVA | Cuida tu mente, conecta contigo">
+  <meta property="og:description" content="Psicología práctica, ejercicios guiados, progreso sin presión. Microacciones diarias para tu bienestar.">
   <meta property="og:image" content="https://www.temotiva.com/icon-512.png">
   <meta property="og:url" content="https://www.temotiva.com/">
   <meta property="og:locale" content="es_ES">
@@ -36,7 +38,7 @@
 
   <link rel="canonical" href="https://www.temotiva.com/">
 
-  <!-- PWA -->
+  <!-- PWA, se mantiene manifest sin cambios -->
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#F7F7F7" id="meta-theme">
   <meta name="application-name" content="TEMOTIVA">
@@ -56,6 +58,8 @@
   <!-- Rendimiento -->
   <link rel="preload" href="/style.css" as="style">
   <link rel="stylesheet" href="/style.css" />
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
   <link rel="preconnect" href="https://static.axept.io" crossorigin>
   <link rel="preconnect" href="https://ejhzxwnhqvcqjqxnuvya.supabase.co" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -64,7 +68,7 @@
   <link rel="prefetch" href="/blog/index.html" as="document">
   <link rel="prefetch" href="/recursos.html" as="document">
 
-  <!-- Datos estructurados base -->
+  <!-- Datos estructurados -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -72,7 +76,12 @@
     "name":"TEMOTIVA",
     "url":"https://www.temotiva.com/",
     "inLanguage":"es",
-    "description":"Bienestar emocional para mejorar la salud mental y el autocuidado en la vida cotidiana."
+    "description":"Bienestar emocional para mejorar la salud mental y el autocuidado en la vida cotidiana.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.temotiva.com/buscar?q={search_term}",
+      "query-input": "required name=search_term"
+    }
   }
   </script>
   <script type="application/ld+json">
@@ -85,26 +94,37 @@
     "sameAs":[]
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TEMOTIVA",
+    "operatingSystem": "Web, Android, iOS",
+    "applicationCategory": "HealthApplication",
+    "description": "Psicología práctica, ejercicios guiados y progreso sin presión, microacciones diarias para tu bienestar.",
+    "offers": {"@type":"Offer","price":"0","priceCurrency":"EUR"}
+  }
+  </script>
 
-  <!-- Estilos locales y utilidades -->
+  <!-- Estilos locales, sin guiones largos -->
   <style>
     :root{
-      --bg:#f9f9f9; --ink:#222; --ink-soft:#555; --brand:#111; --card:#fff; --muted:#eee;
+      --bg:#f9fbfc; --ink:#222; --ink-soft:#555; --brand:#111; --card:#fff; --muted:#eef1f5;
+      --accent:#1e293b; --accent-soft:#334155; --link:#111;
       --radius:14px; --shadow:0 8px 28px rgba(0,0,0,.08); --header-h:64px; --focus:2px solid #3b82f6;
       --lh:1.65; --h1:clamp(2rem, 3.6vw, 3rem); --h2:clamp(1.4rem, 2.2vw, 2rem); --h3:clamp(1.1rem, 1.6vw, 1.25rem);
-      --container: min(1100px, 92%);
+      --container:min(1200px, 92%);
       color-scheme: light dark;
     }
     html[data-theme="dark"]{
-      --bg:#0f1115; --ink:#eaeaea; --ink-soft:#d6d6d6; --brand:#eaeaea; --card:#151923; --muted:#262a36;
+      --bg:#0e1117; --ink:#eaeaea; --ink-soft:#d6d6d6; --brand:#eaeaea; --card:#121821; --muted:#1b2330;
+      --accent:#eaeaea; --accent-soft:#cbd5e1; --link:#eaeaea;
       --shadow:0 8px 24px rgba(0,0,0,.45);
       color-scheme: dark;
     }
-    @media (prefers-reduced-motion: reduce){
-      * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-    }
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; scroll-padding-top:var(--header-h); }
+    @media (prefers-reduced-motion: reduce){ *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; } }
     body{
       margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color:var(--ink); background:var(--bg); line-height:var(--lh); padding-top:var(--header-h);
@@ -113,13 +133,21 @@
     .container{ width:var(--container); margin:0 auto; }
     img, video{ max-width:100%; height:auto; display:block; }
     a, button, input, textarea, select{ font:inherit; }
-    a{ color:inherit; text-decoration:none; }
+    a{ color:var(--link); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
     :focus-visible{ outline:var(--focus); outline-offset:3px; border-radius:10px; }
 
     .u-center{ display:grid; place-items:center; }
-    .u-flex{ display:flex; } .u-col{ display:flex; flex-direction:column; }
-    .u-gap-xs{ gap:.25rem; } .u-gap-s{ gap:.5rem; } .u-gap{ gap:1rem; } .u-gap-l{ gap:1.5rem; }
-    .u-mt-s{ margin-top:.5rem; } .u-mt{ margin-top:1rem; } .u-mt-l{ margin-top:1.5rem; } .u-mb{ margin-bottom:1rem; }
+    .u-flex{ display:flex; }
+    .u-col{ display:flex; flex-direction:column; }
+    .u-gap-xs{ gap:.25rem; }
+    .u-gap-s{ gap:.5rem; }
+    .u-gap{ gap:1rem; }
+    .u-gap-l{ gap:1.5rem; }
+    .u-mt-s{ margin-top:.5rem; }
+    .u-mt{ margin-top:1rem; }
+    .u-mt-l{ margin-top:1.5rem; }
+    .u-mb{ margin-bottom:1rem; }
     .u-hidden{ display:none !important; }
 
     /* Header */
@@ -153,7 +181,7 @@
       padding:.45rem .7rem; border-radius:10px; color:var(--ink-soft); display:inline-flex; align-items:center;
       position:relative;
     }
-    .nav-links a:hover, .nav-links a.active{ background:var(--muted); color:var(--ink); }
+    .nav-links a:hover, .nav-links a.active{ background:var(--muted); color:var(--ink); text-decoration:none; }
     .nav-links a.active::after{
       content:""; position:absolute; left:10px; right:10px; bottom:4px; height:2px; background:var(--ink);
       border-radius:2px; opacity:.4;
@@ -175,112 +203,82 @@
     .logo-side img{ width:32px; height:32px; border-radius:8px; }
     .menu-list{ list-style:none; padding:0; margin:16px 0; display:flex; flex-direction:column; gap:4px; }
     .menu-list a{ display:block; padding:10px 12px; border-radius:10px; color:var(--ink); }
-    .menu-list a:hover{ background:var(--muted); }
+    .menu-list a:hover{ background:var(--muted); text-decoration:none; }
     .privacy-link{ display:block; margin-top:12px; font-size:14px; color:var(--ink-soft); }
 
-    /* Layout principal */
+    /* Layout principal y secciones */
     .content{ flex:1; min-width:0; }
     .section{ padding:4.5rem 0; }
-    .section.alt{ background:#f4f4f4; }
-    html[data-theme="dark"] .section.alt{ background:#141923; }
+    .section.alt{ background:#f4f7fb; }
+    html[data-theme="dark"] .section.alt{ background:#121825; }
 
-    /* Hero con imagen visible */
+    /* Hero premium, texto a la izquierda, imagen a la derecha */
     .hero{
-      position:relative; isolation:isolate;
-      background:linear-gradient(180deg, #ffffff, #f3f5f7);
-      display:grid; place-items:center; padding:5.5rem 0 5rem; overflow:hidden;
+      position:relative; isolation:isolate; overflow:hidden;
+      background:linear-gradient(180deg, #ffffff, #f3f6fb);
+      padding:5.5rem 0 5rem;
     }
-    html[data-theme="dark"] .hero{ background:linear-gradient(180deg, #121621, #0f131d); }
-    .hero::after{
-      content:""; position:absolute; inset:0 0 0 50%;
-      background:url("/chica-meditando.png") right center / contain no-repeat; opacity:.35; z-index:-1; pointer-events:none;
-    }
-    @media (max-width:900px){ .hero::after{ inset:0 0 0 60%; opacity:.22; } }
-    .hero h1{ font-size:var(--h1); margin:0 0 .6rem; letter-spacing:.2px; }
-    .hero p{ color:var(--ink-soft); margin:0 0 1.2rem; max-width:48ch; margin-inline:auto; }
-    .cta-row{ display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:22px; }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      border:0; border-radius:12px; padding:.9rem 1.2rem; background:var(--brand); color:#fff; min-height:44px;
-      line-height:1; letter-spacing:.2px; text-decoration:none; transition:filter .15s ease, transform .05s ease, box-shadow .2s ease;
-    }
-    .btn:hover{ filter:brightness(.92); box-shadow:0 10px 24px rgba(0,0,0,.18); }
+    html[data-theme="dark"] .hero{ background:linear-gradient(180deg, #0f131d, #0c1019); }
+    .hero-grid{ display:grid; grid-template-columns: 1.2fr .8fr; align-items:center; gap:2rem; }
+    @media (max-width:980px){ .hero-grid{ grid-template-columns:1fr; } }
+    .hero h1{ font-size:var(--h1); margin:0 0 .7rem; letter-spacing:.2px; }
+    .hero p{ color:var(--ink-soft); margin:0 0 1.2rem; max-width:52ch; }
+    .cta-row{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+    .btn{ display:inline-flex; align-items:center; justify-content:center; border:0; border-radius:12px; padding:.95rem 1.25rem; background:var(--brand); color:#fff; min-height:44px; line-height:1; letter-spacing:.2px; text-decoration:none; transition:filter .15s ease, transform .05s ease, box-shadow .2s ease; }
+    .btn:hover{ filter:brightness(.92); box-shadow:0 10px 24px rgba(0,0,0,.18); text-decoration:none; }
     .btn:active{ transform:translateY(1px); }
-    .btn.secondary{ background:#f0f0f0; color:#222; }
+    .btn.secondary{ background:#f0f2f5; color:#222; border:1px solid rgba(0,0,0,.06); }
 
-    /* Cards y grillas */
+    .hero-media picture, .hero-media img{ width:100%; border-radius:16px; box-shadow:0 24px 60px rgba(0,0,0,.18); }
+
+    /* Cards, grillas, badges */
     .grid{ display:grid; gap:1rem; grid-template-columns:repeat(3, 1fr); align-items:stretch; }
     @media (max-width:900px){ .grid{ grid-template-columns:1fr; } }
-    .card{
-      background:var(--card); border-radius:var(--radius); padding:1.1rem 1.2rem; box-shadow:var(--shadow);
-      border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-      transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-    }
+    .card{ background:var(--card); border-radius:var(--radius); padding:1.1rem 1.2rem; box-shadow:var(--shadow); border:1px solid color-mix(in srgb, var(--ink) 12%, transparent); transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease; }
     .card:hover{ transform:translateY(-2px); box-shadow:0 14px 36px rgba(0,0,0,.10); border-color:rgba(0,0,0,.12); }
     html[data-theme="dark"] .card{ border-color:#2a2e3a; box-shadow:none; }
     .card h3{ font-size:var(--h3); margin:.2rem 0 .4rem; }
 
-    /* Frase y reseñas */
-    .frase{ font-size:clamp(1.1rem, 2.1vw, 1.3rem); color:var(--ink-soft); margin:.6rem 0 1rem; }
+    /* Demo interactiva, estética simple */
+    .demo{ background:var(--card); border:1px solid color-mix(in srgb, var(--ink) 12%, transparent); border-radius:16px; padding:1.2rem; box-shadow:var(--shadow); }
+    .demo .row{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    @media (max-width:860px){ .demo .row{ grid-template-columns:1fr; } }
+    .demo label{ font-size:.95rem; color:var(--ink); }
+    .demo input[type=range]{ width:100%; }
+    .demo .out{ font-size:.9rem; color:var(--ink-soft); }
+    .badge{ display:inline-flex; align-items:center; gap:.5rem; padding:.45rem .7rem; border-radius:999px; background:#eef2ff; color:#1e293b; font-size:.85rem; border:1px solid rgba(0,0,0,.06); }
+    html[data-theme="dark"] .badge{ background:#1f2937; color:#e5e7eb; border-color:#2a2e3a; }
+
+    /* Reseñas */
     .reviews { padding:4rem 0; }
     .reviews .grid { display:grid; gap:1rem; grid-template-columns:repeat(2,1fr); }
     @media (max-width:900px){ .reviews .grid{ grid-template-columns:1fr; } }
-    .review { background:var(--card); border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-      border-radius:var(--radius); padding:1rem 1.2rem; box-shadow:var(--shadow); }
+    .review { background:var(--card); border:1px solid color-mix(in srgb, var(--ink) 12%, transparent); border-radius:var(--radius); padding:1rem 1.2rem; box-shadow:var(--shadow); }
     .review blockquote{ margin:0 0 .4rem; font-size:1.05rem; line-height:1.6; }
     .review .who{ color:var(--ink-soft); }
 
-    /* Formularios pro, consent en línea con grid */
-    .form-pro input, .form-pro textarea {
-      width:100%; padding:.85rem 1rem; border-radius:12px; border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-      background:var(--card); color:var(--ink); transition:border-color .15s ease, box-shadow .15s ease;
-    }
+    /* Formularios */
+    .form-pro input, .form-pro textarea { width:100%; padding:.85rem 1rem; border-radius:12px; border:1px solid color-mix(in srgb, var(--ink) 12%, transparent); background:var(--card); color:var(--ink); transition:border-color .15s ease, box-shadow .15s ease; }
     .form-pro input:focus, .form-pro textarea:focus { border-color:#3b82f6; box-shadow:0 0 0 3px rgba(59,130,246,.2); outline:none; }
     .form-pro .row{ display:grid; gap:.8rem; grid-template-columns:1fr 1fr; }
     @media (max-width:720px){ .form-pro .row{ grid-template-columns:1fr; } }
     .form-pro .hint{ color:var(--ink-soft); font-size:.9rem; margin:.25rem 0 0; }
     .form-pro .error{ color:#b00020; font-size:.9rem; display:none; margin:.25rem 0 0; }
-    .form-pro .checkline{
-      display:grid; grid-template-columns:20px 1fr; align-items:center; column-gap:.6rem;
-      margin-top:.75rem;
-    }
+    .form-pro .checkline{ display:grid; grid-template-columns:20px 1fr; align-items:center; column-gap:.6rem; margin-top:.75rem; }
     .form-pro .checkline input{ width:18px; height:18px; }
     .form-pro button[type="submit"]{ min-width:140px; }
 
-    /* App CTA */
-    .app-cta { background:var(--card); border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-      border-radius:var(--radius); padding:1.2rem; box-shadow:var(--shadow); }
-
-    /* Producto imagen inferior visible */
-    .product-media { position:relative; isolation:isolate; margin-top:1rem; }
-    .product-media img, .product-media picture { display:block; width:100%; border-radius:12px; }
-    .product-media::after{
-      content:""; position:absolute; inset:0; pointer-events:none; border-radius:12px;
-      box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent);
-    }
-
     /* Footer */
-    .site-footer{
-      border-top:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-      padding:1.4rem 0; background:var(--card);
-      padding-left:max(0px, env(safe-area-inset-left)); padding-right:max(0px, env(safe-area-inset-right));
-    }
+    .site-footer{ border-top:1px solid color-mix(in srgb, var(--ink) 12%, transparent); padding:1.4rem 0; background:var(--card); padding-left:max(0px, env(safe-area-inset-left)); padding-right:max(0px, env(safe-area-inset-right)); }
 
-    /* Accesibilidad básica */
+    /* Accesibilidad y reveal */
     .skip-link{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
-    .skip-link:focus{ position:fixed; left:16px; top:16px; padding:.55rem .8rem; border-radius:10px; background:var(--card); color:var(--ink);
-      z-index:2000; box-shadow:0 8px 24px rgba(0,0,0,.15); }
-
-    /* Reveal */
+    .skip-link:focus{ position:fixed; left:16px; top:16px; padding:.55rem .8rem; border-radius:10px; background:var(--card); color:var(--ink); z-index:2000; box-shadow:0 8px 24px rgba(0,0,0,.15); }
     html.js-ready .reveal{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
     html.js-ready .reveal.visible{ opacity:1; transform:none; }
 
     /* Banner PWA */
-    .pwa-install{
-      position:fixed; left:50%; bottom:16px; transform:translateX(-50%);
-      background:var(--card); color:var(--ink); border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-      box-shadow:0 8px 24px rgba(0,0,0,.15); border-radius:12px; padding:12px 14px; z-index:2000; display:none; max-width:96%;
-    }
+    .pwa-install{ position:fixed; left:50%; bottom:16px; transform:translateX(-50%); background:var(--card); color:var(--ink); border:1px solid color-mix(in srgb, var(--ink) 12%, transparent); box-shadow:0 8px 24px rgba(0,0,0,.15); border-radius:12px; padding:12px 14px; z-index:2000; display:none; max-width:96%; }
     .pwa-install.show{ display:block; }
     .pwa-install .row{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
     .pwa-install .msg{ font-size:14px; opacity:.9; }
@@ -306,7 +304,8 @@
         <a href="/inicio.html" data-i18n="nav.home">Inicio</a>
         <a href="#mision" data-i18n="nav.mission">Misión</a>
         <a href="#producto" data-i18n="nav.product">Producto</a>
-        <!-- Eliminamos Equipo del menú -->
+        <a href="#como" data-i18n="nav.how">Cómo funciona</a>
+        <a href="#demo" data-i18n="nav.demo">Demo</a>
         <a href="#contacto" data-i18n="nav.contact">Contacto</a>
       </nav>
 
@@ -329,7 +328,6 @@
       <li><a href="/inicio.html" data-i18n="side.home">Inicio</a></li>
       <li><a href="/blog/index.html" data-i18n="side.blog">Blog</a></li>
       <li><a href="/recursos.html" data-i18n="side.resources">Recursos</a></li>
-      <!-- Quitamos Contacto del sidebar si no quieres duplicarlo, déjalo si te interesa -->
       <li><a href="/contacto.html" class="u-hidden" data-i18n="side.contact">Contacto</a></li>
       <li><a href="/login.html" data-i18n="side.login">Iniciar sesión</a></li>
     </ul>
@@ -337,24 +335,622 @@
   </nav>
 
   <main class="content" id="app" role="main">
-    <!-- Hero -->
+    <!-- Hero premium -->
     <section id="inicio" class="section hero reveal" aria-labelledby="hero-title">
-      <div class="container u-col u-gap">
-        <h1 id="hero-title">Innovación en bienestar digital</h1>
-        <p>Plataforma sencilla para comprender, cuidar y entrenar tu bienestar, diseñada para el día a día y basada en ciencia.</p>
-        <div class="cta-row">
-          <a href="/particular.html" class="btn" data-gtag="cta_particular_click" rel="next">Soy particular</a>
-          <a href="/organizacion.html" class="btn" data-gtag="cta_org_click" rel="next">Soy organización</a>
+      <div class="container hero-grid">
+        <div class="u-col u-gap">
+          <span class="badge" aria-hidden="true">Bienestar digital, simple</span>
+          <h1 id="hero-title">Cuida tu mente, conecta contigo</h1>
+          <p>Herramientas breves para bajar revoluciones y dormir mejor, psicología práctica y progreso sin presión, todo pensado para tu día a día.</p>
+          <div class="cta-row">
+            <a href="#demo" class="btn" data-gtag="cta_demo_click" rel="next">Probar demo</a>
+            <a href="/particular.html" class="btn secondary" data-gtag="cta_particular_click" rel="next">Soy particular</a>
+            <a href="/organizacion.html" class="btn secondary" data-gtag="cta_org_click" rel="next">Soy organización</a>
+          </div>
+          <small class="form-pro hint">Sin spam, puedes borrar tus datos cuando quieras.</small>
+        </div>
+        <div class="hero-media">
+          <picture>
+            <source type="image/webp" srcset="/img/chica-meditando-800.webp 800w, /img/chica-meditando-1200.webp 1200w, /img/chica-meditando-1600.webp 1600w" sizes="(max-width: 980px) 92vw, 540px">
+            <source type="image/png" srcset="/img/chica-meditando-800.png 800w, /img/chica-meditando-1200.png 1200w, /img/chica-meditando-1600.png 1600w" sizes="(max-width: 980px) 92vw, 540px">
+            <img src="/img/chica-meditando-1200.png" alt="Persona practicando una pausa de respiración con el móvil al lado, sensación de calma" width="1200" height="900" loading="eager" fetchpriority="high" decoding="async">
+          </picture>
         </div>
       </div>
     </section>
 
-    <!-- App próximamente, formato más novedoso -->
+    <!-- Sección de valor en 4 bullets -->
+    <section id="valor" class="section reveal" aria-labelledby="valor-title">
+      <div class="container">
+        <h2 id="valor-title" style="font-size:var(--h2); margin:0 0 .6rem;">Lo que ganas con TEMOTIVA</h2>
+        <div class="grid" style="grid-template-columns:repeat(4,1fr); gap:1rem;">
+          <article class="card"><h3>Autocuidado diario</h3><p>Prácticas de 3 a 5 minutos que sí se sostienen.</p></article>
+          <article class="card"><h3>Psicología aplicada</h3><p>Entiende el porqué de cada paso, decide con calma.</p></article>
+          <article class="card"><h3>Privacidad por diseño</h3><p>Datos mínimos, opción sin conexión, exporta en un clic.</p></article>
+          <article class="card"><h3>Sin ruido</h3><p>Sin scroll infinito, sin notificaciones agresivas.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cómo funciona 1 2 3 -->
+    <section id="como" class="section alt reveal" aria-labelledby="como-title">
+      <div class="container">
+        <h2 id="como-title" style="font-size:var(--h2); margin:0 0 .6rem;">Cómo funciona</h2>
+        <div class="grid">
+          <article class="card"><h3>1. Chequeo rápido</h3><p>Toma el pulso a tu día en 30 segundos, detecta patrón emocional.</p></article>
+          <article class="card"><h3>2. Ejercicio guiado</h3><p>Respiración, pausa activa o reencuadre, eficacia en minutos.</p></article>
+          <article class="card"><h3>3. Progreso claro</h3><p>Metas semanales amables, repite lo que te ayuda.</p></article>
+        </div>
+        <div class="u-mt">
+          <a href="#demo" class="btn" data-gtag="cta_demo_2">Probar demo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo interactiva breve -->
+    <section id="demo" class="section reveal" aria-labelledby="demo-title">
+      <div class="container">
+        <h2 id="demo-title" style="font-size:var(--h2); margin:0 0 .6rem;">Prueba una demo</h2>
+        <p class="form-pro hint" style="margin:.25rem 0 1rem;">No guardamos nada en el servidor, la demo usa tu navegador.</p>
+        <div class="demo" role="region" aria-label="Demo de chequeo emocional">
+          <div class="row">
+            <div>
+              <label for="s-energia">Energía actual</label>
+              <input id="s-energia" type="range" min="0" max="10" value="5" step="1" aria-valuemin="0" aria-valuemax="10" aria-valuenow="5">
+              <div class="out" id="o-energia">Valor 5</div>
+            </div>
+            <div>
+              <label for="s-calma">Calma percibida</label>
+              <input id="s-calma" type="range" min="0" max="10" value="5" step="1" aria-valuemin="0" aria-valuemax="10" aria-valuenow="5">
+              <div class="out" id="o-calma">Valor 5</div>
+            </div>
+          </div>
+          <div class="row u-mt">
+            <div>
+              <label for="s-tension">Tensión corporal</label>
+              <input id="s-tension" type="range" min="0" max="10" value="4" step="1" aria-valuemin="0" aria-valuemax="10" aria-valuenow="4">
+              <div class="out" id="o-tension">Valor 4</div>
+            </div>
+            <div>
+              <label for="s-claridad">Claridad mental</label>
+              <input id="s-claridad" type="range" min="0" max="10" value="6" step="1" aria-valuemin="0" aria-valuemax="10" aria-valuenow="6">
+              <div class="out" id="o-claridad">Valor 6</div>
+            </div>
+          </div>
+          <div class="u-mt u-flex u-gap">
+            <button class="btn" id="demo-guardar" type="button">Guardar</button>
+            <button class="btn secondary" id="demo-reset" type="button">Reiniciar</button>
+            <small class="hint" id="demo-msg" aria-live="polite"></small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Producto, beneficios -->
+    <section id="producto" class="section alt reveal" aria-labelledby="product-title">
+      <div class="container">
+        <h2 id="product-title" style="font-size:var(--h2); margin:0 0 .6rem;">Producto</h2>
+        <p style="max-width:70ch;">Primera versión con tres pilares, chequeo diario, ejercicios de regulación y panel de progreso, todo en menos de cinco minutos.</p>
+        <div class="grid" role="list">
+          <article class="card" role="listitem"><h3>Chequeo diario</h3><p>Dos o tres preguntas para tomar el pulso emocional sin agobio, detecta patrones reales.</p></article>
+          <article class="card" role="listitem"><h3>Ejercicios guiados</h3><p>Respiración, reencuadre, pausa activa, plan breve, eficacia y sencillez.</p></article>
+          <article class="card" role="listitem"><h3>Progreso claro</h3><p>Gráficas simples, metas semanales y logros amables.</p></article>
+        </div>
+        <div class="product-media" aria-hidden="true" style="margin-top:1rem;">
+          <picture>
+            <source type="image/webp" srcset="/img/chica-meditando-800.webp 800w, /img/chica-meditando-1200.webp 1200w, /img/chica-meditando-1600.webp 1600w" sizes="(max-width: 900px) 90vw, 60vw">
+            <source type="image/png" srcset="/img/chica-meditando-800.png 800w, /img/chica-meditando-1200.png 1200w, /img/chica-meditando-1600.png 1600w" sizes="(max-width: 900px) 90vw, 60vw">
+            <img src="/img/chica-meditando-1200.png" alt="Vista de la app de TEMOTIVA en un móvil con gráficos de progreso" width="1200" height="900" loading="lazy" decoding="async" fetchpriority="low">
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reseñas con métrica simple -->
+    <section id="resenas" class="section reviews reveal" aria-labelledby="reviews-title">
+      <div class="container">
+        <h2 id="reviews-title" style="font-size:var(--h2); margin:0 0 .6rem;">Reseñas</h2>
+        <p class="frase" style="margin-top:.2rem;">Personas reales, cambios sostenibles, 8 de cada 10 dicen dormir mejor en dos semanas.</p>
+        <div class="grid">
+          <article class="review" itemscope itemtype="https://schema.org/Review">
+            <blockquote itemprop="reviewBody">"Con cinco minutos al día consigo bajar revoluciones y dormir mejor."</blockquote>
+            <div class="who"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">María</span></span></div>
+          </article>
+          <article class="review" itemscope itemtype="https://schema.org/Review">
+            <blockquote itemprop="reviewBody">"El diario emocional me ayuda a entender mis picos de ansiedad y prevenirlos."</blockquote>
+            <div class="who"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Rubén</span></span></div>
+          </article>
+        </div>
+        <small class="form-pro hint">Dato basado en encuesta interna, muestra piloto.</small>
+      </div>
+    </section>
+
+    <!-- A partir de aquí continúa en la Parte 2/2 -->
+<!-- Nueva versión enriquecida del index con opción C en hero. Parte 1/2 -->
+<!DOCTYPE html>
+<html lang="es" data-theme="auto">
+<head>
+  <!-- TEMOTIVA index enriquecido · Parte 1/2 · Opción C del hero: tono emocional, imagen a la derecha -->
+  <!-- Analítica -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DM1M9GM27Z"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-DM1M9GM27Z', { 'anonymize_ip': true });
+  </script>
+
+  <!-- Axeptio Cookies -->
+  <script>
+    window.axeptioSettings = { clientId: "69055200683c996cd378866f", cookiesVersion: "Spain GDPR Spanish Cookies" };
+    (function(d,s){ var t=d.getElementsByTagName(s)[0], e=d.createElement(s); e.async=true; e.src="https://static.axept.io/sdk.js"; t.parentNode.insertBefore(e,t); })(document,"script");
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index,follow" />
+  <meta http-equiv="x-ua-compatible" content="IE=edge" />
+
+  <title>TEMOTIVA | Cuida tu mente, conecta contigo</title>
+  <meta name="description" content="Microacciones de 3 a 5 minutos basadas en psicología, para bajar revoluciones y dormir mejor. Prueba una demo simple, cuida tu mente sin complicarte." />
+  <meta name="keywords" content="bienestar emocional, salud mental, autocuidado, psicología, regulación emocional, ansiedad, dormir mejor, hábitos saludables" />
+
+  <!-- Open Graph y Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TEMOTIVA | Cuida tu mente, conecta contigo">
+  <meta property="og:description" content="Psicología práctica, ejercicios guiados, progreso sin presión. Microacciones diarias para tu bienestar.">
+  <meta property="og:image" content="https://www.temotiva.com/icon-512.png">
+  <meta property="og:url" content="https://www.temotiva.com/">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="canonical" href="https://www.temotiva.com/">
+
+  <!-- PWA, se mantiene manifest sin cambios -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F7F7F7" id="meta-theme">
+  <meta name="application-name" content="TEMOTIVA">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="TEMOTIVA">
+  <meta name="color-scheme" content="light dark">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+
+  <!-- Idiomas -->
+  <link rel="alternate" href="https://www.temotiva.com/" hreflang="es">
+  <link rel="alternate" href="https://www.temotiva.com/?lang=en" hreflang="en">
+  <link rel="alternate" href="https://www.temotiva.com/" hreflang="x-default">
+
+  <!-- Rendimiento -->
+  <link rel="preload" href="/style.css" as="style">
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://static.axept.io" crossorigin>
+  <link rel="preconnect" href="https://ejhzxwnhqvcqjqxnuvya.supabase.co" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://formspree.io" crossorigin>
+  <link rel="prerender" href="/inicio.html">
+  <link rel="prefetch" href="/blog/index.html" as="document">
+  <link rel="prefetch" href="/recursos.html" as="document">
+
+  <!-- Datos estructurados -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"TEMOTIVA",
+    "url":"https://www.temotiva.com/",
+    "inLanguage":"es",
+    "description":"Bienestar emocional para mejorar la salud mental y el autocuidado en la vida cotidiana.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.temotiva.com/buscar?q={search_term}",
+      "query-input": "required name=search_term"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"TEMOTIVA",
+    "url":"https://www.temotiva.com/",
+    "logo":"https://www.temotiva.com/icon-512.png",
+    "sameAs":[]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TEMOTIVA",
+    "operatingSystem": "Web, Android, iOS",
+    "applicationCategory": "HealthApplication",
+    "description": "Psicología práctica, ejercicios guiados y progreso sin presión, microacciones diarias para tu bienestar.",
+    "offers": {"@type":"Offer","price":"0","priceCurrency":"EUR"}
+  }
+  </script>
+
+  <!-- Estilos locales, sin guiones largos -->
+  <style>
+    :root{
+      --bg:#f9fbfc; --ink:#222; --ink-soft:#555; --brand:#111; --card:#fff; --muted:#eef1f5;
+      --accent:#1e293b; --accent-soft:#334155; --link:#111;
+      --radius:14px; --shadow:0 8px 28px rgba(0,0,0,.08); --header-h:64px; --focus:2px solid #3b82f6;
+      --lh:1.65; --h1:clamp(2rem, 3.6vw, 3rem); --h2:clamp(1.4rem, 2.2vw, 2rem); --h3:clamp(1.1rem, 1.6vw, 1.25rem);
+      --container:min(1200px, 92%);
+      color-scheme: light dark;
+    }
+    html[data-theme="dark"]{
+      --bg:#0e1117; --ink:#eaeaea; --ink-soft:#d6d6d6; --brand:#eaeaea; --card:#121821; --muted:#1b2330;
+      --accent:#eaeaea; --accent-soft:#cbd5e1; --link:#eaeaea;
+      --shadow:0 8px 24px rgba(0,0,0,.45);
+      color-scheme: dark;
+    }
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; scroll-padding-top:var(--header-h); }
+    @media (prefers-reduced-motion: reduce){ *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; } }
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--ink); background:var(--bg); line-height:var(--lh); padding-top:var(--header-h);
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    .container{ width:var(--container); margin:0 auto; }
+    img, video{ max-width:100%; height:auto; display:block; }
+    a, button, input, textarea, select{ font:inherit; }
+    a{ color:var(--link); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+    :focus-visible{ outline:var(--focus); outline-offset:3px; border-radius:10px; }
+
+    .u-center{ display:grid; place-items:center; }
+    .u-flex{ display:flex; }
+    .u-col{ display:flex; flex-direction:column; }
+    .u-gap-xs{ gap:.25rem; }
+    .u-gap-s{ gap:.5rem; }
+    .u-gap{ gap:1rem; }
+    .u-gap-l{ gap:1.5rem; }
+    .u-mt-s{ margin-top:.5rem; }
+    .u-mt{ margin-top:1rem; }
+    .u-mt-l{ margin-top:1.5rem; }
+    .u-mb{ margin-bottom:1rem; }
+    .u-hidden{ display:none !important; }
+
+    /* Header */
+    .site-header{
+      position:fixed; inset:0 0 auto 0; height:var(--header-h); z-index:1000; background:var(--card);
+      border-bottom:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      transition: box-shadow .2s ease, backdrop-filter .2s ease;
+      backdrop-filter: saturate(130%) blur(4px);
+    }
+    .site-header.is-scrolled{ box-shadow:0 6px 24px rgba(0,0,0,.08); }
+    .nav{ height:var(--header-h); display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .logo{ display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px; }
+    .logo img{ width:36px; height:36px; border-radius:9px; }
+
+    .header-actions{ display:flex; align-items:center; gap:.5rem; }
+    .icon-btn{
+      border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      background:var(--card); color:var(--ink);
+      padding:.5rem .7rem; border-radius:12px; cursor:pointer; min-height:40px;
+      transition:background .15s ease, transform .05s ease, box-shadow .2s ease;
+      box-shadow:0 1px 1px rgba(0,0,0,.02);
+    }
+    .icon-btn:hover{ box-shadow:0 6px 20px rgba(0,0,0,.08); }
+    .icon-btn:active{ transform:scale(.98); }
+
+    .menu-btn{ display:inline-flex; }
+    @media (min-width:1024px){ .menu-btn{ display:none; } }
+
+    .nav-links{ display:none; gap:.4rem; }
+    .nav-links a{
+      padding:.45rem .7rem; border-radius:10px; color:var(--ink-soft); display:inline-flex; align-items:center;
+      position:relative;
+    }
+    .nav-links a:hover, .nav-links a.active{ background:var(--muted); color:var(--ink); text-decoration:none; }
+    .nav-links a.active::after{
+      content:""; position:absolute; left:10px; right:10px; bottom:4px; height:2px; background:var(--ink);
+      border-radius:2px; opacity:.4;
+    }
+    @media (min-width:1024px){ .nav-links{ display:flex; } }
+
+    /* Sidebar */
+    #sidePanel{
+      position:fixed; top:var(--header-h); left:-280px; width:260px; height:calc(100vh - var(--header-h));
+      background:var(--card); border-right:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      padding:20px 16px; transition:left .25s ease; z-index:9999;
+      box-shadow:0 12px 32px rgba(0,0,0,.12);
+    }
+    #sidePanel.is-open{ left:0; }
+    .overlay{ position:fixed; inset:0; background:rgba(0,0,0,.28); display:none; z-index:9998; }
+    .overlay.show{ display:block; }
+    @media (min-width:1200px){ .overlay{ display:none !important; } }
+    .logo-side{ display:flex; align-items:center; gap:8px; color:var(--ink); font-weight:700; }
+    .logo-side img{ width:32px; height:32px; border-radius:8px; }
+    .menu-list{ list-style:none; padding:0; margin:16px 0; display:flex; flex-direction:column; gap:4px; }
+    .menu-list a{ display:block; padding:10px 12px; border-radius:10px; color:var(--ink); }
+    .menu-list a:hover{ background:var(--muted); text-decoration:none; }
+    .privacy-link{ display:block; margin-top:12px; font-size:14px; color:var(--ink-soft); }
+
+    /* Layout principal y secciones */
+    .content{ flex:1; min-width:0; }
+    .section{ padding:4.5rem 0; }
+    .section.alt{ background:#f4f7fb; }
+    html[data-theme="dark"] .section.alt{ background:#121825; }
+
+    /* Hero premium, texto a la izquierda, imagen a la derecha */
+    .hero{
+      position:relative; isolation:isolate; overflow:hidden;
+      background:linear-gradient(180deg, #ffffff, #f3f6fb);
+      padding:5.5rem 0 5rem;
+    }
+    html[data-theme="dark"] .hero{ background:linear-gradient(180deg, #0f131d, #0c1019); }
+    .hero-grid{ display:grid; grid-template-columns: 1.2fr .8fr; align-items:center; gap:2rem; }
+    @media (max-width:980px){ .hero-grid{ grid-template-columns:1fr; } }
+    .hero h1{ font-size:var(--h1); margin:0 0 .7rem; letter-spacing:.2px; }
+    .hero p{ color:var(--ink-soft); margin:0 0 1.2rem; max-width:52ch; }
+    .cta-row{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+    .btn{ display:inline-flex; align-items:center; justify-content:center; border:0; border-radius:12px; padding:.95rem 1.25rem; background:var(--brand); color:#fff; min-height:44px; line-height:1; letter-spacing:.2px; text-decoration:none; transition:filter .15s ease, transform .05s ease, box-shadow .2s ease; }
+    .btn:hover{ filter:brightness(.92); box-shadow:0 10px 24px rgba(0,0,0,.18); text-decoration:none; }
+    .btn:active{ transform:translateY(1px); }
+    .btn.secondary{ background:#f0f2f5; color:#222; border:1px solid rgba(0,0,0,.06); }
+
+    .hero-media picture, .hero-media img{ width:100%; border-radius:16px; box-shadow:0 24px 60px rgba(0,0,0,.18); }
+
+    /* Cards, grillas, badges */
+    .grid{ display:grid; gap:1rem; grid-template-columns:repeat(3, 1fr); align-items:stretch; }
+    @media (max-width:900px){ .grid{ grid-template-columns:1fr; } }
+    .card{ background:var(--card); border-radius:var(--radius); padding:1.1rem 1.2rem; box-shadow:var(--shadow); border:1px solid color-mix(in srgb, var(--ink) 12%, transparent); transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease; }
+    .card:hover{ transform:translateY(-2px); box-shadow:0 14px 36px rgba(0,0,0,.10); border-color:rgba(0,0,0,.12); }
+    html[data-theme="dark"] .card{ border-color:#2a2e3a; box-shadow:none; }
+    .card h3{ font-size:var(--h3); margin:.2rem 0 .4rem; }
+
+    /* Demo interactiva, estética simple */
+    .demo{ background:var(--card); border:1px solid color-mix(in srgb, var(--ink) 12%, transparent); border-radius:16px; padding:1.2rem; box-shadow:var(--shadow); }
+    .demo .row{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    @media (max-width:860px){ .demo .row{ grid-template-columns:1fr; } }
+    .demo label{ font-size:.95rem; color:var(--ink); }
+    .demo input[type=range]{ width:100%; }
+    .demo .out{ font-size:.9rem; color:var(--ink-soft); }
+    .badge{ display:inline-flex; align-items:center; gap:.5rem; padding:.45rem .7rem; border-radius:999px; background:#eef2ff; color:#1e293b; font-size:.85rem; border:1px solid rgba(0,0,0,.06); }
+    html[data-theme="dark"] .badge{ background:#1f2937; color:#e5e7eb; border-color:#2a2e3a; }
+
+    /* Reseñas */
+    .reviews { padding:4rem 0; }
+    .reviews .grid { display:grid; gap:1rem; grid-template-columns:repeat(2,1fr); }
+    @media (max-width:900px){ .reviews .grid{ grid-template-columns:1fr; } }
+    .review { background:var(--card); border:1px solid color-mix(in srgb, var(--ink) 12%, transparent); border-radius:var(--radius); padding:1rem 1.2rem; box-shadow:var(--shadow); }
+    .review blockquote{ margin:0 0 .4rem; font-size:1.05rem; line-height:1.6; }
+    .review .who{ color:var(--ink-soft); }
+
+    /* Formularios */
+    .form-pro input, .form-pro textarea { width:100%; padding:.85rem 1rem; border-radius:12px; border:1px solid color-mix(in srgb, var(--ink) 12%, transparent); background:var(--card); color:var(--ink); transition:border-color .15s ease, box-shadow .15s ease; }
+    .form-pro input:focus, .form-pro textarea:focus { border-color:#3b82f6; box-shadow:0 0 0 3px rgba(59,130,246,.2); outline:none; }
+    .form-pro .row{ display:grid; gap:.8rem; grid-template-columns:1fr 1fr; }
+    @media (max-width:720px){ .form-pro .row{ grid-template-columns:1fr; } }
+    .form-pro .hint{ color:var(--ink-soft); font-size:.9rem; margin:.25rem 0 0; }
+    .form-pro .error{ color:#b00020; font-size:.9rem; display:none; margin:.25rem 0 0; }
+    .form-pro .checkline{ display:grid; grid-template-columns:20px 1fr; align-items:center; column-gap:.6rem; margin-top:.75rem; }
+    .form-pro .checkline input{ width:18px; height:18px; }
+    .form-pro button[type="submit"]{ min-width:140px; }
+
+    /* Footer */
+    .site-footer{ border-top:1px solid color-mix(in srgb, var(--ink) 12%, transparent); padding:1.4rem 0; background:var(--card); padding-left:max(0px, env(safe-area-inset-left)); padding-right:max(0px, env(safe-area-inset-right)); }
+
+    /* Accesibilidad y reveal */
+    .skip-link{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip-link:focus{ position:fixed; left:16px; top:16px; padding:.55rem .8rem; border-radius:10px; background:var(--card); color:var(--ink); z-index:2000; box-shadow:0 8px 24px rgba(0,0,0,.15); }
+    html.js-ready .reveal{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
+    html.js-ready .reveal.visible{ opacity:1; transform:none; }
+
+    /* Banner PWA */
+    .pwa-install{ position:fixed; left:50%; bottom:16px; transform:translateX(-50%); background:var(--card); color:var(--ink); border:1px solid color-mix(in srgb, var(--ink) 12%, transparent); box-shadow:0 8px 24px rgba(0,0,0,.15); border-radius:12px; padding:12px 14px; z-index:2000; display:none; max-width:96%; }
+    .pwa-install.show{ display:block; }
+    .pwa-install .row{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+    .pwa-install .msg{ font-size:14px; opacity:.9; }
+    .pwa-install .actions{ margin-left:auto; display:flex; gap:8px; }
+  </style>
+</head>
+<body>
+  <a href="#app" class="skip-link">Saltar al contenido</a>
+  <noscript><div style="padding:12px;text-align:center;background:#fff4cd;color:#7a5d00">Activa JavaScript para usar TEMOTIVA.</div></noscript>
+
+  <!-- Overlay -->
+  <div id="overlay" class="overlay" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader" role="banner">
+    <div class="container nav">
+      <a href="/inicio.html" class="logo" aria-label="Ir a inicio">
+        <img src="/icon-192.png" alt="Logo TEMOTIVA" width="36" height="36">
+        <span>TEMOTIVA</span>
+      </a>
+
+      <nav id="mainNav" class="nav-links" aria-label="Menú principal">
+        <a href="/inicio.html" data-i18n="nav.home">Inicio</a>
+        <a href="#mision" data-i18n="nav.mission">Misión</a>
+        <a href="#producto" data-i18n="nav.product">Producto</a>
+        <a href="#como" data-i18n="nav.how">Cómo funciona</a>
+        <a href="#demo" data-i18n="nav.demo">Demo</a>
+        <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+      </nav>
+
+      <div class="header-actions" role="group" aria-label="Acciones">
+        <button id="langBtn" class="icon-btn" aria-label="Cambiar idioma">ES/EN</button>
+        <button id="themeBtn" class="icon-btn" aria-label="Cambiar tema" title="Tema" aria-pressed="false">☾/☀︎</button>
+        <button id="installBtn" class="icon-btn" aria-label="Instalar TEMOTIVA" hidden>Instalar</button>
+        <button id="menuBtn" class="menu-btn icon-btn" aria-label="Abrir panel lateral" aria-controls="sidePanel" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Panel lateral -->
+  <nav id="sidePanel" class="sidebar" aria-label="Menú lateral" aria-hidden="true">
+    <a class="logo-side" href="/inicio.html">
+      <img src="/icon-192.png" alt="" aria-hidden="true" width="32" height="32">
+      <span>TEMOTIVA</span>
+    </a>
+    <ul class="menu-list" role="list">
+      <li><a href="/inicio.html" data-i18n="side.home">Inicio</a></li>
+      <li><a href="/blog/index.html" data-i18n="side.blog">Blog</a></li>
+      <li><a href="/recursos.html" data-i18n="side.resources">Recursos</a></li>
+      <li><a href="/contacto.html" class="u-hidden" data-i18n="side.contact">Contacto</a></li>
+      <li><a href="/login.html" data-i18n="side.login">Iniciar sesión</a></li>
+    </ul>
+    <a class="privacy-link" href="/privacidad.html" data-i18n="side.privacy">Privacidad</a>
+  </nav>
+
+  <main class="content" id="app" role="main">
+    <!-- Hero premium -->
+    <section id="inicio" class="section hero reveal" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="u-col u-gap">
+          <span class="badge" aria-hidden="true">Bienestar digital, simple</span>
+          <h1 id="hero-title">Cuida tu mente, conecta contigo</h1>
+          <p>Herramientas breves para bajar revoluciones y dormir mejor, psicología práctica y progreso sin presión, todo pensado para tu día a día.</p>
+          <div class="cta-row">
+            <a href="#demo" class="btn" data-gtag="cta_demo_click" rel="next">Probar demo</a>
+            <a href="/particular.html" class="btn secondary" data-gtag="cta_particular_click" rel="next">Soy particular</a>
+            <a href="/organizacion.html" class="btn secondary" data-gtag="cta_org_click" rel="next">Soy organización</a>
+          </div>
+          <small class="form-pro hint">Sin spam, puedes borrar tus datos cuando quieras.</small>
+        </div>
+        <div class="hero-media">
+          <picture>
+            <source type="image/webp" srcset="/img/chica-meditando-800.webp 800w, /img/chica-meditando-1200.webp 1200w, /img/chica-meditando-1600.webp 1600w" sizes="(max-width: 980px) 92vw, 540px">
+            <source type="image/png" srcset="/img/chica-meditando-800.png 800w, /img/chica-meditando-1200.png 1200w, /img/chica-meditando-1600.png 1600w" sizes="(max-width: 980px) 92vw, 540px">
+            <img src="/img/chica-meditando-1200.png" alt="Persona practicando una pausa de respiración con el móvil al lado, sensación de calma" width="1200" height="900" loading="eager" fetchpriority="high" decoding="async">
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de valor en 4 bullets -->
+    <section id="valor" class="section reveal" aria-labelledby="valor-title">
+      <div class="container">
+        <h2 id="valor-title" style="font-size:var(--h2); margin:0 0 .6rem;">Lo que ganas con TEMOTIVA</h2>
+        <div class="grid" style="grid-template-columns:repeat(4,1fr); gap:1rem;">
+          <article class="card"><h3>Autocuidado diario</h3><p>Prácticas de 3 a 5 minutos que sí se sostienen.</p></article>
+          <article class="card"><h3>Psicología aplicada</h3><p>Entiende el porqué de cada paso, decide con calma.</p></article>
+          <article class="card"><h3>Privacidad por diseño</h3><p>Datos mínimos, opción sin conexión, exporta en un clic.</p></article>
+          <article class="card"><h3>Sin ruido</h3><p>Sin scroll infinito, sin notificaciones agresivas.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cómo funciona 1 2 3 -->
+    <section id="como" class="section alt reveal" aria-labelledby="como-title">
+      <div class="container">
+        <h2 id="como-title" style="font-size:var(--h2); margin:0 0 .6rem;">Cómo funciona</h2>
+        <div class="grid">
+          <article class="card"><h3>1. Chequeo rápido</h3><p>Toma el pulso a tu día en 30 segundos, detecta patrón emocional.</p></article>
+          <article class="card"><h3>2. Ejercicio guiado</h3><p>Respiración, pausa activa o reencuadre, eficacia en minutos.</p></article>
+          <article class="card"><h3>3. Progreso claro</h3><p>Metas semanales amables, repite lo que te ayuda.</p></article>
+        </div>
+        <div class="u-mt">
+          <a href="#demo" class="btn" data-gtag="cta_demo_2">Probar demo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo interactiva breve -->
+    <section id="demo" class="section reveal" aria-labelledby="demo-title">
+      <div class="container">
+        <h2 id="demo-title" style="font-size:var(--h2); margin:0 0 .6rem;">Prueba una demo</h2>
+        <p class="form-pro hint" style="margin:.25rem 0 1rem;">No guardamos nada en el servidor, la demo usa tu navegador.</p>
+        <div class="demo" role="region" aria-label="Demo de chequeo emocional">
+          <div class="row">
+            <div>
+              <label for="s-energia">Energía actual</label>
+              <input id="s-energia" type="range" min="0" max="10" value="5" step="1" aria-valuemin="0" aria-valuemax="10" aria-valuenow="5">
+              <div class="out" id="o-energia">Valor 5</div>
+            </div>
+            <div>
+              <label for="s-calma">Calma percibida</label>
+              <input id="s-calma" type="range" min="0" max="10" value="5" step="1" aria-valuemin="0" aria-valuemax="10" aria-valuenow="5">
+              <div class="out" id="o-calma">Valor 5</div>
+            </div>
+          </div>
+          <div class="row u-mt">
+            <div>
+              <label for="s-tension">Tensión corporal</label>
+              <input id="s-tension" type="range" min="0" max="10" value="4" step="1" aria-valuemin="0" aria-valuemax="10" aria-valuenow="4">
+              <div class="out" id="o-tension">Valor 4</div>
+            </div>
+            <div>
+              <label for="s-claridad">Claridad mental</label>
+              <input id="s-claridad" type="range" min="0" max="10" value="6" step="1" aria-valuemin="0" aria-valuemax="10" aria-valuenow="6">
+              <div class="out" id="o-claridad">Valor 6</div>
+            </div>
+          </div>
+          <div class="u-mt u-flex u-gap">
+            <button class="btn" id="demo-guardar" type="button">Guardar</button>
+            <button class="btn secondary" id="demo-reset" type="button">Reiniciar</button>
+            <small class="hint" id="demo-msg" aria-live="polite"></small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Producto, beneficios -->
+    <section id="producto" class="section alt reveal" aria-labelledby="product-title">
+      <div class="container">
+        <h2 id="product-title" style="font-size:var(--h2); margin:0 0 .6rem;">Producto</h2>
+        <p style="max-width:70ch;">Primera versión con tres pilares, chequeo diario, ejercicios de regulación y panel de progreso, todo en menos de cinco minutos.</p>
+        <div class="grid" role="list">
+          <article class="card" role="listitem"><h3>Chequeo diario</h3><p>Dos o tres preguntas para tomar el pulso emocional sin agobio, detecta patrones reales.</p></article>
+          <article class="card" role="listitem"><h3>Ejercicios guiados</h3><p>Respiración, reencuadre, pausa activa, plan breve, eficacia y sencillez.</p></article>
+          <article class="card" role="listitem"><h3>Progreso claro</h3><p>Gráficas simples, metas semanales y logros amables.</p></article>
+        </div>
+        <div class="product-media" aria-hidden="true" style="margin-top:1rem;">
+          <picture>
+            <source type="image/webp" srcset="/img/chica-meditando-800.webp 800w, /img/chica-meditando-1200.webp 1200w, /img/chica-meditando-1600.webp 1600w" sizes="(max-width: 900px) 90vw, 60vw">
+            <source type="image/png" srcset="/img/chica-meditando-800.png 800w, /img/chica-meditando-1200.png 1200w, /img/chica-meditando-1600.png 1600w" sizes="(max-width: 900px) 90vw, 60vw">
+            <img src="/img/chica-meditando-1200.png" alt="Vista de la app de TEMOTIVA en un móvil con gráficos de progreso" width="1200" height="900" loading="lazy" decoding="async" fetchpriority="low">
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reseñas con métrica simple -->
+    <section id="resenas" class="section reviews reveal" aria-labelledby="reviews-title">
+      <div class="container">
+        <h2 id="reviews-title" style="font-size:var(--h2); margin:0 0 .6rem;">Reseñas</h2>
+        <p class="frase" style="margin-top:.2rem;">Personas reales, cambios sostenibles, 8 de cada 10 dicen dormir mejor en dos semanas.</p>
+        <div class="grid">
+          <article class="review" itemscope itemtype="https://schema.org/Review">
+            <blockquote itemprop="reviewBody">"Con cinco minutos al día consigo bajar revoluciones y dormir mejor."</blockquote>
+            <div class="who"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">María</span></span></div>
+          </article>
+          <article class="review" itemscope itemtype="https://schema.org/Review">
+            <blockquote itemprop="reviewBody">"El diario emocional me ayuda a entender mis picos de ansiedad y prevenirlos."</blockquote>
+            <div class="who"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Rubén</span></span></div>
+          </article>
+        </div>
+        <small class="form-pro hint">Dato basado en encuesta interna, muestra piloto.</small>
+      </div>
+    </section>
+
+        <!-- Llamado final antes del footer -->
+    <section id="cta-final" class="section reveal" aria-labelledby="cta-final-title">
+      <div class="container u-col u-gap">
+        <h2 id="cta-final-title" style="font-size:var(--h2); margin:0 0 .6rem;">Empieza hoy, cuida tu mente sin complicarte</h2>
+        <p class="frase" style="margin-top:.2rem; max-width:70ch;">Microacciones amables para vivir con más calma y claridad, a tu ritmo.</p>
+        <div class="cta-row">
+          <a href="#demo" class="btn" data-gtag="cta_demo_3" rel="next">Probar demo</a>
+          <a href="#contacto" class="btn secondary" data-gtag="cta_contacto_1" rel="next">Quiero saber más</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- App próximamente, enlazando a proveedor real y con aria-live -->
     <section id="lanzamiento" class="section reveal" aria-labelledby="app-title">
       <div class="container app-cta">
         <h2 id="app-title" style="font-size:var(--h2); margin:0 0 .6rem;">Muy pronto en tu móvil</h2>
         <p class="frase" style="margin-top:.2rem;">Recordatorios suaves, uso sin conexión, privacidad por diseño. TEMOTIVA como app, lista para acompañarte cada día.</p>
-        <form id="launchForm" action="https://example.com/newsletter" method="post" class="form-pro u-col u-gap-s" novalidate>
+        <form id="launchForm" action="https://formspree.io/f/xnnobrvn" method="post" class="form-pro u-col u-gap-s" novalidate>
           <div class="row">
             <div>
               <label for="launch-name">Nombre</label>
@@ -372,89 +968,26 @@
           </label>
           <div class="u-flex u-gap-s">
             <button class="btn" type="submit" id="launch-submit" disabled>Avisadme</button>
-            <small class="hint">Sin spam, un aviso cuando esté disponible.</small>
+            <small class="hint" aria-live="polite" id="launch-msg">Sin spam, un aviso cuando esté disponible.</small>
           </div>
         </form>
       </div>
     </section>
 
-    <!-- Misión, enfoque marketing -->
+    <!-- Misión afinada con una sola frase potente -->
     <section id="mision" class="section reveal" aria-labelledby="mission-title">
       <div class="container">
         <h2 id="mission-title" style="font-size:var(--h2); margin:0 0 .6rem;">Nuestra misión</h2>
-        <p style="max-width:70ch;">Hacer fácil lo importante. Convertimos la psicología basada en evidencia en microacciones diarias que mejoran tu estado de ánimo, tu claridad mental y tu autocuidado, sin pantallas infinitas ni ruido.</p>
+        <p style="max-width:72ch;">Hacer fácil lo importante, convertir la psicología basada en evidencia en microacciones diarias que mejoran tu estado de ánimo, tu claridad y tu descanso.</p>
         <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:1rem;">
-          <article class="card">
-            <h3>Hábitos que se sostienen</h3>
-            <p>Rutinas breves que encajan en tu día, sin fricción, con seguimiento amable.</p>
-          </article>
-          <article class="card">
-            <h3>Privacidad primero</h3>
-            <p>Datos mínimos, control en tus manos, opciones sin conexión y exportación sencilla.</p>
-          </article>
-          <article class="card">
-            <h3>Lenguaje claro</h3>
-            <p>Explicamos el porqué de cada paso, para que entiendas y decidas con calma.</p>
-          </article>
+          <article class="card"><h3>Hábitos que se sostienen</h3><p>Rutinas breves que encajan en tu día, con seguimiento amable.</p></article>
+          <article class="card"><h3>Privacidad primero</h3><p>Datos mínimos, control en tus manos, modo sin conexión.</p></article>
+          <article class="card"><h3>Lenguaje claro</h3><p>Explicamos el porqué, tú decides con calma.</p></article>
         </div>
       </div>
     </section>
 
-    <!-- Producto, más valor y claridad -->
-    <section id="producto" class="section alt reveal" aria-labelledby="product-title">
-      <div class="container">
-        <h2 id="product-title" style="font-size:var(--h2); margin:0 0 .6rem;">Producto</h2>
-        <p style="max-width:70ch;">Primera versión con tres pilares, chequeo diario, ejercicios de regulación y panel de progreso, todo en menos de cinco minutos.</p>
-
-        <div class="grid" role="list">
-          <article class="card" role="listitem">
-            <h3>Chequeo diario</h3>
-            <p>Dos o tres preguntas para tomar el pulso emocional sin agobio. Detecta patrones reales.</p>
-          </article>
-          <article class="card" role="listitem">
-            <h3>Ejercicios guiados</h3>
-            <p>Respiración, reencuadre, pausa activa, plan breve. Eficaces, sencillos, repetibles.</p>
-          </article>
-          <article class="card" role="listitem">
-            <h3>Progreso claro</h3>
-            <p>Gráficas simples, metas semanales y logros que te motivan sin presión.</p>
-          </article>
-        </div>
-
-        <div class="product-media" aria-hidden="true">
-          <picture>
-            <source type="image/webp"
-              srcset="/img/chica-meditando-800.webp 800w, /img/chica-meditando-1200.webp 1200w, /img/chica-meditando-1600.webp 1600w"
-              sizes="(max-width: 900px) 90vw, 60vw">
-            <source type="image/png"
-              srcset="/img/chica-meditando-800.png 800w, /img/chica-meditando-1200.png 1200w, /img/chica-meditando-1600.png 1600w"
-              sizes="(max-width: 900px) 90vw, 60vw">
-            <img src="/img/chica-meditando-1200.png" alt="" width="1200" height="900" loading="lazy" decoding="async" fetchpriority="low">
-          </picture>
-        </div>
-      </div>
-    </section>
-
-    <!-- Reseñas -->
-    <section id="resenas" class="section reviews reveal" aria-labelledby="reviews-title">
-      <div class="container">
-        <h2 id="reviews-title" style="font-size:var(--h2); margin:0 0 .6rem;">Reseñas</h2>
-        <p class="frase" style="margin-top:.2rem;">Personas reales, cambios sostenibles.</p>
-        <div class="grid">
-          <article class="review" itemscope itemtype="https://schema.org/Review">
-            <blockquote itemprop="reviewBody">"Con cinco minutos al día consigo bajar revoluciones y dormir mejor."</blockquote>
-            <div class="who"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">María</span></span></div>
-          </article>
-          <article class="review" itemscope itemtype="https://schema.org/Review">
-            <blockquote itemprop="reviewBody">"El diario emocional me ayuda a entender mis picos de ansiedad y prevenirlos."</blockquote>
-            <div class="who"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Rubén</span></span></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- SPLIT HERE -->
-    <!-- Contacto -->
+    <!-- Contacto mejorado con aria-live -->
     <section id="contacto" class="section alt reveal" aria-labelledby="contact-title">
       <div class="container">
         <h2 id="contact-title" style="font-size:var(--h2); margin:0 0 .6rem;">Contacto</h2>
@@ -482,7 +1015,6 @@
             <div class="error" id="cf-msg-error">Cuéntanos brevemente tu consulta.</div>
           </div>
 
-          <!-- Consentimiento alineado bajo el bloque -->
           <div class="u-mt">
             <label class="checkline" for="cf-consent">
               <input id="cf-consent" type="checkbox" name="consent" required>
@@ -496,12 +1028,12 @@
             <button type="submit" class="btn" id="cf-submit" disabled>Enviar</button>
             <small class="hint">Respondemos lo antes posible, conservarás copia en tu correo.</small>
           </div>
-        </form>
 
-        <p id="formMsg" class="form-msg u-hidden" style="color:#1a7f37; margin-top:1rem;">
-          Gracias, te contactaremos pronto. Si lo deseas, puedes enviar un mensaje a
-          <a href="mailto:info@temotiva.com">info@temotiva.com</a>, estaremos encantados de atenderte.
-        </p>
+          <p id="formMsg" class="form-msg u-hidden" style="color:#1a7f37; margin-top:1rem;" aria-live="polite">
+            Gracias, te contactaremos pronto. Si lo deseas, también puedes escribir a
+            <a href="mailto:info@temotiva.com">info@temotiva.com</a> y te respondemos.
+          </p>
+        </form>
       </div>
     </section>
 
@@ -513,7 +1045,7 @@
           <a href="/privacidad.html">Política de privacidad</a>
           <a href="/cookies.html">Política de cookies</a>
           <a href="/aviso-legal.html">Aviso legal</a>
-          <a href="#inicio" class="back-top" style="color:var(--ink-soft);">Volver arriba ↑</a>
+          <a href="#inicio" class="back-top" aria-label="Volver al inicio">Volver arriba ↑</a>
         </div>
       </div>
     </footer>
@@ -521,21 +1053,8 @@
 
   <!-- Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
-  <script>
-    window.addEventListener("load", () => {
-      try {
-        const SUPABASE_URL = "https://ejhzxwnhqvcqjqxnuvya.supabase.co";
-        const SUPABASE_ANON_KEY = "sb_publishable_8nz_638F1vO2JbkFw9DHSw_AxB179qA";
-        const supabase = window.supabase?.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-        console.log("Conectado a Supabase", !!supabase);
-      } catch(e){ console.warn("Supabase no disponible", e); }
-    });
-  </script>
 
-  <!-- JS base -->
-  <script src="/script.js" defer></script>
-
-  <!-- UI, accesibilidad, PWA y mejoras -->
+  <!-- JS base y mejoras: demo, i18n, tema, PWA, formularios -->
   <script>
     document.documentElement.classList.add('js-ready');
     const $ = s => document.querySelector(s);
@@ -543,7 +1062,7 @@
 
     /* Header sombra y nav activa por sección */
     const siteHeader = $("#siteHeader");
-    const sections = ["mision","producto","resenas","lanzamiento","contacto"].map(id => document.getElementById(id));
+    const sections = ["mision","producto","resenas","lanzamiento","contacto","valor","como","demo","cta-final"].map(id => document.getElementById(id));
     const navLinks = $$("#mainNav a");
     function setActive(hash){
       navLinks.forEach(a => {
@@ -552,9 +1071,7 @@
         if(is) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current");
       });
     }
-    const onScrollHeader = () => {
-      siteHeader.classList.toggle("is-scrolled", (window.scrollY || window.pageYOffset) > 8);
-    };
+    const onScrollHeader = () => { siteHeader.classList.toggle("is-scrolled", (window.scrollY || window.pageYOffset) > 8); };
     onScrollHeader();
     document.addEventListener("scroll", onScrollHeader, { passive: true });
     if ("IntersectionObserver" in window){
@@ -603,22 +1120,15 @@
     overlay?.addEventListener("click", closeSidebar);
     document.addEventListener("keydown", e => { if(e.key === "Escape") closeSidebar(); });
 
-    /* Tema: auto -> dark -> light con theme-color */
+    /* Tema: auto, dark, light con theme-color */
     const metaTheme = $("#meta-theme");
     const THEME_KEY = "temotiva-theme-mode";
     const mDark = window.matchMedia("(prefers-color-scheme: dark)");
     function applyTheme(mode){
       const root = document.documentElement;
-      if(mode === "dark"){
-        root.setAttribute("data-theme", "dark");
-        metaTheme?.setAttribute("content", "#0f1115");
-      } else if(mode === "light"){
-        root.setAttribute("data-theme", "light");
-        metaTheme?.setAttribute("content", "#F7F7F7");
-      } else {
-        root.setAttribute("data-theme", mDark.matches ? "dark" : "light");
-        metaTheme?.setAttribute("content", mDark.matches ? "#0f1115" : "#F7F7F7");
-      }
+      if(mode === "dark"){ root.setAttribute("data-theme", "dark"); metaTheme?.setAttribute("content", "#0f1115"); }
+      else if(mode === "light"){ root.setAttribute("data-theme", "light"); metaTheme?.setAttribute("content", "#F7F7F7"); }
+      else { root.setAttribute("data-theme", mDark.matches ? "dark" : "light"); metaTheme?.setAttribute("content", mDark.matches ? "#0f1115" : "#F7F7F7"); }
       localStorage.setItem(THEME_KEY, mode);
       $("#themeBtn")?.setAttribute("aria-pressed", mode === "dark" ? "true" : "false");
     }
@@ -630,27 +1140,21 @@
     });
     applyTheme(localStorage.getItem(THEME_KEY) || "auto");
 
-    /* i18n mínimo para el menú (contenido estático nuevo sin claves) */
+    /* i18n mínimo */
     const i18n = {
-      es: { "nav.home":"Inicio","nav.mission":"Misión","nav.product":"Producto","nav.contact":"Contacto" },
-      en: { "nav.home":"Home","nav.mission":"Mission","nav.product":"Product","nav.contact":"Contact" }
+      es: { "nav.home":"Inicio","nav.mission":"Misión","nav.product":"Producto","nav.contact":"Contacto","nav.how":"Cómo funciona","nav.demo":"Demo" },
+      en: { "nav.home":"Home","nav.mission":"Mission","nav.product":"Product","nav.contact":"Contact","nav.how":"How it works","nav.demo":"Demo" }
     };
     function applyLang(lang){
       const dict = i18n[lang] || i18n.es;
       document.documentElement.setAttribute("lang", lang === "en" ? "en" : "es");
-      $$("#mainNav a").forEach(el => {
-        const k = el.getAttribute("data-i18n");
-        if(k && dict[k]) el.textContent = dict[k];
-      });
+      $$("#mainNav a").forEach(el => { const k = el.getAttribute("data-i18n"); if(k && dict[k]) el.textContent = dict[k]; });
       localStorage.setItem("temotiva-lang", lang);
     }
     applyLang(localStorage.getItem("temotiva-lang") || "es");
-    $("#langBtn")?.addEventListener("click", ()=>{
-      const next = (localStorage.getItem("temotiva-lang") || "es") === "es" ? "en" : "es";
-      applyLang(next);
-    });
+    $("#langBtn")?.addEventListener("click", ()=>{ const next = (localStorage.getItem("temotiva-lang") || "es") === "es" ? "en" : "es"; applyLang(next); });
 
-    /* Reveal con IO */
+    /* Reveal on scroll */
     (function(){
       const items = $$(".reveal");
       if(!("IntersectionObserver" in window)){ items.forEach(el => el.classList.add("visible")); return; }
@@ -660,7 +1164,7 @@
       items.forEach(el => io.observe(el));
     })();
 
-    /* Service Worker */
+    /* Service Worker PWABuilder */
     if("serviceWorker" in navigator){
       window.addEventListener("load", ()=>{
         navigator.serviceWorker.register("/pwabuilder-sw.js", { scope: "/" })
@@ -669,16 +1173,50 @@
       });
     }
 
-    /* Frase del día (si está presente el botón) */
-    const frases = [
-      "Respira. Un paso a la vez.",
-      "Tu progreso importa, aunque sea pequeño.",
-      "Date permiso para descansar.",
-      "Lo que no mides, no mejoras."
+    /* CTA analytics */
+    document.querySelectorAll('[data-gtag]').forEach(b=>b.addEventListener('click',()=>gtag('event', b.dataset.gtag)));
+
+    /* Back to top con reduce motion */
+    document.querySelector('.back-top')?.addEventListener('click', e=>{
+      e.preventDefault();
+      const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+    });
+
+    /* DEMO: sliders y guardado en localStorage */
+    const map = [
+      { s: '#s-energia', o: '#o-energia' },
+      { s: '#s-calma', o: '#o-calma' },
+      { s: '#s-tension', o: '#o-tension' },
+      { s: '#s-claridad', o: '#o-claridad' }
     ];
-    $("#nuevaFraseBtn")?.addEventListener("click", ()=>{
-      const el = $("#fraseTexto");
-      el.textContent = frases[Math.floor(Math.random()*frases.length)];
+    map.forEach(({s,o})=>{
+      const slider = $(s), out = $(o);
+      if(!slider || !out) return;
+      const sync = v => { out.textContent = `Valor ${v}`; slider.setAttribute('aria-valuenow', String(v)); };
+      slider.addEventListener('input', e => sync(e.target.value));
+      sync(slider.value);
+    });
+
+    const DEMO_KEY = 'temotiva-demo-datos';
+    $("#demo-guardar")?.addEventListener('click', ()=>{
+      try{
+        const data = {
+          energia: Number($("#s-energia")?.value || 0),
+          calma: Number($("#s-calma")?.value || 0),
+          tension: Number($("#s-tension")?.value || 0),
+          claridad: Number($("#s-claridad")?.value || 0),
+          at: new Date().toISOString()
+        };
+        localStorage.setItem(DEMO_KEY, JSON.stringify(data));
+        const m = $("#demo-msg"); if(m){ m.textContent = "Guardado. Vuelve mañana y compara cómo te sientes."; }
+      }catch{ const m = $("#demo-msg"); if(m){ m.textContent = "No se pudo guardar. Revisa permisos del navegador."; } }
+    });
+    $("#demo-reset")?.addEventListener('click', ()=>{
+      try{ localStorage.removeItem(DEMO_KEY); }catch{}
+      ["#o-energia","#o-calma","#o-tension","#o-claridad"].forEach(sel=>{ const el=$(sel); if(el){ el.textContent = "Valor 5"; } });
+      ["#s-energia","#s-calma","#s-tension","#s-claridad"].forEach(sel=>{ const el=$(sel); if(el){ el.value = 5; el.setAttribute('aria-valuenow','5'); } });
+      const m = $("#demo-msg"); if(m){ m.textContent = "Reiniciado."; }
     });
 
     /* Contacto: validación, consentimiento y envío con reintento */
@@ -697,7 +1235,6 @@
 
       function clearErr(i, e){ i.addEventListener('input', ()=>{ i.setCustomValidity(''); e.style.display='none'; }); }
       clearErr(nombre, eNombre); clearErr(email, eEmail); clearErr(msg, eMsg);
-
       function toggle(){ btn.disabled = !consent.checked; }
       consent?.addEventListener('change', toggle); toggle();
 
@@ -709,17 +1246,14 @@
 
       form.addEventListener('submit', async e=>{
         e.preventDefault();
-
         let valid = true;
         if(!nombre.value.trim()){ valid=false; nombre.setCustomValidity('Requerido'); eNombre.style.display='block'; }
         if(!email.checkValidity()){ valid=false; email.setCustomValidity('Correo no válido'); eEmail.style.display='block'; }
         if(!msg.value.trim()){ valid=false; msg.setCustomValidity('Requerido'); eMsg.style.display='block'; }
         if(!valid){ [nombre,email,msg].forEach(el=>el.reportValidity()); return; }
-
         btn.disabled = true;
         const ok = await postWithRetry("https://formspree.io/f/xnnobrvn", new FormData(form));
         btn.disabled = false;
-
         if(ok){ form.reset(); okMsg?.classList.remove('u-hidden'); }
         else { alert("No se pudo enviar, intenta de nuevo más tarde."); }
       });
@@ -727,19 +1261,18 @@
 
     /* App próximamente: validación simple y consentimiento */
     (function(){
-      const form = document.getElementById('launchForm');
-      if(!form) return;
+      const form = document.getElementById('launchForm'); if(!form) return;
       const email = document.getElementById('launch-email');
       const err = document.getElementById('launch-email-error');
       const consent = document.getElementById('launch-consent');
       const submit = document.getElementById('launch-submit');
-
+      const msg = document.getElementById('launch-msg');
       function toggle(){ if(submit) submit.disabled = !consent.checked; }
       consent?.addEventListener('change', toggle); toggle();
-
       email?.addEventListener('input', ()=>{ email.setCustomValidity(''); err.style.display = 'none'; });
       form.addEventListener('submit', async e=>{
         if(email && !email.checkValidity()){ e.preventDefault(); email.setCustomValidity('Correo no válido'); err.style.display = 'block'; email.reportValidity(); return; }
+        msg.textContent = 'Gracias, te avisaremos en cuanto esté disponible.';
       });
     })();
 
@@ -773,25 +1306,18 @@
     installBtn?.addEventListener("click", ()=> deferredPrompt && promptInstall());
     installNow?.addEventListener("click", ()=> deferredPrompt ? promptInstall() : banner?.classList.remove("show"));
     installLater?.addEventListener("click", (ev)=> { ev.preventDefault(); localStorage.setItem(INSTALL_KEY,"1"); banner?.classList.remove("show"); });
-
-    window.addEventListener("appinstalled", () => {
-      try { localStorage.setItem(INSTALL_KEY, "1"); } catch {}
-      banner?.classList.remove("show");
-      installBtn && (installBtn.hidden = true);
-      console.log("TEMOTIVA instalada");
-    });
-
+    window.addEventListener("appinstalled", () => { try { localStorage.setItem(INSTALL_KEY, "1"); } catch {} banner?.classList.remove("show"); installBtn && (installBtn.hidden = true); console.log("TEMOTIVA instalada"); });
     const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
     if (isStandalone) { installBtn?.setAttribute("hidden","true"); banner?.classList.remove("show"); }
 
-    /* GA para CTAs clave */
-    document.querySelectorAll('[data-gtag]').forEach(b=>b.addEventListener('click',()=>gtag('event', b.dataset.gtag)));
-
-    /* Volver arriba con reduce motion */
-    document.querySelector('.back-top')?.addEventListener('click', e=>{
-      e.preventDefault();
-      const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-      window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+    /* Conexión opcional a Supabase solo para ver estado */
+    window.addEventListener("load", () => {
+      try {
+        const SUPABASE_URL = "https://ejhzxwnhqvcqjqxnuvya.supabase.co";
+        const SUPABASE_ANON_KEY = "sb_publishable_8nz_638F1vO2JbkFw9DHSw_AxB179qA";
+        const supabase = window.supabase?.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        console.log("Conectado a Supabase", !!supabase);
+      } catch(e){ console.warn("Supabase no disponible", e); }
     });
   </script>
 
