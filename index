@@ -21,7 +21,7 @@
   <meta name="robots" content="index,follow" />
   <meta http-equiv="x-ua-compatible" content="IE=edge" />
 
-  <title>TEMOTIVA | Innovación en bienestar emocional</title>
+  <title>TEMOTIVA | <span data-i18n="meta.tagline">Innovación en bienestar emocional</span></title>
   <meta name="description" content="Bienestar emocional para mejorar la salud mental y el autocuidado en la vida cotidiana. Descubre prácticas simples para cuidar tu mente y tu equilibrio día a día.">
   <meta name="keywords" content="bienestar emocional, salud mental, autocuidado, psicología, autocuidado diario, regulación emocional, progreso">
 
@@ -90,14 +90,18 @@
   <style>
     :root{
       --bg:#f9f9f9; --ink:#222; --ink-soft:#555; --brand:#111; --card:#fff; --muted:#eee;
-      --radius:14px; --shadow:0 8px 28px rgba(0,0,0,.08); --header-h:64px; --focus:2px solid #3b82f6;
+      --radius:14px; --shadow:0 8px 28px rgba(0,0,0,.08); --header-h:64px; --focus:2px solid color-mix(in srgb, var(--ink) 35%, transparent);
       --lh:1.65; --h1:clamp(2rem, 3.6vw, 3rem); --h2:clamp(1.4rem, 2.2vw, 2rem); --h3:clamp(1.1rem, 1.6vw, 1.25rem);
       --container: min(1100px, 92%);
+      /* botones accesibles en ambos modos, sin cambiar tu paleta */
+      --btn-bg:#111; --btn-ink:#fff;
       color-scheme: light dark;
     }
     html[data-theme="dark"]{
       --bg:#0f1115; --ink:#eaeaea; --ink-soft:#d6d6d6; --brand:#eaeaea; --card:#151923; --muted:#262a36;
       --shadow:0 8px 24px rgba(0,0,0,.45);
+      /* en dark, invertimos botón para buen contraste */
+      --btn-bg:#eaeaea; --btn-ink:#111;
       color-scheme: dark;
     }
     @media (prefers-reduced-motion: reduce){
@@ -201,7 +205,7 @@
     .cta-row{ display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:22px; }
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
-      border:0; border-radius:12px; padding:.9rem 1.2rem; background:var(--brand); color:#fff; min-height:44px;
+      border:0; border-radius:12px; padding:.9rem 1.2rem; background:var(--btn-bg); color:var(--btn-ink); min-height:44px;
       line-height:1; letter-spacing:.2px; text-decoration:none; transition:filter .15s ease, transform .05s ease, box-shadow .2s ease;
     }
     .btn:hover{ filter:brightness(.92); box-shadow:0 10px 24px rgba(0,0,0,.18); }
@@ -230,34 +234,21 @@
     .review blockquote{ margin:0 0 .4rem; font-size:1.05rem; line-height:1.6; }
     .review .who{ color:var(--ink-soft); }
 
-    /* Formularios pro, consent en línea con grid */
+    /* Formularios pro */
     .form-pro input, .form-pro textarea {
       width:100%; padding:.85rem 1rem; border-radius:12px; border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
       background:var(--card); color:var(--ink); transition:border-color .15s ease, box-shadow .15s ease;
     }
-    .form-pro input:focus, .form-pro textarea:focus { border-color:#3b82f6; box-shadow:0 0 0 3px rgba(59,130,246,.2); outline:none; }
+    .form-pro input:focus, .form-pro textarea:focus { border-color: color-mix(in srgb, var(--ink) 45%, transparent); box-shadow:0 0 0 3px color-mix(in srgb, var(--ink) 20%, transparent); outline:none; }
     .form-pro .row{ display:grid; gap:.8rem; grid-template-columns:1fr 1fr; }
     @media (max-width:720px){ .form-pro .row{ grid-template-columns:1fr; } }
     .form-pro .hint{ color:var(--ink-soft); font-size:.9rem; margin:.25rem 0 0; }
     .form-pro .error{ color:#b00020; font-size:.9rem; display:none; margin:.25rem 0 0; }
-    .form-pro .checkline{
-      display:grid; grid-template-columns:20px 1fr; align-items:center; column-gap:.6rem;
-      margin-top:.75rem;
-    }
-    .form-pro .checkline input{ width:18px; height:18px; }
-    .form-pro button[type="submit"]{ min-width:140px; }
+    .form-pro .checkline{ display:grid; grid-template-columns:20px 1fr; align-items:center; column-gap:.6rem; margin-top:.75rem; }
 
-    /* App CTA */
+    /* App CTA caja */
     .app-cta { background:var(--card); border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
       border-radius:var(--radius); padding:1.2rem; box-shadow:var(--shadow); }
-
-    /* Producto imagen inferior visible */
-    .product-media { position:relative; isolation:isolate; margin-top:1rem; }
-    .product-media img, .product-media picture { display:block; width:100%; border-radius:12px; }
-    .product-media::after{
-      content:""; position:absolute; inset:0; pointer-events:none; border-radius:12px;
-      box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent);
-    }
 
     /* Footer */
     .site-footer{
@@ -288,8 +279,8 @@
   </style>
 </head>
 <body>
-  <a href="#app" class="skip-link">Saltar al contenido</a>
-  <noscript><div style="padding:12px;text-align:center;background:#fff4cd;color:#7a5d00">Activa JavaScript para usar TEMOTIVA.</div></noscript>
+  <a href="#app" class="skip-link" data-i18n="a11y.skip">Saltar al contenido</a>
+  <noscript><div style="padding:12px;text-align:center;background:#fff4cd;color:#7a5d00" data-i18n="a11y.noscript">Activa JavaScript para usar TEMOTIVA.</div></noscript>
 
   <!-- Overlay -->
   <div id="overlay" class="overlay" aria-hidden="true"></div>
@@ -306,14 +297,13 @@
         <a href="/inicio.html" data-i18n="nav.home">Inicio</a>
         <a href="#mision" data-i18n="nav.mission">Misión</a>
         <a href="#producto" data-i18n="nav.product">Producto</a>
-        <!-- Eliminamos Equipo del menú -->
         <a href="#contacto" data-i18n="nav.contact">Contacto</a>
       </nav>
 
       <div class="header-actions" role="group" aria-label="Acciones">
         <button id="langBtn" class="icon-btn" aria-label="Cambiar idioma">ES/EN</button>
         <button id="themeBtn" class="icon-btn" aria-label="Cambiar tema" title="Tema" aria-pressed="false">☾/☀︎</button>
-        <button id="installBtn" class="icon-btn" aria-label="Instalar TEMOTIVA" hidden>Instalar</button>
+        <button id="installBtn" class="icon-btn" aria-label="Instalar TEMOTIVA" hidden data-i18n="cta.install">Instalar</button>
         <button id="menuBtn" class="menu-btn icon-btn" aria-label="Abrir panel lateral" aria-controls="sidePanel" aria-expanded="false">☰</button>
       </div>
     </div>
@@ -329,7 +319,6 @@
       <li><a href="/inicio.html" data-i18n="side.home">Inicio</a></li>
       <li><a href="/blog/index.html" data-i18n="side.blog">Blog</a></li>
       <li><a href="/recursos.html" data-i18n="side.resources">Recursos</a></li>
-      <!-- Quitamos Contacto del sidebar si no quieres duplicarlo, déjalo si te interesa -->
       <li><a href="/contacto.html" class="u-hidden" data-i18n="side.contact">Contacto</a></li>
       <li><a href="/login.html" data-i18n="side.login">Iniciar sesión</a></li>
     </ul>
@@ -340,106 +329,77 @@
     <!-- Hero -->
     <section id="inicio" class="section hero reveal" aria-labelledby="hero-title">
       <div class="container u-col u-gap">
-        <h1 id="hero-title">Innovación en bienestar digital</h1>
-        <p>Plataforma sencilla para comprender, cuidar y entrenar tu bienestar, diseñada para el día a día y basada en ciencia.</p>
+        <h1 id="hero-title" data-i18n="hero.title">Innovación en bienestar digital</h1>
+        <p data-i18n="hero.lead">Plataforma sencilla para comprender, cuidar y entrenar tu bienestar, diseñada para el día a día y basada en ciencia.</p>
         <div class="cta-row">
-          <a href="/particular.html" class="btn" data-gtag="cta_particular_click" rel="next">Soy particular</a>
-          <a href="/organizacion.html" class="btn" data-gtag="cta_org_click" rel="next">Soy organización</a>
+          <a href="/particular.html" class="btn" data-gtag="cta_particular_click" rel="next" data-i18n="hero.cta.user">Soy particular</a>
+          <a href="/organizacion.html" class="btn" data-gtag="cta_org_click" rel="next" data-i18n="hero.cta.org">Soy organización</a>
         </div>
       </div>
     </section>
 
-    <!-- App próximamente, formato más novedoso -->
+    <!-- App próximamente, sin formulario -->
     <section id="lanzamiento" class="section reveal" aria-labelledby="app-title">
       <div class="container app-cta">
-        <h2 id="app-title" style="font-size:var(--h2); margin:0 0 .6rem;">Muy pronto en tu móvil</h2>
-        <p class="frase" style="margin-top:.2rem;">Recordatorios suaves, uso sin conexión, privacidad por diseño. TEMOTIVA como app, lista para acompañarte cada día.</p>
-        <form id="launchForm" action="https://example.com/newsletter" method="post" class="form-pro u-col u-gap-s" novalidate>
-          <div class="row">
-            <div>
-              <label for="launch-name">Nombre</label>
-              <input id="launch-name" name="name" type="text" autocomplete="name" placeholder="Tu nombre">
-            </div>
-            <div>
-              <label for="launch-email">Correo</label>
-              <input id="launch-email" name="email" type="email" autocomplete="email" required placeholder="tu@email.com" inputmode="email">
-              <div class="error" id="launch-email-error">Introduce un correo válido.</div>
-            </div>
-          </div>
-          <label class="checkline" for="launch-consent">
-            <input id="launch-consent" type="checkbox" required>
-            <span>Autorizo el uso de mi correo para recibir un único aviso del lanzamiento. Consulta la <a href="/privacidad.html">política de privacidad</a>.</span>
-          </label>
-          <div class="u-flex u-gap-s">
-            <button class="btn" type="submit" id="launch-submit" disabled>Avisadme</button>
-            <small class="hint">Sin spam, un aviso cuando esté disponible.</small>
-          </div>
-        </form>
+        <h2 id="app-title" style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="soon.title">Muy pronto en tu móvil</h2>
+        <p class="frase" style="margin-top:.2rem;" data-i18n="soon.copy">Recordatorios suaves, uso sin conexión, privacidad por diseño. TEMOTIVA como app, lista para acompañarte cada día.</p>
+        <!-- formulario eliminado a petición -->
       </div>
     </section>
 
-    <!-- Misión, enfoque marketing -->
+    <!-- Misión -->
     <section id="mision" class="section reveal" aria-labelledby="mission-title">
       <div class="container">
-        <h2 id="mission-title" style="font-size:var(--h2); margin:0 0 .6rem;">Nuestra misión</h2>
-        <p style="max-width:70ch;">Hacer fácil lo importante. Convertimos la psicología basada en evidencia en microacciones diarias que mejoran tu estado de ánimo, tu claridad mental y tu autocuidado, sin pantallas infinitas ni ruido.</p>
+        <h2 id="mission-title" style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="mission.title">Nuestra misión</h2>
+        <p style="max-width:70ch;" data-i18n="mission.copy">Hacer fácil lo importante. Convertimos la psicología basada en evidencia en microacciones diarias que mejoran tu estado de ánimo, tu claridad mental y tu autocuidado, sin pantallas infinitas ni ruido.</p>
         <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:1rem;">
           <article class="card">
-            <h3>Hábitos que se sostienen</h3>
-            <p>Rutinas breves que encajan en tu día, sin fricción, con seguimiento amable.</p>
+            <h3 data-i18n="mission.h1">Hábitos que se sostienen</h3>
+            <p data-i18n="mission.h1.copy">Rutinas breves que encajan en tu día, sin fricción, con seguimiento amable.</p>
           </article>
           <article class="card">
-            <h3>Privacidad primero</h3>
-            <p>Datos mínimos, control en tus manos, opciones sin conexión y exportación sencilla.</p>
+            <h3 data-i18n="mission.h2">Privacidad primero</h3>
+            <p data-i18n="mission.h2.copy">Datos mínimos, control en tus manos, opciones sin conexión y exportación sencilla.</p>
           </article>
           <article class="card">
-            <h3>Lenguaje claro</h3>
-            <p>Explicamos el porqué de cada paso, para que entiendas y decidas con calma.</p>
+            <h3 data-i18n="mission.h3">Lenguaje claro</h3>
+            <p data-i18n="mission.h3.copy">Explicamos el porqué de cada paso, para que entiendas y decidas con calma.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Producto, más valor y claridad -->
+    <!-- Producto -->
     <section id="producto" class="section alt reveal" aria-labelledby="product-title">
       <div class="container">
-        <h2 id="product-title" style="font-size:var(--h2); margin:0 0 .6rem;">Producto</h2>
-        <p style="max-width:70ch;">Primera versión con tres pilares, chequeo diario, ejercicios de regulación y panel de progreso, todo en menos de cinco minutos.</p>
+        <h2 id="product-title" style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="product.title">Producto</h2>
+        <p style="max-width:70ch;" data-i18n="product.copy">Primera versión con tres pilares, chequeo diario, ejercicios de regulación y panel de progreso, todo en menos de cinco minutos.</p>
 
         <div class="grid" role="list">
           <article class="card" role="listitem">
-            <h3>Chequeo diario</h3>
-            <p>Dos o tres preguntas para tomar el pulso emocional sin agobio. Detecta patrones reales.</p>
+            <h3 data-i18n="product.f1.t">Chequeo diario</h3>
+            <p data-i18n="product.f1.d">Dos o tres preguntas para tomar el pulso emocional sin agobio. Detecta patrones reales.</p>
           </article>
           <article class="card" role="listitem">
-            <h3>Ejercicios guiados</h3>
-            <p>Respiración, reencuadre, pausa activa, plan breve. Eficaces, sencillos, repetibles.</p>
+            <h3 data-i18n="product.f2.t">Ejercicios guiados</h3>
+            <p data-i18n="product.f2.d">Respiración, reencuadre, pausa activa, plan breve. Eficaces, sencillos, repetibles.</p>
           </article>
           <article class="card" role="listitem">
-            <h3>Progreso claro</h3>
-            <p>Gráficas simples, metas semanales y logros que te motivan sin presión.</p>
+            <h3 data-i18n="product.f3.t">Progreso claro</h3>
+            <p data-i18n="product.f3.d">Gráficas simples, metas semanales y logros que te motivan sin presión.</p>
           </article>
         </div>
 
-        <div class="product-media" aria-hidden="true">
-          <picture>
-            <source type="image/webp"
-              srcset="/img/chica-meditando-800.webp 800w, /img/chica-meditando-1200.webp 1200w, /img/chica-meditando-1600.webp 1600w"
-              sizes="(max-width: 900px) 90vw, 60vw">
-            <source type="image/png"
-              srcset="/img/chica-meditando-800.png 800w, /img/chica-meditando-1200.png 1200w, /img/chica-meditando-1600.png 1600w"
-              sizes="(max-width: 900px) 90vw, 60vw">
-            <img src="/img/chica-meditando-1200.png" alt="" width="1200" height="900" loading="lazy" decoding="async" fetchpriority="low">
-          </picture>
-        </div>
+        <!-- Imagen inferior eliminada porque no carga -->
+        <!-- <div class="product-media" aria-hidden="true"> ... </div> -->
       </div>
     </section>
 
     <!-- Reseñas -->
     <section id="resenas" class="section reviews reveal" aria-labelledby="reviews-title">
       <div class="container">
-        <h2 id="reviews-title" style="font-size:var(--h2); margin:0 0 .6rem;">Reseñas</h2>
-        <p class="frase" style="margin-top:.2rem;">Personas reales, cambios sostenibles.</p>
+        <h2 id="reviews-title" style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="reviews.title">Reseñas</h2>
+        <p class="frase" style="margin-top:.2rem;" data-i18n="reviews.lead">Testimonios tras probar la demo.</p>
         <div class="grid">
           <article class="review" itemscope itemtype="https://schema.org/Review">
             <blockquote itemprop="reviewBody">"Con cinco minutos al día consigo bajar revoluciones y dormir mejor."</blockquote>
@@ -452,12 +412,10 @@
         </div>
       </div>
     </section>
-
-    <!-- SPLIT HERE -->
     <!-- Contacto -->
     <section id="contacto" class="section alt reveal" aria-labelledby="contact-title">
       <div class="container">
-        <h2 id="contact-title" style="font-size:var(--h2); margin:0 0 .6rem;">Contacto</h2>
+        <h2 id="contact-title" style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="contact.title">Contacto</h2>
 
         <form id="contactForm" class="form form-pro" novalidate>
           <input type="hidden" name="_subject" value="Nuevo mensaje desde TEMOTIVA">
@@ -465,40 +423,39 @@
 
           <div class="row">
             <div>
-              <label for="cf-nombre">Nombre</label>
-              <input id="cf-nombre" type="text" name="nombre" placeholder="Tu nombre" required autocomplete="name">
-              <div class="error" id="cf-nombre-error">Indica tu nombre.</div>
+              <label for="cf-nombre" data-i18n="contact.name.label">Nombre</label>
+              <input id="cf-nombre" type="text" name="nombre" placeholder="Tu nombre" required autocomplete="name" data-i18n-placeholder="contact.name.ph">
+              <div class="error" id="cf-nombre-error" data-i18n="contact.name.err">Indica tu nombre.</div>
             </div>
             <div>
-              <label for="cf-email">Correo</label>
-              <input id="cf-email" type="email" name="email" placeholder="tu@email.com" required autocomplete="email" inputmode="email">
-              <div class="error" id="cf-email-error">Introduce un correo válido.</div>
+              <label for="cf-email" data-i18n="contact.email.label">Correo</label>
+              <input id="cf-email" type="email" name="email" placeholder="tu@email.com" required autocomplete="email" inputmode="email" data-i18n-placeholder="contact.email.ph">
+              <div class="error" id="cf-email-error" data-i18n="contact.email.err">Introduce un correo válido.</div>
             </div>
           </div>
 
           <div class="u-mt">
-            <label for="cf-msg">Mensaje</label>
-            <textarea id="cf-msg" name="mensaje" rows="4" placeholder="¿Cómo podemos ayudarte?" required></textarea>
-            <div class="error" id="cf-msg-error">Cuéntanos brevemente tu consulta.</div>
+            <label for="cf-msg" data-i18n="contact.msg.label">Mensaje</label>
+            <textarea id="cf-msg" name="mensaje" rows="4" placeholder="¿Cómo podemos ayudarte?" required data-i18n-placeholder="contact.msg.ph"></textarea>
+            <div class="error" id="cf-msg-error" data-i18n="contact.msg.err">Cuéntanos brevemente tu consulta.</div>
           </div>
 
-          <!-- Consentimiento alineado bajo el bloque -->
           <div class="u-mt">
             <label class="checkline" for="cf-consent">
               <input id="cf-consent" type="checkbox" name="consent" required>
-              <span>Acepto la <a href="/privacidad.html">política de privacidad</a> y el tratamiento de mis datos para responder a mi consulta.</span>
+              <span data-i18n="contact.consent">Acepto la <a href="/privacidad.html">política de privacidad</a> y el tratamiento de mis datos para responder a mi consulta.</span>
             </label>
           </div>
 
           <input type="text" name="_gotcha" class="u-hidden" aria-hidden="true" autocomplete="off">
 
           <div class="u-flex u-gap-s u-mt">
-            <button type="submit" class="btn" id="cf-submit" disabled>Enviar</button>
-            <small class="hint">Respondemos lo antes posible, conservarás copia en tu correo.</small>
+            <button type="submit" class="btn" id="cf-submit" disabled data-i18n="contact.send">Enviar</button>
+            <small class="hint" data-i18n="contact.hint">Respondemos lo antes posible.</small>
           </div>
         </form>
 
-        <p id="formMsg" class="form-msg u-hidden" style="color:#1a7f37; margin-top:1rem;">
+        <p id="formMsg" class="form-msg u-hidden" style="color:#1a7f37; margin-top:1rem;" data-i18n="contact.after">
           Gracias, te contactaremos pronto. Si lo deseas, puedes enviar un mensaje a
           <a href="mailto:info@temotiva.com">info@temotiva.com</a>, estaremos encantados de atenderte.
         </p>
@@ -510,10 +467,10 @@
       <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
         <p style="margin:0;">© TEMOTIVA desde 2024</p>
         <div class="u-flex u-gap-s" style="align-items:center;">
-          <a href="/privacidad.html">Política de privacidad</a>
-          <a href="/cookies.html">Política de cookies</a>
-          <a href="/aviso-legal.html">Aviso legal</a>
-          <a href="#inicio" class="back-top" style="color:var(--ink-soft);">Volver arriba ↑</a>
+          <a href="/privacidad.html" data-i18n="footer.privacy">Política de privacidad</a>
+          <a href="/cookies.html" data-i18n="footer.cookies">Política de cookies</a>
+          <a href="/aviso-legal.html" data-i18n="footer.legal">Aviso legal</a>
+          <a href="#inicio" class="back-top" style="color:var(--ink-soft);" data-i18n="footer.back">Volver arriba ↑</a>
         </div>
       </div>
     </footer>
@@ -630,21 +587,84 @@
     });
     applyTheme(localStorage.getItem(THEME_KEY) || "auto");
 
-    /* i18n mínimo para el menú (contenido estático nuevo sin claves) */
+    /* i18n completo */
     const i18n = {
-      es: { "nav.home":"Inicio","nav.mission":"Misión","nav.product":"Producto","nav.contact":"Contacto" },
-      en: { "nav.home":"Home","nav.mission":"Mission","nav.product":"Product","nav.contact":"Contact" }
+      es: {
+        "meta.tagline":"Innovación en bienestar emocional",
+        "nav.home":"Inicio","nav.mission":"Misión","nav.product":"Producto","nav.contact":"Contacto",
+        "side.home":"Inicio","side.blog":"Blog","side.resources":"Recursos","side.contact":"Contacto","side.login":"Iniciar sesión","side.privacy":"Privacidad",
+        "a11y.skip":"Saltar al contenido","a11y.noscript":"Activa JavaScript para usar TEMOTIVA.",
+        "cta.install":"Instalar",
+        "hero.title":"Innovación en bienestar digital",
+        "hero.lead":"Plataforma sencilla para comprender, cuidar y entrenar tu bienestar, diseñada para el día a día y basada en ciencia.",
+        "hero.cta.user":"Soy particular","hero.cta.org":"Soy organización",
+        "soon.title":"Muy pronto en tu móvil","soon.copy":"Recordatorios suaves, uso sin conexión, privacidad por diseño. TEMOTIVA como app, lista para acompañarte cada día.",
+        "mission.title":"Nuestra misión","mission.copy":"Hacer fácil lo importante. Convertimos la psicología basada en evidencia en microacciones diarias que mejoran tu estado de ánimo, tu claridad mental y tu autocuidado, sin pantallas infinitas ni ruido.",
+        "mission.h1":"Hábitos que se sostienen","mission.h1.copy":"Rutinas breves que encajan en tu día, sin fricción, con seguimiento amable.",
+        "mission.h2":"Privacidad primero","mission.h2.copy":"Datos mínimos, control en tus manos, opciones sin conexión y exportación sencilla.",
+        "mission.h3":"Lenguaje claro","mission.h3.copy":"Explicamos el porqué de cada paso, para que entiendas y decidas con calma.",
+        "product.title":"Producto","product.copy":"Primera versión con tres pilares, chequeo diario, ejercicios de regulación y panel de progreso, todo en menos de cinco minutos.",
+        "product.f1.t":"Chequeo diario","product.f1.d":"Dos o tres preguntas para tomar el pulso emocional sin agobio. Detecta patrones reales.",
+        "product.f2.t":"Ejercicios guiados","product.f2.d":"Respiración, reencuadre, pausa activa, plan breve. Eficaces, sencillos, repetibles.",
+        "product.f3.t":"Progreso claro","product.f3.d":"Gráficas simples, metas semanales y logros que te motivan sin presión.",
+        "reviews.title":"Reseñas","reviews.lead":"Testimonios tras probar la demo.",
+        "contact.title":"Contacto",
+        "contact.name.label":"Nombre","contact.name.ph":"Tu nombre","contact.name.err":"Indica tu nombre.",
+        "contact.email.label":"Correo","contact.email.ph":"tu@email.com","contact.email.err":"Introduce un correo válido.",
+        "contact.msg.label":"Mensaje","contact.msg.ph":"¿Cómo podemos ayudarte?","contact.msg.err":"Cuéntanos brevemente tu consulta.",
+        "contact.consent":"Acepto la <a href=\"/privacidad.html\">política de privacidad</a> y el tratamiento de mis datos para responder a mi consulta.",
+        "contact.send":"Enviar","contact.hint":"Respondemos lo antes posible.",
+        "contact.after":"Gracias, te contactaremos pronto. Si lo deseas, puedes enviar un mensaje a <a href=\"mailto:info@temotiva.com\">info@temotiva.com</a>, estaremos encantados de atenderte.",
+        "footer.privacy":"Política de privacidad","footer.cookies":"Política de cookies","footer.legal":"Aviso legal","footer.back":"Volver arriba ↑",
+        "pwa.banner.msg":"Instala TEMOTIVA para un acceso rápido y uso sin conexión.","pwa.install.now":"Instalar","pwa.install.later":"Más tarde"
+      },
+      en: {
+        "meta.tagline":"Innovation in emotional wellbeing",
+        "nav.home":"Home","nav.mission":"Mission","nav.product":"Product","nav.contact":"Contact",
+        "side.home":"Home","side.blog":"Blog","side.resources":"Resources","side.contact":"Contact","side.login":"Log in","side.privacy":"Privacy",
+        "a11y.skip":"Skip to content","a11y.noscript":"Enable JavaScript to use TEMOTIVA.",
+        "cta.install":"Install",
+        "hero.title":"Innovation in digital wellbeing",
+        "hero.lead":"A simple platform to understand, care for, and train your wellbeing, designed for everyday life and grounded in science.",
+        "hero.cta.user":"I’m an individual","hero.cta.org":"I represent an organization",
+        "soon.title":"Coming soon to your phone","soon.copy":"Gentle reminders, offline use, privacy by design. TEMOTIVA as an app, ready to support you every day.",
+        "mission.title":"Our mission","mission.copy":"Make the important things easy. We turn evidence based psychology into daily micro-actions that improve mood, clarity and self care, without infinite screens or noise.",
+        "mission.h1":"Habits that stick","mission.h1.copy":"Short routines that fit your day, with gentle tracking.",
+        "mission.h2":"Privacy first","mission.h2.copy":"Minimal data, your control, offline options and easy export.",
+        "mission.h3":"Plain language","mission.h3.copy":"We explain the why behind each step, so you can decide calmly.",
+        "product.title":"Product","product.copy":"First version with three pillars: daily check in, regulation exercises and progress panel, all under five minutes.",
+        "product.f1.t":"Daily check in","product.f1.d":"Two or three questions to take your emotional pulse without overwhelm.",
+        "product.f2.t":"Guided exercises","product.f2.d":"Breathing, reframing, active pause, brief plan. Effective, simple, repeatable.",
+        "product.f3.t":"Clear progress","product.f3.d":"Simple charts, weekly goals and milestones that motivate without pressure.",
+        "reviews.title":"Reviews","reviews.lead":"Testimonials after trying the demo.",
+        "contact.title":"Contact",
+        "contact.name.label":"Name","contact.name.ph":"Your name","contact.name.err":"Please enter your name.",
+        "contact.email.label":"Email","contact.email.ph":"you@email.com","contact.email.err":"Enter a valid email.",
+        "contact.msg.label":"Message","contact.msg.ph":"How can we help?","contact.msg.err":"Tell us briefly about your request.",
+        "contact.consent":"I accept the <a href=\"/privacidad.html\">privacy policy</a> and the processing of my data to answer my request.",
+        "contact.send":"Send","contact.hint":"We’ll reply as soon as possible.",
+        "contact.after":"Thanks, we’ll get back to you soon. If you prefer, email <a href=\"mailto:info@temotiva.com\">info@temotiva.com</a>.",
+        "footer.privacy":"Privacy policy","footer.cookies":"Cookie policy","footer.legal":"Legal notice","footer.back":"Back to top ↑",
+        "pwa.banner.msg":"Install TEMOTIVA for quick access and offline use.","pwa.install.now":"Install","pwa.install.later":"Later"
+      }
     };
-    function applyLang(lang){
-      const dict = i18n[lang] || i18n.es;
-      document.documentElement.setAttribute("lang", lang === "en" ? "en" : "es");
-      $$("#mainNav a").forEach(el => {
-        const k = el.getAttribute("data-i18n");
-        if(k && dict[k]) el.textContent = dict[k];
-      });
-      localStorage.setItem("temotiva-lang", lang);
+
+    function setAttrI18n(el, key){
+      if(el.hasAttribute('data-i18n-placeholder')) el.setAttribute('placeholder', i18n[curLang][el.getAttribute('data-i18n-placeholder')] || el.getAttribute('placeholder'));
+      if(key && i18n[curLang][key] !== undefined) el.innerHTML = i18n[curLang][key];
     }
-    applyLang(localStorage.getItem("temotiva-lang") || "es");
+
+    let curLang = localStorage.getItem("temotiva-lang") || "es";
+    function applyLang(lang){
+      curLang = lang === "en" ? "en" : "es";
+      document.documentElement.setAttribute("lang", curLang);
+      $$("#mainNav a, [data-i18n], [data-i18n-placeholder]").forEach(el => {
+        const k = el.getAttribute("data-i18n");
+        setAttrI18n(el, k);
+      });
+      localStorage.setItem("temotiva-lang", curLang);
+    }
+    applyLang(curLang);
     $("#langBtn")?.addEventListener("click", ()=>{
       const next = (localStorage.getItem("temotiva-lang") || "es") === "es" ? "en" : "es";
       applyLang(next);
@@ -669,19 +689,16 @@
       });
     }
 
-    /* Frase del día (si está presente el botón) */
+    /* Frase del día, si existiera el botón */
     const frases = [
-      "Respira. Un paso a la vez.",
-      "Tu progreso importa, aunque sea pequeño.",
-      "Date permiso para descansar.",
-      "Lo que no mides, no mejoras."
+      "Respira. Un paso a la vez.","Tu progreso importa, aunque sea pequeño.","Date permiso para descansar.","Lo que no mides, no mejoras."
     ];
     $("#nuevaFraseBtn")?.addEventListener("click", ()=>{
       const el = $("#fraseTexto");
       el.textContent = frases[Math.floor(Math.random()*frases.length)];
     });
 
-    /* Contacto: validación, consentimiento y envío con reintento */
+    /* Contacto: validación y envío */
     (function(){
       const form = document.getElementById('contactForm');
       const okMsg = document.getElementById('formMsg');
@@ -721,25 +738,7 @@
         btn.disabled = false;
 
         if(ok){ form.reset(); okMsg?.classList.remove('u-hidden'); }
-        else { alert("No se pudo enviar, intenta de nuevo más tarde."); }
-      });
-    })();
-
-    /* App próximamente: validación simple y consentimiento */
-    (function(){
-      const form = document.getElementById('launchForm');
-      if(!form) return;
-      const email = document.getElementById('launch-email');
-      const err = document.getElementById('launch-email-error');
-      const consent = document.getElementById('launch-consent');
-      const submit = document.getElementById('launch-submit');
-
-      function toggle(){ if(submit) submit.disabled = !consent.checked; }
-      consent?.addEventListener('change', toggle); toggle();
-
-      email?.addEventListener('input', ()=>{ email.setCustomValidity(''); err.style.display = 'none'; });
-      form.addEventListener('submit', async e=>{
-        if(email && !email.checkValidity()){ e.preventDefault(); email.setCustomValidity('Correo no válido'); err.style.display = 'block'; email.reportValidity(); return; }
+        else { alert(curLang === 'en' ? "Could not send, please try again later." : "No se pudo enviar, intenta de nuevo más tarde."); }
       });
     })();
 
@@ -799,10 +798,10 @@
   <div id="pwaBanner" class="pwa-install" role="dialog" aria-live="polite" aria-label="Instalar TEMOTIVA">
     <div class="row">
       <img src="/icon-192.png" alt="" width="28" height="28" style="border-radius:6px">
-      <div class="msg">Instala TEMOTIVA para un acceso rápido y uso sin conexión.</div>
+      <div class="msg" data-i18n="pwa.banner.msg">Instala TEMOTIVA para un acceso rápido y uso sin conexión.</div>
       <div class="actions">
-        <button id="pwaInstallNow" class="btn" type="button">Instalar</button>
-        <button id="pwaInstallLater" class="btn secondary" type="button">Más tarde</button>
+        <button id="pwaInstallNow" class="btn" type="button" data-i18n="pwa.install.now">Instalar</button>
+        <button id="pwaInstallLater" class="btn secondary" type="button" data-i18n="pwa.install.later">Más tarde</button>
       </div>
     </div>
   </div>
