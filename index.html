@@ -620,7 +620,176 @@
     });
     applyTheme(localStorage.getItem(THEME_KEY) || "auto");
 
-    <script>
+
+
+    /* Reveal con IO */
+    (function(){
+      const items = $$(".reveal");
+      if(!("IntersectionObserver" in window)){ items.forEach(el => el.classList.add("visible")); return; }
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add("visible"); io.unobserve(e.target); } });
+      }, { threshold: .12, rootMargin: "0px 0px -8% 0px" });
+      items.forEach(el => io.observe(el));
+    })();
+
+    /* Service Worker */
+    if("serviceWorker" in navigator){
+      window.addEventListener("load", ()=>{
+        navigator.serviceWorker.register("/pwabuilder-sw.js", { scope: "/" })
+          .then(reg => console.log("Service Worker activo:", reg.scope))
+          .catch(err => console.error("Fallo al registrar el SW:", err));
+      });
+    }
+
+    /* Frase del día (si está presente el botón) */
+    const frases = [
+      "Respira. Un paso a la vez.",
+      "Tu progreso importa, aunque sea pequeño.",
+      "Date permiso para descansar.",
+      "Lo que no mides, no mejoras."
+    ];
+    $("#nuevaFraseBtn")?.addEventListener("click", ()=>{
+      const el = $("#fraseTexto");
+      el.textContent = frases[Math.floor(Math.random()*frases.length)];
+    });
+
+    /* Contacto: validación, consentimiento y envío con reintento */
+    (function(){
+      const form = document.getElementById('contactForm');
+      const okMsg = document.getElementById('formMsg');
+      if(!form) return;
+      const nombre = document.getElementById('cf-nombre');
+      const email = document.getElementById('cf-email');
+      const msg = document.getElementById('cf-msg');
+      const eNombre = document.getElementById('cf-nombre-error');
+      const eEmail = document.getElementById('cf-email-error');
+      const eMsg = document.getElementById('cf-msg-error');
+      const btn = document.getElementById('cf-submit');
+      const consent = document.getElementById('cf-consent');
+
+      function clearErr(i, e){ i.addEventListener('input', ()=>{ i.setCustomValidity(''); e.style.display='none'; }); }
+      clearErr(nombre, eNombre); clearErr(email, eEmail); clearErr(msg, eMsg);
+
+      function toggle(){ btn.disabled = !consent.checked; }
+      consent?.addEventListener('change', toggle); toggle();
+
+      async function postWithRetry(url, body){
+        const ctrl = new AbortController(); const t = setTimeout(()=>ctrl.abort(), 8000);
+        try{ const r = await fetch(url,{method:'POST',headers:{Accept:'application/json'},body,signal:ctrl.signal}); clearTimeout(t); if(r.ok) return true; }catch{}
+        try{ const r2 = await fetch(url,{method:'POST',headers:{Accept:'application/json'},body}); return r2.ok; }catch{ return false; }
+      }
+
+      form.addEventListener('submit', async e=>{
+        e.preventDefault();
+
+        let valid = true;
+        if(!nombre.value.trim()){ valid=false; nombre.setCustomValidity('Requerido'); eNombre.style.display='block'; }
+        if(!email.checkValidity()){ valid=false; email.setCustomValidity('Correo no válido'); eEmail.style.display='block'; }
+        if(!msg.value.trim()){ valid=false; msg.setCustomValidity('Requerido'); eMsg.style.display='block'; }
+        if(!valid){ [nombre,email,msg].forEach(el=>el.reportValidity()); return; }
+
+        btn.disabled = true;
+        const ok = await postWithRetry("https://formspree.io/f/xnnobrvn", new FormData(form));
+        btn.disabled = false;
+
+        if(ok){ form.reset(); okMsg?.classList.remove('u-hidden'); }
+        else { alert("No se pudo enviar, intenta de nuevo más tarde."); }
+      });
+    })();
+
+    /* App próximamente: validación simple y consentimiento */
+    (function(){
+      const form = document.getElementById('launchForm');
+      if(!form) return;
+      const email = document.getElementById('launch-email');
+      const err = document.getElementById('launch-email-error');
+      const consent = document.getElementById('launch-consent');
+      const submit = document.getElementById('launch-submit');
+
+      function toggle(){ if(submit) submit.disabled = !consent.checked; }
+      consent?.addEventListener('change', toggle); toggle();
+
+      email?.addEventListener('input', ()=>{ email.setCustomValidity(''); err.style.display = 'none'; });
+      form.addEventListener('submit', async e=>{
+        if(email && !email.checkValidity()){ e.preventDefault(); email.setCustomValidity('Correo no válido'); err.style.display = 'block'; email.reportValidity(); return; }
+      });
+    })();
+
+    /* PWA install banner */
+    const INSTALL_KEY = "temotiva-install-dismissed";
+    const VISITS_KEY = "temotiva-visit-count";
+    let deferredPrompt = null;
+    try { const v = parseInt(localStorage.getItem(VISITS_KEY) || "0", 10) + 1; localStorage.setItem(VISITS_KEY, String(v)); } catch {}
+    const installBtn = $("#installBtn");
+    const banner = $("#pwaBanner");
+    const installNow = $("#pwaInstallNow");
+    const installLater = $("#pwaInstallLater");
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installBtn && (installBtn.hidden = false);
+      const dismissed = localStorage.getItem(INSTALL_KEY) === "1";
+      const visits = parseInt(localStorage.getItem(VISITS_KEY) || "0", 10);
+      if (!dismissed && visits >= 3 && banner) banner.classList.add("show");
+    });
+    async function promptInstall(){
+      try{
+        installBtn && (installBtn.hidden = true);
+        await deferredPrompt.prompt();
+        const res = await deferredPrompt.userChoice;
+        if (!res || res.outcome !== "accepted") banner?.classList.remove("show");
+      }catch{}
+      deferredPrompt = null;
+    }
+    installBtn?.addEventListener("click", ()=> deferredPrompt && promptInstall());
+    installNow?.addEventListener("click", ()=> deferredPrompt ? promptInstall() : banner?.classList.remove("show"));
+    installLater?.addEventListener("click", (ev)=> { ev.preventDefault(); localStorage.setItem(INSTALL_KEY,"1"); banner?.classList.remove("show"); });
+
+    window.addEventListener("appinstalled", () => {
+      try { localStorage.setItem(INSTALL_KEY, "1"); } catch {}
+      banner?.classList.remove("show");
+      installBtn && (installBtn.hidden = true);
+      console.log("TEMOTIVA instalada");
+    });
+
+    const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
+    if (isStandalone) { installBtn?.setAttribute("hidden","true"); banner?.classList.remove("show"); }
+
+    /* GA para CTAs clave */
+    document.querySelectorAll('[data-gtag]').forEach(b=>b.addEventListener('click',()=>gtag('event', b.dataset.gtag)));
+
+    /* Volver arriba con reduce motion */
+    document.querySelector('.back-top')?.addEventListener('click', e=>{
+      e.preventDefault();
+      const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+    });
+  </script>
+
+  <!-- Banner de instalación PWA -->
+  <div id="pwaBanner" class="pwa-install" role="dialog" aria-live="polite" aria-label="Instalar TEMOTIVA">
+    <div class="row">
+      <img src="/icon-192.png" alt="" width="28" height="28" style="border-radius:6px">
+      <div class="msg">Instala TEMOTIVA para un acceso rápido y uso sin conexión.</div>
+      <div class="actions">
+        <button id="pwaInstallNow" class="btn" type="button">Instalar</button>
+        <button id="pwaInstallLater" class="btn secondary" type="button">Más tarde</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Eventos GA del banner -->
+  <script>
+    document.getElementById("pwaInstallNow")?.addEventListener("click", function() {
+      gtag('event', 'click_instalar', { 'event_category': 'PWA', 'event_label': 'Botón Instalar TEMOTIVA' });
+    });
+    document.getElementById("pwaInstallLater")?.addEventListener("click", function() {
+      gtag('event', 'click_instalar_mas_tarde', { 'event_category': 'PWA', 'event_label': 'Botón Más tarde' });
+    });
+  </script>
+
+           <script>
   // Idioma persistente
   const LANG_KEY = "temotiva-lang";
   let curLang = localStorage.getItem(LANG_KEY) || "es";
@@ -790,173 +959,6 @@
   // Aplicar en carga
   applyLang(curLang);
 </script>
-
-
-    /* Reveal con IO */
-    (function(){
-      const items = $$(".reveal");
-      if(!("IntersectionObserver" in window)){ items.forEach(el => el.classList.add("visible")); return; }
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add("visible"); io.unobserve(e.target); } });
-      }, { threshold: .12, rootMargin: "0px 0px -8% 0px" });
-      items.forEach(el => io.observe(el));
-    })();
-
-    /* Service Worker */
-    if("serviceWorker" in navigator){
-      window.addEventListener("load", ()=>{
-        navigator.serviceWorker.register("/pwabuilder-sw.js", { scope: "/" })
-          .then(reg => console.log("Service Worker activo:", reg.scope))
-          .catch(err => console.error("Fallo al registrar el SW:", err));
-      });
-    }
-
-    /* Frase del día (si está presente el botón) */
-    const frases = [
-      "Respira. Un paso a la vez.",
-      "Tu progreso importa, aunque sea pequeño.",
-      "Date permiso para descansar.",
-      "Lo que no mides, no mejoras."
-    ];
-    $("#nuevaFraseBtn")?.addEventListener("click", ()=>{
-      const el = $("#fraseTexto");
-      el.textContent = frases[Math.floor(Math.random()*frases.length)];
-    });
-
-    /* Contacto: validación, consentimiento y envío con reintento */
-    (function(){
-      const form = document.getElementById('contactForm');
-      const okMsg = document.getElementById('formMsg');
-      if(!form) return;
-      const nombre = document.getElementById('cf-nombre');
-      const email = document.getElementById('cf-email');
-      const msg = document.getElementById('cf-msg');
-      const eNombre = document.getElementById('cf-nombre-error');
-      const eEmail = document.getElementById('cf-email-error');
-      const eMsg = document.getElementById('cf-msg-error');
-      const btn = document.getElementById('cf-submit');
-      const consent = document.getElementById('cf-consent');
-
-      function clearErr(i, e){ i.addEventListener('input', ()=>{ i.setCustomValidity(''); e.style.display='none'; }); }
-      clearErr(nombre, eNombre); clearErr(email, eEmail); clearErr(msg, eMsg);
-
-      function toggle(){ btn.disabled = !consent.checked; }
-      consent?.addEventListener('change', toggle); toggle();
-
-      async function postWithRetry(url, body){
-        const ctrl = new AbortController(); const t = setTimeout(()=>ctrl.abort(), 8000);
-        try{ const r = await fetch(url,{method:'POST',headers:{Accept:'application/json'},body,signal:ctrl.signal}); clearTimeout(t); if(r.ok) return true; }catch{}
-        try{ const r2 = await fetch(url,{method:'POST',headers:{Accept:'application/json'},body}); return r2.ok; }catch{ return false; }
-      }
-
-      form.addEventListener('submit', async e=>{
-        e.preventDefault();
-
-        let valid = true;
-        if(!nombre.value.trim()){ valid=false; nombre.setCustomValidity('Requerido'); eNombre.style.display='block'; }
-        if(!email.checkValidity()){ valid=false; email.setCustomValidity('Correo no válido'); eEmail.style.display='block'; }
-        if(!msg.value.trim()){ valid=false; msg.setCustomValidity('Requerido'); eMsg.style.display='block'; }
-        if(!valid){ [nombre,email,msg].forEach(el=>el.reportValidity()); return; }
-
-        btn.disabled = true;
-        const ok = await postWithRetry("https://formspree.io/f/xnnobrvn", new FormData(form));
-        btn.disabled = false;
-
-        if(ok){ form.reset(); okMsg?.classList.remove('u-hidden'); }
-        else { alert("No se pudo enviar, intenta de nuevo más tarde."); }
-      });
-    })();
-
-    /* App próximamente: validación simple y consentimiento */
-    (function(){
-      const form = document.getElementById('launchForm');
-      if(!form) return;
-      const email = document.getElementById('launch-email');
-      const err = document.getElementById('launch-email-error');
-      const consent = document.getElementById('launch-consent');
-      const submit = document.getElementById('launch-submit');
-
-      function toggle(){ if(submit) submit.disabled = !consent.checked; }
-      consent?.addEventListener('change', toggle); toggle();
-
-      email?.addEventListener('input', ()=>{ email.setCustomValidity(''); err.style.display = 'none'; });
-      form.addEventListener('submit', async e=>{
-        if(email && !email.checkValidity()){ e.preventDefault(); email.setCustomValidity('Correo no válido'); err.style.display = 'block'; email.reportValidity(); return; }
-      });
-    })();
-
-    /* PWA install banner */
-    const INSTALL_KEY = "temotiva-install-dismissed";
-    const VISITS_KEY = "temotiva-visit-count";
-    let deferredPrompt = null;
-    try { const v = parseInt(localStorage.getItem(VISITS_KEY) || "0", 10) + 1; localStorage.setItem(VISITS_KEY, String(v)); } catch {}
-    const installBtn = $("#installBtn");
-    const banner = $("#pwaBanner");
-    const installNow = $("#pwaInstallNow");
-    const installLater = $("#pwaInstallLater");
-
-    window.addEventListener("beforeinstallprompt", (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      installBtn && (installBtn.hidden = false);
-      const dismissed = localStorage.getItem(INSTALL_KEY) === "1";
-      const visits = parseInt(localStorage.getItem(VISITS_KEY) || "0", 10);
-      if (!dismissed && visits >= 3 && banner) banner.classList.add("show");
-    });
-    async function promptInstall(){
-      try{
-        installBtn && (installBtn.hidden = true);
-        await deferredPrompt.prompt();
-        const res = await deferredPrompt.userChoice;
-        if (!res || res.outcome !== "accepted") banner?.classList.remove("show");
-      }catch{}
-      deferredPrompt = null;
-    }
-    installBtn?.addEventListener("click", ()=> deferredPrompt && promptInstall());
-    installNow?.addEventListener("click", ()=> deferredPrompt ? promptInstall() : banner?.classList.remove("show"));
-    installLater?.addEventListener("click", (ev)=> { ev.preventDefault(); localStorage.setItem(INSTALL_KEY,"1"); banner?.classList.remove("show"); });
-
-    window.addEventListener("appinstalled", () => {
-      try { localStorage.setItem(INSTALL_KEY, "1"); } catch {}
-      banner?.classList.remove("show");
-      installBtn && (installBtn.hidden = true);
-      console.log("TEMOTIVA instalada");
-    });
-
-    const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
-    if (isStandalone) { installBtn?.setAttribute("hidden","true"); banner?.classList.remove("show"); }
-
-    /* GA para CTAs clave */
-    document.querySelectorAll('[data-gtag]').forEach(b=>b.addEventListener('click',()=>gtag('event', b.dataset.gtag)));
-
-    /* Volver arriba con reduce motion */
-    document.querySelector('.back-top')?.addEventListener('click', e=>{
-      e.preventDefault();
-      const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-      window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
-    });
-  </script>
-
-  <!-- Banner de instalación PWA -->
-  <div id="pwaBanner" class="pwa-install" role="dialog" aria-live="polite" aria-label="Instalar TEMOTIVA">
-    <div class="row">
-      <img src="/icon-192.png" alt="" width="28" height="28" style="border-radius:6px">
-      <div class="msg">Instala TEMOTIVA para un acceso rápido y uso sin conexión.</div>
-      <div class="actions">
-        <button id="pwaInstallNow" class="btn" type="button">Instalar</button>
-        <button id="pwaInstallLater" class="btn secondary" type="button">Más tarde</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Eventos GA del banner -->
-  <script>
-    document.getElementById("pwaInstallNow")?.addEventListener("click", function() {
-      gtag('event', 'click_instalar', { 'event_category': 'PWA', 'event_label': 'Botón Instalar TEMOTIVA' });
-    });
-    document.getElementById("pwaInstallLater")?.addEventListener("click", function() {
-      gtag('event', 'click_instalar_mas_tarde', { 'event_category': 'PWA', 'event_label': 'Botón Más tarde' });
-    });
-  </script>
+        
 </body>
 </html>
