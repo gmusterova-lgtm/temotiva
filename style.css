@@ -370,3 +370,8 @@ html[data-theme="dark"] .offline-card {
   border-color: #2a2e3a;
   box-shadow: 0 2px 16px rgba(0,0,0,.3);
 }
+/* Botones con texto negro en modo oscuro */
+html[data-theme="dark"] .btn{
+  background:#eaeaea; 
+  color:#111 !important;
+}
