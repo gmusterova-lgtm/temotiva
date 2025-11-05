@@ -105,6 +105,177 @@
     }
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; scroll-padding-top:var(--header-h); }
+    <script>
+  // Idioma persistente
+  const LANG_KEY = "temotiva-lang";
+  let curLang = localStorage.getItem(LANG_KEY) || "es";
+
+  // Diccionario por selectores CSS. Edita lo que necesites.
+  const TR = {
+    es: {
+      // Top
+      '#mainNav a[href="/inicio.html"]': 'Inicio',
+      '#mainNav a[href="#mision"]': 'Misión',
+      '#mainNav a[href="#producto"]': 'Producto',
+      '#mainNav a[href="#contacto"]': 'Contacto',
+
+      // Hero
+      '#hero-title': 'Innovación en bienestar digital',
+      '#inicio p': 'Plataforma sencilla para comprender, cuidar y entrenar tu bienestar, diseñada para el día a día y basada en ciencia.',
+      'a[data-gtag="cta_particular_click"]': 'Soy particular',
+      'a[data-gtag="cta_org_click"]': 'Soy organización',
+
+      // Muy pronto
+      '#app-title': 'Muy pronto en tu móvil',
+      '#lanzamiento .frase': 'Recordatorios suaves, uso sin conexión, privacidad por diseño. TEMOTIVA como app, lista para acompañarte cada día.',
+
+      // Misión
+      '#mission-title': 'Nuestra misión',
+      '#mision > .container > p': 'Hacer fácil lo importante. Convertimos la psicología basada en evidencia en microacciones diarias que mejoran tu estado de ánimo, tu claridad mental y tu autocuidado, sin pantallas infinitas ni ruido.',
+      '#mision .card:nth-child(1) h3': 'Hábitos que se sostienen',
+      '#mision .card:nth-child(1) p': 'Rutinas breves que encajan en tu día, sin fricción, con seguimiento amable.',
+      '#mision .card:nth-child(2) h3': 'Privacidad primero',
+      '#mision .card:nth-child(2) p': 'Datos mínimos, control en tus manos, opciones sin conexión y exportación sencilla.',
+      '#mision .card:nth-child(3) h3': 'Lenguaje claro',
+      '#mision .card:nth-child(3) p': 'Explicamos el porqué de cada paso, para que entiendas y decidas con calma.',
+
+      // Producto
+      '#product-title': 'Producto',
+      '#producto > .container > p': 'Primera versión con tres pilares, chequeo diario, ejercicios de regulación y panel de progreso, todo en menos de cinco minutos.',
+      '#producto .card:nth-child(1) h3': 'Chequeo diario',
+      '#producto .card:nth-child(1) p': 'Dos o tres preguntas para tomar el pulso emocional sin agobio. Detecta patrones reales.',
+      '#producto .card:nth-child(2) h3': 'Ejercicios guiados',
+      '#producto .card:nth-child(2) p': 'Respiración, reencuadre, pausa activa, plan breve. Eficaces, sencillos, repetibles.',
+      '#producto .card:nth-child(3) h3': 'Progreso claro',
+      '#producto .card:nth-child(3) p': 'Gráficas simples, metas semanales y logros que te motivan sin presión.',
+
+      // Reseñas
+      '#reviews-title': 'Reseñas',
+      '#resenas .frase': 'Testimonios tras probar la demo.',
+
+      // Contacto
+      '#contact-title': 'Contacto',
+      'label[for="cf-nombre"]': 'Nombre',
+      'label[for="cf-email"]': 'Correo',
+      'label[for="cf-msg"]': 'Mensaje',
+      '#cf-submit': 'Enviar',
+      '.hint': 'Respondemos lo antes posible.',
+      '#formMsg': 'Gracias, te contactaremos pronto. Si lo deseas, puedes enviar un mensaje a <a href="mailto:info@temotiva.com">info@temotiva.com</a>, estaremos encantados de atenderte.',
+
+      // Footer
+      'a[href="/privacidad.html"]': 'Política de privacidad',
+      'a[href="/cookies.html"]': 'Política de cookies',
+      'a[href="/aviso-legal.html"]': 'Aviso legal',
+      '.back-top': 'Volver arriba ↑',
+
+      // PWA banner
+      '#pwaBanner .msg': 'Instala TEMOTIVA para un acceso rápido y uso sin conexión.',
+      '#pwaInstallNow': 'Instalar',
+      '#pwaInstallLater': 'Más tarde'
+    },
+    en: {
+      // Top
+      '#mainNav a[href="/inicio.html"]': 'Home',
+      '#mainNav a[href="#mision"]': 'Mission',
+      '#mainNav a[href="#producto"]': 'Product',
+      '#mainNav a[href="#contacto"]': 'Contact',
+
+      // Hero
+      '#hero-title': 'Innovation in digital wellbeing',
+      '#inicio p': 'A simple platform to understand, care for, and train your wellbeing, designed for everyday life and grounded in science.',
+      'a[data-gtag="cta_particular_click"]': 'I’m an individual',
+      'a[data-gtag="cta_org_click"]': 'I represent an organization',
+
+      // Coming soon
+      '#app-title': 'Coming soon to your phone',
+      '#lanzamiento .frase': 'Gentle reminders, offline use, privacy by design. TEMOTIVA as an app, ready to support you every day.',
+
+      // Mission
+      '#mission-title': 'Our mission',
+      '#mision > .container > p': 'Make the important things easy. We turn evidence based psychology into daily micro actions that improve mood, clarity and self care, without infinite screens or noise.',
+      '#mision .card:nth-child(1) h3': 'Habits that stick',
+      '#mision .card:nth-child(1) p': 'Short routines that fit your day, with gentle tracking.',
+      '#mision .card:nth-child(2) h3': 'Privacy first',
+      '#mision .card:nth-child(2) p': 'Minimal data, your control, offline options and easy export.',
+      '#mision .card:nth-child(3) h3': 'Plain language',
+      '#mision .card:nth-child(3) p': 'We explain the why behind each step, so you can decide calmly.',
+
+      // Product
+      '#product-title': 'Product',
+      '#producto > .container > p': 'First version with three pillars: daily check in, regulation exercises and progress panel, all under five minutes.',
+      '#producto .card:nth-child(1) h3': 'Daily check in',
+      '#producto .card:nth-child(1) p': 'Two or three questions to take your emotional pulse without overwhelm.',
+      '#producto .card:nth-child(2) h3': 'Guided exercises',
+      '#producto .card:nth-child(2) p': 'Breathing, reframing, active pause, brief plan. Effective, simple, repeatable.',
+      '#producto .card:nth-child(3) h3': 'Clear progress',
+      '#producto .card:nth-child(3) p': 'Simple charts, weekly goals and milestones that motivate without pressure.',
+
+      // Reviews
+      '#reviews-title': 'Reviews',
+      '#resenas .frase': 'Testimonials after trying the demo.',
+
+      // Contact
+      '#contact-title': 'Contact',
+      'label[for="cf-nombre"]': 'Name',
+      'label[for="cf-email"]': 'Email',
+      'label[for="cf-msg"]': 'Message',
+      '#cf-submit': 'Send',
+      '.hint': 'We’ll reply as soon as possible.',
+      '#formMsg': 'Thanks, we’ll get back to you soon. If you prefer, email <a href="mailto:info@temotiva.com">info@temotiva.com</a>.',
+
+      // Footer
+      'a[href="/privacidad.html"]': 'Privacy policy',
+      'a[href="/cookies.html"]': 'Cookie policy',
+      'a[href="/aviso-legal.html"]': 'Legal notice',
+      '.back-top': 'Back to top ↑',
+
+      // PWA banner
+      '#pwaBanner .msg': 'Install TEMOTIVA for quick access and offline use.',
+      '#pwaInstallNow': 'Install',
+      '#pwaInstallLater': 'Later'
+    }
+  };
+
+  function setText(el, val){
+    if(!el) return;
+    // Si el valor contiene HTML (links), usamos innerHTML de forma controlada
+    if(/<\/?[a-z][\s\S]*>/i.test(val)) el.innerHTML = val;
+    else el.textContent = val;
+  }
+
+  function applyLang(lang){
+    const dict = TR[lang] || TR.es;
+    Object.entries(dict).forEach(([sel, val])=>{
+      const el = document.querySelector(sel);
+      setText(el, val);
+    });
+    // Placeholders del formulario
+    if(lang === 'en'){
+      document.getElementById('cf-nombre')?.setAttribute('placeholder','Your name');
+      document.getElementById('cf-email')?.setAttribute('placeholder','you@email.com');
+      document.getElementById('cf-msg')?.setAttribute('placeholder','How can we help?');
+      document.documentElement.lang = 'en';
+      document.title = 'TEMOTIVA | Innovation in emotional wellbeing';
+    } else {
+      document.getElementById('cf-nombre')?.setAttribute('placeholder','Tu nombre');
+      document.getElementById('cf-email')?.setAttribute('placeholder','tu@email.com');
+      document.getElementById('cf-msg')?.setAttribute('placeholder','¿Cómo podemos ayudarte?');
+      document.documentElement.lang = 'es';
+      document.title = 'TEMOTIVA | Innovación en bienestar emocional';
+    }
+    localStorage.setItem(LANG_KEY, lang);
+  }
+
+  // Botón de idioma existente
+  document.getElementById('langBtn')?.addEventListener('click', ()=>{
+    curLang = curLang === 'es' ? 'en' : 'es';
+    applyLang(curLang);
+  });
+
+  // Aplicar en carga
+  applyLang(curLang);
+</script>
+
     body{
       margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color:var(--ink); background:var(--bg); line-height:var(--lh); padding-top:var(--header-h);
