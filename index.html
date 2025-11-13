@@ -425,23 +425,46 @@
           </article>
         </div>
 
-    <!-- Reseñas -->
-    <section id="resenas" class="section reviews reveal" aria-labelledby="reviews-title">
-      <div class="container">
-        <h2 id="reviews-title" style="font-size:var(--h2); margin:0 0 .6rem;">Reseñas</h2>
-        <p class="frase" style="margin-top:.2rem;">Testimonios reales, cambios significativos.</p>
-        <div class="grid">
-          <article class="review" itemscope itemtype="https://schema.org/Review">
-            <blockquote itemprop="reviewBody">"Con cinco minutos al día consigo bajar revoluciones y dormir mejor."</blockquote>
-            <div class="who"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">María</span></span></div>
-          </article>
-          <article class="review" itemscope itemtype="https://schema.org/Review">
-            <blockquote itemprop="reviewBody">"El diario emocional me ayuda a entender mis picos de ansiedad y prevenirlos."</blockquote>
-            <div class="who"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Rubén</span></span></div>
-          </article>
+<section id="resenas" class="section reviews reveal" aria-labelledby="reviews-title">
+  <div class="container">
+    <h2 id="reviews-title" style="font-size:var(--h2); margin:0 0 .6rem;">Reseñas</h2>
+    <p class="frase" style="margin-top:.2rem;">Testimonios reales, cambios significativos.</p>
+    <div class="grid">
+      <article class="review" itemscope itemtype="https://schema.org/Review">
+        <!-- Qué se está reseñando -->
+        <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">
+          <meta itemprop="name" content="TEMOTIVA">
+          <meta itemprop="applicationCategory" content="HealthApplication">
+          <meta itemprop="operatingSystem" content="Android">
         </div>
-      </div>
-    </section>
+
+        <blockquote itemprop="reviewBody">"Con cinco minutos al día consigo bajar revoluciones y dormir mejor."</blockquote>
+        <div class="who">
+          <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <span itemprop="name">María</span>
+          </span>
+        </div>
+      </article>
+
+      <article class="review" itemscope itemtype="https://schema.org/Review">
+        <!-- Qué se está reseñando -->
+        <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">
+          <meta itemprop="name" content="TEMOTIVA">
+          <meta itemprop="applicationCategory" content="HealthApplication">
+          <meta itemprop="operatingSystem" content="Android">
+        </div>
+
+        <blockquote itemprop="reviewBody">"El diario emocional me ayuda a entender mis picos de ansiedad y prevenirlos."</blockquote>
+        <div class="who">
+          <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <span itemprop="name">Rubén</span>
+          </span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
 
     <!-- SPLIT HERE -->
     <!-- Contacto -->
