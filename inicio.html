@@ -1,153 +1,385 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="auto">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <title>Inicio | TEMOTIVA</title>
-  <meta name="description" content="Bienestar emocional para mejorar la salud mental y el autocuidado en la vida cotidiana. Prácticas sencillas de autocuidado, blog y recursos listos para usar.">
+
+  <meta name="description" content="Bienestar emocional aplicado a la vida diaria. TEMOTIVA ayuda a personas adultas a saber qué hacer cuando se sienten saturadas, con herramientas breves de autocuidado y regulación emocional.">
+  <meta name="keywords" content="bienestar emocional, autocuidado, regulación emocional, sentirse desbordada, estrés diario, app bienestar, talleres bienestar, salud mental cotidiana">
+
   <link rel="canonical" href="https://www.temotiva.com/inicio.html">
 
-  <!-- PWA -->
   <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#F7F7F7" id="meta-theme">
-  <meta name="application-name" content="TEMOTIVA">
-  <link rel="apple-touch-icon" href="/icon-192.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+  <meta name="theme-color" content="#F7F7F7">
 
-  <!-- Social -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="TEMOTIVA | Bienestar emocional en tu día a día">
-  <meta property="og:description" content="Autocuidado simple, chequeos diarios y recursos para mejorar tu bienestar emocional.">
-  <meta property="og:url" content="https://www.temotiva.com/inicio.html">
-  <meta property="og:image" content="https://www.temotiva.com/screenshot-1.png">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <!-- CSS -->
-  <link rel="preload" href="/style.css" as="style">
   <link rel="stylesheet" href="/style.css">
 
-  <!-- Accesibilidad si falta JS -->
-  <noscript><style>html{scroll-behavior:auto}</style></noscript>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"Inicio TEMOTIVA",
+    "url":"https://www.temotiva.com/inicio.html",
+    "description":"Página de inicio de TEMOTIVA, herramienta de bienestar emocional para la vida cotidiana.",
+    "inLanguage":"es",
+    "about":[
+      "bienestar emocional",
+      "autocuidado",
+      "regulación emocional",
+      "vida cotidiana"
+    ]
+  }
+  </script>
+
+  <style>
+    .home-hero{
+      padding:4.5rem 0 4rem;
+      background:linear-gradient(135deg,#f7f7fb,#f0f4ff);
+    }
+    .home-hero-inner{
+      max-width:960px;
+      margin:0 auto;
+      display:grid;
+      gap:2rem;
+    }
+    @media (min-width:880px){
+      .home-hero-inner{
+        grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);
+        align-items:center;
+      }
+    }
+    .home-eyebrow{
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.78rem;
+      opacity:.8;
+      margin:0 0 .35rem;
+    }
+    .home-title{
+      margin:0 0 .7rem;
+      font-size:clamp(2rem,3.2vw,2.6rem);
+    }
+    .home-hero-text{
+      max-width:46ch;
+      margin:0 0 1.2rem;
+    }
+    .home-hero-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      font-size:.9rem;
+      opacity:.9;
+      margin-top:.8rem;
+    }
+    .home-hero-meta span:nth-child(2n){
+      opacity:.5;
+    }
+    .home-hero-side{
+      display:flex;
+      flex-direction:column;
+      gap:.8rem;
+    }
+    .home-pill{
+      background:#fff;
+      border-radius:14px;
+      padding:1rem 1.1rem;
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+      border:1px solid rgba(0,0,0,.04);
+      font-size:.95rem;
+    }
+    .home-pill h3{
+      margin:0 0 .5rem;
+      font-size:.98rem;
+    }
+    .home-pill ul{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:.35rem;
+      font-size:.9rem;
+    }
+
+    .home-section{
+      padding:3.5rem 0;
+    }
+    .home-section.alt{
+      background:#f7f7f9;
+    }
+    .home-section h2{
+      margin:0 0 .5rem;
+      font-size:clamp(1.5rem,2.4vw,1.9rem);
+    }
+    .home-lead{
+      max-width:60ch;
+      margin:0 0 1.4rem;
+      opacity:.95;
+    }
+
+    .home-grid{
+      display:grid;
+      gap:1rem;
+    }
+    @media (min-width:880px){
+      .home-grid.cols-3{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+      .home-grid.cols-2{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+
+    .home-card{
+      background:#fff;
+      border-radius:14px;
+      padding:1rem 1.05rem;
+      box-shadow:0 8px 24px rgba(0,0,0,.04);
+      border:1px solid rgba(0,0,0,.04);
+      font-size:.95rem;
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      gap:.35rem;
+    }
+    .home-card h3{
+      margin:.05rem 0 .25rem;
+      font-size:1rem;
+    }
+    .home-card p{
+      margin:0;
+      line-height:1.6;
+      opacity:.95;
+    }
+    .home-card a{
+      text-decoration:none;
+      color:inherit;
+    }
+    .home-card a:hover h3{
+      text-decoration:underline;
+    }
+
+    .home-badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      margin-top:.5rem;
+      font-size:.86rem;
+      opacity:.95;
+    }
+    .home-badge{
+      padding:.28rem .75rem;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,.1);
+      background:#fff;
+    }
+
+    @media (max-width:600px){
+      .home-hero-text,
+      .home-lead,
+      .home-card p{
+        font-size:.98rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <a href="#main" class="sr-only">Saltar al contenido</a>
-
-  <!-- Barra de título opcional para Window Controls Overlay (no molesta si no se usa) -->
-  <div class="titlebar" role="banner" aria-label="Barra de título TEMOTIVA">
-    <div class="container" style="height:100%; display:flex; align-items:center; justify-content:space-between;">
-      <a href="/inicio.html" class="logo" style="text-decoration:none; display:flex; align-items:center; gap:8px;">
-        <img src="/icon-192.png" alt="" width="20" height="20" style="border-radius:4px">
-        <span style="font-weight:700; letter-spacing:.3px;">TEMOTIVA</span>
-      </a>
-      <div class="controls" aria-hidden="true" style="display:flex; gap:8px;"></div>
-    </div>
-  </div>
-
-  <header class="site-header" id="siteHeader">
+  <!-- Header -->
+  <header class="site-header" role="banner">
     <div class="container nav">
-      <a href="/inicio.html" class="logo" style="display:flex;gap:8px;align-items:center;text-decoration:none;color:inherit;">
-        <img src="/icon-192.png" alt="Logo TEMOTIVA" style="width:32px;height:32px;border-radius:8px" loading="lazy">
+      <a href="/inicio.html" class="logo" aria-label="Ir a inicio">
+        <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
         <span>TEMOTIVA</span>
       </a>
-      <!-- Botón instalar PWA visible cuando haya prompt -->
-      <div class="header-actions">
-        <button id="installBtn" class="icon-btn" aria-label="Instalar TEMOTIVA" hidden>Instalar</button>
-      </div>
+
+      <nav class="nav-links" aria-label="Menú principal">
+        <a href="/demo.html">App</a>
+        <a href="/particular.html">Talleres</a>
+        <a href="/organizacion.html">Organizaciones</a>
+        <a href="/recursos.html">Recursos</a>
+        <a href="/blog/index.html">Blog</a>
+        <a href="/temotiva-lab.html">TEMOTIVA LAB</a>
+        <a href="/ctl.html">CTL</a>
+        <a href="/contacto.html">Contacto</a>
+      </nav>
     </div>
   </header>
 
-  <main id="main" class="section">
-    <div class="container">
-      <h1>Bienvenido a TEMOTIVA</h1>
-      <p>Aquí encontrarás prácticas sencillas de autocuidado, un blog con ideas claras y recursos listos para usar. La idea, ayudarte a sentirte un poco mejor cada día.</p>
-      <p><a class="btn" href="/blog/">Ir al blog</a></p>
-    </div>
-    <main id="main" class="section">
-  <div class="container">
-    <h1>Bienvenido a TEMOTIVA</h1>
+  <main class="content" role="main">
+    <!-- HERO HOME -->
+    <section class="section home-hero" id="home-hero" aria-labelledby="home-hero-title">
+      <div class="container home-hero-inner">
+        <div>
+          <p class="home-eyebrow">Bienestar emocional en la vida diaria</p>
+          <h1 id="home-hero-title" class="home-title">
+            Saber qué hacer cuando te sientes desbordada
+          </h1>
+          <p class="home-hero-text">
+            TEMOTIVA te ayuda a pasar del bloqueo a un paso concreto de autocuidado, con herramientas breves basadas en psicología para usar en tu día a día.
+          </p>
 
-    <!-- Ilustración del héroe con carga diferida -->
-    <div class="hero-media" aria-hidden="true">
-      <picture>
-        <source
-          type="image/webp"
-          srcset="
-            /img/chica-meditando-800.webp 800w,
-            /img/chica-meditando-1200.webp 1200w,
-            /img/chica-meditando-1600.webp 1600w"
-          sizes="(max-width: 900px) 40vw, 35vw">
-        <source
-          type="image/png"
-          srcset="
-            /img/chica-meditando-800.png 800w,
-            /img/chica-meditando-1200.png 1200w,
-            /img/chica-meditando-1600.png 1600w"
-          sizes="(max-width: 900px) 40vw, 35vw">
-        <img
-          src="/img/chica-meditando-1200.png"
-          alt=""
-          width="1200" height="900"
-          loading="lazy"
-          decoding="async"
-          fetchpriority="low"
-          class="hero-img">
-      </picture>
-    </div>
+          <div class="cta-row" style="margin-top:.9rem;display:flex;flex-wrap:wrap;gap:.6rem;">
+            <a href="/particular.html" class="btn">Soy particular</a>
+            <a href="/organizacion.html" class="btn secondary">Soy organización</a>
+          </div>
 
-    <p>Aquí encontrarás prácticas sencillas de autocuidado, un blog con ideas claras y recursos listos para usar. La idea, ayudarte a sentirte un poco mejor cada día.</p>
-    <p><a class="btn" href="/blog/">Ir al blog</a></p>
-  </div>
-</main>
+          <div class="home-hero-meta">
+            <span>Personas adultas con alta carga mental</span>
+            <span>·</span>
+            <span>Recursos breves</span>
+            <span>·</span>
+            <span>Aplicado a la vida cotidiana</span>
+          </div>
+        </div>
 
-  <footer class="site-footer">
-    <div class="container" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;">
-      <p style="margin:0">© TEMOTIVA</p>
-      <nav aria-label="Legal">
+        <div class="home-hero-side">
+          <div class="home-pill">
+            <h3>Para esos días en los que todo pesa</h3>
+            <ul>
+              <li>Notas que no puedes más, pero tampoco sabes por dónde empezar.</li>
+              <li>Tienes poco tiempo y mil cosas en la cabeza.</li>
+              <li>Quieres cuidarte mejor sin convertirlo en otra obligación más.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CÓMO TE AYUDA EN EL DÍA A DÍA -->
+    <section class="home-section" id="home-ayuda" aria-labelledby="home-ayuda-title">
+      <div class="container">
+        <h2 id="home-ayuda-title">Qué resuelve en tu día a día</h2>
+        <p class="home-lead">
+          TEMOTIVA está pensada para acompañarte justo cuando lo necesitas, no solo cuando tienes tiempo de sobra.
+        </p>
+
+        <div class="home-grid cols-3">
+          <article class="home-card">
+            <h3>Cuando te sientes saturada</h3>
+            <p>
+              Pequeñas rutas que te ayudan a ordenar mínimamente lo que sientes y elegir una única acción posible ahora.
+            </p>
+          </article>
+          <article class="home-card">
+            <h3>Cuando cuesta parar</h3>
+            <p>
+              Ejercicios breves para bajar revoluciones y reconectar con tu cuerpo, incluso en días con mucho ruido mental.
+            </p>
+          </article>
+          <article class="home-card">
+            <h3>Cuando quieres cuidarte un poco más</h3>
+            <p>
+              Ideas sencillas para convertir el autocuidado en hábitos realistas, no en listas infinitas de cosas por hacer.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUÉ PUEDES HACER DESDE AQUÍ -->
+    <section class="home-section alt" id="home-rutas" aria-labelledby="home-rutas-title">
+      <div class="container">
+        <h2 id="home-rutas-title">Qué puedes hacer ahora mismo desde la web</h2>
+        <p class="home-lead">
+          Diferentes puertas de entrada, según lo que necesites en este momento.
+        </p>
+
+        <div class="home-grid cols-2">
+          <article class="home-card">
+            <a href="/demo.html">
+              <h3>Conocer mejor la app</h3>
+              <p>
+                Ver cómo funciona, qué tipo de ejercicios incluye y para qué momentos está pensada.
+              </p>
+              <div class="home-badges">
+                <span class="home-badge">Visión general</span>
+                <span class="home-badge">Próximo lanzamiento</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="home-card">
+            <a href="/particular.html">
+              <h3>Ver talleres y actividades</h3>
+              <p>
+                Espacios prácticos para trabajar bienestar y autocuidado en grupo, con guía y materiales aplicables.
+              </p>
+              <div class="home-badges">
+                <span class="home-badge">Personas adultas</span>
+                <span class="home-badge">Entornos presenciales u online</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="home-card">
+            <a href="/organizacion.html">
+              <h3>Explorar opciones para equipos</h3>
+              <p>
+                Propuestas de bienestar emocional para organizaciones, centros educativos o proyectos con alta carga emocional.
+              </p>
+              <div class="home-badges">
+                <span class="home-badge">Bienestar en equipos</span>
+                <span class="home-badge">Foco en lo cotidiano</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="home-card">
+            <a href="/recursos.html">
+              <h3>Acceder a recursos y blog</h3>
+              <p>
+                Materiales breves, guías y artículos que traducen la psicología a lenguaje sencillo y usable.
+              </p>
+              <div class="home-badges">
+                <span class="home-badge">Recursos descargables</span>
+                <span class="home-badge">Contenido atemporal</span>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARA QUIÉN ESTÁ PENSADA -->
+    <section class="home-section" id="home-target" aria-labelledby="home-target-title">
+      <div class="container">
+        <h2 id="home-target-title">Para quién está pensada</h2>
+        <p class="home-lead">
+          Personas adultas que sienten que cargan con mucho y necesitan una forma más amable y clara de cuidarse.
+        </p>
+
+        <div class="home-grid cols-3">
+          <article class="home-card">
+            <h3>Personas con mucha carga mental</h3>
+            <p>
+              Días llenos, muchas decisiones y la sensación de ir en automático. Buscas algo que te ayude a parar sin desconectarte del todo.
+            </p>
+          </article>
+          <article class="home-card">
+            <h3>Profesionales que cuidan de otras personas</h3>
+            <p>
+              Docentes, personal sanitario, profesionales sociales y de atención al público que llegan a casa con la cabeza llena y pocas fuerzas.
+            </p>
+          </article>
+          <article class="home-card">
+            <h3>Quien quiere prevenir antes de llegar al límite</h3>
+            <p>
+              No estás en crisis clínica, pero llevas tiempo arrastrando cansancio emocional y quieres cuidarte de forma más constante.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
+      <p style="margin:0;">© TEMOTIVA desde 2024</p>
+      <div style="display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;">
         <a href="/privacidad.html">Política de privacidad</a>
-        <span class="text-soft"> | </span>
         <a href="/cookies.html">Política de cookies</a>
-      </nav>
-    </div>
-  </footer>
-
-  <!-- Banner de instalación PWA -->
-  <div id="pwaBanner" class="pwa-install" role="dialog" aria-modal="false" aria-label="Instalar TEMOTIVA">
-    <div class="row">
-      <img src="/icon-192.png" alt="" width="28" height="28" style="border-radius:6px">
-      <div class="msg">Instala TEMOTIVA para acceso rápido y uso sin conexión.</div>
-      <div class="actions" style="margin-left:auto; display:flex; gap:8px;">
-        <button id="pwaInstallNow" class="btn">Instalar</button>
-        <button id="pwaInstallLater" class="btn secondary">Más tarde</button>
+        <a href="/aviso-legal.html">Aviso legal</a>
       </div>
     </div>
-  </div>
-
-  <!-- Toast de estado de red -->
-  <div id="netToast" role="status" aria-live="polite"></div>
-
-  <!-- Script principal: registra SW, métricas y UX ya definidas -->
-  <script src="/script.js" defer></script>
-
-  <!-- Registro del Service Worker, idempotente y seguro -->
-  <script>
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker.register("/pwabuilder-sw.js", { scope: "/" })
-          .then(reg => console.log("SW listo:", reg.scope))
-          .catch(err => console.warn("SW error:", err));
-      });
-    }
-  </script>
-
-  <!-- Google Analytics (si lo usas en todas las páginas) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DM1M9GM27Z"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag("js", new Date());
-    gtag("config", "G-DM1M9GM27Z", { "anonymize_ip": true });
-  </script>
+  </footer>
 </body>
 </html>
