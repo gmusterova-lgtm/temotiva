@@ -1,22 +1,323 @@
-<!DOCTYPE html><html lang="es"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Blog | TEMOTIVA</title>
-<link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#F7F7F7">
-<link rel="stylesheet" href="/style.css">
-</head><body>
-<header class="site-header"><div class="container nav">
-  <a href="/inicio.html" class="logo" style="display:flex;gap:8px;align-items:center;text-decoration:none;color:inherit;">
-    <img src="/icon-192.png" alt="Logo" style="width:32px;height:32px;border-radius:8px;"><span>TEMOTIVA</span>
-  </a>
-</div></header>
-<main class="section"><div class="container">
-  <h1>Blog TEMOTIVA</h1>
-  <p>Entradas cortas sobre bienestar, toma de decisiones y hábitos. Publicamos contenido atemporal para que te sirva cuando lo necesites.</p>
-  <ul>
-    <li><a href="/blog/bienvenida.html">Bienvenida</a></li>
-  </ul>
-</div></main>
-<footer class="site-footer"><div class="container">
-  <a href="/privacidad.html">Política de privacidad</a>
-</div></footer>
-</body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>Blog de bienestar emocional | TEMOTIVA</title>
+
+  <meta name="description" content="Artículos breves sobre bienestar emocional, autocuidado y vida cotidiana. Contenido claro, práctico y atemporal para personas adultas con alta carga mental.">
+  <meta name="keywords" content="blog bienestar emocional, autocuidado, psicología cotidiana, hábitos saludables, regulación emocional, vida diaria, contenido atemporal">
+
+  <link rel="canonical" href="https://www.temotiva.com/blog/index.html">
+
+  <!-- PWA básica -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F7F7F7">
+
+  <link rel="stylesheet" href="/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Blog",
+    "name":"Blog TEMOTIVA",
+    "url":"https://www.temotiva.com/blog/",
+    "description":"Blog de bienestar emocional con artículos breves y prácticos para la vida diaria.",
+    "inLanguage":"es",
+    "publisher":{
+      "@type":"Organization",
+      "name":"TEMOTIVA",
+      "url":"https://www.temotiva.com"
+    }
+  }
+  </script>
+
+  <style>
+    .blog-hero{
+      padding:4.5rem 0 3.8rem;
+      background:linear-gradient(135deg,#f7f7fb,#f0f4ff);
+    }
+    .blog-hero-inner{
+      max-width:880px;
+      margin:0 auto;
+      display:flex;
+      flex-direction:column;
+      gap:1rem;
+    }
+    .blog-eyebrow{
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.78rem;
+      opacity:.8;
+      margin:0 0 .35rem;
+    }
+    .blog-title{
+      margin:0 0 .5rem;
+      font-size:clamp(1.9rem,3vw,2.4rem);
+    }
+    .blog-hero-text{
+      max-width:55ch;
+      margin:0 0 1rem;
+    }
+    .blog-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      font-size:.9rem;
+      opacity:.9;
+      margin-top:.3rem;
+    }
+    .blog-meta span:nth-child(2n){
+      opacity:.5;
+    }
+
+    .blog-section{
+      padding:3.2rem 0;
+    }
+    .blog-section h2{
+      margin:0 0 .6rem;
+      font-size:clamp(1.4rem,2.3vw,1.8rem);
+    }
+    .blog-lead{
+      max-width:60ch;
+      margin:0 0 1.4rem;
+      opacity:.95;
+    }
+
+    .blog-grid{
+      display:grid;
+      gap:1rem;
+    }
+    @media (min-width:860px){
+      .blog-grid{
+        grid-template-columns:repeat(3,minmax(0,1fr));
+      }
+    }
+
+    .blog-card{
+      background:#fff;
+      border-radius:14px;
+      padding:1rem 1.05rem;
+      box-shadow:0 8px 24px rgba(0,0,0,.04);
+      border:1px solid rgba(0,0,0,.04);
+      font-size:.95rem;
+      display:flex;
+      flex-direction:column;
+      gap:.4rem;
+      height:100%;
+    }
+    .blog-card a{
+      text-decoration:none;
+      color:inherit;
+    }
+    .blog-card a:hover h3{
+      text-decoration:underline;
+    }
+    .blog-card h3{
+      margin:.05rem 0 .2rem;
+      font-size:1rem;
+    }
+    .blog-card p{
+      margin:0;
+      line-height:1.5;
+      opacity:.95;
+    }
+    .blog-card-meta{
+      display:flex;
+      justify-content:space-between;
+      gap:.5rem;
+      align-items:center;
+      font-size:.82rem;
+      margin-top:.2rem;
+      opacity:.85;
+    }
+    .blog-card-tag{
+      padding:.1rem .6rem;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,.12);
+      font-size:.78rem;
+    }
+
+    .blog-empty{
+      font-size:.95rem;
+      opacity:.9;
+      margin-top:1rem;
+    }
+
+    .blog-cta-wrap{
+      max-width:720px;
+      margin:0 auto;
+    }
+    .blog-cta-card{
+      background:#fff;
+      border-radius:16px;
+      padding:1.5rem 1.4rem;
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+      border:1px solid rgba(0,0,0,.04);
+      font-size:.95rem;
+    }
+    .blog-cta-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      align-items:center;
+      margin-top:1rem;
+      font-size:.9rem;
+    }
+
+    @media (max-width:600px){
+      .blog-hero-text,
+      .blog-lead,
+      .blog-card p{
+        font-size:.98rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container nav">
+      <a href="/inicio.html" class="logo" aria-label="Ir a inicio">
+        <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
+        <span>TEMOTIVA</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Menú principal">
+        <a href="/demo.html">App</a>
+        <a href="/particular.html">Talleres</a>
+        <a href="/organizacion.html">Organizaciones</a>
+        <a href="/recursos.html">Recursos</a>
+        <a href="/blog/index.html" class="active" aria-current="page">Blog</a>
+        <a href="/temotiva-lab.html">TEMOTIVA LAB</a>
+        <a href="/ctl.html">CTL</a>
+        <a href="/contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content" role="main">
+    <!-- HERO BLOG -->
+    <section class="section blog-hero" id="blog-hero" aria-labelledby="blog-hero-title">
+      <div class="container blog-hero-inner">
+        <div>
+          <p class="blog-eyebrow">Psicología aplicada al día a día</p>
+          <h1 id="blog-hero-title" class="blog-title">
+            Blog TEMOTIVA
+          </h1>
+          <p class="blog-hero-text">
+            Artículos cortos sobre bienestar emocional, decisiones difíciles y formas más amables de relacionarte contigo en la vida cotidiana.
+          </p>
+          <div class="blog-meta">
+            <span>Contenido atemporal</span>
+            <span>·</span>
+            <span>Lectura fácil</span>
+            <span>·</span>
+            <span>Basado en psicología</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LISTADO DE ENTRADAS -->
+    <section class="blog-section" aria-labelledby="blog-list-title">
+      <div class="container">
+        <h2 id="blog-list-title">Últimas entradas</h2>
+        <p class="blog-lead">
+          Aquí verás las publicaciones principales. Puedes ir añadiendo más artículos según vayas escribiendo.
+        </p>
+
+        <div class="blog-grid">
+          <!-- Entrada existente: Bienvenida -->
+          <article class="blog-card">
+            <a href="/blog/bienvenida.html">
+              <div class="blog-card-meta">
+                <span class="blog-card-tag">Introducción</span>
+                <span>Lectura breve</span>
+              </div>
+              <h3>Bienvenida</h3>
+              <p>
+                Una primera mirada a qué es TEMOTIVA, por qué nace este espacio y cómo puede acompañarte en tu bienestar emocional del día a día.
+              </p>
+              <p class="blog-tagline" style="font-size:.86rem;opacity:.8;margin-top:.3rem;">
+                Leer más
+              </p>
+            </a>
+          </article>
+
+          <!-- Ejemplos de futuras entradas: puedes duplicar y cambiar la ruta -->
+          <!--
+          <article class="blog-card">
+            <a href="/blog/como-parar-cuando-todo-va-muy-deprisa.html">
+              <div class="blog-card-meta">
+                <span class="blog-card-tag">Bienestar cotidiano</span>
+                <span>5 min</span>
+              </div>
+              <h3>Cómo parar cuando todo va muy deprisa</h3>
+              <p>
+                Ideas sencillas para hacer pequeñas pausas en días muy llenos, sin sentir que estás perdiendo el tiempo.
+              </p>
+              <p class="blog-tagline" style="font-size:.86rem;opacity:.8;margin-top:.3rem;">
+                Leer más
+              </p>
+            </a>
+          </article>
+          -->
+        </div>
+
+        <p class="blog-empty">
+          Si todavía solo tienes la entrada de bienvenida, está bien. Este espacio está pensado para crecer poco a poco, con artículos que de verdad te apetezca escribir.
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA OPCIONAL: SUSCRIPCIÓN A NOVEDADES DEL BLOG -->
+    <section class="blog-section alt" id="blog-cta" aria-labelledby="blog-cta-title">
+      <div class="container blog-cta-wrap">
+        <h2 id="blog-cta-title">Quiero saber cuándo haya nuevas entradas</h2>
+        <p class="blog-lead">
+          Si te interesa recibir avisos puntuales cuando publiquemos contenido nuevo, puedes dejar tu correo.
+        </p>
+
+        <div class="blog-cta-card">
+          <form id="blogContactForm" class="form-pro" action="https://formspree.io/f/xnnobrvn" method="post">
+            <input type="hidden" name="_subject" value="Interés en novedades del blog TEMOTIVA">
+            <input type="hidden" name="_language" value="es">
+
+            <label for="blog-email" class="pt-label-small">Correo electrónico</label>
+            <input id="blog-email" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="correo@ejemplo.com">
+
+            <div style="margin-top:.9rem;">
+              <label class="checkline" for="blog-consent">
+                <input id="blog-consent" type="checkbox" name="consent" required>
+                <span>Acepto la <a href="/privacidad.html">política de privacidad</a>.</span>
+              </label>
+            </div>
+
+            <input type="text" name="_gotcha" aria-hidden="true" autocomplete="off" style="display:none !important;">
+
+            <div class="blog-cta-actions">
+              <button type="submit" class="btn">Recibir avisos</button>
+              <span>Solo correos puntuales cuando haya contenido relevante.</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
+      <p style="margin:0;">© TEMOTIVA desde 2024</p>
+      <div style="display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;">
+        <a href="/privacidad.html">Política de privacidad</a>
+        <a href="/cookies.html">Política de cookies</a>
+        <a href="/aviso-legal.html">Aviso legal</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
