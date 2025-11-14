@@ -1,20 +1,367 @@
-<!DOCTYPE html><html lang="es"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Contacto | TEMOTIVA</title>
-<link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#F7F7F7">
-<link rel="stylesheet" href="/style.css">
-</head><body>
-<header class="site-header"><div class="container nav">
-  <a href="/inicio.html" class="logo" style="display:flex;gap:8px;align-items:center;text-decoration:none;color:inherit;">
-    <img src="/icon-192.png" alt="Logo" style="width:32px;height:32px;border-radius:8px;"><span>TEMOTIVA</span>
-  </a>
-</div></header>
-<main class="section"><div class="container">
-  <h1>Contacto</h1>
-  <p>Si quieres colaborar, proponer un taller o preguntarnos algo, escribe el mensaje y te respondemos.</p>
-  <p><a class="btn" href="/#contacto">Abrir formulario</a></p>
-</div></main>
-<footer class="site-footer"><div class="container">
-  <a href="/privacidad.html">Política de privacidad</a>
-</div></footer>
-</body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>Contacto | TEMOTIVA</title>
+
+  <meta name="description" content="Formulario de contacto para escribir al equipo de TEMOTIVA y Cognitiva Tech Lab. Consultas sobre la app, talleres, colaboraciones y proyectos de bienestar emocional.">
+  <meta name="keywords" content="contacto TEMOTIVA, contacto bienestar emocional, formulario de contacto, colaboraciones bienestar, talleres bienestar emocional, Cognitiva Tech Lab">
+
+  <link rel="canonical" href="https://www.temotiva.com/contacto.html">
+
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F7F7F7">
+
+  <link rel="stylesheet" href="/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ContactPage",
+    "name":"Contacto TEMOTIVA y Cognitiva Tech Lab",
+    "description":"Página de contacto para consultas sobre la app, talleres, recursos y colaboraciones.",
+    "url":"https://www.temotiva.com/contacto.html",
+    "about":{
+      "@type":"Organization",
+      "name":"TEMOTIVA",
+      "url":"https://www.temotiva.com"
+    }
+  }
+  </script>
+
+  <style>
+    .ct-hero{
+      padding:4.5rem 0 4rem;
+      background:linear-gradient(135deg,#f7f7fb,#f0f4ff);
+    }
+    .ct-hero-inner{
+      max-width:880px;
+      margin:0 auto;
+      display:grid;
+      gap:2rem;
+    }
+    @media (min-width:880px){
+      .ct-hero-inner{
+        grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);
+        align-items:center;
+      }
+    }
+    .ct-eyebrow{
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.78rem;
+      opacity:.8;
+      margin:0 0 .35rem;
+    }
+    .ct-title{
+      margin:0 0 .7rem;
+      font-size:clamp(1.9rem,3vw,2.4rem);
+    }
+    .ct-hero-text{
+      max-width:44ch;
+      margin:0 0 1.2rem;
+    }
+    .ct-hero-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      font-size:.9rem;
+      opacity:.9;
+      margin-top:.8rem;
+    }
+    .ct-hero-meta span:nth-child(2n){
+      opacity:.5;
+    }
+    .ct-hero-side{
+      display:flex;
+      flex-direction:column;
+      gap:.8rem;
+    }
+    .ct-pill{
+      background:#fff;
+      border-radius:14px;
+      padding:1rem 1.1rem;
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+      border:1px solid rgba(0,0,0,.04);
+      font-size:.95rem;
+    }
+    .ct-pill h3{
+      margin:0 0 .5rem;
+      font-size:.98rem;
+    }
+    .ct-pill ul{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:.35rem;
+      font-size:.9rem;
+    }
+
+    .ct-section{
+      padding:3.5rem 0;
+    }
+    .ct-section.alt{
+      background:#f7f7f9;
+    }
+    .ct-section h2{
+      margin:0 0 .5rem;
+      font-size:clamp(1.4rem,2.3vw,1.8rem);
+    }
+    .ct-lead{
+      max-width:60ch;
+      margin:0 0 1.4rem;
+      opacity:.95;
+    }
+
+    .ct-grid{
+      display:grid;
+      gap:1rem;
+    }
+    @media (min-width:820px){
+      .ct-grid.cols-3{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+    }
+
+    .ct-card{
+      background:#fff;
+      border-radius:14px;
+      padding:1rem 1.05rem;
+      box-shadow:0 8px 24px rgba(0,0,0,.04);
+      border:1px solid rgba(0,0,0,.04);
+      font-size:.95rem;
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      gap:.35rem;
+    }
+    .ct-card h3{
+      margin:.05rem 0 .25rem;
+      font-size:1rem;
+    }
+    .ct-card p{
+      margin:0;
+      line-height:1.6;
+      opacity:.95;
+    }
+
+    .ct-cta-wrap{
+      max-width:780px;
+      margin:0 auto;
+    }
+    .ct-cta-card{
+      background:#fff;
+      border-radius:16px;
+      padding:1.5rem 1.4rem;
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+      border:1px solid rgba(0,0,0,.04);
+      font-size:.95rem;
+    }
+    .ct-form-row{
+      display:grid;
+      gap:.9rem;
+    }
+    @media (min-width:720px){
+      .ct-form-row{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+    .ct-label-small{
+      font-size:.85rem;
+      opacity:.85;
+      display:block;
+      margin-bottom:.12rem;
+    }
+    .ct-cta-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      align-items:center;
+      margin-top:1rem;
+      font-size:.9rem;
+    }
+
+    .ct-direct{
+      font-size:.94rem;
+      opacity:.95;
+      margin-top:1rem;
+    }
+    .ct-direct a{
+      text-decoration:underline;
+    }
+
+    @media (max-width:600px){
+      .ct-hero-text,
+      .ct-lead,
+      .ct-card p{
+        font-size:.98rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container nav">
+      <a href="/inicio.html" class="logo" aria-label="Ir a inicio">
+        <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
+        <span>TEMOTIVA</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Menú principal">
+        <a href="/demo.html">App</a>
+        <a href="/particular.html">Talleres</a>
+        <a href="/organizacion.html">Organizaciones</a>
+        <a href="/recursos.html">Recursos</a>
+        <a href="/blog/index.html">Blog</a>
+        <a href="/temotiva-lab.html">TEMOTIVA LAB</a>
+        <a href="/ctl.html">CTL</a>
+        <a href="/contacto.html" class="active" aria-current="page">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content" role="main">
+    <!-- HERO CONTACTO -->
+    <section class="section ct-hero" id="contacto-hero" aria-labelledby="contacto-hero-title">
+      <div class="container ct-hero-inner">
+        <div>
+          <p class="ct-eyebrow">Hablemos</p>
+          <h1 id="contacto-hero-title" class="ct-title">
+            Contacto con TEMOTIVA y Cognitiva Tech Lab
+          </h1>
+          <p class="ct-hero-text">
+            Si tienes dudas sobre la app, talleres, recursos o posibles colaboraciones, puedes escribirnos desde aquí.
+          </p>
+          <div class="ct-hero-meta">
+            <span>Consultas de personas</span>
+            <span>·</span>
+            <span>Organizaciones y proyectos</span>
+            <span>·</span>
+            <span>Alianzas y propuestas</span>
+          </div>
+        </div>
+
+        <div class="ct-hero-side">
+          <div class="ct-pill">
+            <h3>Usa este formulario si</h3>
+            <ul>
+              <li>Quieres información sobre la app o próximos talleres.</li>
+              <li>Representas un centro, entidad o equipo y te interesa colaborar.</li>
+              <li>Necesitas aclarar algún aspecto de los proyectos en marcha.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIPOS DE CONSULTA -->
+    <section class="ct-section alt" aria-labelledby="ct-tipos-title">
+      <div class="container">
+        <h2 id="ct-tipos-title">Tipos de consulta frecuentes</h2>
+        <p class="ct-lead">
+          Esto nos ayuda a orientarte mejor desde el primer contacto.
+        </p>
+
+        <div class="ct-grid cols-3">
+          <article class="ct-card">
+            <h3>Uso personal y dudas sobre la app</h3>
+            <p>
+              Preguntas sobre cómo funciona la app, acceso a pruebas, futuros lanzamientos o materiales de autocuidado.
+            </p>
+          </article>
+          <article class="ct-card">
+            <h3>Organizaciones y equipos</h3>
+            <p>
+              Consultas sobre talleres, programas de bienestar para grupos, colaboración con proyectos educativos o sociales.
+            </p>
+          </article>
+          <article class="ct-card">
+            <h3>Colaboraciones profesionales</h3>
+            <p>
+              Interés en investigar, cocrear contenidos, probar la app en un contexto específico o explorar alianzas a medio plazo.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULARIO DE CONTACTO -->
+    <section class="ct-section" id="contacto-form" aria-labelledby="contacto-form-title">
+      <div class="container ct-cta-wrap">
+        <h2 id="contacto-form-title">Escríbenos</h2>
+        <p class="ct-lead">
+          Cuéntanos quién eres y qué necesitas de manera breve. Te responderemos por correo en cuanto nos sea posible.
+        </p>
+
+        <div class="ct-cta-card">
+          <form id="contactForm" class="form-pro" action="https://formspree.io/f/xnnobrvn" method="post" novalidate>
+            <input type="hidden" name="_subject" value="Nuevo mensaje desde la página de contacto de TEMOTIVA">
+            <input type="hidden" name="_language" value="es">
+
+            <div class="ct-form-row">
+              <div>
+                <label for="ct-nombre" class="ct-label-small">Nombre</label>
+                <input id="ct-nombre" type="text" name="nombre" required autocomplete="name" placeholder="Nombre y apellidos">
+              </div>
+              <div>
+                <label for="ct-email" class="ct-label-small">Correo</label>
+                <input id="ct-email" type="email" name="email" required autocomplete="email" inputmode="email" placeholder="correo@ejemplo.com">
+              </div>
+            </div>
+
+            <div style="margin-top:.9rem;">
+              <label for="ct-tipo" class="ct-label-small">Tipo de consulta</label>
+              <select id="ct-tipo" name="tipo">
+                <option value="">Selecciona una opción</option>
+                <option value="uso_personal">Uso personal de la app o recursos</option>
+                <option value="organizacion_equipo">Consulta desde organización o equipo</option>
+                <option value="colaboracion_profesional">Posible colaboración profesional</option>
+                <option value="otro">Otro tipo de consulta</option>
+              </select>
+            </div>
+
+            <div style="margin-top:.9rem;">
+              <label for="ct-msg" class="ct-label-small">Mensaje</label>
+              <textarea id="ct-msg" name="mensaje" rows="4" required placeholder="Cuéntanos brevemente tu consulta."></textarea>
+            </div>
+
+            <div style="margin-top:.9rem;">
+              <label class="checkline" for="ct-consent">
+                <input id="ct-consent" type="checkbox" name="consent" required>
+                <span>Acepto la <a href="/privacidad.html">política de privacidad</a> y el tratamiento de mis datos para responder a mi consulta.</span>
+              </label>
+            </div>
+
+            <input type="text" name="_gotcha" aria-hidden="true" autocomplete="off" style="display:none !important;">
+
+            <div class="ct-cta-actions">
+              <button type="submit" class="btn">Enviar mensaje</button>
+              <span>Te responderemos por correo cuando revisemos tu consulta.</span>
+            </div>
+          </form>
+
+          <p class="ct-direct">
+            Si lo prefieres, también puedes escribir directamente a  
+            <a href="mailto:info@temotiva.com">info@temotiva.com</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
+      <p style="margin:0;">© TEMOTIVA y Cognitiva Tech Lab</p>
+      <div style="display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;">
+        <a href="/privacidad.html">Política de privacidad</a>
+        <a href="/cookies.html">Política de cookies</a>
+        <a href="/aviso-legal.html">Aviso legal</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
