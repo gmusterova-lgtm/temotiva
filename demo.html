@@ -4,15 +4,212 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <title>La app TEMOTIVA | Bienestar emocional aplicado a tu día a día</title>
-  <meta name="description" content="Temotiva es una app de bienestar emocional que te guía con pasos concretos cuando te sientes sobrepasada y no sabes qué hacer. Rutas breves, chequeos emocionales y microprácticas de autocuidado para tu vida cotidiana.">
+  <title>App de bienestar emocional | TEMOTIVA</title>
+
+  <meta name="description" content="App de bienestar emocional para personas adultas con alta carga mental. Rutas guiadas, chequeos rápidos y microprácticas para saber qué hacer cuando te sientes saturada.">
+  <meta name="keywords" content="app bienestar emocional, autocuidado diario, regulación emocional, app salud mental no clínica, ansiedad leve, estrés, hábitos de autocuidado, bienestar en el día a día">
 
   <link rel="canonical" href="https://www.temotiva.com/demo.html">
   <link rel="stylesheet" href="/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TEMOTIVA",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Android, Web",
+    "description": "App de bienestar emocional con rutas guiadas y microprácticas para ayudar a las personas adultas a manejar el malestar cotidiano.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    }
+  }
+  </script>
+
+  <style>
+    .app-hero{
+      padding:4.5rem 0 4rem;
+      background:linear-gradient(135deg,#f7f7fb,#f0f4ff);
+    }
+    .app-hero-inner{
+      max-width:960px;
+      margin:0 auto;
+      display:grid;
+      gap:2rem;
+    }
+    @media (min-width:880px){
+      .app-hero-inner{
+        grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);
+        align-items:center;
+      }
+    }
+    .app-eyebrow{
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.78rem;
+      opacity:.8;
+      margin:0 0 .35rem;
+    }
+    .app-title{
+      margin:0 0 .7rem;
+      font-size:clamp(1.9rem,3vw,2.4rem);
+    }
+    .app-hero-text{
+      max-width:44ch;
+      margin:0 0 1.2rem;
+    }
+    .app-hero-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      font-size:.9rem;
+      opacity:.9;
+      margin-top:.9rem;
+    }
+    .app-hero-meta span:nth-child(2n){
+      opacity:.5;
+    }
+    .app-hero-side{
+      display:flex;
+      flex-direction:column;
+      gap:.8rem;
+    }
+    .app-pill{
+      background:#fff;
+      border-radius:14px;
+      padding:1rem 1.1rem;
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+      border:1px solid rgba(0,0,0,.04);
+      font-size:.95rem;
+    }
+    .app-pill h3{
+      margin:0 0 .5rem;
+      font-size:.98rem;
+    }
+    .app-pill ul{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:.35rem;
+      font-size:.9rem;
+    }
+
+    .app-section{
+      padding:3.5rem 0;
+    }
+    .app-section.alt{
+      background:#f7f7f9;
+    }
+    .app-section h2{
+      margin:0 0 .5rem;
+      font-size:clamp(1.4rem,2.3vw,1.8rem);
+    }
+    .app-lead{
+      max-width:60ch;
+      margin:0 0 1.4rem;
+      opacity:.95;
+    }
+
+    .app-grid{
+      display:grid;
+      gap:1rem;
+    }
+    @media (min-width:820px){
+      .app-grid.cols-3{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+      .app-grid.cols-2{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+
+    .app-card{
+      background:#fff;
+      border-radius:14px;
+      padding:1rem 1.05rem;
+      box-shadow:0 8px 24px rgba(0,0,0,.04);
+      border:1px solid rgba(0,0,0,.04);
+      font-size:.95rem;
+    }
+    .app-card h3{
+      margin:.1rem 0 .4rem;
+      font-size:1rem;
+    }
+    .app-card p{
+      margin:0;
+      line-height:1.6;
+      opacity:.95;
+    }
+
+    .app-tagline{
+      font-size:.9rem;
+      opacity:.85;
+      margin-top:.4rem;
+    }
+
+    .app-badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      margin-top:.8rem;
+      font-size:.88rem;
+      opacity:.9;
+    }
+    .app-badge{
+      padding:.35rem .8rem;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,.08);
+      background:#fff;
+    }
+
+    .app-steps{
+      display:grid;
+      gap:1rem;
+    }
+    @media (min-width:820px){
+      .app-steps{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+    }
+    .app-step-label{
+      display:inline-block;
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      opacity:.7;
+      margin-bottom:.25rem;
+    }
+
+    .app-cta-wrap{
+      max-width:720px;
+      margin:0 auto;
+    }
+    .app-cta-card{
+      background:#fff;
+      border-radius:16px;
+      padding:1.5rem 1.4rem;
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+      border:1px solid rgba(0,0,0,.04);
+      font-size:.95rem;
+    }
+    .app-cta-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      align-items:center;
+      margin-top:1rem;
+      font-size:.9rem;
+    }
+
+    @media (max-width:600px){
+      .app-hero-text,
+      .app-lead,
+      .app-card p{
+        font-size:.98rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <!-- Header consistente con la web -->
+  <!-- Header -->
   <header class="site-header" role="banner">
     <div class="container nav">
       <a href="/inicio.html" class="logo" aria-label="Ir a inicio">
@@ -34,212 +231,217 @@
   </header>
 
   <main class="content" role="main">
-    <!-- Hero: mensaje central y punto de dolor -->
-    <section class="section hero" id="app-hero" aria-labelledby="app-hero-title">
-      <div class="container u-col u-gap" style="text-align:center;max-width:720px;">
-        <h1 id="app-hero-title">La app de bienestar emocional para cuando no sabes qué hacer con lo que sientes</h1>
-        <p>
-          Temotiva te acompaña con pasos concretos de autocuidado y regulación emocional en tu día a día,
-          sin sesiones eternas ni contenido genérico. Diseñada para esos momentos en los que te sientes
-          sobrepasada y necesitas algo claro y posible ahora mismo.
-        </p>
-        <div class="cta-row">
-          <a href="#solicitar-demo" class="btn">Quiero probar Temotiva</a>
-          <a href="/organizacion.html" class="btn secondary">Soy una organización</a>
+    <!-- HERO: qué es la app y el dolor principal -->
+    <section class="section app-hero" id="app-hero" aria-labelledby="app-hero-title">
+      <div class="container app-hero-inner">
+        <div>
+          <p class="app-eyebrow">Bienestar emocional en el bolsillo</p>
+          <h1 id="app-hero-title" class="app-title">
+            Una app para saber qué hacer cuando te sientes saturada
+          </h1>
+          <p class="app-hero-text">
+            Rutas guiadas, chequeos rápidos y microprácticas para esos momentos en los que notas que no puedes más, pero aún tienes que seguir con el día.
+          </p>
+
+          <div class="cta-row" style="margin-top:.9rem;display:flex;flex-wrap:wrap;gap:.6rem;">
+            <a href="#app-cta" class="btn">Quiero probar la app</a>
+            <a href="#app-como-funciona" class="btn secondary">Cómo funciona</a>
+          </div>
+
+          <div class="app-hero-meta">
+            <span>Uso en 5 a 10 minutos</span>
+            <span>·</span>
+            <span>Enfoque no clínico</span>
+            <span>·</span>
+            <span>Pensada para la vida real</span>
+          </div>
+        </div>
+
+        <div class="app-hero-side">
+          <div class="app-pill">
+            <h3>Para qué sirve en el día a día</h3>
+            <ul>
+              <li>Cuando sales de una reunión, clase o turno con la cabeza llena.</li>
+              <li>Cuando notas ansiedad leve o nudo en el estómago y no sabes qué hacer con ello.</li>
+              <li>Cuando quieres cuidarte más, pero cualquier lista de hábitos te parece imposible.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Qué puedes hacer con TEMOTIVA -->
-    <section class="section" id="app-que-hace" aria-labelledby="app-que-hace-title">
+    <!-- Bloque: qué hace la app por ti -->
+    <section class="app-section" id="app-que-aporta" aria-labelledby="app-que-aporta-title">
       <div class="container">
-        <h2 id="app-que-hace-title" style="font-size:var(--h2);margin:0 0 .6rem;">Qué puedes hacer con Temotiva cuando te sientes sobrepasada</h2>
-        <p style="max-width:70ch;">
-          Temotiva convierte la psicología basada en evidencia en acciones breves y guiadas que puedes usar
-          justo en el momento en que las necesitas. No tienes que pensarlo demasiado, solo eliges cómo te
-          sientes y la app te sugiere una ruta posible.
+        <h2 id="app-que-aporta-title">Qué hace la app por ti</h2>
+        <p class="app-lead">
+          No son frases motivacionales sueltas, sino pequeñas decisiones guiadas para regularte y cuidarte mejor.
         </p>
 
-        <div class="grid" style="margin-top:1.5rem;">
-          <article class="card">
-            <h3>Rutas guiadas de regulación emocional</h3>
+        <div class="app-grid cols-3">
+          <article class="app-card">
+            <h3>Te ayuda a poner nombre a lo que sientes</h3>
             <p>
-              Pequeñas secuencias que te acompañan paso a paso cuando estás bloqueada o con la cabeza a mil.
-              Pasas de la sensación de no saber por dónde empezar a una acción concreta y asumible.
+              Chequeos sencillos para que puedas ubicar si estás saturada, cansada, ansiosa, enfadada o simplemente en piloto automático.
             </p>
           </article>
-
-          <article class="card">
-            <h3>Chequeos rápidos de cómo estás</h3>
+          <article class="app-card">
+            <h3>Te propone un siguiente paso posible</h3>
             <p>
-              Mini chequeos y reflexiones sencillas para poner nombre a lo que sientes y detectar qué necesitas.
-              Sin cuestionarios eternos, solo lo necesario para orientarte.
+              Rutas breves que te acompañan paso a paso, desde identificar lo que te pasa hasta elegir una acción pequeña que sí puedes hacer hoy.
             </p>
           </article>
-
-          <article class="card">
-            <h3>Diario emocional sencillo</h3>
+          <article class="app-card">
+            <h3>Te muestra tu propio patrón emocional</h3>
             <p>
-              Un diario estructurado que te ayuda a registrar lo que vives sin perderte en textos interminables.
-              Con el tiempo vas viendo patrones y lo que realmente te ayuda.
+              Resúmenes suaves de cómo te has ido sintiendo y qué te ha ayudado, para que puedas conocerte mejor y anticipar tus picos.
             </p>
           </article>
+        </div>
+      </div>
+    </section>
 
-          <article class="card">
-            <h3>Microprácticas de 5 a 10 minutos</h3>
+    <!-- Cómo funciona, 3 pasos -->
+    <section class="app-section alt" id="app-como-funciona" aria-labelledby="app-como-funciona-title">
+      <div class="container">
+        <h2 id="app-como-funciona-title">Cómo se usa en la práctica</h2>
+
+        <div class="app-steps">
+          <article class="app-card">
+            <span class="app-step-label">Paso 1</span>
+            <h3>Abres la app y eliges cómo estás</h3>
             <p>
-              Ejercicios breves que puedes usar en pausas cortas, antes de dormir o después de un día intenso.
-              Mejor un gesto pequeño y sostenible que una lista de pendientes de autocuidado.
+              Indicas en pocas pantallas cómo te sientes y en qué momento del día estás, sin cuestionarios largos.
             </p>
+          </article>
+          <article class="app-card">
+            <span class="app-step-label">Paso 2</span>
+            <h3>Recibes una ruta corta</h3>
+            <p>
+              La app te propone una secuencia de acciones breves: parar, sentir, decidir una cosa concreta que te pueda ayudar.
+            </p>
+          </article>
+          <article class="app-card">
+            <span class="app-step-label">Paso 3</span>
+            <h3>Registras lo que ha pasado</h3>
+            <p>
+              Anotas de forma muy simple si te ha ayudado o no, para que la app y tú aprendáis qué te funciona mejor.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Características clave: privacidad, uso sin conexión, etc -->
+    <section class="app-section" id="app-caracteristicas" aria-labelledby="app-caracteristicas-title">
+      <div class="container">
+        <h2 id="app-caracteristicas-title">Qué la hace diferente</h2>
+        <p class="app-lead">
+          Diseñada para personas adultas con mucha carga mental, que quieren cuidarse sin tener que leer manuales infinitos.
+        </p>
+
+        <div class="app-grid cols-2">
+          <article class="app-card">
+            <h3>Diseño sencillo y directo</h3>
+            <p>
+              Pantallas claras, poco texto y un lenguaje cercano. La idea es que puedas usarla incluso en días en los que estás agotada.
+            </p>
+            <div class="app-badges">
+              <span class="app-badge">Sin notificaciones invasivas</span>
+              <span class="app-badge">Uso en pocos minutos</span>
+            </div>
+          </article>
+          <article class="app-card">
+            <h3>Privacidad y enfoque no clínico</h3>
+            <p>
+              No realiza diagnósticos ni sustituye la terapia. Está pensada como apoyo para tu bienestar y para complementar otros cuidados, si los tienes.
+            </p>
+            <div class="app-badges">
+              <span class="app-badge">Datos mínimos</span>
+              <span class="app-badge">Enfoque preventivo</span>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
     <!-- Para quién es -->
-    <section class="section alt" id="app-para-quien" aria-labelledby="app-para-quien-title">
+    <section class="app-section alt" id="app-para-quien" aria-labelledby="app-para-quien-title">
       <div class="container">
-        <h2 id="app-para-quien-title" style="font-size:var(--h2);margin:0 0 .6rem;">Para quién es Temotiva</h2>
-        <p style="max-width:70ch;">
-          Temotiva está pensada para personas adultas, sobre todo entre 25 y 45 años, con mucha carga emocional
-          o mental por su trabajo, sus estudios o sus cuidados. Personas que sienten que no están del todo mal,
-          pero tampoco bien, y que buscan algo más que frases motivacionales.
+        <h2 id="app-para-quien-title">Para quién es especialmente útil</h2>
+        <p class="app-lead">
+          Personas adultas que sienten que llevan tiempo sosteniendo demasiado, pero quieren prevenir llegar al límite.
         </p>
 
-        <div class="grid" style="margin-top:1.5rem;">
-          <article class="card">
-            <h3>Profesionales que llegan vacíos a casa</h3>
+        <div class="app-grid cols-3">
+          <article class="app-card">
+            <h3>Procesos de cambio personal</h3>
             <p>
-              Personas que trabajan con demandas emocionales constantes, atención al público, educación o cuidados
-              y que necesitan regularse antes, durante y después de la jornada para no quemarse.
+              Cambios vitales, duelo, replantear tu vida profesional o personal y necesidad de cuidarte un poco mejor en el camino.
             </p>
           </article>
-
-          <article class="card">
-            <h3>Estudiantes y personas en posgrado</h3>
+          <article class="app-card">
+            <h3>Trabajos con carga emocional</h3>
             <p>
-              Perfiles con muchas entregas, proyectos y expectativas, que viven con la sensación de que la cabeza
-              no se apaga y de que el estrés se ha vuelto el estado habitual.
+              Profesionales de la ayuda, de la educación o de la atención al público que acompañan mucho a otras personas.
             </p>
           </article>
-
-          <article class="card">
-            <h3>Personas en procesos de cambio personal</h3>
+          <article class="app-card">
+            <h3>Estudios y proyectos intensos</h3>
             <p>
-              Cambios laborales, vitales o relacionales que remueven muchas cosas por dentro. Temotiva ofrece una
-              estructura sencilla para cuidarte mientras atraviesas el proceso.
+              Estudiantes y personas con proyectos que exigen mucho a nivel mental y que tienden a dejar el autocuidado para el final.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Cómo funciona -->
-    <section class="section" id="app-como-funciona" aria-labelledby="app-como-funciona-title">
-      <div class="container">
-        <h2 id="app-como-funciona-title" style="font-size:var(--h2);margin:0 0 .6rem;">Cómo funciona Temotiva en tu día a día</h2>
-        <p style="max-width:70ch;">
-          Temotiva está pensada para encajar en un día real, con prisas, interrupciones y poco tiempo para pensar.
-          El objetivo es que sepas qué hacer en tres pasos.
+    <!-- CTA: pedir acceso, testers, etc -->
+    <section class="app-section" id="app-cta" aria-labelledby="app-cta-title">
+      <div class="container app-cta-wrap">
+        <h2 id="app-cta-title">Quiero probar la app cuando esté lista</h2>
+        <p class="app-lead">
+          Ahora mismo está en fase de prueba cerrada. Si quieres que te avisemos cuando haya nuevas plazas o una versión abierta, puedes dejarnos tu correo.
         </p>
 
-        <div class="grid" style="margin-top:1.5rem;">
-          <article class="card">
-            <h3>1. Eliges cómo te sientes ahora</h3>
-            <p>
-              Seleccionas el estado que más encaja contigo en ese momento, por ejemplo saturada, inquieta,
-              triste o con la mente acelerada.
-            </p>
-          </article>
+        <div class="app-cta-card">
+          <form id="appAccessForm" class="form-pro" action="https://formspree.io/f/xnnobrvn" method="post">
+            <input type="hidden" name="_subject" value="Interés en probar la app TEMOTIVA">
+            <input type="hidden" name="_language" value="es">
 
-          <article class="card">
-            <h3>2. La app te sugiere una ruta breve</h3>
-            <p>
-              Temotiva te propone una ruta de regulación emocional o autocuidado ajustada a lo que has indicado,
-              con una duración orientativa y pasos claros.
-            </p>
-          </article>
+            <label for="app-email" class="pt-label-small">Correo electrónico</label>
+            <input id="app-email" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="correo@ejemplo.com">
 
-          <article class="card">
-            <h3>3. Realizas una acción concreta y revisas</h3>
-            <p>
-              Pones en práctica una acción posible para ti en ese momento y registras cómo te sientes después.
-              Poco a poco vas construyendo un mapa de lo que te funciona.
-            </p>
-          </article>
+            <div style="margin-top:.9rem;">
+              <label class="pt-label-small" for="app-rol">Cómo te gustaría usarla</label>
+              <select id="app-rol" name="perfil">
+                <option value="">Selecciona una opción</option>
+                <option value="uso_personal">Para uso personal</option>
+                <option value="profesional_bienestar">Como profesional de la ayuda o la educación</option>
+                <option value="organizacion">Para un equipo u organización</option>
+              </select>
+            </div>
+
+            <div style="margin-top:.9rem;">
+              <label class="pt-label-small" for="app-msg">Comentario opcional</label>
+              <textarea id="app-msg" name="mensaje" rows="3" placeholder="Por ejemplo, en qué momentos del día crees que la usarías."></textarea>
+            </div>
+
+            <div style="margin-top:.9rem;">
+              <label class="checkline" for="app-consent">
+                <input id="app-consent" type="checkbox" name="consent" required>
+                <span>Acepto la <a href="/privacidad.html">política de privacidad</a>.</span>
+              </label>
+            </div>
+
+            <input type="text" name="_gotcha" aria-hidden="true" autocomplete="off" style="display:none !important;">
+
+            <div class="app-cta-actions">
+              <button type="submit" class="btn">Recibir aviso</button>
+              <span>Solo te escribiremos para informarte del acceso a la app.</span>
+            </div>
+          </form>
         </div>
-      </div>
-    </section>
-
-    <!-- Temotiva y la terapia -->
-    <section class="section alt" id="app-terapia" aria-labelledby="app-terapia-title">
-      <div class="container">
-        <h2 id="app-terapia-title" style="font-size:var(--h2);margin:0 0 .6rem;">Temotiva como apoyo, no como sustituto de la terapia</h2>
-        <p style="max-width:70ch;">
-          Temotiva no sustituye la terapia psicológica ni otros recursos sanitarios. Se sitúa en el espacio
-          intermedio entre el no estoy tan mal y el ya no puedo más. Puede funcionar como apoyo preventivo y
-          complementario para quienes están en terapia, y como herramienta estructurada de autocuidado para
-          quienes desean cuidarse de forma autónoma y regular su bienestar en el día a día.
-        </p>
-      </div>
-    </section>
-
-    <!-- Solicitar demo -->
-    <section class="section" id="solicitar-demo" aria-labelledby="solicitar-demo-title">
-      <div class="container" style="max-width:720px;">
-        <h2 id="solicitar-demo-title" style="font-size:var(--h2);margin:0 0 .6rem;">¿Quieres ver Temotiva en acción?</h2>
-        <p style="max-width:70ch;">
-          Cuéntanos quién eres y qué te gustaría conseguir con Temotiva. Podemos valorar tu participación como
-          tester, colaboración profesional o una demo para tu organización.
-        </p>
-
-        <form id="demoForm" class="form-pro u-col u-gap-s" action="https://formspree.io/f/xnnobrvn" method="post">
-          <input type="hidden" name="_subject" value="Solicitud de demo TEMOTIVA">
-          <input type="hidden" name="_language" value="es">
-
-          <div class="row">
-            <div>
-              <label for="demo-nombre">Nombre</label>
-              <input id="demo-nombre" name="nombre" type="text" required autocomplete="name" placeholder="Tu nombre">
-            </div>
-            <div>
-              <label for="demo-email">Correo</label>
-              <input id="demo-email" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="tu@email.com">
-            </div>
-          </div>
-
-          <div class="u-mt">
-            <label for="demo-tipo">Tipo de interés</label>
-            <select id="demo-tipo" name="tipo" required>
-              <option value="">Selecciona una opción</option>
-              <option value="particular">Quiero usar Temotiva como particular</option>
-              <option value="profesional">Soy profesional de la salud, educación o social</option>
-              <option value="organizacion">Represento a una organización o equipo</option>
-              <option value="otro">Otro</option>
-            </select>
-          </div>
-
-          <div class="u-mt">
-            <label for="demo-msg">Mensaje</label>
-            <textarea id="demo-msg" name="mensaje" rows="4" required placeholder="Cuéntanos brevemente qué te gustaría conseguir con Temotiva."></textarea>
-          </div>
-
-          <div class="u-mt">
-            <label class="checkline" for="demo-consent">
-              <input id="demo-consent" type="checkbox" name="consent" required>
-              <span>
-                Acepto la <a href="/privacidad.html">política de privacidad</a> y el tratamiento de mis datos para responder a mi solicitud.
-              </span>
-            </label>
-          </div>
-
-          <input type="text" name="_gotcha" class="u-hidden" aria-hidden="true" autocomplete="off">
-
-          <div class="u-flex u-gap-s u-mt">
-            <button type="submit" class="btn">Enviar solicitud</button>
-            <small class="hint">Te contactaremos por correo en cuanto revisemos tu mensaje.</small>
-          </div>
-        </form>
       </div>
     </section>
   </main>
@@ -248,7 +450,7 @@
   <footer class="site-footer" role="contentinfo">
     <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
       <p style="margin:0;">© TEMOTIVA desde 2024</p>
-      <div class="u-flex u-gap-s" style="align-items:center;">
+      <div style="display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;">
         <a href="/privacidad.html">Política de privacidad</a>
         <a href="/cookies.html">Política de cookies</a>
         <a href="/aviso-legal.html">Aviso legal</a>
