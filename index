@@ -317,19 +317,26 @@
 
   <!-- Panel lateral -->
   <nav id="sidePanel" class="sidebar" aria-label="Menú lateral" aria-hidden="true">
-    <a class="logo-side" href="/inicio.html">
-      <img src="/icon-192.png" alt="" aria-hidden="true" width="32" height="32">
-      <span>TEMOTIVA</span>
-    </a>
-    <ul class="menu-list" role="list">
-      <li><a href="/inicio.html" data-i18n="side.home">Inicio</a></li>
-      <li><a href="/blog/index.html" data-i18n="side.blog">Blog</a></li>
-      <li><a href="/recursos.html" data-i18n="side.resources">Recursos</a></li>
-      <li><a href="/contacto.html" class="u-hidden" data-i18n="side.contact">Contacto</a></li>
-      <li><a href="/login.html" data-i18n="side.login">Iniciar sesión</a></li>
-    </ul>
-    <a class="privacy-link" href="/privacidad.html" data-i18n="side.privacy">Privacidad</a>
-  </nav>
+  <a class="logo-side" href="/index.html">
+    <img src="/icon-192.png" alt="" aria-hidden="true" width="32" height="32">
+    <span>TEMOTIVA</span>
+  </a>
+
+  <ul class="menu-list" role="list">
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/demo.html">La App TEMOTIVA</a></li>
+    <li><a href="/particular.html">Talleres y actividades</a></li>
+    <li><a href="/organizacion.html">Para organizaciones</a></li>
+    <li><a href="/recursos.html">Recursos</a></li>
+    <li><a href="/blogg index.html">Blog</a></li>
+    <li><a href="/temotiva-lab.html">TEMOTIVA LAB</a></li>
+    <li><a href="/ctl.html">Cognitiva Tech Lab</a></li>
+    <li><a href="/contacto.html">Contacto</a></li>
+  </ul>
+
+  <a class="privacy-link" href="/privacidad.html">Privacidad</a>
+</nav>
+
 
   <main class="content" id="app" role="main">
     <!-- Hero -->
