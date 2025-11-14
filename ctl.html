@@ -1,97 +1,318 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="auto">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>CTL | Cognitiva Tech Lab</title>
-  <meta name="description" content="Cognitiva Tech Lab impulsa proyectos de bienestar emocional, tecnología responsable y educación accesible.">
-  <link rel="stylesheet" href="/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index,follow" />
+
+  <title>Cognitiva Tech Lab (CTL) | TEMOTIVA</title>
+  <meta name="description" content="Cognitiva Tech Lab (CTL) es la entidad promotora de TEMOTIVA, enfocada en bienestar emocional, tecnología y educación con impacto social.">
+  <link rel="canonical" href="https://www.temotiva.com/ctl.html">
+
+  <link rel="stylesheet" href="/style.css" />
+
+  <!-- Estilos locales para mantener el mismo header y layout que la home -->
+  <style>
+    :root{
+      --bg:#f9f9f9; --ink:#222; --ink-soft:#555; --brand:#111; --card:#fff; --muted:#eee;
+      --radius:14px; --shadow:0 8px 28px rgba(0,0,0,.08); --header-h:64px; --focus:2px solid #3b82f6;
+      --lh:1.65; --h1:clamp(2rem, 3.6vw, 3rem); --h2:clamp(1.4rem, 2.2vw, 2rem); --h3:clamp(1.1rem, 1.6vw, 1.25rem);
+      --container: min(1100px, 92%);
+      color-scheme: light dark;
+    }
+    html[data-theme="dark"]{
+      --bg:#0f1115; --ink:#eaeaea; --ink-soft:#d6d6d6; --brand:#eaeaea; --card:#151923; --muted:#262a36;
+      --shadow:0 8px 24px rgba(0,0,0,.45);
+      color-scheme: dark;
+    }
+    @media (prefers-reduced-motion: reduce){
+      * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    }
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; scroll-padding-top:var(--header-h); }
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--ink); background:var(--bg); line-height:var(--lh); padding-top:var(--header-h);
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    .container{ width:var(--container); margin:0 auto; }
+    img{ max-width:100%; height:auto; display:block; }
+    a, button, input, textarea, select{ font:inherit; }
+    a{ color:inherit; text-decoration:none; }
+    :focus-visible{ outline:var(--focus); outline-offset:3px; border-radius:10px; }
+    .u-flex{ display:flex; } .u-col{ display:flex; flex-direction:column; }
+    .u-gap{ gap:1rem; } .u-gap-l{ gap:1.5rem; }
+    .u-mt{ margin-top:1rem; }
+
+    /* Header */
+    .site-header{
+      position:fixed; inset:0 0 auto 0; height:var(--header-h); z-index:1000; background:var(--card);
+      border-bottom:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      transition: box-shadow .2s ease, backdrop-filter .2s ease;
+      backdrop-filter: saturate(130%) blur(4px);
+    }
+    .site-header.is-scrolled{ box-shadow:0 6px 24px rgba(0,0,0,.08); }
+    .nav{ height:var(--header-h); display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .logo{ display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px; }
+    .logo img{ width:36px; height:36px; border-radius:9px; }
+
+    .header-actions{ display:flex; align-items:center; gap:.5rem; }
+    .icon-btn{
+      border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      background:var(--card); color:var(--ink);
+      padding:.5rem .7rem; border-radius:12px; cursor:pointer; min-height:40px;
+      transition:background .15s ease, transform .05s ease, box-shadow .2s ease;
+      box-shadow:0 1px 1px rgba(0,0,0,.02);
+    }
+    .icon-btn:hover{ box-shadow:0 6px 20px rgba(0,0,0,.08); }
+    .icon-btn:active{ transform:scale(.98); }
+    .menu-btn{ display:inline-flex; }
+    @media (min-width:1024px){ .menu-btn{ display:none; } }
+
+    .nav-links{ display:none; gap:.4rem; }
+    .nav-links a{
+      padding:.45rem .7rem; border-radius:10px; color:var(--ink-soft); display:inline-flex; align-items:center;
+      position:relative;
+    }
+    .nav-links a:hover, .nav-links a.active{ background:var(--muted); color:var(--ink); }
+    @media (min-width:1024px){ .nav-links{ display:flex; } }
+
+    /* Sidebar */
+    #sidePanel{
+      position:fixed; top:var(--header-h); left:-280px; width:260px; height:calc(100vh - var(--header-h));
+      background:var(--card); border-right:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      padding:20px 16px; transition:left .25s ease; z-index:9999;
+      box-shadow:0 12px 32px rgba(0,0,0,.12);
+    }
+    #sidePanel.is-open{ left:0; }
+    .overlay{ position:fixed; inset:0; background:rgba(0,0,0,.28); display:none; z-index:9998; }
+    .overlay.show{ display:block; }
+    @media (min-width:1200px){ .overlay{ display:none !important; } }
+    .logo-side{ display:flex; align-items:center; gap:8px; color:var(--ink); font-weight:700; }
+    .logo-side img{ width:32px; height:32px; border-radius:8px; }
+    .menu-list{ list-style:none; padding:0; margin:16px 0; display:flex; flex-direction:column; gap:4px; }
+    .menu-list a{ display:block; padding:10px 12px; border-radius:10px; color:var(--ink); }
+    .menu-list a:hover{ background:var(--muted); }
+    .privacy-link{ display:block; margin-top:12px; font-size:14px; color:var(--ink-soft); }
+
+    /* Secciones */
+    .section{ padding:4.5rem 0; }
+    .section.alt{ background:#f4f4f4; }
+    html[data-theme="dark"] .section.alt{ background:#141923; }
+
+    .hero-ctl{
+      padding:5rem 0 3rem;
+    }
+    .hero-ctl h1{
+      font-size:var(--h1);
+      margin:0 0 .5rem;
+    }
+    .hero-ctl p{
+      max-width:60ch;
+      color:var(--ink-soft);
+      margin:0;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      padding:.3rem .7rem;
+      border-radius:999px;
+      background:var(--muted);
+      font-size:.85rem;
+      color:var(--ink-soft);
+      margin-bottom:.7rem;
+    }
+
+    .grid{
+      display:grid;
+      gap:1rem;
+    }
+    @media (min-width:900px){
+      .grid-2{ grid-template-columns:2fr 1.4fr; }
+      .grid-3{ grid-template-columns:repeat(3,1fr); }
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:1.1rem 1.2rem;
+      box-shadow:var(--shadow);
+      border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    }
+    .card:hover{
+      transform:translateY(-2px);
+      box-shadow:0 14px 36px rgba(0,0,0,.10);
+      border-color:rgba(0,0,0,.12);
+    }
+    html[data-theme="dark"] .card{ border-color:#2a2e3a; box-shadow:none; }
+
+    .tagline{
+      font-size:.95rem;
+      color:var(--ink-soft);
+    }
+
+    /* Footer */
+    .site-footer{
+      border-top:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      padding:1.4rem 0;
+      background:var(--card);
+    }
+  </style>
 </head>
-
 <body>
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
 
-  <!-- Header global -->
-  <header class="site-header">
+  <!-- Overlay para menú lateral -->
+  <div id="overlay" class="overlay" aria-hidden="true"></div>
+
+  <!-- Header compartido -->
+  <header class="site-header" id="siteHeader" role="banner">
     <div class="container nav">
-      <a href="/inicio.html" class="logo" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:inherit;">
-        <img src="/icon-192.png" alt="Logo TEMOTIVA" style="width:36px;height:36px;border-radius:8px;">
+      <a href="/inicio.html" class="logo" aria-label="Ir a inicio">
+        <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
         <span>TEMOTIVA</span>
       </a>
 
-      <nav class="nav-links">
-        <a href="/inicio.html">Inicio</a>
+      <nav id="mainNav" class="nav-links" aria-label="Menú principal">
         <a href="/demo.html">App</a>
         <a href="/particular.html">Talleres</a>
         <a href="/organizacion.html">Organizaciones</a>
         <a href="/recursos.html">Recursos</a>
         <a href="/blog/index.html">Blog</a>
         <a href="/temotiva-lab.html">TEMOTIVA LAB</a>
-        <a href="/ctl.html" class="active">CTL</a>
+        <a href="/ctl.html" class="active" aria-current="page">CTL</a>
         <a href="/contacto.html">Contacto</a>
       </nav>
+
+      <div class="header-actions" role="group" aria-label="Acciones">
+        <button id="langBtn" class="icon-btn" aria-label="Cambiar idioma">ES/EN</button>
+        <button id="themeBtn" class="icon-btn" aria-label="Cambiar tema" title="Tema" aria-pressed="false">☾/☀︎</button>
+        <button id="menuBtn" class="menu-btn icon-btn" aria-label="Abrir panel lateral" aria-controls="sidePanel" aria-expanded="false">☰</button>
+      </div>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section style="padding:6rem 0 4rem;text-align:center;">
-    <div class="container">
-      <h1 style="font-size:2.6rem;margin-bottom:1rem;">Cognitiva Tech Lab</h1>
-      <p style="max-width:70ch;margin:0 auto;color:#666;">
-        Un espacio de trabajo enfocado en crear soluciones de bienestar, innovación responsable y educación accesible.
-      </p>
+  <!-- Panel lateral -->
+  <nav id="sidePanel" class="sidebar" aria-label="Menú lateral" aria-hidden="true">
+    <a class="logo-side" href="/inicio.html">
+      <img src="/logo-temotiva.png" alt="" aria-hidden="true" width="32" height="32">
+      <span>TEMOTIVA</span>
+    </a>
+
+    <ul class="menu-list" role="list">
+      <li><a href="/inicio.html">Inicio</a></li>
+      <li><a href="/demo.html">App</a></li>
+      <li><a href="/particular.html">Talleres</a></li>
+      <li><a href="/organizacion.html">Organizaciones</a></li>
+      <li><a href="/recursos.html">Recursos</a></li>
+      <li><a href="/blog/index.html">Blog</a></li>
+      <li><a href="/temotiva-lab.html">TEMOTIVA LAB</a></li>
+      <li><a href="/ctl.html" aria-current="page">CTL</a></li>
+      <li><a href="/contacto.html">Contacto</a></li>
+    </ul>
+
+    <a class="privacy-link" href="/privacidad.html">Privacidad</a>
+  </nav>
+
+  <main id="contenido" class="content" role="main">
+    <!-- Hero CTL -->
+    <section class="section hero-ctl">
+      <div class="container u-col u-gap">
+        <span class="pill">Cognitiva Tech Lab (CTL)</span>
+        <h1>Entidad que impulsa proyectos de bienestar y tecnología con impacto social</h1>
+        <p class="tagline">
+          CTL es la entidad que promueve TEMOTIVA y otros proyectos que combinan psicología, diseño accesible y soluciones digitales
+          para cuidar el bienestar emocional en la vida cotidiana.
+        </p>
+      </div>
+    </section>
+
+    <!-- Qué es CTL + líneas -->
+    <section class="section alt">
+      <div class="container grid grid-2 u-gap-l">
+        <article class="card">
+          <h2>Qué es Cognitiva Tech Lab</h2>
+          <p>
+            Cognitiva Tech Lab es una entidad independiente orientada al impacto social, centrada en crear y acompañar proyectos
+            que mejoran el bienestar emocional, la salud mental y el autocuidado a través de la tecnología y la educación.
+          </p>
+          <p>
+            CTL funciona como paraguas de iniciativas como TEMOTIVA, colaborando con profesionales, universidades y organizaciones
+            que comparten una visión de cuidado, accesibilidad y rigor científico.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>Líneas de trabajo</h2>
+          <ul>
+            <li>Bienestar emocional y prevención en la vida cotidiana.</li>
+            <li>Desarrollo de productos digitales centrados en la persona.</li>
+            <li>Formación y talleres sobre autocuidado, identidad y relaciones saludables.</li>
+            <li>Colaboraciones con entidades educativas, sociales y sanitarias.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Proyectos y colaboraciones -->
+    <section class="section">
+      <div class="container u-col u-gap-l">
+        <div class="grid grid-3">
+          <article class="card">
+            <h3>TEMOTIVA</h3>
+            <p>
+              Plataforma y app de bienestar emocional para la vida cotidiana, con prácticas breves y herramientas
+              de seguimiento amable del estado de ánimo.
+            </p>
+            <p><a href="/inicio.html">Ver TEMOTIVA</a></p>
+          </article>
+
+          <article class="card">
+            <h3>Proyectos formativos</h3>
+            <p>
+              Diseño de talleres, cursos y experiencias educativas sobre autocuidado, manejo emocional y construcción de
+              relaciones más seguras, tanto para particulares como para organizaciones.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Colaboraciones</h3>
+            <p>
+              CTL busca colaborar con universidades, asociaciones, centros educativos y entidades que quieran integrar
+              el bienestar emocional en sus programas, servicios o equipos.
+            </p>
+          </article>
+        </div>
+
+        <div class="card">
+          <h2>¿Te gustaría colaborar con CTL?</h2>
+          <p>
+            Si formas parte de una organización o estás desarrollando un proyecto relacionado con bienestar emocional,
+            tecnología, educación o innovación social, puedes ponerte en contacto para explorar posibles sinergias.
+          </p>
+          <p class="u-mt">
+            Escríbenos a <a href="mailto:info@temotiva.com">info@temotiva.com</a> o utiliza el formulario de la página de
+            <a href="/contacto.html">contacto</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
+      <p style="margin:0;">© TEMOTIVA · Cognitiva Tech Lab (CTL)</p>
+      <div class="u-flex u-gap" style="align-items:center;">
+        <a href="/privacidad.html">Política de privacidad</a>
+        <a href="/cookies.html">Política de cookies</a>
+        <a href="/aviso-legal.html">Aviso legal</a>
+      </div>
     </div>
-  </section>
-
-  <!-- CONTENIDO -->
-  <section style="padding:3rem 0;">
-    <div class="container" style="max-width:850px;line-height:1.7;color:#444;">
-
-      <h2 style="margin-top:2rem;">Qué es Cognitiva Tech Lab</h2>
-      <p>
-        Cognitiva Tech Lab es la entidad promotora que impulsa proyectos con impacto social, especialmente en el ámbito del bienestar emocional, la tecnología humanizada y la formación.
-      </p>
-
-      <h2 style="margin-top:2rem;">Misión</h2>
-      <p>
-        Desarrollar iniciativas que combinan ciencia, tecnología y educación para mejorar la calidad de vida de las personas y facilitar procesos de autocuidado accesibles, sostenibles y responsables.
-      </p>
-
-      <h2 style="margin-top:2rem;">Líneas de trabajo</h2>
-      <ul style="padding-left:1.4rem;">
-        <li>Bienestar emocional y autocuidado</li>
-        <li>Tecnología responsable centrada en las personas</li>
-        <li>Formación y recursos educativos</li>
-        <li>Investigación aplicada en psicología y hábitos saludables</li>
-        <li>Proyectos culturales y de impacto comunitario</li>
-      </ul>
-
-      <h2 style="margin-top:2rem;">Proyectos que impulsamos</h2>
-      <ul style="padding-left:1.4rem;">
-        <li><strong>TEMOTIVA</strong>: plataforma y app de bienestar emocional.</li>
-        <li>Talleres y actividades formativas.</li>
-        <li>Recursos psicológicos aplicados a la vida cotidiana.</li>
-        <li>Investigaciones y colaboraciones académicas.</li>
-      </ul>
-
-      <h2 style="margin-top:2rem;">Colaboraciones</h2>
-      <p>
-        CTL trabaja con entidades educativas, instituciones públicas, profesionales de la salud, centros de innovación y proyectos culturales.
-        Si quieres colaborar o proponer una iniciativa conjunta, estaremos encantados de escucharte.
-      </p>
-
-      <p style="margin-top:1rem;font-weight:600;">
-        Contacto: <a href="mailto:info@temotiva.com">info@temotiva.com</a>
-      </p>
-
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer style="padding:16px;text-align:center;font-size:14px;">
-    <a href="/privacidad.html">Política de privacidad</a> ·
-    <a href="/cookies.html">Política de cookies</a> ·
-    <a href="/aviso-legal.html">Aviso legal</a>
   </footer>
 
+  <script src="/script.js" defer></script>
 </body>
 </html>
