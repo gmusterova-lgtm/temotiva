@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <title>Blog TEMOTIVA | Lecturas para días con mucha cabeza</title>
+  <title>Blog TEMOTIVA | Lecturas para días con demasiadas cosas en la cabeza</title>
 
-  <meta name="description" content="Blog de bienestar emocional con artículos breves y claros para personas adultas con alta carga mental. Lecturas tranquilas sobre autocuidado, decisiones y vida cotidiana.">
-  <meta name="keywords" content="blog bienestar emocional, autocuidado, psicología cotidiana, salud mental diaria, hábitos, saturación mental, bienestar adultos">
+  <meta name="description" content="Blog de TEMOTIVA con tres lecturas breves sobre bienestar emocional, meditación y bienvenida al proyecto. Pensado para personas adultas con mucha carga mental.">
+  <meta name="keywords" content="blog bienestar emocional, meditacion, autocuidado, psicología cotidiana, salud mental diaria, estrés, saturación mental">
 
   <link rel="canonical" href="https://www.temotiva.com/blog/index.html">
 
@@ -22,7 +22,7 @@
     "@type":"Blog",
     "name":"Blog TEMOTIVA",
     "url":"https://www.temotiva.com/blog/",
-    "description":"Blog de bienestar emocional con artículos breves y aplicables a la vida cotidiana.",
+    "description":"Lecturas breves de bienestar emocional, meditación y autocuidado.",
     "inLanguage":"es",
     "publisher":{
       "@type":"Organization",
@@ -33,242 +33,174 @@
   </script>
 
   <style>
-    /* HERO EDITORIAL */
+    /* BLOQUE HERO EDITORIAL */
+    .blog-shell{
+      padding-top:4.5rem;
+    }
     .blog-hero{
-      padding:4.5rem 0 3.8rem;
-      background:radial-gradient(circle at top left,#f0f4ff,#f7f7fb);
+      padding:3.2rem 0 2.8rem;
+      background:radial-gradient(circle at top left,#f0f4ff,#f9f9fb);
       border-bottom:1px solid rgba(0,0,0,.04);
     }
     .blog-hero-inner{
       max-width:960px;
       margin:0 auto;
-      display:grid;
-      gap:2.2rem;
     }
-    @media (min-width:880px){
-      .blog-hero-inner{
-        grid-template-columns:minmax(0,1.5fr) minmax(0,1.1fr);
-        align-items:flex-start;
-      }
-    }
-    .blog-eyebrow{
+    .blog-kicker{
       text-transform:uppercase;
-      letter-spacing:.14em;
-      font-size:.78rem;
+      letter-spacing:.16em;
+      font-size:.76rem;
       opacity:.8;
       margin:0 0 .4rem;
     }
     .blog-title{
-      margin:0 0 .6rem;
-      font-size:clamp(2rem,3vw,2.5rem);
+      margin:0 0 .4rem;
+      font-size:clamp(2rem,3.1vw,2.6rem);
     }
-    .blog-hero-text{
-      max-width:50ch;
-      margin:0 0 1rem;
+    .blog-subtitle{
+      margin:0 0 .9rem;
+      font-size:1rem;
+      max-width:52ch;
     }
-    .blog-meta-line{
-      display:flex;
-      flex-wrap:wrap;
-      gap:.6rem;
-      font-size:.9rem;
+    .blog-subtitle em{
+      font-style:italic;
+    }
+    .blog-quote{
+      margin:0;
+      font-size:.96rem;
+      max-width:46ch;
+      font-style:italic;
       opacity:.9;
-      margin-top:.7rem;
-    }
-    .blog-meta-line span:nth-child(2n){
-      opacity:.5;
     }
 
-    .blog-editorial-box{
-      background:#ffffff;
-      border-radius:16px;
-      padding:1.3rem 1.3rem 1.1rem;
-      box-shadow:0 14px 40px rgba(0,0,0,.06);
-      border:1px solid rgba(0,0,0,.05);
-      font-size:.95rem;
+    /* LISTADO EDITORIAL */
+    .blog-main{
+      padding:3.2rem 0 3.4rem;
     }
-    .blog-editorial-label{
-      font-size:.8rem;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      opacity:.78;
-      margin:0 0 .2rem;
-    }
-    .blog-editorial-title{
-      margin:.1rem 0 .4rem;
-      font-size:1.05rem;
-    }
-    .blog-editorial-text{
-      margin:0 0 .7rem;
-      line-height:1.6;
-    }
-    .blog-editorial-link{
-      font-size:.9rem;
-      text-decoration:underline;
-      text-underline-offset:2px;
-    }
-
-    /* SECCIÓN LISTADO */
-    .blog-section{
-      padding:3.2rem 0;
-    }
-    .blog-section.alt{
-      background:#f7f7f9;
-    }
-    .blog-section h2{
-      margin:0 0 .5rem;
-      font-size:clamp(1.5rem,2.3vw,1.9rem);
-    }
-    .blog-lead{
-      max-width:60ch;
-      margin:0 0 1.4rem;
-      opacity:.95;
-    }
-
     .blog-layout{
+      max-width:960px;
+      margin:0 auto;
       display:grid;
       gap:2rem;
     }
-    @media (min-width:980px){
+    @media (min-width:900px){
       .blog-layout{
-        grid-template-columns:minmax(0,2fr) minmax(0,1.2fr);
+        grid-template-columns:minmax(0,1.9fr) minmax(0,1.1fr);
       }
     }
 
-    .blog-grid{
-      display:grid;
-      gap:1rem;
+    .blog-section-title{
+      margin:0 0 .4rem;
+      font-size:clamp(1.4rem,2.2vw,1.8rem);
     }
-    @media (min-width:780px){
-      .blog-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-      }
-    }
-
-    .blog-card{
-      background:#ffffff;
-      border-radius:14px;
-      padding:1rem 1.05rem;
-      box-shadow:0 8px 24px rgba(0,0,0,.04);
-      border:1px solid rgba(0,0,0,.04);
-      font-size:.95rem;
-      display:flex;
-      flex-direction:column;
-      gap:.4rem;
-      height:100%;
-    }
-    .blog-card a{
-      text-decoration:none;
-      color:inherit;
-      display:block;
-      height:100%;
-    }
-    .blog-card a:hover h3{
-      text-decoration:underline;
-    }
-    .blog-card-label{
-      font-size:.8rem;
-      text-transform:uppercase;
-      letter-spacing:.12em;
-      opacity:.78;
-      margin:0;
-    }
-    .blog-card h3{
-      margin:.2rem 0 .25rem;
-      font-size:1.02rem;
-    }
-    .blog-card p{
-      margin:0;
-      line-height:1.5;
+    .blog-section-text{
+      margin:0 0 1.3rem;
+      max-width:60ch;
+      font-size:.98rem;
       opacity:.95;
     }
-    .blog-card-meta{
-      font-size:.82rem;
-      margin-top:.2rem;
-      opacity:.8;
-      display:flex;
-      justify-content:space-between;
-      gap:.6rem;
-      flex-wrap:wrap;
+    .blog-section-text em{
+      font-style:italic;
     }
 
-    .blog-sidebar{
-      display:flex;
-      flex-direction:column;
-      gap:1.1rem;
-      font-size:.93rem;
-    }
-    .blog-side-block{
-      background:#ffffff;
-      border-radius:14px;
-      padding:1rem 1.05rem;
-      box-shadow:0 6px 18px rgba(0,0,0,.04);
-      border:1px solid rgba(0,0,0,.04);
-    }
-    .blog-side-block h3{
-      margin:0 0 .45rem;
-      font-size:.98rem;
-    }
-    .blog-side-list{
+    .blog-list{
       list-style:none;
       padding:0;
       margin:0;
       display:grid;
-      gap:.3rem;
-      font-size:.9rem;
+      gap:.9rem;
     }
-    .blog-side-list a{
+
+    .blog-item{
+      border-radius:16px;
+      border:1px solid rgba(0,0,0,.05);
+      background:#ffffff;
+      box-shadow:0 10px 30px rgba(0,0,0,.05);
+      padding:1rem 1.1rem 1rem;
+    }
+    .blog-item a{
+      text-decoration:none;
+      color:inherit;
+      display:block;
+    }
+    .blog-item a:hover h2{
       text-decoration:underline;
       text-underline-offset:2px;
     }
 
-    /* CTA SUSCRIPCIÓN */
-    .blog-cta-wrap{
-      max-width:760px;
-      margin:0 auto;
+    .blog-item-kicker{
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      opacity:.8;
+      margin:0 0 .25rem;
     }
-    .blog-cta-card{
-      background:#ffffff;
-      border-radius:16px;
-      padding:1.5rem 1.4rem;
-      box-shadow:0 10px 30px rgba(0,0,0,.06);
-      border:1px solid rgba(0,0,0,.04);
-      font-size:.95rem;
+    .blog-item h2{
+      margin:0 0 .3rem;
+      font-size:1.04rem;
     }
-    .blog-cta-form-row{
-      display:grid;
-      gap:.9rem;
+    .blog-item-lead{
+      margin:0;
+      font-size:.94rem;
+      line-height:1.6;
     }
-    @media (min-width:580px){
-      .blog-cta-form-row{
-        grid-template-columns:minmax(0,1.4fr) minmax(0,.9fr);
-      }
+    .blog-item-lead em{
+      font-style:italic;
     }
-    .blog-label-small{
-      font-size:.85rem;
-      opacity:.85;
-      display:block;
-      margin-bottom:.12rem;
-    }
-    .blog-cta-actions{
+    .blog-item-meta{
+      margin-top:.4rem;
+      font-size:.8rem;
+      opacity:.8;
       display:flex;
-      flex-wrap:wrap;
       gap:.6rem;
-      align-items:center;
-      margin-top:1rem;
-      font-size:.9rem;
+      flex-wrap:wrap;
     }
 
-    .blog-note{
+    /* COLUMNA LATERAL */
+    .blog-side{
+      display:flex;
+      flex-direction:column;
+      gap:1.1rem;
+      font-size:.94rem;
+    }
+    .blog-note-block{
+      border-radius:16px;
+      border:1px solid rgba(0,0,0,.06);
+      background:#ffffff;
+      box-shadow:0 6px 20px rgba(0,0,0,.05);
+      padding:1rem 1.1rem;
+    }
+    .blog-note-title{
+      margin:0 0 .4rem;
+      font-size:.96rem;
+      font-weight:600;
+    }
+    .blog-note-text{
+      margin:0;
+      line-height:1.6;
+    }
+    .blog-note-text em{
+      font-style:italic;
+    }
+    .blog-links{
+      margin:.7rem 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:.3rem;
       font-size:.9rem;
-      opacity:.9;
-      margin-top:1rem;
+    }
+    .blog-links a{
+      text-decoration:underline;
+      text-underline-offset:2px;
     }
 
-    @media (max-width:600px){
-      .blog-hero-text,
-      .blog-lead,
-      .blog-card p,
-      .blog-side-block{
+    @media (max-width:640px){
+      .blog-subtitle,
+      .blog-quote,
+      .blog-section-text,
+      .blog-item-lead,
+      .blog-note-text{
         font-size:.98rem;
       }
     }
@@ -297,171 +229,115 @@
     </div>
   </header>
 
-  <main class="content" role="main">
-    <!-- HERO EDITORIAL -->
-    <section class="section blog-hero" id="blog-hero" aria-labelledby="blog-hero-title">
+  <main class="content blog-shell" role="main">
+    <!-- HERO -->
+    <section class="blog-hero" aria-labelledby="blog-hero-title">
       <div class="container blog-hero-inner">
-        <div>
-          <p class="blog-eyebrow">Lecturas para días con mucha cabeza</p>
-          <h1 id="blog-hero-title" class="blog-title">
-            Blog TEMOTIVA
-          </h1>
-          <p class="blog-hero-text">
-            Un espacio tranquilo para leer sobre bienestar emocional, decisiones difíciles y formas más amables de cuidarte en tu vida cotidiana.
-          </p>
-          <div class="blog-meta-line">
-            <span>Artículos breves</span>
-            <span>·</span>
-            <span>Lenguaje claro</span>
-            <span>·</span>
-            <span>Basado en psicología</span>
-          </div>
-        </div>
-
-        <aside class="blog-editorial-box" aria-label="Editorial del blog">
-          <p class="blog-editorial-label">Editorial</p>
-          <h2 class="blog-editorial-title">Por qué este blog no va de soluciones rápidas</h2>
-          <p class="blog-editorial-text">
-            Aquí no vas a encontrar listas infinitas de tareas ni promesas imposibles. La idea es otra, darte ideas realistas para días en los que ya llevas demasiado encima.
-          </p>
-          <a href="/blog/bienvenida.html" class="blog-editorial-link">
-            Empezar por la bienvenida
-          </a>
-        </aside>
+        <p class="blog-kicker">Blog TEMOTIVA</p>
+        <h1 id="blog-hero-title" class="blog-title">
+          Lecturas para días con demasiadas cosas en la cabeza
+        </h1>
+        <p class="blog-subtitle">
+          Pequeños textos pensados para leer sin prisa, cuando necesitas
+          <em>bajar una marcha</em> y entenderte un poco mejor.
+        </p>
+        <p class="blog-quote">
+          «No hace falta leer mucho, solo lo suficiente para que algo dentro de ti
+          respire un poco más tranquilo.»
+        </p>
       </div>
     </section>
 
-    <!-- LISTADO + SIDEBAR -->
-    <section class="blog-section" aria-labelledby="blog-list-title">
+    <!-- LISTADO DE LAS 3 ENTRADAS -->
+    <section class="blog-main">
       <div class="container blog-layout">
-        <div>
-          <h2 id="blog-list-title">Últimas entradas</h2>
-          <p class="blog-lead">
-            De momento el blog empieza con pocas piezas. La idea es que cada lectura tenga sentido por sí misma y puedas volver a ella cuando lo necesites.
+        <section aria-labelledby="blog-list-title">
+          <h2 id="blog-list-title" class="blog-section-title">Últimas lecturas</h2>
+          <p class="blog-section-text">
+            De momento el blog tiene tres piezas. Puedes entrar en la que más
+            resuene contigo hoy, y volver cuando lo necesites. <em>No hay orden
+            obligatorio.</em>
           </p>
 
-          <div class="blog-grid">
-            <!-- Entrada existente: Bienvenida -->
-            <article class="blog-card">
+          <ul class="blog-list">
+            <!-- 1. Bienvenida -->
+            <li class="blog-item">
               <a href="/blog/bienvenida.html">
-                <p class="blog-card-label">Introducción</p>
-                <h3>Bienvenida</h3>
-                <p>
-                  Una primera mirada a qué es TEMOTIVA, por qué nace este espacio y cómo puede acompañarte en tu bienestar emocional diario.
+                <p class="blog-item-kicker">Introducción</p>
+                <h2>Bienvenida</h2>
+                <p class="blog-item-lead">
+                  Una primera mirada al proyecto: por qué existe este espacio y cómo
+                  puede acompañarte cuando tu cabeza va más rápido que tu cuerpo.
                 </p>
-                <div class="blog-card-meta">
+                <div class="blog-item-meta">
                   <span>Lectura breve</span>
                   <span>Contenido atemporal</span>
                 </div>
               </a>
-            </article>
+            </li>
 
-            <!-- Plantillas comentadas para futuras entradas -->
-            <!--
-            <article class="blog-card">
-              <a href="/blog/como-parar-en-dias-de-mucho-ruido.html">
-                <p class="blog-card-label">Bienestar cotidiano</p>
-                <h3>Cómo parar en días de mucho ruido</h3>
-                <p>
-                  Pequeñas ideas para bajar una marcha cuando todo va rápido, sin sentir que estás perdiendo el tiempo.
+            <!-- 2. Bienvenidas -->
+            <li class="blog-item">
+              <a href="/blog/bienvenidas.html">
+                <p class="blog-item-kicker">Reflexión</p>
+                <h2>Bienvenidas las que llegan cansadas</h2>
+                <p class="blog-item-lead">
+                  Un texto pensado para quienes llegan aquí con cansancio acumulado,
+                  dudas y muchas pestañas abiertas en la mente. Un pequeño
+                  <em>descanso leído</em>.
                 </p>
-                <div class="blog-card-meta">
-                  <span>5 minutos</span>
-                  <span>Práctico</span>
+                <div class="blog-item-meta">
+                  <span>Para días grises</span>
+                  <span>Enfoque amable</span>
                 </div>
               </a>
-            </article>
+            </li>
 
-            <article class="blog-card">
-              <a href="/blog/autocuidado-sin-listas-infinitas.html">
-                <p class="blog-card-label">Autocuidado</p>
-                <h3>Autocuidado sin listas infinitas</h3>
-                <p>
-                  Cómo transformar el autocuidado en pequeños gestos sostenibles, en lugar de otra lista de exigencias.
+            <!-- 3. Beneficios meditación -->
+            <li class="blog-item">
+              <a href="/blog/beneficios-meditacion.html">
+                <p class="blog-item-kicker">Meditación</p>
+                <h2>Beneficios de la meditación cuando tu mente no para</h2>
+                <p class="blog-item-lead">
+                  Más que una técnica de moda, una forma sencilla de darle un poco
+                  de espacio a tus pensamientos y a tu cuerpo, sin obligarte a
+                  dejar la mente en blanco.
                 </p>
-                <div class="blog-card-meta">
-                  <span>6 minutos</span>
-                  <span>Ideas aplicables</span>
+                <div class="blog-item-meta">
+                  <span>Bienestar emocional</span>
+                  <span>Uso cotidiano</span>
                 </div>
               </a>
-            </article>
-            -->
-          </div>
-        </div>
+            </li>
+          </ul>
+        </section>
 
-        <!-- Sidebar editorial con enlaces a otras zonas de la web -->
-        <aside class="blog-sidebar" aria-label="Navegación editorial">
-          <div class="blog-side-block">
-            <h3>Si hoy necesitas algo más práctico</h3>
-            <ul class="blog-side-list">
-              <li><a href="/recursos.html">Ir a recursos descargables</a></li>
-              <li><a href="/demo.html">Ver cómo funciona la app</a></li>
-              <li><a href="/particular.html">Consultar talleres y actividades</a></li>
+        <!-- COLUMNA LATERAL -->
+        <aside class="blog-side" aria-label="Otras formas de seguir explorando">
+          <div class="blog-note-block">
+            <h3 class="blog-note-title">Si hoy necesitas algo más práctico</h3>
+            <p class="blog-note-text">
+              Puedes combinar estas lecturas con recursos o ejercicios breves.
+              A veces leer ayuda, y otras veces lo que hace falta es
+              <em>pasar a una acción pequeña</em>.
+            </p>
+            <ul class="blog-links">
+              <li><a href="/recursos.html">Ver recursos descargables</a></li>
+              <li><a href="/demo.html">Conocer mejor la app</a></li>
+              <li><a href="/particular.html">Explorar talleres para personas</a></li>
+              <li><a href="/organizacion.html">Opciones para equipos y entidades</a></li>
             </ul>
           </div>
 
-          <div class="blog-side-block">
-            <h3>Para leer más adelante</h3>
-            <p style="margin:0 0 .5rem;">
-              Puedes guardar esta página en favoritos y volver cuando te apetezca leer con calma. La idea es que este espacio crezca poco a poco.
-            </p>
-            <p style="margin:0;font-size:.9rem;opacity:.9;">
-              No hace falta seguirlo todo, solo quedarte con lo que te sirva.
+          <div class="blog-note-block">
+            <h3 class="blog-note-title">Volver cuando haga falta</h3>
+            <p class="blog-note-text">
+              Puedes guardar esta página en favoritos. La idea es que este blog
+              sea un lugar al que volver cuando algo se te hace cuesta arriba y
+              te viene bien leer <em>con calma</em>.
             </p>
           </div>
         </aside>
-      </div>
-    </section>
-
-    <!-- CTA DE AVISOS -->
-    <section class="blog-section alt" id="blog-cta" aria-labelledby="blog-cta-title">
-      <div class="container blog-cta-wrap">
-        <h2 id="blog-cta-title">Recibir avisos puntuales</h2>
-        <p class="blog-lead">
-          Si quieres saber cuándo publiquemos algo que pueda ayudarte, puedes dejar tu correo. Sin newsletters largas, solo avisos concretos.
-        </p>
-
-        <div class="blog-cta-card">
-          <form id="blogContactForm" class="form-pro" action="https://formspree.io/f/xnnobrvn" method="post">
-            <input type="hidden" name="_subject" value="Interés en novedades del blog TEMOTIVA">
-            <input type="hidden" name="_language" value="es">
-
-            <div class="blog-cta-form-row">
-              <div>
-                <label for="blog-email" class="blog-label-small">Correo electrónico</label>
-                <input id="blog-email" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="correo@ejemplo.com">
-              </div>
-              <div>
-                <label for="blog-int" class="blog-label-small">Qué te interesa más leer</label>
-                <select id="blog-int" name="interes">
-                  <option value="">Selecciona una opción</option>
-                  <option value="bienestar_cotidiano">Bienestar cotidiano</option>
-                  <option value="autocuidado">Autocuidado y hábitos</option>
-                  <option value="emociones_duras">Emociones difíciles</option>
-                  <option value="todo">Un poco de todo</option>
-                </select>
-              </div>
-            </div>
-
-            <div style="margin-top:.9rem;">
-              <label class="checkline" for="blog-consent">
-                <input id="blog-consent" type="checkbox" name="consent" required>
-                <span>Acepto la <a href="/privacidad.html">política de privacidad</a>.</span>
-              </label>
-            </div>
-
-            <input type="text" name="_gotcha" aria-hidden="true" autocomplete="off" style="display:none !important;">
-
-            <div class="blog-cta-actions">
-              <button type="submit" class="btn">Recibir avisos</button>
-              <span>Solo correos puntuales cuando haya contenido relevante.</span>
-            </div>
-          </form>
-
-          <p class="blog-note">
-            También puedes volver cuando quieras sin dejar tu correo. El blog seguirá aquí, a tu ritmo.
-          </p>
-        </div>
       </div>
     </section>
   </main>
