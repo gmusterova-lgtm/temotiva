@@ -1,24 +1,483 @@
-<!DOCTYPE html><html lang="es"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Recursos | TEMOTIVA</title>
-<link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#F7F7F7">
-<link rel="stylesheet" href="/style.css">
-</head><body>
-<header class="site-header"><div class="container nav">
-  <a href="/inicio.html" class="logo" style="display:flex;gap:8px;align-items:center;text-decoration:none;color:inherit;">
-    <img src="/icon-192.png" alt="Logo" style="width:32px;height:32px;border-radius:8px;"><span>TEMOTIVA</span>
-  </a>
-</div></header>
-<main class="section"><div class="container">
-  <h1>Recursos</h1>
-  <p>Plantillas imprimibles, guías de respiración y micro ejercicios. Empieza por lo simple, descarga lo que te sirva.</p>
-  <ul>
-    <li><a href="#">Checklist de chequeo diario</a></li>
-    <li><a href="#">Guía rápida de respiración</a></li>
-    <li><a href="#">Plan de acción de 5 minutos</a></li>
-  </ul>
-</div></main>
-<footer class="site-footer"><div class="container">
-  <a href="/privacidad.html">Política de privacidad</a>
-</div></footer>
-</body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>Recursos de bienestar emocional | TEMOTIVA</title>
+
+  <meta name="description" content="Recursos de bienestar emocional en formato breve: guías, ejercicios y plantillas para cuidarte en tu día a día. Material pensado para personas adultas con alta carga mental.">
+  <meta name="keywords" content="recursos bienestar emocional, guías autocuidado, ejercicios regulación emocional, plantillas de autocuidado, diario emocional, bienestar en la vida diaria, materiales descargables">
+
+  <link rel="canonical" href="https://www.temotiva.com/recursos.html">
+  <link rel="stylesheet" href="/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"CollectionPage",
+    "name":"Recursos de bienestar emocional",
+    "description":"Recursos breves de bienestar emocional para uso personal o en grupo.",
+    "about":[
+      "autocuidado",
+      "regulación emocional",
+      "bienestar en la vida cotidiana"
+    ],
+    "isPartOf":{
+      "@type":"WebSite",
+      "name":"TEMOTIVA",
+      "url":"https://www.temotiva.com"
+    }
+  }
+  </script>
+
+  <style>
+    .res-hero{
+      padding:4.5rem 0 4rem;
+      background:linear-gradient(135deg,#f7f7fb,#f0f4ff);
+    }
+    .res-hero-inner{
+      max-width:960px;
+      margin:0 auto;
+      display:grid;
+      gap:2rem;
+    }
+    @media (min-width:880px){
+      .res-hero-inner{
+        grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);
+        align-items:center;
+      }
+    }
+    .res-eyebrow{
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.78rem;
+      opacity:.8;
+      margin:0 0 .35rem;
+    }
+    .res-title{
+      margin:0 0 .7rem;
+      font-size:clamp(1.9rem,3vw,2.4rem);
+    }
+    .res-hero-text{
+      max-width:44ch;
+      margin:0 0 1.2rem;
+    }
+    .res-hero-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      font-size:.9rem;
+      opacity:.9;
+      margin-top:.9rem;
+    }
+    .res-hero-meta span:nth-child(2n){
+      opacity:.5;
+    }
+    .res-hero-side{
+      display:flex;
+      flex-direction:column;
+      gap:.8rem;
+    }
+    .res-pill{
+      background:#fff;
+      border-radius:14px;
+      padding:1rem 1.1rem;
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+      border:1px solid rgba(0,0,0,.04);
+      font-size:.95rem;
+    }
+    .res-pill h3{
+      margin:0 0 .5rem;
+      font-size:.98rem;
+    }
+    .res-pill ul{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:.35rem;
+      font-size:.9rem;
+    }
+
+    .res-section{
+      padding:3.5rem 0;
+    }
+    .res-section.alt{
+      background:#f7f7f9;
+    }
+    .res-section h2{
+      margin:0 0 .5rem;
+      font-size:clamp(1.4rem,2.3vw,1.8rem);
+    }
+    .res-lead{
+      max-width:60ch;
+      margin:0 0 1.4rem;
+      opacity:.95;
+    }
+
+    .res-grid{
+      display:grid;
+      gap:1rem;
+    }
+    @media (min-width:820px){
+      .res-grid.cols-3{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+      .res-grid.cols-2{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+
+    .res-card{
+      background:#fff;
+      border-radius:14px;
+      padding:1rem 1.05rem;
+      box-shadow:0 8px 24px rgba(0,0,0,.04);
+      border:1px solid rgba(0,0,0,.04);
+      font-size:.95rem;
+    }
+    .res-card h3{
+      margin:.1rem 0 .4rem;
+      font-size:1rem;
+    }
+    .res-card p{
+      margin:0;
+      line-height:1.6;
+      opacity:.95;
+    }
+
+    .res-tagline{
+      font-size:.9rem;
+      opacity:.85;
+      margin-top:.4rem;
+    }
+
+    .res-chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      margin-top:.8rem;
+      font-size:.88rem;
+      opacity:.9;
+    }
+    .res-chip{
+      padding:.35rem .8rem;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,.08);
+      background:#fff;
+    }
+
+    .res-list{
+      margin-top:1rem;
+      display:grid;
+      gap:.8rem;
+      font-size:.94rem;
+    }
+    .res-item-header{
+      display:flex;
+      justify-content:space-between;
+      gap:.8rem;
+      align-items:center;
+      font-size:.9rem;
+      opacity:.9;
+    }
+    .res-item-label{
+      font-size:.82rem;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      opacity:.7;
+    }
+    .res-item-tag{
+      padding:.1rem .6rem;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,.12);
+      font-size:.78rem;
+    }
+
+    .res-steps{
+      display:grid;
+      gap:1rem;
+    }
+    @media (min-width:820px){
+      .res-steps{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+    }
+    .res-step-label{
+      display:inline-block;
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      opacity:.7;
+      margin-bottom:.25rem;
+    }
+
+    .res-cta-wrap{
+      max-width:720px;
+      margin:0 auto;
+    }
+    .res-cta-card{
+      background:#fff;
+      border-radius:16px;
+      padding:1.5rem 1.4rem;
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+      border:1px solid rgba(0,0,0,.04);
+      font-size:.95rem;
+    }
+    .res-cta-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      align-items:center;
+      margin-top:1rem;
+      font-size:.9rem;
+    }
+
+    @media (max-width:600px){
+      .res-hero-text,
+      .res-lead,
+      .res-card p{
+        font-size:.98rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container nav">
+      <a href="/inicio.html" class="logo" aria-label="Ir a inicio">
+        <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
+        <span>TEMOTIVA</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Menú principal">
+        <a href="/demo.html">App</a>
+        <a href="/particular.html">Talleres</a>
+        <a href="/organizacion.html">Organizaciones</a>
+        <a href="/recursos.html" class="active" aria-current="page">Recursos</a>
+        <a href="/blog/index.html">Blog</a>
+        <a href="/temotiva-lab.html">TEMOTIVA LAB</a>
+        <a href="/ctl.html">CTL</a>
+        <a href="/contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content" role="main">
+    <!-- HERO -->
+    <section class="section res-hero" id="res-hero" aria-labelledby="res-hero-title">
+      <div class="container res-hero-inner">
+        <div>
+          <p class="res-eyebrow">Material para usar en tu día a día</p>
+          <h1 id="res-hero-title" class="res-title">
+            Recursos de bienestar emocional fáciles de usar
+          </h1>
+          <p class="res-hero-text">
+            Guías, ejercicios y plantillas sencillas para parar, revisar cómo estás y darte un poco más de cuidado sin complicarte la vida.
+          </p>
+
+          <div class="cta-row" style="margin-top:.9rem;display:flex;flex-wrap:wrap;gap:.6rem;">
+            <a href="#res-basicos" class="btn">Ver recursos básicos</a>
+            <a href="#res-cta" class="btn secondary">Quiero que me avisen de nuevos recursos</a>
+          </div>
+
+          <div class="res-hero-meta">
+            <span>Formato breve</span>
+            <span>·</span>
+            <span>Lenguaje sencillo</span>
+            <span>·</span>
+            <span>Uso personal o en grupo</span>
+          </div>
+        </div>
+
+        <div class="res-hero-side">
+          <div class="res-pill">
+            <h3>Para qué están pensados</h3>
+            <ul>
+              <li>Para días en los que necesitas algo claro, no cien páginas.</li>
+              <li>Para acompañar procesos personales, terapia o talleres.</li>
+              <li>Para usar en tu vida diaria, en clase o con equipos pequeños.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categorías de recursos -->
+    <section class="res-section" id="res-basicos" aria-labelledby="res-basicos-title">
+      <div class="container">
+        <h2 id="res-basicos-title">Tipos de recursos que encontrarás</h2>
+        <p class="res-lead">
+          Todos tienen un objetivo común, ayudarte a entender cómo estás y a pasar a una acción pequeña posible.
+        </p>
+
+        <div class="res-grid cols-3">
+          <article class="res-card">
+            <h3>Ejercicios rápidos</h3>
+            <p>
+              Prácticas de pocos minutos para bajar intensidad, ordenar un poco la cabeza o reconectar con el cuerpo.
+            </p>
+          </article>
+          <article class="res-card">
+            <h3>Guías y mini cuadernos</h3>
+            <p>
+              Materiales en PDF con pasos sencillos y ejemplos para trabajar un tema concreto como límites, descanso o autoexigencia.
+            </p>
+          </article>
+          <article class="res-card">
+            <h3>Plantillas y checklists</h3>
+            <p>
+              Hojas imprimibles o digitales para hacer seguimiento de tu autocuidado y ver tu progreso sin agobios.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lista ejemplo recursos (puedes ir añadiendo enlaces reales) -->
+    <section class="res-section alt" id="res-lista" aria-labelledby="res-lista-title">
+      <div class="container">
+        <h2 id="res-lista-title">Algunos recursos clave</h2>
+        <p class="res-lead">
+          Aquí puedes ir incorporando los materiales a medida que los tengas listos. De momento, una propuesta de estructura.
+        </p>
+
+        <div class="res-list">
+          <article class="res-card">
+            <div class="res-item-header">
+              <div>
+                <span class="res-item-label">Ejercicio rápido</span>
+                <h3>Parar tres minutos para ver cómo estoy</h3>
+              </div>
+              <span class="res-item-tag">Duración aproximada 3 a 5 min</span>
+            </div>
+            <p>
+              Pequeño ejercicio guiado para revisar cómo está tu cuerpo, tus pensamientos y tus emociones, y decidir una sola cosa que puedas hacer por ti ese día.
+            </p>
+            <!-- En el futuro: <a href="/recursos/parar-tres-minutos.pdf">Descargar PDF</a> -->
+          </article>
+
+          <article class="res-card">
+            <div class="res-item-header">
+              <div>
+                <span class="res-item-label">Plantilla</span>
+                <h3>Diario suave de bienestar semanal</h3>
+              </div>
+              <span class="res-item-tag">Uso continuo</span>
+            </div>
+            <p>
+              Hoja sencilla para anotar un momento al día en el que te has cuidado un poco, sin juicios ni listas largas.
+            </p>
+          </article>
+
+          <article class="res-card">
+            <div class="res-item-header">
+              <div>
+                <span class="res-item-label">Mini guía</span>
+                <h3>Cuando la cabeza no para por la noche</h3>
+              </div>
+              <span class="res-item-tag">Lectura breve</span>
+            </div>
+            <p>
+              Ideas prácticas para esos momentos de rumiación nocturna, con pasos pequeños para bajar intensidad y preparar el descanso.
+            </p>
+          </article>
+        </div>
+
+        <p class="res-tagline">
+          Puedes usar estos recursos por tu cuenta o combinarlos con la app y los talleres cuando estén disponibles.
+        </p>
+      </div>
+    </section>
+
+    <!-- Cómo usar los recursos -->
+    <section class="res-section" id="res-uso" aria-labelledby="res-uso-title">
+      <div class="container">
+        <h2 id="res-uso-title">Cómo sacarle más partido a los materiales</h2>
+
+        <div class="res-steps">
+          <article class="res-card">
+            <span class="res-step-label">Paso 1</span>
+            <h3>Empieza por algo muy pequeño</h3>
+            <p>
+              Elige un solo recurso y pruébalo unos días, sin objetivo de perfección, solo de curiosidad.
+            </p>
+          </article>
+          <article class="res-card">
+            <span class="res-step-label">Paso 2</span>
+            <h3>Ajusta a tu realidad</h3>
+            <p>
+              Adapta las propuestas a tu energía, tu tiempo y tu forma de ser. No hace falta hacerlo todo.
+            </p>
+          </article>
+          <article class="res-card">
+            <span class="res-step-label">Paso 3</span>
+            <h3>Conecta con otras personas</h3>
+            <p>
+              Si quieres, puedes usar algunos materiales en grupo, en clase o con tu equipo, para abrir conversaciones sobre bienestar.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA novedades recursos -->
+    <section class="res-section alt" id="res-cta" aria-labelledby="res-cta-title">
+      <div class="container res-cta-wrap">
+        <h2 id="res-cta-title">Quiero saber cuándo haya nuevos recursos</h2>
+        <p class="res-lead">
+          Si te interesa recibir avisos puntuales cuando se publiquen materiales nuevos, puedes dejar tu correo.
+        </p>
+
+        <div class="res-cta-card">
+          <form id="resContactForm" class="form-pro" action="https://formspree.io/f/xnnobrvn" method="post">
+            <input type="hidden" name="_subject" value="Interés en nuevos recursos de bienestar emocional">
+            <input type="hidden" name="_language" value="es">
+
+            <label for="res-email" class="pt-label-small">Correo electrónico</label>
+            <input id="res-email" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="correo@ejemplo.com">
+
+            <div style="margin-top:.9rem;">
+              <label class="pt-label-small" for="res-perfil">Perfil aproximado</label>
+              <select id="res-perfil" name="perfil">
+                <option value="">Selecciona una opción</option>
+                <option value="uso_personal">Uso personal</option>
+                <option value="profesional_ayuda">Profesional de la ayuda o la educación</option>
+                <option value="organizacion">Uso con equipos o grupos</option>
+              </select>
+            </div>
+
+            <div style="margin-top:.9rem;">
+              <label class="pt-label-small" for="res-msg">Qué tipo de recursos te interesan</label>
+              <textarea id="res-msg" name="mensaje" rows="3" placeholder="Por ejemplo, ejercicios rápidos, plantillas, materiales para usar en grupo."></textarea>
+            </div>
+
+            <div style="margin-top:.9rem;">
+              <label class="checkline" for="res-consent">
+                <input id="res-consent" type="checkbox" name="consent" required>
+                <span>Acepto la <a href="/privacidad.html">política de privacidad</a>.</span>
+              </label>
+            </div>
+
+            <input type="text" name="_gotcha" aria-hidden="true" autocomplete="off" style="display:none !important;">
+
+            <div class="res-cta-actions">
+              <button type="submit" class="btn">Recibir avisos</button>
+              <span>Solo correos puntuales cuando haya novedades importantes.</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
+      <p style="margin:0;">© TEMOTIVA desde 2024</p>
+      <div style="display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;">
+        <a href="/privacidad.html">Política de privacidad</a>
+        <a href="/cookies.html">Política de cookies</a>
+        <a href="/aviso-legal.html">Aviso legal</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
