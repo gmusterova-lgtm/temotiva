@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <title>TEMOTIVA para organizaciones | Bienestar emocional para equipos</title>
-  <meta name="description" content="App y microprácticas de bienestar emocional para equipos con alta carga emocional. Soluciones ligeras para centros educativos, servicios sociales, ONG y pequeñas empresas.">
+
+  <meta name="description" content="TEMOTIVA ofrece una app y microprácticas de bienestar emocional para equipos con alta carga emocional. Soluciones sencillas para centros educativos, servicios sociales, ONG y pequeñas empresas.">
+  <meta name="keywords" content="bienestar emocional para equipos, app bienestar emocional, autocuidado en organizaciones, prevención del desgaste emocional, salud mental en el trabajo, carga emocional en equipos, bienestar para docentes, bienestar para servicios sociales">
 
   <link rel="canonical" href="https://www.temotiva.com/organizacion.html">
   <link rel="stylesheet" href="/style.css">
@@ -21,11 +23,16 @@
       "url":"https://www.temotiva.com"
     },
     "areaServed":"ES",
-    "description":"Soluciones ligeras de bienestar emocional para equipos con alta carga emocional, a través de una app y microprácticas."
+    "serviceType":"Bienestar emocional para equipos",
+    "description":"Soluciones ligeras de bienestar emocional para equipos con alta carga emocional, a través de una app y microprácticas sencillas.",
+    "audience":{
+      "@type":"Audience",
+      "audienceType":"Centros educativos, servicios sociales, ONG, asociaciones y pequeñas empresas"
+    }
   }
   </script>
 
-  <!-- Estilos específicos de esta página para que no se desajuste nada -->
+  <!-- Estilos específicos de esta página -->
   <style>
     .org-hero{
       padding:4.5rem 0 4rem;
@@ -55,8 +62,11 @@
       font-size:clamp(1.9rem,3vw,2.4rem);
     }
     .org-hero-text{
-      max-width:40ch;
+      max-width:42ch;
       margin:0 0 1.2rem;
+    }
+    .org-hero-text strong{
+      font-weight:600;
     }
     .org-hero-meta{
       display:flex;
@@ -94,8 +104,10 @@
       display:grid;
       gap:.35rem;
     }
+    .org-pill-list strong{
+      font-weight:600;
+    }
 
-    /* Secciones genéricas de esta página */
     .org-section{
       padding:3.5rem 0;
     }
@@ -106,10 +118,16 @@
       margin:0 0 .5rem;
       font-size:clamp(1.4rem,2.3vw,1.8rem);
     }
+    .org-section h2 strong{
+      font-weight:700;
+    }
     .org-lead{
       max-width:60ch;
       margin:0 0 1.4rem;
       opacity:.95;
+    }
+    .org-lead strong{
+      font-weight:600;
     }
 
     .org-grid{
@@ -132,14 +150,19 @@
       margin:.1rem 0 .4rem;
       font-size:1rem;
     }
+    .org-card h3 strong{
+      font-weight:700;
+    }
     .org-card p{
       margin:0;
       font-size:.95rem;
       line-height:1.6;
       opacity:.95;
     }
+    .org-card p strong{
+      font-weight:600;
+    }
 
-    /* Chips sectores */
     .org-chips{
       display:flex;
       flex-wrap:wrap;
@@ -155,16 +178,6 @@
       box-shadow:0 4px 12px rgba(0,0,0,.03);
     }
 
-    /* Pasos */
-    .org-steps{
-      display:grid;
-      gap:1rem;
-    }
-    @media (min-width:820px){
-      .org-steps{
-        grid-template-columns:repeat(3,minmax(0,1fr));
-      }
-    }
     .org-step-label{
       display:inline-block;
       font-size:.8rem;
@@ -174,7 +187,6 @@
       margin-bottom:.25rem;
     }
 
-    /* Formulario */
     .org-form-wrap{
       max-width:720px;
       margin:0 auto;
@@ -198,6 +210,15 @@
     .org-form-footer small{
       font-size:.9rem;
       opacity:.85;
+    }
+
+    /* Pequeño ajuste para lectura fácil en móviles */
+    @media (max-width:600px){
+      .org-hero-text,
+      .org-lead,
+      .org-card p{
+        font-size:.98rem;
+      }
     }
   </style>
 </head>
@@ -225,17 +246,18 @@
   </header>
 
   <main class="content" role="main">
-    <!-- HERO: dolor muy claro, layout estable -->
+    <!-- HERO -->
     <section class="section org-hero" id="org-hero" aria-labelledby="org-hero-title">
       <div class="container org-hero-inner">
         <div>
           <p class="org-eyebrow">Equipos que cuidan, equipos que se desgastan</p>
           <h1 id="org-hero-title" class="org-title">
-            Bienestar emocional ligero para equipos con mucha carga
+            <strong>Bienestar emocional para equipos y organizaciones</strong>
           </h1>
           <p class="org-hero-text">
-            Temotiva ayuda a que las personas de tu organización sepan qué hacer cuando se sienten saturadas,
-            con una app sencilla y microprácticas que caben en el día real.
+            <strong>TEMOTIVA</strong> ayuda a que las personas de tu organización sepan
+            <strong>qué hacer cuando se sienten saturadas</strong>, con una
+            <strong>app de bienestar emocional</strong> y microprácticas que caben en el día real.
           </p>
 
           <div class="cta-row" style="margin-top:.9rem;display:flex;flex-wrap:wrap;gap:.6rem;">
@@ -254,11 +276,11 @@
 
         <div class="org-hero-side">
           <div class="org-pill-card">
-            <p class="org-pill-title">Lo que suele pasar en los equipos</p>
+            <p class="org-pill-title">El punto de dolor de tu equipo</p>
             <ul class="org-pill-list">
-              <li>Personas que acompañan a otras sin tiempo para sí mismas.</li>
-              <li>Desgaste emocional que no se ve en los informes, pero sí en el día a día.</li>
-              <li>Mucha teoría sobre bienestar, pocas guías claras para aplicar mañana.</li>
+              <li><strong>Mucho cuidado hacia otras personas</strong> y poco espacio para cuidarse a sí mismas.</li>
+              <li><strong>Desgaste emocional silencioso</strong> que no siempre aparece en los informes, pero sí en el clima.</li>
+              <li><strong>Información hay mucha</strong>, pero faltan guías claras y cortas para usar mañana mismo.</li>
             </ul>
           </div>
         </div>
@@ -268,28 +290,32 @@
     <!-- Qué hace TEMOTIVA por el equipo -->
     <section class="org-section" id="org-oferta" aria-labelledby="org-oferta-title">
       <div class="container">
-        <h2 id="org-oferta-title">Qué hace Temotiva por tu equipo</h2>
+        <h2 id="org-oferta-title"><strong>Qué hace TEMOTIVA por tu equipo</strong></h2>
         <p class="org-lead">
-          Tres módulos que se pueden combinar según el tamaño y las necesidades de tu organización.
+          Tres piezas sencillas que puedes combinar según las necesidades de tu organización. Todo centrado en
+          <strong>bienestar emocional cotidiano</strong> y <strong>autocuidado realista</strong>.
         </p>
 
         <div class="org-grid cols-3">
           <article class="org-card">
-            <h3>App para el día a día</h3>
+            <h3><strong>App para el día a día</strong></h3>
             <p>
-              Rutas guiadas, chequeos rápidos y microprácticas que cada persona puede usar cuando se siente en piloto automático, saturada o sin energía.
+              <strong>Rutas guiadas y chequeos rápidos</strong> que cada persona puede usar cuando se siente en piloto automático,
+              saturada o sin energía. Pensada para equipos con alta carga emocional.
             </p>
           </article>
           <article class="org-card">
-            <h3>Sesiones breves y aplicadas</h3>
+            <h3><strong>Sesiones breves y aplicadas</strong></h3>
             <p>
-              Talleres de 60 a 90 minutos centrados en regulación emocional y autocuidado sostenible, pensados para encajar en agendas llenas.
+              <strong>Talleres de 60 a 90 minutos</strong> centrados en regulación emocional y autocuidado sostenible.
+              Muy prácticos y con poco contenido teórico, para encajar en agendas llenas.
             </p>
           </article>
           <article class="org-card">
-            <h3>Itinerarios ligeros de bienestar</h3>
+            <h3><strong>Itinerarios ligeros de bienestar</strong></h3>
             <p>
-              Programas cortos que combinan app y pequeñas acciones para integrar el cuidado emocional en la cultura del equipo, sin grandes despliegues.
+              <strong>Programas cortos</strong> que combinan app y pequeñas acciones en equipo. El objetivo es
+              integrar el cuidado emocional en la cultura de la organización, sin grandes despliegues.
             </p>
           </article>
         </div>
@@ -299,9 +325,9 @@
     <!-- Sectores en chips -->
     <section class="org-section alt" id="org-sectores" aria-labelledby="org-sectores-title">
       <div class="container">
-        <h2 id="org-sectores-title">Pensado para equipos que trabajan con personas</h2>
+        <h2 id="org-sectores-title"><strong>Pensado para equipos que trabajan con personas</strong></h2>
         <p class="org-lead">
-          Especialmente útil donde la carga emocional es alta y el tiempo es limitado.
+          TEMOTIVA es especialmente útil donde la <strong>carga emocional</strong> es alta y el tiempo es muy limitado.
         </p>
 
         <div class="org-chips">
@@ -318,28 +344,31 @@
     <!-- Por qué funciona -->
     <section class="org-section" id="org-por-que" aria-labelledby="org-por-que-title">
       <div class="container">
-        <h2 id="org-por-que-title">Por qué funciona en la práctica</h2>
+        <h2 id="org-por-que-title"><strong>Por qué funciona en la práctica</strong></h2>
 
         <div class="org-grid cols-3">
           <article class="org-card">
             <span class="org-step-label">Impacto</span>
-            <h3>Encaja en agendas reales</h3>
+            <h3><strong>Encaja en agendas reales</strong></h3>
             <p>
-              Prácticas de pocos minutos que se pueden usar antes o después de reuniones, cambios de turno o cierre de jornada.
+              <strong>Microprácticas de pocos minutos</strong> que pueden usarse antes o después de una reunión,
+              en cambios de turno o al cerrar la jornada.
             </p>
           </article>
           <article class="org-card">
             <span class="org-step-label">Lenguaje</span>
-            <h3>Sin etiquetas, con respeto</h3>
+            <h3><strong>Sin etiquetas, con respeto</strong></h3>
             <p>
-              Mensajes claros y cercanos, centrados en bienestar y autocuidado, no en diagnóstico clínico.
+              Mensajes claros y cercanos, orientados a <strong>bienestar emocional y autocuidado</strong>,
+              sin diagnóstico ni lenguaje clínico.
             </p>
           </article>
           <article class="org-card">
             <span class="org-step-label">Continuidad</span>
-            <h3>Más que un taller puntual</h3>
+            <h3><strong>Más que un taller puntual</strong></h3>
             <p>
-              La app refuerza en el día a día lo que se trabaja en las sesiones, para que el cambio no se quede en un solo día.
+              La app mantiene vivo lo trabajado en las sesiones. Eso facilita que el cambio no se quede en un solo día,
+              sino en pequeños hábitos.
             </p>
           </article>
         </div>
@@ -349,19 +378,21 @@
     <!-- Quién impulsa -->
     <section class="org-section alt" id="org-confianza" aria-labelledby="org-confianza-title">
       <div class="container">
-        <h2 id="org-confianza-title">Quién impulsa Temotiva</h2>
+        <h2 id="org-confianza-title"><strong>Quién impulsa TEMOTIVA</strong></h2>
 
         <div class="org-grid cols-2">
           <article class="org-card">
-            <h3>Temotiva LAB</h3>
+            <h3><strong>TEMOTIVA LAB</strong></h3>
             <p>
-              Equipo que diseña la app y las experiencias, uniendo psicología aplicada, diseño accesible y bienestar emocional cotidiano.
+              Equipo que diseña la <strong>app de bienestar emocional</strong> y las experiencias asociadas,
+              uniendo psicología aplicada, diseño accesible y cuidado cotidiano.
             </p>
           </article>
           <article class="org-card">
-            <h3>Cognitiva Tech Lab</h3>
+            <h3><strong>Cognitiva Tech Lab</strong></h3>
             <p>
-              Entidad que impulsa proyectos con impacto social y educativo, entre ellos Temotiva, con tecnología al servicio del cuidado emocional.
+              Entidad que impulsa proyectos con <strong>impacto social y educativo</strong>, entre ellos TEMOTIVA,
+              poniendo la tecnología al servicio del autocuidado y el bienestar emocional.
             </p>
           </article>
         </div>
@@ -371,9 +402,9 @@
     <!-- Formulario -->
     <section class="org-section" id="org-form" aria-labelledby="org-form-title">
       <div class="container org-form-wrap">
-        <h2 id="org-form-title">Cuéntanos qué necesita tu equipo</h2>
+        <h2 id="org-form-title"><strong>Cuéntanos qué necesita tu equipo</strong></h2>
         <p class="org-lead">
-          Te responderemos con una propuesta ligera y ajustada a vuestro contexto.
+          Te responderemos con una propuesta <strong>ligera</strong> y <strong>adaptada a tu contexto</strong>.
         </p>
 
         <form id="orgContactForm" class="form-pro" action="https://formspree.io/f/xnnobrvn" method="post">
