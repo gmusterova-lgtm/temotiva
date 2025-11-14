@@ -24,6 +24,182 @@
     "description":"Soluciones ligeras de bienestar emocional para equipos con alta carga emocional, a través de una app y microprácticas."
   }
   </script>
+
+  <!-- Estilos específicos de esta página para que no se desajuste nada -->
+  <style>
+    .org-hero{
+      padding:4.5rem 0 4rem;
+      background:linear-gradient(135deg,#f7f7fb,#f0f4ff);
+    }
+    .org-hero-inner{
+      max-width:1000px;
+      margin:0 auto;
+      display:grid;
+      gap:2rem;
+    }
+    @media (min-width:900px){
+      .org-hero-inner{
+        grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);
+        align-items:center;
+      }
+    }
+    .org-eyebrow{
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.78rem;
+      opacity:.8;
+      margin:0 0 .35rem;
+    }
+    .org-title{
+      margin:0 0 .7rem;
+      font-size:clamp(1.9rem,3vw,2.4rem);
+    }
+    .org-hero-text{
+      max-width:40ch;
+      margin:0 0 1.2rem;
+    }
+    .org-hero-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      font-size:.9rem;
+      opacity:.9;
+      margin-top:.9rem;
+    }
+    .org-hero-meta span:nth-child(2n){
+      opacity:.5;
+    }
+    .org-hero-side{
+      display:flex;
+      flex-direction:column;
+      gap:.8rem;
+    }
+    .org-pill-card{
+      background:#fff;
+      border-radius:14px;
+      padding:1rem 1.1rem;
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+      border:1px solid rgba(0,0,0,.04);
+    }
+    .org-pill-title{
+      margin:0 0 .4rem;
+      font-size:.95rem;
+      font-weight:600;
+    }
+    .org-pill-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      font-size:.9rem;
+      display:grid;
+      gap:.35rem;
+    }
+
+    /* Secciones genéricas de esta página */
+    .org-section{
+      padding:3.5rem 0;
+    }
+    .org-section.alt{
+      background:#f7f7f9;
+    }
+    .org-section h2{
+      margin:0 0 .5rem;
+      font-size:clamp(1.4rem,2.3vw,1.8rem);
+    }
+    .org-lead{
+      max-width:60ch;
+      margin:0 0 1.4rem;
+      opacity:.95;
+    }
+
+    .org-grid{
+      display:grid;
+      gap:1rem;
+    }
+    @media (min-width:820px){
+      .org-grid.cols-3{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+      .org-grid.cols-2{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+
+    .org-card{
+      background:#fff;
+      border-radius:14px;
+      padding:1rem 1.05rem;
+      box-shadow:0 8px 24px rgba(0,0,0,.04);
+      border:1px solid rgba(0,0,0,.04);
+    }
+    .org-card h3{
+      margin:.1rem 0 .4rem;
+      font-size:1rem;
+    }
+    .org-card p{
+      margin:0;
+      font-size:.95rem;
+      line-height:1.6;
+      opacity:.95;
+    }
+
+    /* Chips sectores */
+    .org-chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      margin-top:1rem;
+    }
+    .org-chip{
+      padding:.45rem .85rem;
+      border-radius:999px;
+      font-size:.9rem;
+      background:#fff;
+      border:1px solid rgba(0,0,0,.06);
+      box-shadow:0 4px 12px rgba(0,0,0,.03);
+    }
+
+    /* Pasos */
+    .org-steps{
+      display:grid;
+      gap:1rem;
+    }
+    @media (min-width:820px){
+      .org-steps{
+        grid-template-columns:repeat(3,minmax(0,1fr));
+      }
+    }
+    .org-step-label{
+      display:inline-block;
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      opacity:.7;
+      margin-bottom:.25rem;
+    }
+
+    /* Formulario */
+    .org-form-wrap{
+      max-width:720px;
+      margin:0 auto;
+    }
+    .org-form-row{
+      display:grid;
+      gap:.8rem;
+    }
+    @media (min-width:720px){
+      .org-form-row{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+    .org-form-footer{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      align-items:center;
+      margin-top:.9rem;
+    }
+    .org-form-footer small{
+      font-size:.9rem;
+      opacity:.85;
+    }
+  </style>
 </head>
 
 <body>
@@ -49,27 +225,25 @@
   </header>
 
   <main class="content" role="main">
-    <!-- HERO: punto de dolor muy claro -->
-    <section class="section hero" id="org-hero" aria-labelledby="org-hero-title">
-      <div class="container" style="display:grid;gap:1.8rem;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:center;">
-        <div class="u-col u-gap">
-          <p style="text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;opacity:.75;margin:0;">
-            Equipos que cuidan, equipos que se desgastan
-          </p>
-          <h1 id="org-hero-title" style="margin-top:.4rem;">
+    <!-- HERO: dolor muy claro, layout estable -->
+    <section class="section org-hero" id="org-hero" aria-labelledby="org-hero-title">
+      <div class="container org-hero-inner">
+        <div>
+          <p class="org-eyebrow">Equipos que cuidan, equipos que se desgastan</p>
+          <h1 id="org-hero-title" class="org-title">
             Bienestar emocional ligero para equipos con mucha carga
           </h1>
-          <p style="max-width:40ch;">
+          <p class="org-hero-text">
             Temotiva ayuda a que las personas de tu organización sepan qué hacer cuando se sienten saturadas,
             con una app sencilla y microprácticas que caben en el día real.
           </p>
 
-          <div class="cta-row" style="justify-content:flex-start;flex-wrap:wrap;">
+          <div class="cta-row" style="margin-top:.9rem;display:flex;flex-wrap:wrap;gap:.6rem;">
             <a href="#org-form" class="btn">Quiero información</a>
             <a href="/demo.html" class="btn secondary">Ver la app</a>
           </div>
 
-          <div class="u-flex u-gap-s u-mt" style="flex-wrap:wrap;font-size:.9rem;opacity:.85;">
+          <div class="org-hero-meta">
             <span>5 a 10 minutos por práctica</span>
             <span>·</span>
             <span>Enfoque preventivo</span>
@@ -78,124 +252,135 @@
           </div>
         </div>
 
-        <div class="u-col u-gap-xs">
-          <div class="card" style="padding:1rem 1.1rem;">
-            <h3 style="margin-top:0;">Dolores que solemos ver</h3>
-            <ul style="list-style:none;padding:0;margin:.6rem 0 0;font-size:.95rem;display:grid;gap:.4rem;">
-              <li>• Personas que acompañan a otras sin tiempo para sí mismas.</li>
-              <li>• Desgaste emocional que no llega a baja, pero sí a agotamiento.</li>
-              <li>• Mucho discurso sobre bienestar, pocas guías claras para el día a día.</li>
+        <div class="org-hero-side">
+          <div class="org-pill-card">
+            <p class="org-pill-title">Lo que suele pasar en los equipos</p>
+            <ul class="org-pill-list">
+              <li>Personas que acompañan a otras sin tiempo para sí mismas.</li>
+              <li>Desgaste emocional que no se ve en los informes, pero sí en el día a día.</li>
+              <li>Mucha teoría sobre bienestar, pocas guías claras para aplicar mañana.</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Tres bloques muy claros: qué aportas -->
-    <section class="section" id="org-oferta" aria-labelledby="org-oferta-title">
+    <!-- Qué hace TEMOTIVA por el equipo -->
+    <section class="org-section" id="org-oferta" aria-labelledby="org-oferta-title">
       <div class="container">
-        <h2 id="org-oferta-title" style="font-size:var(--h2);margin:0 0 .6rem;">Qué hace Temotiva por tu equipo</h2>
-        <div class="grid" style="margin-top:1.4rem;">
-          <article class="card">
+        <h2 id="org-oferta-title">Qué hace Temotiva por tu equipo</h2>
+        <p class="org-lead">
+          Tres módulos que se pueden combinar según el tamaño y las necesidades de tu organización.
+        </p>
+
+        <div class="org-grid cols-3">
+          <article class="org-card">
             <h3>App para el día a día</h3>
             <p>
-              Rutas guiadas, chequeos rápidos y microprácticas para usar justo cuando alguien se siente saturado o en piloto automático.
+              Rutas guiadas, chequeos rápidos y microprácticas que cada persona puede usar cuando se siente en piloto automático, saturada o sin energía.
             </p>
           </article>
-          <article class="card">
+          <article class="org-card">
             <h3>Sesiones breves y aplicadas</h3>
             <p>
-              Talleres de 60 a 90 minutos con ejercicios que se pueden trasladar al trabajo al día siguiente, sin teoría infinita.
+              Talleres de 60 a 90 minutos centrados en regulación emocional y autocuidado sostenible, pensados para encajar en agendas llenas.
             </p>
           </article>
-          <article class="card">
+          <article class="org-card">
             <h3>Itinerarios ligeros de bienestar</h3>
             <p>
-              Programas cortos que combinan app y pequeñas acciones para integrar el autocuidado en la cultura del equipo de forma realista.
+              Programas cortos que combinan app y pequeñas acciones para integrar el cuidado emocional en la cultura del equipo, sin grandes despliegues.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Sectores en formato chips -->
-    <section class="section alt" id="org-sectores" aria-labelledby="org-sectores-title">
+    <!-- Sectores en chips -->
+    <section class="org-section alt" id="org-sectores" aria-labelledby="org-sectores-title">
       <div class="container">
-        <h2 id="org-sectores-title" style="font-size:var(--h2);margin:0 0 .6rem;">Pensado para equipos que trabajan con personas</h2>
-        <p style="max-width:60ch;">
-          Temotiva encaja especialmente bien donde la carga emocional es alta y el tiempo es limitado.
+        <h2 id="org-sectores-title">Pensado para equipos que trabajan con personas</h2>
+        <p class="org-lead">
+          Especialmente útil donde la carga emocional es alta y el tiempo es limitado.
         </p>
 
-        <div class="u-flex u-gap-s u-mt" style="flex-wrap:wrap;">
-          <span class="card" style="padding:.5rem .9rem;font-size:.95rem;">Centros educativos</span>
-          <span class="card" style="padding:.5rem .9rem;font-size:.95rem;">Servicios sociales y proyectos comunitarios</span>
-          <span class="card" style="padding:.5rem .9rem;font-size:.95rem;">ONG y asociaciones</span>
-          <span class="card" style="padding:.5rem .9rem;font-size:.95rem;">Pequeñas empresas y startups</span>
+        <div class="org-chips">
+          <span class="org-chip">Centros educativos</span>
+          <span class="org-chip">Servicios sociales</span>
+          <span class="org-chip">Proyectos comunitarios</span>
+          <span class="org-chip">ONG y asociaciones</span>
+          <span class="org-chip">Pequeñas empresas</span>
+          <span class="org-chip">Startups</span>
         </div>
       </div>
     </section>
 
-    <!-- Por qué funciona: muy corto -->
-    <section class="section" id="org-por-que" aria-labelledby="org-por-que-title">
+    <!-- Por qué funciona -->
+    <section class="org-section" id="org-por-que" aria-labelledby="org-por-que-title">
       <div class="container">
-        <h2 id="org-por-que-title" style="font-size:var(--h2);margin:0 0 .6rem;">Por qué funciona en la práctica</h2>
-        <div class="grid" style="margin-top:1.2rem;">
-          <article class="card">
-            <h3>Encaja en agendas llenas</h3>
+        <h2 id="org-por-que-title">Por qué funciona en la práctica</h2>
+
+        <div class="org-grid cols-3">
+          <article class="org-card">
+            <span class="org-step-label">Impacto</span>
+            <h3>Encaja en agendas reales</h3>
             <p>
-              Prácticas de pocos minutos, pensadas para antes o después de reuniones, cambios de turno o cierre de jornada.
+              Prácticas de pocos minutos que se pueden usar antes o después de reuniones, cambios de turno o cierre de jornada.
             </p>
           </article>
-          <article class="card">
-            <h3>Lenguaje claro, sin etiquetas</h3>
+          <article class="org-card">
+            <span class="org-step-label">Lenguaje</span>
+            <h3>Sin etiquetas, con respeto</h3>
             <p>
-              Mensajes sencillos y respetuosos, centrados en bienestar y autocuidado, no en diagnóstico.
+              Mensajes claros y cercanos, centrados en bienestar y autocuidado, no en diagnóstico clínico.
             </p>
           </article>
-          <article class="card">
-            <h3>Apoyo continuo, no solo un taller</h3>
+          <article class="org-card">
+            <span class="org-step-label">Continuidad</span>
+            <h3>Más que un taller puntual</h3>
             <p>
-              La app mantiene vivo lo trabajado en las sesiones, para que el impacto no se quede en un único día.
+              La app refuerza en el día a día lo que se trabaja en las sesiones, para que el cambio no se quede en un solo día.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Quién hay detrás -->
-    <section class="section alt" id="org-confianza" aria-labelledby="org-confianza-title">
+    <!-- Quién impulsa -->
+    <section class="org-section alt" id="org-confianza" aria-labelledby="org-confianza-title">
       <div class="container">
-        <h2 id="org-confianza-title" style="font-size:var(--h2);margin:0 0 .6rem;">Quién impulsa Temotiva</h2>
-        <div class="grid" style="margin-top:1.2rem;grid-template-columns:repeat(2,1fr);">
-          <article class="card">
+        <h2 id="org-confianza-title">Quién impulsa Temotiva</h2>
+
+        <div class="org-grid cols-2">
+          <article class="org-card">
             <h3>Temotiva LAB</h3>
             <p>
-              Equipo que diseña la app y las experiencias, uniendo psicología aplicada, diseño accesible y bienestar cotidiano.
+              Equipo que diseña la app y las experiencias, uniendo psicología aplicada, diseño accesible y bienestar emocional cotidiano.
             </p>
           </article>
-          <article class="card">
+          <article class="org-card">
             <h3>Cognitiva Tech Lab</h3>
             <p>
-              Entidad que impulsa proyectos con impacto social y educativo, entre ellos Temotiva, con foco en tecnología al servicio del cuidado emocional.
+              Entidad que impulsa proyectos con impacto social y educativo, entre ellos Temotiva, con tecnología al servicio del cuidado emocional.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Formulario simple -->
-    <section class="section" id="org-form" aria-labelledby="org-form-title">
-      <div class="container" style="max-width:720px;">
-        <h2 id="org-form-title" style="font-size:var(--h2);margin:0 0 .6rem;">Cuéntanos qué necesita tu equipo</h2>
-        <p style="max-width:60ch;">
-          Te respondemos con una propuesta ligera y ajustada a vuestro contexto.
+    <!-- Formulario -->
+    <section class="org-section" id="org-form" aria-labelledby="org-form-title">
+      <div class="container org-form-wrap">
+        <h2 id="org-form-title">Cuéntanos qué necesita tu equipo</h2>
+        <p class="org-lead">
+          Te responderemos con una propuesta ligera y ajustada a vuestro contexto.
         </p>
 
-        <form id="orgContactForm" class="form-pro u-col u-gap-s" action="https://formspree.io/f/xnnobrvn" method="post">
+        <form id="orgContactForm" class="form-pro" action="https://formspree.io/f/xnnobrvn" method="post">
           <input type="hidden" name="_subject" value="Interés TEMOTIVA para organizaciones">
           <input type="hidden" name="_language" value="es">
 
-          <div class="row">
+          <div class="org-form-row">
             <div>
               <label for="org-nombre">Nombre</label>
               <input id="org-nombre" name="nombre" type="text" required autocomplete="name" placeholder="Tu nombre">
@@ -206,12 +391,12 @@
             </div>
           </div>
 
-          <div class="u-mt">
+          <div style="margin-top:.9rem;">
             <label for="org-entidad">Organización</label>
             <input id="org-entidad" name="organizacion" type="text" required placeholder="Nombre de la entidad">
           </div>
 
-          <div class="u-mt">
+          <div style="margin-top:.9rem;">
             <label for="org-tipo">Tipo de equipo</label>
             <select id="org-tipo" name="tipo_equipo" required>
               <option value="">Selecciona una opción</option>
@@ -223,12 +408,12 @@
             </select>
           </div>
 
-          <div class="u-mt">
+          <div style="margin-top:.9rem;">
             <label for="org-msg">Mensaje</label>
             <textarea id="org-msg" name="mensaje" rows="4" required placeholder="Personas aproximadas y qué os gustaría trabajar."></textarea>
           </div>
 
-          <div class="u-mt">
+          <div style="margin-top:.9rem;">
             <label class="checkline" for="org-consent">
               <input id="org-consent" type="checkbox" name="consent" required>
               <span>
@@ -239,9 +424,9 @@
 
           <input type="text" name="_gotcha" class="u-hidden" aria-hidden="true" autocomplete="off">
 
-          <div class="u-flex u-gap-s u-mt">
+          <div class="org-form-footer">
             <button type="submit" class="btn">Solicitar información</button>
-            <small class="hint">Te responderemos por correo.</small>
+            <small>Te responderemos por correo.</small>
           </div>
         </form>
       </div>
@@ -252,7 +437,7 @@
   <footer class="site-footer" role="contentinfo">
     <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
       <p style="margin:0;">© TEMOTIVA desde 2024</p>
-      <div class="u-flex u-gap-s" style="align-items:center;">
+      <div style="display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;">
         <a href="/privacidad.html">Política de privacidad</a>
         <a href="/cookies.html">Política de cookies</a>
         <a href="/aviso-legal.html">Aviso legal</a>
