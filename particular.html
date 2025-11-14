@@ -3,44 +3,463 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Soy particular | TEMOTIVA</title>
-  <meta name="description" content="Espacio personal para cuidar el bienestar emocional con ejercicios, chequeos y progreso.">
+
+  <title>Talleres de bienestar emocional | TEMOTIVA</title>
+
+  <meta name="description" content="Talleres y microexperiencias de bienestar emocional para personas adultas con alta carga mental. Sesiones breves, prácticas y con herramientas que puedes usar en tu día a día.">
+  <meta name="keywords" content="taller bienestar emocional, autocuidado, regulación emocional, estrés, ansiedad leve, talleres online, talleres presenciales, bienestar en la vida diaria">
+
+  <link rel="canonical" href="https://www.temotiva.com/particular.html">
   <link rel="stylesheet" href="/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Talleres de bienestar emocional para personas adultas",
+    "provider":{
+      "@type":"Organization",
+      "name":"TEMOTIVA",
+      "url":"https://www.temotiva.com"
+    },
+    "serviceType":"Talleres y actividades de bienestar emocional",
+    "description":"Sesiones breves, prácticas y orientadas a la vida cotidiana, con herramientas para autocuidado y regulación emocional."
+  }
+  </script>
+
+  <style>
+    .pt-hero{
+      padding:4.5rem 0 4rem;
+      background:linear-gradient(135deg,#f7f7fb,#f0f4ff);
+    }
+    .pt-hero-inner{
+      max-width:900px;
+      margin:0 auto;
+      display:grid;
+      gap:2rem;
+    }
+    @media (min-width:880px){
+      .pt-hero-inner{
+        grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);
+        align-items:center;
+      }
+    }
+    .pt-eyebrow{
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.78rem;
+      opacity:.8;
+      margin:0 0 .35rem;
+    }
+    .pt-title{
+      margin:0 0 .7rem;
+      font-size:clamp(1.9rem,3vw,2.4rem);
+    }
+    .pt-hero-text{
+      max-width:42ch;
+      margin:0 0 1.2rem;
+    }
+    .pt-hero-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      font-size:.9rem;
+      opacity:.9;
+      margin-top:.9rem;
+    }
+    .pt-hero-meta span:nth-child(2n){
+      opacity:.5;
+    }
+    .pt-hero-side{
+      display:flex;
+      flex-direction:column;
+      gap:.8rem;
+    }
+    .pt-pill{
+      background:#fff;
+      border-radius:14px;
+      padding:1rem 1.1rem;
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+      border:1px solid rgba(0,0,0,.04);
+      font-size:.95rem;
+    }
+    .pt-pill h3{
+      margin:0 0 .5rem;
+      font-size:.98rem;
+    }
+    .pt-pill ul{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:.35rem;
+      font-size:.9rem;
+    }
+
+    .pt-section{
+      padding:3.5rem 0;
+    }
+    .pt-section.alt{
+      background:#f7f7f9;
+    }
+    .pt-section h2{
+      margin:0 0 .5rem;
+      font-size:clamp(1.4rem,2.3vw,1.8rem);
+    }
+    .pt-lead{
+      max-width:60ch;
+      margin:0 0 1.4rem;
+      opacity:.95;
+    }
+
+    .pt-grid{
+      display:grid;
+      gap:1rem;
+    }
+    @media (min-width:820px){
+      .pt-grid.cols-3{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+      .pt-grid.cols-2{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+
+    .pt-card{
+      background:#fff;
+      border-radius:14px;
+      padding:1rem 1.05rem;
+      box-shadow:0 8px 24px rgba(0,0,0,.04);
+      border:1px solid rgba(0,0,0,.04);
+      font-size:.95rem;
+    }
+    .pt-card h3{
+      margin:.1rem 0 .4rem;
+      font-size:1rem;
+    }
+    .pt-card p{
+      margin:0;
+      line-height:1.6;
+      opacity:.95;
+    }
+
+    .pt-tagline{
+      font-size:.9rem;
+      opacity:.85;
+      margin-top:.4rem;
+    }
+
+    .pt-chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      margin-top:.8rem;
+      font-size:.88rem;
+      opacity:.9;
+    }
+    .pt-chip{
+      padding:.3rem .8rem;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,.08);
+      background:#fff;
+    }
+
+    .pt-steps{
+      display:grid;
+      gap:1rem;
+    }
+    @media (min-width:820px){
+      .pt-steps{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+    }
+    .pt-step-label{
+      display:inline-block;
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      opacity:.7;
+      margin-bottom:.25rem;
+    }
+
+    .pt-form-wrap{
+      max-width:720px;
+      margin:0 auto;
+    }
+    .pt-form-card{
+      background:#fff;
+      border-radius:16px;
+      padding:1.5rem 1.4rem;
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+      border:1px solid rgba(0,0,0,.04);
+    }
+    .pt-form-row{
+      display:grid;
+      gap:.9rem;
+    }
+    @media (min-width:720px){
+      .pt-form-row{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+    .pt-label-small{
+      font-size:.85rem;
+      opacity:.85;
+      display:block;
+      margin-bottom:.12rem;
+    }
+    .pt-form-footer{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      align-items:center;
+      margin-top:1rem;
+      font-size:.9rem;
+    }
+
+    @media (max-width:600px){
+      .pt-hero-text,
+      .pt-lead,
+      .pt-card p{
+        font-size:.98rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <!-- Header con logo -->
-  <header class="site-header">
+  <!-- Header -->
+  <header class="site-header" role="banner">
     <div class="container nav">
-      <a href="/" class="logo" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:inherit;">
-        <img src="/icon-192.png" alt="Logo TEMOTIVA" style="width:36px;height:36px;border-radius:8px;">
+      <a href="/inicio.html" class="logo" aria-label="Ir a inicio">
+        <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
         <span>TEMOTIVA</span>
       </a>
+
+      <nav class="nav-links" aria-label="Menú principal">
+        <a href="/demo.html">App</a>
+        <a href="/particular.html" class="active" aria-current="page">Talleres</a>
+        <a href="/organizacion.html">Organizaciones</a>
+        <a href="/recursos.html">Recursos</a>
+        <a href="/blog/index.html">Blog</a>
+        <a href="/temotiva-lab.html">TEMOTIVA LAB</a>
+        <a href="/ctl.html">CTL</a>
+        <a href="/contacto.html">Contacto</a>
+      </nav>
     </div>
   </header>
 
-  <!-- Contenido principal -->
-  <section class="section hero">
-    <div class="container" style="text-align:center;max-width:700px;">
-      <h1>Cuida tu bienestar con TEMOTIVA</h1>
-      <p>
-        TEMOTIVA es tu espacio personal para cuidar el bienestar emocional.  
-        Encontrarás <strong>ejercicios breves</strong> de respiración, reflexión y regulación emocional,  
-        un <strong>chequeo diario</strong> para conocerte mejor y un <strong>panel de progreso</strong>  
-        que te ayuda a ver tu evolución a lo largo del tiempo.
-      </p>
-      <p>
-        Está pensado para personas que buscan equilibrio, calma y herramientas reales para el día a día.
-      </p>
-      <a href="/demo.html" class="btn" style="margin-top:20px;">Explorar TEMOTIVA</a>
-    </div>
-  </section>
+  <main class="content" role="main">
+    <!-- HERO: persona individual -->
+    <section class="section pt-hero" id="pt-hero" aria-labelledby="pt-hero-title">
+      <div class="container pt-hero-inner">
+        <div>
+          <p class="pt-eyebrow">Bienestar emocional en la vida diaria</p>
+          <h1 id="pt-hero-title" class="pt-title">
+            Talleres para cuando sientes que vas con la cabeza llena
+          </h1>
+          <p class="pt-hero-text">
+            Sesiones breves y prácticas para entender cómo te sientes, bajar revoluciones y llevarte ejercicios muy claros para tu día a día.
+          </p>
+
+          <div class="cta-row" style="margin-top:.9rem;display:flex;flex-wrap:wrap;gap:.6rem;">
+            <a href="#pt-form" class="btn">Quiero apuntarme</a>
+            <a href="#pt-formatos" class="btn secondary">Ver formatos</a>
+          </div>
+
+          <div class="pt-hero-meta">
+            <span>Sesiones online y presenciales</span>
+            <span>·</span>
+            <span>Grupos pequeños</span>
+            <span>·</span>
+            <span>Lenguaje sencillo</span>
+          </div>
+        </div>
+
+        <div class="pt-hero-side">
+          <div class="pt-pill">
+            <h3>Para ti si te reconoces en algo de esto</h3>
+            <ul>
+              <li>Te cuesta parar y acabas el día agotada sin saber muy bien qué ha pasado.</li>
+              <li>Notas ansiedad leve, rumiación o sensación de ir siempre tarde.</li>
+              <li>Querrías cuidarte más, pero no sabes por dónde empezar ni qué mantener en el tiempo.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tipos de talleres -->
+    <section class="pt-section" id="pt-formatos" aria-labelledby="pt-formatos-title">
+      <div class="container">
+        <h2 id="pt-formatos-title">Qué tipo de talleres puedes encontrar</h2>
+        <p class="pt-lead">
+          Todos los formatos tienen algo en común: poco texto, mucha práctica y ejercicios que puedes llevarte contigo.
+        </p>
+
+        <div class="pt-grid cols-3">
+          <article class="pt-card">
+            <h3>Parar y respirar mejor el día</h3>
+            <p>
+              Taller centrado en bajar revoluciones, escuchar qué necesitas y convertirlo en acciones pequeñas y realistas.
+            </p>
+            <p class="pt-tagline">Ideal si sientes que vas en automático.</p>
+          </article>
+          <article class="pt-card">
+            <h3>Límites y autocuidado sin culpa</h3>
+            <p>
+              Espacio para trabajar decir que no, priorizarte y cuidar cómo te hablas cuando te equivocas o no llegas a todo.
+            </p>
+            <p class="pt-tagline">Para personas muy autoexigentes.</p>
+          </article>
+          <article class="pt-card">
+            <h3>Gestionar la ansiedad del día a día</h3>
+            <p>
+              Ejercicios sencillos para entender tus picos de ansiedad, qué los dispara y qué te ayuda a regularte mejor.
+            </p>
+            <p class="pt-tagline">Para ansiedad leve y malestar sostenido.</p>
+          </article>
+        </div>
+
+        <p class="pt-tagline">
+          En cada edición se adaptan los contenidos al grupo y al contexto, para que lo que veamos tenga sentido con tu vida real.
+        </p>
+      </div>
+    </section>
+
+    <!-- Formatos y duración -->
+    <section class="pt-section alt" id="pt-detalles" aria-labelledby="pt-detalles-title">
+      <div class="container">
+        <h2 id="pt-detalles-title">Cómo son las sesiones</h2>
+
+        <div class="pt-grid cols-2">
+          <article class="pt-card">
+            <h3>Duración y formato</h3>
+            <p>
+              Sesiones de 60 a 90 minutos, en directo, con espacio para preguntar y compartir si lo deseas.
+              Hay opciones online y presenciales según la edición.
+            </p>
+            <div class="pt-chips">
+              <span class="pt-chip">Online en grupo</span>
+              <span class="pt-chip">Presencial puntualmente</span>
+            </div>
+          </article>
+          <article class="pt-card">
+            <h3>Qué te llevas</h3>
+            <p>
+              Una pequeña guía o resumen, propuestas para los siguientes días y acceso a ejercicios relacionados dentro de la app cuando esté disponible.
+            </p>
+            <div class="pt-chips">
+              <span class="pt-chip">Ejercicios claros</span>
+              <span class="pt-chip">Ideas para tu rutina</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pequeño "cómo funciona" -->
+    <section class="pt-section" id="pt-pasos" aria-labelledby="pt-pasos-title">
+      <div class="container">
+        <h2 id="pt-pasos-title">Cómo funciona apuntarse</h2>
+
+        <div class="pt-steps">
+          <article class="pt-card">
+            <span class="pt-step-label">Paso 1</span>
+            <h3>Nos dejas tus datos</h3>
+            <p>
+              Indicas qué tipo de taller te interesa y el horario que te viene mejor.
+            </p>
+          </article>
+          <article class="pt-card">
+            <span class="pt-step-label">Paso 2</span>
+            <h3>Te escribimos con opciones</h3>
+            <p>
+              Te enviamos fechas disponibles y detalles prácticos para que puedas elegir.
+            </p>
+          </article>
+          <article class="pt-card">
+            <span class="pt-step-label">Paso 3</span>
+            <h3>Confirmas tu plaza</h3>
+            <p>
+              Reservas el taller que mejor encaje contigo y recibes la información para conectarte o acudir.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formulario de interés -->
+    <section class="pt-section alt" id="pt-form" aria-labelledby="pt-form-title">
+      <div class="container pt-form-wrap">
+        <h2 id="pt-form-title">Quiero información sobre los próximos talleres</h2>
+        <p class="pt-lead">
+          Completa este formulario y te escribiremos con las próximas fechas y formatos disponibles.
+        </p>
+
+        <div class="pt-form-card">
+          <form id="ptContactForm" class="form-pro" action="https://formspree.io/f/xnnobrvn" method="post">
+            <input type="hidden" name="_subject" value="Interés en talleres de bienestar emocional">
+            <input type="hidden" name="_language" value="es">
+
+            <div class="pt-form-row">
+              <div>
+                <label for="pt-nombre" class="pt-label-small">Nombre</label>
+                <input id="pt-nombre" name="nombre" type="text" required autocomplete="name" placeholder="Nombre y apellidos">
+              </div>
+              <div>
+                <label for="pt-email" class="pt-label-small">Correo</label>
+                <input id="pt-email" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="correo@ejemplo.com">
+              </div>
+            </div>
+
+            <div style="margin-top:.9rem;">
+              <label for="pt-taller" class="pt-label-small">Taller que te interesa</label>
+              <select id="pt-taller" name="taller" required>
+                <option value="">Selecciona una opción</option>
+                <option value="parar_y_respirar">Parar y respirar mejor el día</option>
+                <option value="limites_autocuidado">Límites y autocuidado sin culpa</option>
+                <option value="ansiedad_diaria">Gestionar la ansiedad del día a día</option>
+                <option value="no_seguro">No lo tengo claro, quiero recomendación</option>
+              </select>
+            </div>
+
+            <div style="margin-top:.9rem;">
+              <label for="pt-horario" class="pt-label-small">Horario preferente</label>
+              <select id="pt-horario" name="horario">
+                <option value="">Me adapto</option>
+                <option value="manana">Mañanas</option>
+                <option value="tarde">Tardes</option>
+                <option value="fin_de_semana">Fines de semana</option>
+              </select>
+            </div>
+
+            <div style="margin-top:.9rem;">
+              <label for="pt-msg" class="pt-label-small">Algo que quieras contarnos</label>
+              <textarea id="pt-msg" name="mensaje" rows="3" placeholder="Por ejemplo, cómo te estás sintiendo o qué te gustaría trabajar."></textarea>
+            </div>
+
+            <div style="margin-top:.9rem;">
+              <label class="checkline" for="pt-consent">
+                <input id="pt-consent" type="checkbox" name="consent" required>
+                <span>Acepto la <a href="/privacidad.html">política de privacidad</a>.</span>
+              </label>
+            </div>
+
+            <input type="text" name="_gotcha" aria-hidden="true" autocomplete="off" style="display:none !important;">
+
+            <div class="pt-form-footer">
+              <button type="submit" class="btn">Enviar</button>
+              <span>Te responderemos por correo con las próximas fechas.</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
-  <footer style="padding:16px;text-align:center;font-size:14px;">
-    <a href="/privacidad.html">Política de privacidad</a> ·
-    <a href="/cookies.html">Política de cookies</a> ·
-    <a href="/aviso-legal.html">Aviso legal</a>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
+      <p style="margin:0;">© TEMOTIVA desde 2024</p>
+      <div style="display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;">
+        <a href="/privacidad.html">Política de privacidad</a>
+        <a href="/cookies.html">Política de cookies</a>
+        <a href="/aviso-legal.html">Aviso legal</a>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
