@@ -3,45 +3,303 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Soy organización | TEMOTIVA</title>
-  <meta name="description" content="Recursos digitales para psicólogos, equipos y organizaciones que promueven el bienestar emocional.">
+
+  <title>TEMOTIVA para organizaciones | Bienestar emocional para equipos</title>
+  <meta name="description" content="Soluciones de bienestar emocional para equipos con alta carga emocional. App Temotiva, talleres breves y programas cortos para centros educativos, servicios sociales, ONG y pequeñas empresas.">
+
+  <link rel="canonical" href="https://www.temotiva.com/organizacion.html">
   <link rel="stylesheet" href="/style.css">
+
+  <!-- Datos estructurados básicos para servicios a organizaciones -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"TEMOTIVA para organizaciones",
+    "provider":{
+      "@type":"Organization",
+      "name":"TEMOTIVA",
+      "url":"https://www.temotiva.com"
+    },
+    "areaServed":"ES",
+    "description":"Soluciones de bienestar emocional práctico para equipos con alta carga emocional, a través de una app, talleres breves y programas cortos."
+  }
+  </script>
 </head>
 
 <body>
-  <!-- Header con logo -->
-  <header class="site-header">
+  <!-- Header consistente con la web -->
+  <header class="site-header" role="banner">
     <div class="container nav">
-      <a href="/" class="logo" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:inherit;">
-        <img src="/icon-192.png" alt="Logo TEMOTIVA" style="width:36px;height:36px;border-radius:8px;">
+      <a href="/inicio.html" class="logo" aria-label="Ir a inicio">
+        <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
         <span>TEMOTIVA</span>
       </a>
+
+      <nav class="nav-links" aria-label="Menú principal">
+        <a href="/demo.html">App</a>
+        <a href="/particular.html">Talleres</a>
+        <a href="/organizacion.html" class="active" aria-current="page">Organizaciones</a>
+        <a href="/recursos.html">Recursos</a>
+        <a href="/blog/index.html">Blog</a>
+        <a href="/temotiva-lab.html">TEMOTIVA LAB</a>
+        <a href="/ctl.html">CTL</a>
+        <a href="/contacto.html">Contacto</a>
+      </nav>
     </div>
   </header>
 
-  <!-- Contenido principal -->
-  <section class="section hero">
-    <div class="container" style="text-align:center;max-width:700px;">
-      <h1>TEMOTIVA para profesionales y organizaciones</h1>
-      <p>
-        TEMOTIVA ofrece recursos digitales para <strong>profesionales de la psicología</strong>,  
-        <strong>equipos de bienestar corporativo</strong> y <strong>organizaciones</strong>  
-        que promueven la salud mental y emocional.
-      </p>
-      <p>
-        Integra microprogramas de autocuidado, seguimiento del clima emocional y contenidos  
-        adaptables a distintos contextos educativos o laborales.  
-        Una forma sencilla de cuidar a quienes acompañan y de fortalecer el bienestar de los equipos.
-      </p>
-      <a href="/demo.html" class="btn" style="margin-top:20px;">Solicitar una demo profesional</a>
-    </div>
-  </section>
+  <main class="content" role="main">
+    <!-- HERO: super tech, claro y corto -->
+    <section class="section hero" id="org-hero" aria-labelledby="org-hero-title">
+      <div class="container u-col u-gap" style="text-align:center;max-width:760px;">
+        <p style="text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;opacity:.75;margin:0;">
+          Pequeños equipos, alta carga emocional
+        </p>
+        <h1 id="org-hero-title" style="margin-top:.4rem;">
+          Bienestar emocional sencillo para tu equipo
+        </h1>
+        <p>
+          Temotiva integra una app de bienestar emocional y microtalleres aplicados para que las personas
+          de tu organización sepan qué hacer cuando se sienten saturadas, sin añadir más carga a su día.
+        </p>
+
+        <div class="cta-row">
+          <a href="#org-form" class="btn">Quiero información para mi organización</a>
+          <a href="/demo.html" class="btn secondary">Ver cómo funciona la app</a>
+        </div>
+
+        <div class="u-flex u-gap-s u-center u-mt" style="flex-wrap:wrap;font-size:.9rem;opacity:.85;">
+          <span>5 a 10 minutos por práctica</span>
+          <span>·</span>
+          <span>Pensado para trabajos con carga emocional</span>
+          <span>·</span>
+          <span>Enfoque preventivo, no clínico</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problema en equipos -->
+    <section class="section" id="org-problema" aria-labelledby="org-problema-title">
+      <div class="container">
+        <h2 id="org-problema-title" style="font-size:var(--h2);margin:0 0 .6rem;">Lo que vemos en muchos equipos</h2>
+        <div class="grid" style="margin-top:1.2rem;">
+          <article class="card">
+            <h3>Cabezas siempre encendidas</h3>
+            <p>
+              Reuniones, urgencias y personas que cuidan de otras sin espacio mental para sí mismas.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Desgaste silencioso</h3>
+            <p>
+              No llega a ser un cuadro clínico, pero sí afecta al ánimo, la motivación y el clima interno.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Poca estructura para cuidarse</h3>
+            <p>
+              Mucha teoría sobre bienestar, pocas herramientas breves, concretas y fáciles de aplicar.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Qué ofrece TEMOTIVA a organizaciones -->
+    <section class="section alt" id="org-oferta" aria-labelledby="org-oferta-title">
+      <div class="container">
+        <h2 id="org-oferta-title" style="font-size:var(--h2);margin:0 0 .6rem;">Qué aporta Temotiva a tu organización</h2>
+        <p style="max-width:70ch;">
+          Combinamos una app de bienestar emocional con acciones breves y medibles para equipos que
+          trabajan con personas, proyectos sensibles o alta presión diaria.
+        </p>
+
+        <div class="grid" style="margin-top:1.5rem;">
+          <article class="card">
+            <h3>App de bienestar emocional</h3>
+            <p>
+              Rutas guiadas, chequeos rápidos y microprácticas para que cada persona sepa qué hacer cuando
+              se siente saturada, inquieta o sin energía.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Talleres breves y aplicados</h3>
+            <p>
+              Sesiones de 60 a 90 minutos centradas en regulación emocional, autocuidado sostenible y
+              prevención del desgaste en el día a día.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Programas cortos de bienestar</h3>
+            <p>
+              Itinerarios de 4 a 8 semanas que combinan app, sesiones y seguimiento ligero para integrar
+              el autocuidado en la cultura del equipo.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sectores objetivo -->
+    <section class="section" id="org-sectores" aria-labelledby="org-sectores-title">
+      <div class="container">
+        <h2 id="org-sectores-title" style="font-size:var(--h2);margin:0 0 .6rem;">Especialmente útil para</h2>
+
+        <div class="grid" style="margin-top:1.2rem;">
+          <article class="card">
+            <h3>Centros educativos</h3>
+            <p>
+              Profesorado y equipos que sostienen conflicto, cambio constante y alta carga relacional.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Servicios sociales y proyectos comunitarios</h3>
+            <p>
+              Profesionales expuestos a historias difíciles, con riesgo de fatiga por compasión.
+            </p>
+          </article>
+          <article class="card">
+            <h3>ONG y asociaciones</h3>
+            <p>
+              Equipos pequeños, mucho compromiso y pocas horas para formaciones largas de bienestar.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Pequeñas empresas y startups</h3>
+            <p>
+              Alta intensidad, multiproyectos y necesidad de herramientas para no vivir solo en modo urgencia.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cómo trabajamos -->
+    <section class="section alt" id="org-flujo" aria-labelledby="org-flujo-title">
+      <div class="container">
+        <h2 id="org-flujo-title" style="font-size:var(--h2);margin:0 0 .6rem;">Cómo empezamos a trabajar juntos</h2>
+        <div class="grid" style="margin-top:1.2rem;">
+          <article class="card">
+            <h3>1. Escuchamos tu contexto</h3>
+            <p>
+              Reunión corta para entender el tipo de equipo, la carga emocional y los objetivos de bienestar.
+            </p>
+          </article>
+          <article class="card">
+            <h3>2. Diseñamos una propuesta ligera</h3>
+            <p>
+              Combinamos app, talleres y programa corto según lo que tenga más sentido para tu realidad.
+            </p>
+          </article>
+          <article class="card">
+            <h3>3. Activamos y revisamos</h3>
+            <p>
+              Implementación sencilla, seguimiento ligero y recomendaciones finales para seguir cuidando al equipo.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Confianza: Temotiva LAB y CTL -->
+    <section class="section" id="org-confianza" aria-labelledby="org-confianza-title">
+      <div class="container">
+        <h2 id="org-confianza-title" style="font-size:var(--h2);margin:0 0 .6rem;">Quién impulsa Temotiva</h2>
+        <div class="grid" style="margin-top:1.2rem;grid-template-columns:repeat(2,1fr);">
+          <article class="card">
+            <h3>Temotiva LAB</h3>
+            <p>
+              Equipo que diseña la app, los contenidos y las experiencias, uniendo psicología aplicada,
+              accesibilidad y diseño centrado en la persona.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Cognitiva Tech Lab (CTL)</h3>
+            <p>
+              Entidad que impulsa proyectos con impacto social y educativo, entre ellos Temotiva, poniendo la
+              tecnología al servicio del bienestar emocional cotidiano.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formulario contacto organizaciones -->
+    <section class="section alt" id="org-form" aria-labelledby="org-form-title">
+      <div class="container" style="max-width:720px;">
+        <h2 id="org-form-title" style="font-size:var(--h2);margin:0 0 .6rem;">Cuéntanos qué necesita tu equipo</h2>
+        <p style="max-width:70ch;">
+          Envíanos unos datos básicos y prepararemos una propuesta ajustada a tu organización.
+        </p>
+
+        <form id="orgContactForm" class="form-pro u-col u-gap-s" action="https://formspree.io/f/xnnobrvn" method="post">
+          <input type="hidden" name="_subject" value="Interés TEMOTIVA para organizaciones">
+          <input type="hidden" name="_language" value="es">
+
+          <div class="row">
+            <div>
+              <label for="org-nombre">Nombre</label>
+              <input id="org-nombre" name="nombre" type="text" required autocomplete="name" placeholder="Tu nombre">
+            </div>
+            <div>
+              <label for="org-email">Correo</label>
+              <input id="org-email" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="tu@email.com">
+            </div>
+          </div>
+
+          <div class="u-mt">
+            <label for="org-entidad">Organización</label>
+            <input id="org-entidad" name="organizacion" type="text" required placeholder="Nombre de la entidad">
+          </div>
+
+          <div class="u-mt">
+            <label for="org-tipo">Tipo de equipo</label>
+            <select id="org-tipo" name="tipo_equipo" required>
+              <option value="">Selecciona una opción</option>
+              <option value="educativo">Centro educativo</option>
+              <option value="social">Servicios sociales o proyecto comunitario</option>
+              <option value="ong">ONG o asociación</option>
+              <option value="empresa">Pequeña empresa o startup</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+
+          <div class="u-mt">
+            <label for="org-msg">Mensaje</label>
+            <textarea id="org-msg" name="mensaje" rows="4" required placeholder="Número aproximado de personas, contexto y qué os gustaría trabajar."></textarea>
+          </div>
+
+          <div class="u-mt">
+            <label class="checkline" for="org-consent">
+              <input id="org-consent" type="checkbox" name="consent" required>
+              <span>
+                Acepto la <a href="/privacidad.html">política de privacidad</a> y el tratamiento de mis datos para responder a mi consulta.
+              </span>
+            </label>
+          </div>
+
+          <input type="text" name="_gotcha" class="u-hidden" aria-hidden="true" autocomplete="off">
+
+          <div class="u-flex u-gap-s u-mt">
+            <button type="submit" class="btn">Solicitar información</button>
+            <small class="hint">Te responderemos por correo con la siguiente propuesta de pasos.</small>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
-  <footer style="padding:16px;text-align:center;font-size:14px;">
-    <a href="/privacidad.html">Política de privacidad</a> ·
-    <a href="/cookies.html">Política de cookies</a> ·
-    <a href="/aviso-legal.html">Aviso legal</a>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
+      <p style="margin:0;">© TEMOTIVA desde 2024</p>
+      <div class="u-flex u-gap-s" style="align-items:center;">
+        <a href="/privacidad.html">Política de privacidad</a>
+        <a href="/cookies.html">Política de cookies</a>
+        <a href="/aviso-legal.html">Aviso legal</a>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
