@@ -316,42 +316,36 @@ html:not(.js-ready) .reveal { opacity: 1; transform: none; }
   justify-content: center;
 }
 
-/* Contenedor plano tipo panel tech, sin volumen de móvil */
+/* Contenedor neutro, sin panel de color */
 .hero-device-shell {
   position: relative;
   width: min(320px, 80vw);
   margin: 0 auto;
-  border-radius: 18px;
-  padding: 10px;
-  background: linear-gradient(135deg, #020617, #111827);
-  border: 1px solid rgba(148,163,184,.6);
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: visible;
 }
 
-/* Glow suave, sin mix-blend ni filtros pesados para móviles antiguos */
+/* Sin glow ni nada extra */
 .hero-device-glow {
-  position: absolute;
-  inset: 18%;
-  border-radius: 14px;
-  background: radial-gradient(circle at 50% 0, rgba(56,189,248,.35), transparent 65%);
-  opacity: .35;
-  pointer-events: none;
-  /* menos blur para que tiren mejor móviles antiguos */
-  filter: blur(8px);
+  display: none;
 }
 
-/* Imagen limpia dentro del panel, sin sombra extra ni desplazamiento */
+/* Solo la imagen tal cual */
 .hero-device img {
   position: relative;
   z-index: 1;
   width: 100%;
   height: auto;
-  border-radius: 12px;
+  border-radius: 0;
   transform: none;
 }
+
 
 
 
