@@ -50,7 +50,6 @@
 
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 
-  
   <!-- Idiomas -->
   <link rel="alternate" href="https://www.temotiva.com/" hreflang="es">
   <link rel="alternate" href="https://www.temotiva.com/?lang=en" hreflang="en">
@@ -63,60 +62,59 @@
   <link rel="preconnect" href="https://ejhzxwnhqvcqjqxnuvya.supabase.co" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://formspree.io" crossorigin>
-  <link rel="prerender" href="/inicio.html">
-  <link rel="prefetch" href="/blog/index.html" as="document">
+  <link rel="prerender" href="/">
+  <link rel="prefetch" href="/blog/" as="document">
   <link rel="prefetch" href="/recursos.html" as="document">
 
   <!-- Datos estructurados base -->
- <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Temotiva",
-  "alternateName": "Temotiva bienestar emocional",
-  "url": "https://www.temotiva.com/",
-  "inLanguage": "es",
-  "description": "Temotiva es una app de bienestar emocional que convierte la psicología basada en evidencia en pasos concretos de autocuidado para la vida cotidiana.",
-  "publisher": {
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Temotiva",
+    "alternateName": "Temotiva bienestar emocional",
+    "url": "https://www.temotiva.com/",
+    "inLanguage": "es",
+    "description": "Temotiva es una app de bienestar emocional que convierte la psicología basada en evidencia en pasos concretos de autocuidado para la vida cotidiana.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Temotiva LAB",
+      "url": "https://www.temotiva.com/"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Temotiva LAB",
-    "url": "https://www.temotiva.com/"
+    "url": "https://www.temotiva.com/",
+    "logo": "https://www.temotiva.com/logo-temotiva.png",
+    "description": "Temotiva LAB impulsa Temotiva, una app de bienestar emocional centrada en el autocuidado cotidiano y la regulación emocional basada en psicología.",
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "Cognitiva Tech Lab",
+      "url": "https://www.temotiva.com/ctl.html"
+    },
+    "sameAs": []
   }
-}
-</script>
+  </script>
 
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Temotiva LAB",
-  "url": "https://www.temotiva.com/",
-  "logo": "https://www.temotiva.com/logo-temotiva.png",
-  "description": "Temotiva LAB impulsa Temotiva, una app de bienestar emocional centrada en el autocuidado cotidiano y la regulación emocional basada en psicología.",
-  "parentOrganization": {
-    "@type": "Organization",
-    "name": "Cognitiva Tech Lab",
-    "url": "https://www.temotiva.com/ctl.html"
-  },
-  "sameAs": []
-}
-</script>
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Inicio",
-      "item": "https://www.temotiva.com/"
-    }
-  ]
-}
-</script>
-
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://www.temotiva.com/"
+      }
+    ]
+  }
+  </script>
 
   <!-- Estilos locales y utilidades -->
   <style>
@@ -137,9 +135,6 @@
     }
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; scroll-padding-top:var(--header-h); }
-    <script>
- 
-
 
     body{
       margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -330,60 +325,58 @@
   <!-- Overlay -->
   <div id="overlay" class="overlay" aria-hidden="true"></div>
 
-<!-- Header -->
-<header class="site-header" id="siteHeader" role="banner">
-  <div class="container nav">
-    <a href="/inicio.html" class="logo" aria-label="Ir a inicio">
-      <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
+  <!-- Header -->
+  <header class="site-header" id="siteHeader" role="banner">
+    <div class="container nav">
+      <a href="/" class="logo" aria-label="Ir a inicio">
+        <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
+        <span>TEMOTIVA</span>
+      </a>
+
+      <nav id="mainNav" class="nav-links" aria-label="Menú principal">
+        <a href="/demo.html">App</a>
+        <a href="/particular.html">Talleres</a>
+        <a href="/organizacion.html">Organizaciones</a>
+        <a href="/recursos.html">Recursos</a>
+        <a href="/blog/">Blog</a>
+        <a href="/temotiva-lab.html">TEMOTIVA LAB</a>
+        <a href="/ctl.html">CTL</a>
+        <a href="/contacto.html">Contacto</a>
+      </nav>
+
+      <div class="header-actions" role="group" aria-label="Acciones">
+        <button id="langBtn" class="icon-btn" aria-label="Cambiar idioma">ES/EN</button>
+        <button id="themeBtn" class="icon-btn" aria-label="Cambiar tema" title="Tema" aria-pressed="false">☾/☀︎</button>
+        <button id="installBtn" class="icon-btn" aria-label="Instalar TEMOTIVA" hidden>Instalar</button>
+        <button id="menuBtn" class="menu-btn icon-btn" aria-label="Abrir panel lateral" aria-controls="sidePanel" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Panel lateral -->
+  <nav id="sidePanel" class="sidebar" aria-label="Menú lateral" aria-hidden="true">
+    <a class="logo-side" href="/">
+      <img src="/logo-temotiva.png" alt="" aria-hidden="true" width="32" height="32">
       <span>TEMOTIVA</span>
     </a>
 
-    <nav id="mainNav" class="nav-links" aria-label="Menú principal">
-      <a href="/demo.html">App</a>
-      <a href="/particular.html">Talleres</a>
-      <a href="/organizacion.html">Organizaciones</a>
-      <a href="/recursos.html">Recursos</a>
-      <a href="/blog/index.html">Blog</a>
-      <a href="/temotiva-lab.html">TEMOTIVA LAB</a>
-      <a href="/ctl.html">CTL</a>
-      <a href="/contacto.html">Contacto</a>
-    </nav>
+    <ul class="menu-list" role="list">
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/demo.html">App</a></li>
+      <li><a href="/particular.html">Talleres</a></li>
+      <li><a href="/organizacion.html">Organizaciones</a></li>
+      <li><a href="/recursos.html">Recursos</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/temotiva-lab.html">TEMOTIVA LAB</a></li>
+      <li><a href="/ctl.html">CTL</a></li>
+      <li><a href="/contacto.html">Contacto</a></li>
+    </ul>
 
-    <div class="header-actions" role="group" aria-label="Acciones">
-      <button id="langBtn" class="icon-btn" aria-label="Cambiar idioma">ES/EN</button>
-      <button id="themeBtn" class="icon-btn" aria-label="Cambiar tema" title="Tema" aria-pressed="false">☾/☀︎</button>
-      <button id="installBtn" class="icon-btn" aria-label="Instalar TEMOTIVA" hidden>Instalar</button>
-      <button id="menuBtn" class="menu-btn icon-btn" aria-label="Abrir panel lateral" aria-controls="sidePanel" aria-expanded="false">☰</button>
-    </div>
-  </div>
-</header>
-
-<!-- Panel lateral -->
-<nav id="sidePanel" class="sidebar" aria-label="Menú lateral" aria-hidden="true">
-  <a class="logo-side" href="/inicio.html">
-    <img src="/logo-temotiva.png" alt="" aria-hidden="true" width="32" height="32">
-    <span>TEMOTIVA</span>
-  </a>
-
-  <ul class="menu-list" role="list">
-    <li><a href="/inicio.html">Inicio</a></li>
-    <li><a href="/demo.html">App</a></li>
-    <li><a href="/particular.html">Talleres</a></li>
-    <li><a href="/organizacion.html">Organizaciones</a></li>
-    <li><a href="/recursos.html">Recursos</a></li>
-    <li><a href="/blog/index.html">Blog</a></li>
-    <li><a href="/temotiva-lab.html">TEMOTIVA LAB</a></li>
-    <li><a href="/ctl.html">CTL</a></li>
-    <li><a href="/contacto.html">Contacto</a></li>
-  </ul>
-
-  <a class="privacy-link" href="/privacidad.html">Privacidad</a>
-</nav>
-
-
+    <a class="privacy-link" href="/privacidad.html">Privacidad</a>
+  </nav>
 
   <main class="content" id="app" role="main">
-    <!-- Hero: punto de dolor principal + lanzamiento app -->
+    <!-- Hero -->
     <section id="inicio" class="section hero reveal" aria-labelledby="hero-title">
       <div class="container u-col u-gap">
         <h1 id="hero-title">Cuando te sientes sobrepasada y todo lo que quieres es saber qué hacer ahora mismo</h1>
@@ -399,7 +392,7 @@
       </div>
     </section>
 
-    <!-- App próximamente, CTA suave -->
+    <!-- Lanzamiento -->
     <section id="lanzamiento" class="section reveal" aria-labelledby="app-title">
       <div class="container app-cta">
         <h2 id="app-title" style="font-size:var(--h2); margin:0 0 .6rem;">Muy pronto en tu móvil</h2>
@@ -430,7 +423,7 @@
       </div>
     </section>
 
-    <!-- Dolor compartido: para esos días complicados -->
+    <!-- Misión / Dolor -->
     <section id="mision" class="section reveal" aria-labelledby="mission-title">
       <div class="container">
         <h2 id="mission-title" style="font-size:var(--h2); margin:0 0 .6rem;">Para esos días en los que todo se hace cuesta arriba</h2>
@@ -455,7 +448,7 @@
       </div>
     </section>
 
-    <!-- Qué hace la app Temotiva por ti -->
+    <!-- Producto -->
     <section id="producto" class="section alt reveal" aria-labelledby="product-title">
       <div class="container">
         <h2 id="product-title" style="font-size:var(--h2); margin:0 0 .6rem;">Qué hace la app Temotiva por ti</h2>
@@ -481,7 +474,7 @@
       </div>
     </section>
 
-    <!-- Temotiva es más que una app -->
+    <!-- Ecosistema -->
     <section id="ecosistema" class="section reveal" aria-labelledby="ecosystem-title">
       <div class="container">
         <h2 id="ecosystem-title" style="font-size:var(--h2); margin:0 0 .6rem;">Temotiva es más que una app</h2>
@@ -506,7 +499,7 @@
       </div>
     </section>
 
-    <!-- Quién impulsa Temotiva -->
+    <!-- Quién impulsa -->
     <section id="impulsa" class="section alt reveal" aria-labelledby="impulsa-title">
       <div class="container">
         <h2 id="impulsa-title" style="font-size:var(--h2); margin:0 0 .6rem;">Quién impulsa Temotiva</h2>
@@ -540,7 +533,6 @@
         <p class="frase" style="margin-top:.2rem;">Personas que han probado Temotiva y han notado cambios en su día a día.</p>
         <div class="grid">
           <article class="review" itemscope itemtype="https://schema.org/Review">
-            <!-- Qué se está reseñando -->
             <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">
               <meta itemprop="name" content="TEMOTIVA">
               <meta itemprop="applicationCategory" content="HealthApplication">
@@ -556,7 +548,6 @@
           </article>
 
           <article class="review" itemscope itemtype="https://schema.org/Review">
-            <!-- Qué se está reseñando -->
             <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">
               <meta itemprop="name" content="TEMOTIVA">
               <meta itemprop="applicationCategory" content="HealthApplication">
@@ -573,7 +564,6 @@
         </div>
       </div>
     </section>
-
 
     <!-- Contacto -->
     <section id="contacto" class="section alt reveal" aria-labelledby="contact-title">
@@ -603,7 +593,6 @@
             <div class="error" id="cf-msg-error">Cuéntanos brevemente tu consulta.</div>
           </div>
 
-          <!-- Consentimiento alineado bajo el bloque -->
           <div class="u-mt">
             <label class="checkline" for="cf-consent">
               <input id="cf-consent" type="checkbox" name="consent" required>
@@ -750,8 +739,6 @@
       applyTheme(next);
     });
     applyTheme(localStorage.getItem(THEME_KEY) || "auto");
-
-
 
     /* Reveal con IO */
     (function(){
@@ -931,26 +918,21 @@
   const LANG_KEY = "temotiva-lang";
   let curLang = localStorage.getItem(LANG_KEY) || "es";
 
-  // Diccionario por selectores CSS. Edita lo que necesites.
   const TR = {
     es: {
-      // Top
       '#mainNav a[href="/inicio.html"]': 'Inicio',
       '#mainNav a[href="#mision"]': 'Misión',
       '#mainNav a[href="#producto"]': 'Producto',
       '#mainNav a[href="#contacto"]': 'Contacto',
 
-      // Hero
       '#hero-title': 'Cuando te sientes sobrepasada y todo lo que quieres es saber qué hacer ahora mismo',
       '#inicio p': 'Temotiva es una app de bienestar emocional pensada para adultas y adultos con mucha carga emocional. Te ofrece pasos concretos para cuidarte en tu día a día cuando te sientes mal y no sabes por dónde empezar, como apoyo intermedio entre la terapia y las apps genéricas de bienestar.',
       'a[data-gtag="cta_particular_click"]': 'Soy particular',
       'a[data-gtag="cta_org_click"]': 'Soy organización',
 
-      // Muy pronto
       '#app-title': 'Muy pronto en tu móvil',
       '#lanzamiento .frase': 'Recordatorios suaves, uso sin conexión y privacidad por diseño. Temotiva como app, lista para acompañarte en esos momentos en los que necesitas parar, regularte y cuidarte.',
 
-      // Misión
       '#mission-title': 'Para esos días en los que todo se hace cuesta arriba',
       '#mision > .container > p': 'Hay momentos en los que vas en automático, tu cabeza no para y no tienes tiempo ni energía para pensar qué te ayudaría a sentirte mejor. Ese espacio intermedio entre “no estoy tan mal” y “no puedo más” es justo donde se sitúa Temotiva, cuando necesitas algo claro y posible, no más exigencias.',
       '#mision .card:nth-child(1) h3': 'Cambios vitales y ruido mental',
@@ -960,7 +942,6 @@
       '#mision .card:nth-child(3) h3': 'Estudios y proyectos que saturan',
       '#mision .card:nth-child(3) p': 'Cuando todo son fechas, entregas y objetivos, tu bienestar queda en segundo plano. Temotiva te recuerda que cuidarte también forma parte del plan.',
 
-      // Producto
       '#product-title': 'Qué hace la app Temotiva por ti',
       '#producto > .container > p': 'Temotiva convierte la psicología basada en evidencia en acciones breves y guiadas que puedes usar justo cuando aparece el bloqueo, la rumiación o ese “no sé qué hacer ahora mismo”, sin sesiones eternas ni pantallas infinitas.',
       '#producto .card:nth-child(1) h3': 'Te guía cuando no sabes qué hacer con lo que sientes',
@@ -970,11 +951,9 @@
       '#producto .card:nth-child(3) h3': 'Te ayuda a entender tus patrones emocionales',
       '#producto .card:nth-child(3) p': 'Chequeos sencillos y reflexiones guiadas para conocer mejor tus picos, tus bajadas y lo que de verdad te ayuda a estar mejor en tu vida cotidiana.',
 
-      // Reseñas
       '#reviews-title': 'Reseñas',
       '#resenas .frase': 'Personas que han probado Temotiva y han notado cambios en su día a día.',
 
-      // Contacto
       '#contact-title': 'Contacto',
       'label[for="cf-nombre"]': 'Nombre',
       'label[for="cf-email"]': 'Correo',
@@ -983,35 +962,29 @@
       '.hint': 'Respondemos lo antes posible.',
       '#formMsg': 'Gracias, te contactaremos pronto. Si lo deseas, puedes enviar un mensaje a <a href="mailto:info@temotiva.com">info@temotiva.com</a>, estaremos encantados de atenderte.',
 
-      // Footer
       'a[href="/privacidad.html"]': 'Política de privacidad',
       'a[href="/cookies.html"]': 'Política de cookies',
       'a[href="/aviso-legal.html"]': 'Aviso legal',
       '.back-top': 'Volver arriba ↑',
 
-      // PWA banner
       '#pwaBanner .msg': 'Instala TEMOTIVA para un acceso rápido y uso sin conexión.',
       '#pwaInstallNow': 'Instalar',
       '#pwaInstallLater': 'Más tarde'
     },
     en: {
-      // Top
       '#mainNav a[href="/inicio.html"]': 'Home',
       '#mainNav a[href="#mision"]': 'Mission',
       '#mainNav a[href="#producto"]': 'Product',
       '#mainNav a[href="#contacto"]': 'Contact',
 
-      // Hero
       '#hero-title': 'When you feel overwhelmed and all you want is to know what to do right now',
       '#inicio p': 'Temotiva is an emotional wellbeing app designed for adults with high emotional load. It gives you concrete steps to take care of yourself in daily life when you feel bad and do not know where to start, as an intermediate support between therapy and generic wellbeing apps.',
       'a[data-gtag="cta_particular_click"]': 'I’m an individual',
       'a[data-gtag="cta_org_click"]': 'I represent an organization',
 
-      // Coming soon
       '#app-title': 'Coming soon to your phone',
       '#lanzamiento .frase': 'Gentle reminders, offline use and privacy by design. Temotiva as an app, ready to support you in those moments when you need to pause, regulate and take care of yourself.',
 
-      // Mission
       '#mission-title': 'For the days when everything feels uphill',
       '#mision > .container > p': 'There are moments when you run on autopilot, your head does not stop and you do not have the time or energy to think about what would help you feel better. That space between “I am not that bad” and “I cannot take it anymore” is exactly where Temotiva stands, when you need something clear and doable, not more demands.',
       '#mision .card:nth-child(1) h3': 'Life changes and mental noise',
@@ -1021,7 +994,6 @@
       '#mision .card:nth-child(3) h3': 'Studies and projects that exhaust you',
       '#mision .card:nth-child(3) p': 'When everything is deadlines, deliveries and goals, your wellbeing goes to the background. Temotiva reminds you that taking care of yourself is also part of the plan.',
 
-      // Product
       '#product-title': 'What the Temotiva app does for you',
       '#producto > .container > p': 'Temotiva turns evidence based psychology into short, guided actions that you can use right when blockage, rumination or that “I do not know what to do now” appears, without endless sessions or infinite screens.',
       '#producto .card:nth-child(1) h3': 'Guides you when you do not know what to do with what you feel',
@@ -1031,11 +1003,9 @@
       '#producto .card:nth-child(3) h3': 'Helps you understand your emotional patterns',
       '#producto .card:nth-child(3) p': 'Simple check ins and guided reflections to know your peaks, your lows and what truly helps you feel better in everyday life.',
 
-      // Reviews
       '#reviews-title': 'Reviews',
       '#resenas .frase': 'People who have tried Temotiva and noticed changes in their daily life.',
 
-      // Contact
       '#contact-title': 'Contact',
       'label[for="cf-nombre"]': 'Name',
       'label[for="cf-email"]': 'Email',
@@ -1044,13 +1014,11 @@
       '.hint': 'We’ll reply as soon as possible.',
       '#formMsg': 'Thanks, we’ll get back to you soon. If you prefer, email <a href="mailto:info@temotiva.com">info@temotiva.com</a>.',
 
-      // Footer
       'a[href="/privacidad.html"]': 'Privacy policy',
       'a[href="/cookies.html"]': 'Cookie policy',
       'a[href="/aviso-legal.html"]': 'Legal notice',
       '.back-top': 'Back to top ↑',
 
-      // PWA banner
       '#pwaBanner .msg': 'Install TEMOTIVA for quick access and offline use.',
       '#pwaInstallNow': 'Install',
       '#pwaInstallLater': 'Later'
@@ -1059,7 +1027,6 @@
 
   function setText(el, val){
     if(!el) return;
-    // Si el valor contiene HTML (links), usamos innerHTML de forma controlada
     if(/<\/?[a-z][\s\S]*>/i.test(val)) el.innerHTML = val;
     else el.textContent = val;
   }
@@ -1070,7 +1037,6 @@
       const el = document.querySelector(sel);
       setText(el, val);
     });
-    // Placeholders del formulario
     if(lang === 'en'){
       document.getElementById('cf-nombre')?.setAttribute('placeholder','Your name');
       document.getElementById('cf-email')?.setAttribute('placeholder','you@email.com');
@@ -1087,15 +1053,12 @@
     localStorage.setItem(LANG_KEY, lang);
   }
 
-  // Botón de idioma existente
   document.getElementById('langBtn')?.addEventListener('click', ()=>{
     curLang = curLang === 'es' ? 'en' : 'es';
     applyLang(curLang);
   });
 
-  // Aplicar en carga
   applyLang(curLang);
   </script>
-        
 </body>
 </html>
