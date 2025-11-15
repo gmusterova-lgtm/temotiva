@@ -130,10 +130,10 @@
       --header-h:64px;
       --focus:2px solid #3b82f6;
       --lh:1.65;
-      --h1:clamp(2.1rem, 3.4vw, 2.9rem);
-      --h2:clamp(1.5rem, 2.3vw, 2.1rem);
+      --h1:clamp(2rem, 3.2vw, 2.7rem);
+      --h2:clamp(1.4rem, 2.2vw, 2rem);
       --h3:clamp(1.1rem, 1.6vw, 1.25rem);
-      --container:min(1120px, 92%);
+      --container: min(1100px, 92%);
       color-scheme: light;
     }
 
@@ -160,69 +160,29 @@
     :focus-visible{ outline:var(--focus); outline-offset:3px; border-radius:10px; }
 
     .u-center{ display:grid; place-items:center; }
-    .u-flex{ display:flex; }
-    .u-col{ display:flex; flex-direction:column; }
-    .u-gap-xs{ gap:.25rem; }
-    .u-gap-s{ gap:.5rem; }
-    .u-gap{ gap:1rem; }
-    .u-gap-l{ gap:1.5rem; }
-    .u-mt-s{ margin-top:.5rem; }
-    .u-mt{ margin-top:1rem; }
-    .u-mt-l{ margin-top:1.5rem; }
-    .u-mb{ margin-bottom:1rem; }
+    .u-flex{ display:flex; } .u-col{ display:flex; flex-direction:column; }
+    .u-gap-xs{ gap:.25rem; } .u-gap-s{ gap:.5rem; } .u-gap{ gap:1rem; } .u-gap-l{ gap:1.5rem; }
+    .u-mt-s{ margin-top:.5rem; } .u-mt{ margin-top:1rem; } .u-mt-l{ margin-top:1.5rem; } .u-mb{ margin-bottom:1rem; }
     .u-hidden{ display:none !important; }
-
-    /* Títulos y textos de sección */
-    .section-title{
-      font-size:var(--h2);
-      margin:0 0 .8rem;
-      letter-spacing:.01em;
-    }
-    .section-lead{
-      max-width:70ch;
-      margin:0 0 1.5rem;
-      color:var(--ink-soft);
-    }
 
     /* Header */
     .site-header{
-      position:fixed;
-      inset:0 0 auto 0;
-      height:var(--header-h);
-      z-index:1000;
-      background:rgba(248,250,252,.9);
+      position:fixed; inset:0 0 auto 0; height:var(--header-h); z-index:1000; background:rgba(248,250,252,.9);
       border-bottom:1px solid color-mix(in srgb, var(--ink) 10%, transparent);
       transition: box-shadow .2s ease, backdrop-filter .2s ease, background .2s ease;
       backdrop-filter: saturate(135%) blur(10px);
     }
     .site-header.is-scrolled{ box-shadow:0 10px 30px rgba(15,23,42,.15); }
-    .nav{
-      height:var(--header-h);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-    }
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight:800;
-      letter-spacing:.3px;
-      white-space:nowrap;
-    }
+    .nav{ height:var(--header-h); display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .logo{ display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px; white-space:nowrap; }
     .logo img{ width:36px; height:36px; border-radius:9px; }
 
     .header-actions{ display:flex; align-items:center; gap:.5rem; }
 
     .icon-btn{
       border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-      background:var(--card);
-      color:var(--ink);
-      padding:.5rem .7rem;
-      border-radius:12px;
-      cursor:pointer;
-      min-height:40px;
+      background:var(--card); color:var(--ink);
+      padding:.5rem .7rem; border-radius:12px; cursor:pointer; min-height:40px;
       transition:background .15s ease, transform .05s ease, box-shadow .2s ease;
       box-shadow:0 1px 1px rgba(15,23,42,.04);
     }
@@ -232,126 +192,65 @@
     .menu-btn{ display:inline-flex; }
     @media (min-width:1024px){ .menu-btn{ display:none; } }
 
-    .nav-links{
-      display:none;
-      gap:.4rem;
-      margin-left:auto;
-      margin-right:1rem;
-    }
+    .nav-links{ display:none; gap:.4rem; margin-left:auto; margin-right:1rem; }
     .nav-links a{
-      padding:.45rem .7rem;
-      border-radius:10px;
-      color:var(--ink-soft);
-      display:inline-flex;
-      align-items:center;
-      position:relative;
-      font-size:.92rem;
+      padding:.45rem .7rem; border-radius:10px; color:var(--ink-soft); display:inline-flex; align-items:center;
+      position:relative; font-size:.92rem;
     }
-    .nav-links a:hover,
-    .nav-links a.active{
-      background:var(--muted);
-      color:var(--ink);
-    }
+    .nav-links a:hover, .nav-links a.active{ background:var(--muted); color:var(--ink); }
     .nav-links a.active::after{
-      content:"";
-      position:absolute;
-      left:10px;
-      right:10px;
-      bottom:4px;
-      height:2px;
-      background:var(--ink);
-      border-radius:2px;
-      opacity:.35;
+      content:""; position:absolute; left:10px; right:10px; bottom:4px; height:2px; background:var(--ink);
+      border-radius:2px; opacity:.35;
     }
     @media (min-width:1024px){ .nav-links{ display:flex; } }
 
     /* Google translate contenedor */
     #google_translate_element {
-      font-size:0.8rem;
+      font-size: 0.8rem;
     }
 
     /* Sidebar */
     #sidePanel{
-      position:fixed;
-      top:var(--header-h);
-      left:-280px;
-      width:260px;
-      height:calc(100vh - var(--header-h));
-      background:var(--card);
-      border-right:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-      padding:20px 16px;
-      transition:left .25s ease;
-      z-index:9999;
+      position:fixed; top:var(--header-h); left:-280px; width:260px; height:calc(100vh - var(--header-h));
+      background:var(--card); border-right:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      padding:20px 16px; transition:left .25s ease; z-index:9999;
       box-shadow:0 14px 36px rgba(15,23,42,.35);
     }
     #sidePanel.is-open{ left:0; }
-    .overlay{
-      position:fixed;
-      inset:0;
-      background:rgba(15,23,42,.35);
-      display:none;
-      z-index:9998;
-    }
+    .overlay{ position:fixed; inset:0; background:rgba(15,23,42,.35); display:none; z-index:9998; }
     .overlay.show{ display:block; }
     @media (min-width:1200px){ .overlay{ display:none !important; } }
-    .logo-side{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      color:var(--ink);
-      font-weight:700;
-    }
+    .logo-side{ display:flex; align-items:center; gap:8px; color:var(--ink); font-weight:700; }
     .logo-side img{ width:32px; height:32px; border-radius:8px; }
-    .menu-list{
-      list-style:none;
-      padding:0;
-      margin:16px 0;
-      display:flex;
-      flex-direction:column;
-      gap:4px;
-    }
-    .menu-list a{
-      display:block;
-      padding:10px 12px;
-      border-radius:10px;
-      color:var(--ink);
-    }
+    .menu-list{ list-style:none; padding:0; margin:16px 0; display:flex; flex-direction:column; gap:4px; }
+    .menu-list a{ display:block; padding:10px 12px; border-radius:10px; color:var(--ink); }
     .menu-list a:hover{ background:var(--muted); }
-    .privacy-link{
-      display:block;
-      margin-top:12px;
-      font-size:14px;
-      color:var(--ink-soft);
-    }
+    .privacy-link{ display:block; margin-top:12px; font-size:14px; color:var(--ink-soft); }
 
     /* Layout principal */
     .content{ flex:1; min-width:0; }
     .section{ padding:4.5rem 0; }
-    .section.alt{
-      background:linear-gradient(180deg,#edf1ff 0,#f7f8fb 70%);
-    }
+    .section.alt{ background:#edf1ff; }
 
     /* HERO tech */
     .hero{
       position:relative;
       isolation:isolate;
-      padding:5.4rem 0 3.8rem;
+      padding:5.2rem 0 4.6rem;
       background:
         radial-gradient(circle at 0 0, #ffffff 0, #eef3ff 45%, #cfd7ff 100%),
-        radial-gradient(circle at 120% 120%, rgba(59,130,246,.12), transparent 55%);
+        radial-gradient(circle at 120% 120%, rgba(59,130,246,.16), transparent 55%);
       overflow:hidden;
     }
 
     .hero-inner{
       display:grid;
       grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);
-      gap:2.6rem;
+      gap:2.3rem;
       align-items:center;
     }
     @media (max-width:900px){
-      .hero{
-        padding:4.5rem 0 3.2rem;
-      }
+      .hero{ padding:4.5rem 0 3.8rem; }
       .hero-inner{
         grid-template-columns:minmax(0,1fr);
         gap:2rem;
@@ -359,7 +258,7 @@
     }
 
     .hero-copy{
-      max-width:38rem;
+      max-width:36rem;
     }
     .hero-kicker{
       font-size:.78rem;
@@ -370,7 +269,7 @@
     }
     .hero-title{
       font-size:var(--h1);
-      margin:0 0 .65rem;
+      margin:0 0 .5rem;
       line-height:1.1;
       letter-spacing:.02em;
       background:linear-gradient(120deg,#111827,#4b5563,#1f2937);
@@ -388,36 +287,33 @@
     .hero-metrics{
       display:flex;
       flex-wrap:wrap;
-      gap:1.1rem;
+      gap:1.2rem;
       margin-top:1.4rem;
       font-size:.82rem;
     }
     .hero-metric{
       display:flex;
       flex-direction:column;
-      gap:.12rem;
-      padding:.6rem 1rem;
+      gap:.1rem;
+      padding:.5rem .8rem;
       border-radius:999px;
       border:1px solid rgba(148,163,184,.35);
-      background:rgba(255,255,255,.9);
+      background:rgba(255,255,255,.8);
       backdrop-filter:blur(8px);
-      min-width:155px;
     }
     .hero-metric-number{
-      font-size:1.15rem;
+      font-size:1.1rem;
       font-weight:600;
     }
     .hero-metric-label{
       opacity:.8;
-      font-size:.8rem;
-      color:var(--ink-soft);
     }
 
     .cta-row{
       display:flex;
       gap:12px;
       flex-wrap:wrap;
-      margin-top:1.6rem;
+      margin-top:1.4rem;
     }
 
     .hero-device{
@@ -430,9 +326,10 @@
       aspect-ratio:9/18;
       border-radius:32px;
       padding:16px;
-      background:linear-gradient(145deg,#f9fafb,#e5edff);
-      box-shadow:0 18px 40px rgba(15,23,42,.18);
-      border:1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+      background:radial-gradient(circle at 50% 0, rgba(255,255,255,.55), rgba(15,23,42,.08));
+      box-shadow:
+        0 18px 55px rgba(15,23,42,.25),
+        0 0 0 1px rgba(148,163,184,.45);
       display:flex;
       align-items:center;
       justify-content:center;
@@ -442,8 +339,8 @@
       position:absolute;
       inset:18% 12%;
       border-radius:30px;
-      background:radial-gradient(circle at 50% 0, rgba(56,189,248,.35), transparent 65%);
-      opacity:.4;
+      background:radial-gradient(circle at 50% 0, rgba(56,189,248,.4), transparent 65%);
+      opacity:.55;
       pointer-events:none;
       filter:blur(14px);
       mix-blend-mode:screen;
@@ -452,10 +349,9 @@
       position:relative;
       z-index:1;
       width:100%;
-      height:100%;
+      height:auto;
       border-radius:24px;
       transform:translateY(2px);
-      object-fit:cover;
     }
 
     @media (max-width:900px){
@@ -466,18 +362,9 @@
 
     /* Botones */
     .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      border:0;
-      border-radius:999px;
-      padding:.85rem 1.35rem;
-      background:var(--brand);
-      color:#fff;
-      min-height:44px;
-      line-height:1;
-      letter-spacing:.02em;
-      text-decoration:none;
+      display:inline-flex; align-items:center; justify-content:center;
+      border:0; border-radius:999px; padding:.85rem 1.35rem; background:var(--brand); color:#fff;
+      min-height:44px; line-height:1; letter-spacing:.02em; text-decoration:none;
       font-size:.92rem;
       transition:transform .05s ease, box-shadow .18s ease, filter .12s ease;
       box-shadow:0 14px 34px rgba(15,23,42,.28);
@@ -486,129 +373,53 @@
       filter:brightness(.97);
       box-shadow:0 18px 40px rgba(15,23,42,.32);
     }
-    .btn:active{
-      transform:translateY(1px);
-      box-shadow:0 10px 24px rgba(15,23,42,.22);
-    }
+    .btn:active{ transform:translateY(1px); box-shadow:0 10px 24px rgba(15,23,42,.22); }
     .btn.secondary{
-      background:transparent;
-      color:var(--brand);
-      border:1px solid color-mix(in srgb, var(--ink) 18%, transparent);
-      box-shadow:0 4px 14px rgba(148,163,184,.25);
-    }
-    .btn.secondary:hover{
       background:rgba(255,255,255,.9);
-      box-shadow:0 10px 26px rgba(148,163,184,.34);
+      color:#111827;
+      box-shadow:0 10px 26px rgba(148,163,184,.35);
     }
 
     /* Cards y grillas */
-    .grid{
-      display:grid;
-      gap:1.2rem;
-      grid-template-columns:repeat(3, 1fr);
-      align-items:stretch;
-    }
-    @media (max-width:900px){
-      .grid{ grid-template-columns:1fr; }
-    }
+    .grid{ display:grid; gap:1rem; grid-template-columns:repeat(3, 1fr); align-items:stretch; }
+    @media (max-width:900px){ .grid{ grid-template-columns:1fr; } }
     .card{
-      background:var(--card);
-      border-radius:var(--radius);
-      padding:1.2rem 1.25rem;
-      box-shadow:var(--shadow);
+      background:var(--card); border-radius:var(--radius); padding:1.1rem 1.2rem; box-shadow:var(--shadow);
       border:1px solid color-mix(in srgb, var(--ink) 10%, transparent);
       transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
     }
-    .card:hover{
-      transform:translateY(-2px);
-      box-shadow:0 18px 40px rgba(15,23,42,.18);
-      border-color:rgba(148,163,184,.55);
-    }
-    .card h3{
-      font-size:var(--h3);
-      margin:.2rem 0 .4rem;
-    }
+    .card:hover{ transform:translateY(-2px); box-shadow:0 18px 40px rgba(15,23,42,.18); border-color:rgba(148,163,184,.55); }
+    .card h3{ font-size:var(--h3); margin:.2rem 0 .4rem; }
 
     /* Frase y reseñas */
-    .frase{
-      font-size:clamp(1.05rem, 2.1vw, 1.25rem);
-      color:var(--ink-soft);
-      margin:.6rem 0 1rem;
-    }
-    .reviews { padding:4.5rem 0; }
-    .reviews .grid{
-      display:grid;
-      gap:1.2rem;
-      grid-template-columns:repeat(2,1fr);
-    }
-    @media (max-width:900px){
-      .reviews .grid{ grid-template-columns:1fr; }
-    }
-    .review{
-      background:var(--card);
-      border:1px solid color-mix(in srgb, var(--ink) 10%, transparent);
-      border-radius:var(--radius);
-      padding:1rem 1.2rem;
-      box-shadow:var(--shadow);
-    }
-    .review blockquote{
-      margin:0 0 .4rem;
-      font-size:1.02rem;
-      line-height:1.6;
-    }
+    .frase{ font-size:clamp(1.05rem, 2.1vw, 1.25rem); color:var(--ink-soft); margin:.6rem 0 1rem; }
+    .reviews { padding:4rem 0; }
+    .reviews .grid { display:grid; gap:1rem; grid-template-columns:repeat(2,1fr); }
+    @media (max-width:900px){ .reviews .grid{ grid-template-columns:1fr; } }
+    .review { background:var(--card); border:1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+      border-radius:var(--radius); padding:1rem 1.2rem; box-shadow:var(--shadow); }
+    .review blockquote{ margin:0 0 .4rem; font-size:1.02rem; line-height:1.6; }
     .review .who{ color:var(--ink-soft); }
 
     /* Formularios pro */
-    .form-pro input,
-    .form-pro textarea{
-      width:100%;
-      padding:.85rem 1rem;
-      border-radius:12px;
-      border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-      background:var(--card);
-      color:var(--ink);
-      transition:border-color .15s ease, box-shadow .15s ease;
+    .form-pro input, .form-pro textarea {
+      width:100%; padding:.85rem 1rem; border-radius:12px; border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      background:var(--card); color:var(--ink); transition:border-color .15s ease, box-shadow .15s ease;
     }
-    .form-pro input:focus,
-    .form-pro textarea:focus{
-      border-color:#3b82f6;
-      box-shadow:0 0 0 3px rgba(59,130,246,.2);
-      outline:none;
-    }
-    .form-pro .row{
-      display:grid;
-      gap:.8rem;
-      grid-template-columns:1fr 1fr;
-    }
-    @media (max-width:720px){
-      .form-pro .row{ grid-template-columns:1fr; }
-    }
-    .form-pro .hint{
-      color:var(--ink-soft);
-      font-size:.9rem;
-      margin:.25rem 0 0;
-    }
-    .form-pro .error{
-      color:#b00020;
-      font-size:.9rem;
-      display:none;
-      margin:.25rem 0 0;
-    }
+    .form-pro input:focus, .form-pro textarea:focus { border-color:#3b82f6; box-shadow:0 0 0 3px rgba(59,130,246,.2); outline:none; }
+    .form-pro .row{ display:grid; gap:.8rem; grid-template-columns:1fr 1fr; }
+    @media (max-width:720px){ .form-pro .row{ grid-template-columns:1fr; } }
+    .form-pro .hint{ color:var(--ink-soft); font-size:.9rem; margin:.25rem 0 0; }
+    .form-pro .error{ color:#b00020; font-size:.9rem; display:none; margin:.25rem 0 0; }
     .form-pro .checkline{
-      display:grid;
-      grid-template-columns:20px 1fr;
-      align-items:center;
-      column-gap:.6rem;
+      display:grid; grid-template-columns:20px 1fr; align-items:center; column-gap:.6rem;
       margin-top:.75rem;
     }
-    .form-pro .checkline input{
-      width:18px;
-      height:18px;
-    }
+    .form-pro .checkline input{ width:18px; height:18px; }
     .form-pro button[type="submit"]{ min-width:140px; }
 
     /* App CTA */
-    .app-cta{
+    .app-cta {
       background:var(--card);
       border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
       border-radius:var(--radius);
@@ -616,90 +427,32 @@
       box-shadow:var(--shadow);
     }
 
-    /* Newsletter */
-    .newsletter-frame{
-      max-width:640px;
-      margin:1.8rem auto 0;
-    }
-    .newsletter-note{
-      margin-top:.8rem;
-      font-size:.86rem;
-      color:var(--ink-soft);
-    }
-
     /* Footer */
     .site-footer{
       border-top:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-      padding:1.4rem 0;
-      background:var(--card);
-      padding-left:max(0px, env(safe-area-inset-left));
-      padding-right:max(0px, env(safe-area-inset-right));
+      padding:1.4rem 0; background:var(--card);
+      padding-left:max(0px, env(safe-area-inset-left)); padding-right:max(0px, env(safe-area-inset-right));
     }
 
     /* Accesibilidad básica */
-    .skip-link{
-      position:absolute;
-      left:-9999px;
-      top:auto;
-      width:1px;
-      height:1px;
-      overflow:hidden;
-    }
-    .skip-link:focus{
-      position:fixed;
-      left:16px;
-      top:16px;
-      padding:.55rem .8rem;
-      border-radius:10px;
-      background:var(--card);
-      color:var(--ink);
-      z-index:2000;
-      box-shadow:0 8px 24px rgba(0,0,0,.15);
-    }
+    .skip-link{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip-link:focus{ position:fixed; left:16px; top:16px; padding:.55rem .8rem; border-radius:10px; background:var(--card); color:var(--ink);
+      z-index:2000; box-shadow:0 8px 24px rgba(0,0,0,.15); }
 
     /* Reveal */
-    html.js-ready .reveal{
-      opacity:0;
-      transform:translateY(14px);
-      transition:opacity .6s ease, transform .6s ease;
-    }
-    html.js-ready .reveal.visible{
-      opacity:1;
-      transform:none;
-    }
+    html.js-ready .reveal{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
+    html.js-ready .reveal.visible{ opacity:1; transform:none; }
 
     /* Banner PWA */
     .pwa-install{
-      position:fixed;
-      left:50%;
-      bottom:16px;
-      transform:translateX(-50%);
-      background:var(--card);
-      color:var(--ink);
-      border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-      box-shadow:0 8px 24px rgba(0,0,0,.15);
-      border-radius:12px;
-      padding:12px 14px;
-      z-index:2000;
-      display:none;
-      max-width:96%;
+      position:fixed; left:50%; bottom:16px; transform:translateX(-50%);
+      background:var(--card); color:var(--ink); border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      box-shadow:0 8px 24px rgba(0,0,0,.15); border-radius:12px; padding:12px 14px; z-index:2000; display:none; max-width:96%;
     }
     .pwa-install.show{ display:block; }
-    .pwa-install .row{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-    .pwa-install .msg{
-      font-size:14px;
-      opacity:.9;
-    }
-    .pwa-install .actions{
-      margin-left:auto;
-      display:flex;
-      gap:8px;
-    }
+    .pwa-install .row{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+    .pwa-install .msg{ font-size:14px; opacity:.9; }
+    .pwa-install .actions{ margin-left:auto; display:flex; gap:8px; }
   </style>
 
   <!-- Google Translate -->
@@ -819,48 +572,34 @@
           <div class="hero-device" aria-hidden="true">
             <div class="hero-device-shell">
               <div class="hero-device-glow"></div>
-              <img src="/9_Mockup-clean.png" alt="">
+              <img src="/9_Mockup.png" alt="">
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Formulario Newsletter Temotiva -->
-    <section id="newsletter" class="section reveal" aria-labelledby="newsletter-title">
-      <div class="container">
-        <h2 id="newsletter-title" class="section-title">Newsletter de Temotiva</h2>
-        <p class="section-lead">
-          Recibe en tu correo ideas, recursos y novedades sobre Temotiva y bienestar emocional aplicado al día a día,
-          sin ruido y con información que puedas usar de verdad.
-        </p>
+  <!-- Formulario Newsletter Temotiva -->
+<script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+<iframe src="https://subscribe-forms.beehiiv.com/dea8c242-bc64-433e-abb1-91773ac60526"
+class="beehiiv-embed"
+data-test-id="beehiiv-embed"
+frameborder="0"
+scrolling="no"
+style="width: 575px; height: 339px; margin: 0 auto; display: block; border-radius: 12px; background-color: transparent; box-shadow: 0 0 20px rgba(0,0,0,0.08); max-width: 100%;">
+</iframe>
 
-        <div class="newsletter-frame">
-          <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
-          <iframe
-            src="https://subscribe-forms.beehiiv.com/dea8c242-bc64-433e-abb1-91773ac60526"
-            class="beehiiv-embed"
-            data-test-id="beehiiv-embed"
-            frameborder="0"
-            scrolling="no"
-            style="width: 100%; height: 339px; margin: 0 auto; display: block; border-radius: 12px; background-color: transparent; box-shadow: 0 0 20px rgba(0,0,0,0.08); max-width: 100%;">
-          </iframe>
-          <p class="newsletter-note">
-            Tras suscribirte, revisa la carpeta de spam pasados unos minutos y añade nuestro correo a tus contactos para no perderte ningún mensaje.
-          </p>
-        </div>
-      </div>
-    </section>
+      
 
     <!-- Misión / Dolor -->
     <section id="mision" class="section reveal" aria-labelledby="mission-title">
       <div class="container">
-        <h2 id="mission-title" class="section-title">Para esos días en los que todo se hace cuesta arriba</h2>
-        <p class="section-lead">
+        <h2 id="mission-title" style="font-size:var(--h2); margin:0 0 .6rem;">Para esos días en los que todo se hace cuesta arriba</h2>
+        <p style="max-width:70ch;">
           Hay momentos en los que vas en automático, tu cabeza no para y no tienes tiempo ni energía para pensar qué te ayudaría a sentirte mejor.
           Ese espacio intermedio entre “no estoy tan mal” y “no puedo más” es justo donde se sitúa Temotiva, cuando necesitas algo claro y posible, no más exigencias.
         </p>
-        <div class="grid">
+        <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:1rem;">
           <article class="card">
             <h3>Cambios vitales y ruido mental</h3>
             <p>Reorganizar tu vida, tu trabajo o tus relaciones puede ser agotador. Temotiva te ayuda a parar, escuchar lo que necesitas y dar un paso concreto.</p>
@@ -880,8 +619,8 @@
     <!-- Producto -->
     <section id="producto" class="section alt reveal" aria-labelledby="product-title">
       <div class="container">
-        <h2 id="product-title" class="section-title">Qué hace la app Temotiva por ti</h2>
-        <p class="section-lead">
+        <h2 id="product-title" style="font-size:var(--h2); margin:0 0 .6rem;">Qué hace la app Temotiva por ti</h2>
+        <p style="max-width:70ch;">
           Temotiva convierte la psicología basada en evidencia en acciones breves y guiadas que puedes usar justo cuando aparece el bloqueo, la rumiación
           o ese “no sé qué hacer ahora mismo”, sin sesiones eternas ni pantallas infinitas.
         </p>
@@ -906,12 +645,12 @@
     <!-- Ecosistema -->
     <section id="ecosistema" class="section reveal" aria-labelledby="ecosystem-title">
       <div class="container">
-        <h2 id="ecosystem-title" class="section-title">Temotiva es más que una app</h2>
-        <p class="section-lead">
+        <h2 id="ecosystem-title" style="font-size:var(--h2); margin:0 0 .6rem;">Temotiva es más que una app</h2>
+        <p style="max-width:70ch;">
           A partir de la app Temotiva nace un pequeño ecosistema de bienestar emocional: recursos descargables, talleres y propuestas para personas y organizaciones
           que quieren cuidar mejor de su salud emocional en el día a día.
         </p>
-        <div class="grid">
+        <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:1rem;">
           <article class="card">
             <h3>Recursos</h3>
             <p>Guías, ejercicios y materiales breves de bienestar emocional que podrás ir ampliando en la página de Recursos.</p>
@@ -931,12 +670,12 @@
     <!-- Quién impulsa -->
     <section id="impulsa" class="section alt reveal" aria-labelledby="impulsa-title">
       <div class="container">
-        <h2 id="impulsa-title" class="section-title">Quién impulsa Temotiva</h2>
-        <p class="section-lead">
+        <h2 id="impulsa-title" style="font-size:var(--h2); margin:0 0 .6rem;">Quién impulsa Temotiva</h2>
+        <p style="max-width:70ch;">
           Temotiva nace en la intersección entre psicología, diseño accesible e innovación social. Detrás del proyecto hay un equipo que cuida tanto el contenido
           como la forma en que se ofrece.
         </p>
-        <div class="grid" style="grid-template-columns:repeat(2,1fr);gap:1.2rem;">
+        <div class="grid" style="grid-template-columns:repeat(2,1fr);gap:1rem;">
           <article class="card">
             <h3>Temotiva LAB</h3>
             <p>
@@ -958,7 +697,7 @@
     <!-- Reseñas -->
     <section id="resenas" class="section reviews reveal" aria-labelledby="reviews-title">
       <div class="container">
-        <h2 id="reviews-title" class="section-title">Reseñas</h2>
+        <h2 id="reviews-title" style="font-size:var(--h2); margin:0 0 .6rem;">Reseñas</h2>
         <p class="frase" style="margin-top:.2rem;">Personas que han probado Temotiva y han notado cambios en su día a día.</p>
         <div class="grid">
           <article class="review" itemscope itemtype="https://schema.org/Review">
@@ -997,7 +736,7 @@
     <!-- Contacto -->
     <section id="contacto" class="section alt reveal" aria-labelledby="contact-title">
       <div class="container">
-        <h2 id="contact-title" class="section-title">Contacto</h2>
+        <h2 id="contact-title" style="font-size:var(--h2); margin:0 0 .6rem;">Contacto</h2>
 
         <form id="contactForm" class="form form-pro" novalidate>
           <input type="hidden" name="_subject" value="Nuevo mensaje desde TEMOTIVA">
@@ -1082,7 +821,7 @@
 
     /* Header sombra y nav activa por sección */
     const siteHeader = $("#siteHeader");
-    const sections = ["mision","producto","ecosistema","impulsa","resenas","newsletter","contacto"].map(id => document.getElementById(id));
+    const sections = ["mision","producto","resenas","lanzamiento","contacto"].map(id => document.getElementById(id));
     const navLinks = $$("#mainNav a");
     function setActive(hash){
       navLinks.forEach(a => {
@@ -1176,63 +915,32 @@
       const consent = document.getElementById('cf-consent');
 
       function clearErr(i, e){ i.addEventListener('input', ()=>{ i.setCustomValidity(''); e.style.display='none'; }); }
-      clearErr(nombre, eNombre);
-      clearErr(email, eEmail);
-      clearErr(msg, eMsg);
+      clearErr(nombre, eNombre); clearErr(email, eEmail); clearErr(msg, eMsg);
 
       function toggle(){ btn.disabled = !consent.checked; }
-      consent?.addEventListener('change', toggle);
-      toggle();
+      consent?.addEventListener('change', toggle); toggle();
 
       async function postWithRetry(url, body){
-        const ctrl = new AbortController();
-        const t = setTimeout(()=>ctrl.abort(), 8000);
-        try{
-          const r = await fetch(url,{method:'POST',headers:{Accept:'application/json'},body,signal:ctrl.signal});
-          clearTimeout(t);
-          if(r.ok) return true;
-        }catch{}
-        try{
-          const r2 = await fetch(url,{method:'POST',headers:{Accept:'application/json'},body});
-          return r2.ok;
-        }catch{ return false; }
+        const ctrl = new AbortController(); const t = setTimeout(()=>ctrl.abort(), 8000);
+        try{ const r = await fetch(url,{method:'POST',headers:{Accept:'application/json'},body,signal:ctrl.signal}); clearTimeout(t); if(r.ok) return true; }catch{}
+        try{ const r2 = await fetch(url,{method:'POST',headers:{Accept:'application/json'},body}); return r2.ok; }catch{ return false; }
       }
 
       form.addEventListener('submit', async e=>{
         e.preventDefault();
 
         let valid = true;
-        if(!nombre.value.trim()){
-          valid=false;
-          nombre.setCustomValidity('Requerido');
-          eNombre.style.display='block';
-        }
-        if(!email.checkValidity()){
-          valid=false;
-          email.setCustomValidity('Correo no válido');
-          eEmail.style.display='block';
-        }
-        if(!msg.value.trim()){
-          valid=false;
-          msg.setCustomValidity('Requerido');
-          eMsg.style.display='block';
-        }
-        if(!valid){
-          [nombre,email,msg].forEach(el=>el.reportValidity());
-          return;
-        }
+        if(!nombre.value.trim()){ valid=false; nombre.setCustomValidity('Requerido'); eNombre.style.display='block'; }
+        if(!email.checkValidity()){ valid=false; email.setCustomValidity('Correo no válido'); eEmail.style.display='block'; }
+        if(!msg.value.trim()){ valid=false; msg.setCustomValidity('Requerido'); eMsg.style.display='block'; }
+        if(!valid){ [nombre,email,msg].forEach(el=>el.reportValidity()); return; }
 
         btn.disabled = true;
         const ok = await postWithRetry("https://formspree.io/f/xnnobrvn", new FormData(form));
         btn.disabled = false;
 
-        if(ok){
-          form.reset();
-          okMsg?.classList.remove('u-hidden');
-        }
-        else {
-          alert("No se pudo enviar, intenta de nuevo más tarde.");
-        }
+        if(ok){ form.reset(); okMsg?.classList.remove('u-hidden'); }
+        else { alert("No se pudo enviar, intenta de nuevo más tarde."); }
       });
     })();
 
@@ -1246,13 +954,9 @@
       if(!form) return;
 
       function toggle(){ if(submit) submit.disabled = !consent.checked; }
-      consent?.addEventListener('change', toggle);
-      toggle();
+      consent?.addEventListener('change', toggle); toggle();
 
-      email?.addEventListener('input', ()=>{
-        email.setCustomValidity('');
-        err.style.display = 'none';
-      });
+      email?.addEventListener('input', ()=>{ email.setCustomValidity(''); err.style.display = 'none'; });
       form.addEventListener('submit', async e=>{
         if(email && !email.checkValidity()){
           e.preventDefault();
@@ -1268,10 +972,7 @@
     const INSTALL_KEY = "temotiva-install-dismissed";
     const VISITS_KEY = "temotiva-visit-count";
     let deferredPrompt = null;
-    try {
-      const v = parseInt(localStorage.getItem(VISITS_KEY) || "0", 10) + 1;
-      localStorage.setItem(VISITS_KEY, String(v));
-    } catch {}
+    try { const v = parseInt(localStorage.getItem(VISITS_KEY) || "0", 10) + 1; localStorage.setItem(VISITS_KEY, String(v)); } catch {}
     const installBtn = $("#installBtn");
     const banner = $("#pwaBanner");
     const installNow = $("#pwaInstallNow");
@@ -1296,11 +997,7 @@
     }
     installBtn?.addEventListener("click", ()=> deferredPrompt && promptInstall());
     installNow?.addEventListener("click", ()=> deferredPrompt ? promptInstall() : banner?.classList.remove("show"));
-    installLater?.addEventListener("click", (ev)=>{
-      ev.preventDefault();
-      localStorage.setItem(INSTALL_KEY,"1");
-      banner?.classList.remove("show");
-    });
+    installLater?.addEventListener("click", (ev)=> { ev.preventDefault(); localStorage.setItem(INSTALL_KEY,"1"); banner?.classList.remove("show"); });
 
     window.addEventListener("appinstalled", () => {
       try { localStorage.setItem(INSTALL_KEY, "1"); } catch {}
@@ -1310,10 +1007,7 @@
     });
 
     const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
-    if (isStandalone) {
-      installBtn?.setAttribute("hidden","true");
-      banner?.classList.remove("show");
-    }
+    if (isStandalone) { installBtn?.setAttribute("hidden","true"); banner?.classList.remove("show"); }
 
     /* GA para CTAs clave */
     document.querySelectorAll('[data-gtag]').forEach(b=>b.addEventListener('click',()=>gtag('event', b.dataset.gtag)));
