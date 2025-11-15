@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Talleres Temotiva | Bienestar emocional para personas</title>
+  <title>Talleres Temotiva | Bienestar emocional para personas</title>
 
   <meta name="description" content="Talleres y microexperiencias de bienestar emocional para personas adultas con alta carga mental. Sesiones breves, prácticas y con herramientas que puedes usar en tu día a día.">
   <meta name="keywords" content="taller bienestar emocional, autocuidado, regulación emocional, estrés, ansiedad leve, talleres online, talleres presenciales, bienestar en la vida diaria">
@@ -29,8 +29,9 @@
 
   <style>
     .pt-hero{
-      padding:4.5rem 0 4rem;
-      background:linear-gradient(135deg,#f7f7fb,#f0f4ff);
+      padding:4.5rem 0 4.2rem;
+      background:radial-gradient(circle at top left,#e6e9ff,#dfe5ff);
+      border-bottom:1px solid rgba(0,0,0,.05);
     }
     .pt-hero-inner{
       max-width:900px;
@@ -48,7 +49,7 @@
       text-transform:uppercase;
       letter-spacing:.12em;
       font-size:.78rem;
-      opacity:.8;
+      opacity:.85;
       margin:0 0 .35rem;
     }
     .pt-title{
@@ -70,11 +71,52 @@
     .pt-hero-meta span:nth-child(2n){
       opacity:.5;
     }
+
     .pt-hero-side{
       display:flex;
       flex-direction:column;
       gap:.8rem;
+      align-items:center;
+      justify-content:center;
     }
+
+    .pt-hero-mockup{
+      width:100%;
+      max-width:360px;
+      margin:0 auto;
+      border-radius:22px;
+      filter:drop-shadow(0 16px 46px rgba(0,0,0,.22));
+      animation:floaty 5s ease-in-out infinite;
+    }
+
+    .pt-hero-metrics{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.5rem;
+      margin:.9rem 0 0;
+      font-size:.8rem;
+    }
+    .pt-hero-metric{
+      padding:.35rem .8rem;
+      border-radius:999px;
+      background:rgba(255,255,255,.94);
+      border:1px solid rgba(0,0,0,.06);
+      box-shadow:0 6px 20px rgba(0,0,0,.08);
+      display:flex;
+      align-items:center;
+      gap:.25rem;
+      white-space:nowrap;
+    }
+    .pt-hero-metric strong{
+      font-weight:600;
+    }
+
+    @keyframes floaty{
+      0%{ transform:translateY(0); }
+      50%{ transform:translateY(-10px); }
+      100%{ transform:translateY(0); }
+    }
+
     .pt-pill{
       background:#fff;
       border-radius:14px;
@@ -82,6 +124,7 @@
       box-shadow:0 10px 30px rgba(0,0,0,.06);
       border:1px solid rgba(0,0,0,.04);
       font-size:.95rem;
+      margin-top:.6rem;
     }
     .pt-pill h3{
       margin:0 0 .5rem;
@@ -269,6 +312,26 @@
         </div>
 
         <div class="pt-hero-side">
+          <img
+            src="/4_Mockup.png"
+            alt="Vista previa de los talleres de bienestar emocional de TEMOTIVA"
+            class="pt-hero-mockup">
+
+          <div class="pt-hero-metrics">
+            <span class="pt-hero-metric">
+              <strong>60 a 90 min</strong>
+              por sesión
+            </span>
+            <span class="pt-hero-metric">
+              <strong>Grupos</strong>
+              pequeños
+            </span>
+            <span class="pt-hero-metric">
+              <strong>100 %</strong>
+              lenguaje claro
+            </span>
+          </div>
+
           <div class="pt-pill">
             <h3>Para ti si te reconoces en algo de esto</h3>
             <ul>
@@ -286,7 +349,7 @@
       <div class="container">
         <h2 id="pt-formatos-title">Qué tipo de talleres puedes encontrar</h2>
         <p class="pt-lead">
-          Todos los formatos tienen algo en común: poco texto, mucha práctica y ejercicios que puedes llevarte contigo.
+          Todos los formatos tienen algo en común, poco texto, mucha práctica y ejercicios que puedes llevarte contigo.
         </p>
 
         <div class="pt-grid cols-3">
