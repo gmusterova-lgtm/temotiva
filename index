@@ -21,7 +21,7 @@
   <meta name="robots" content="index,follow" />
   <meta http-equiv="x-ua-compatible" content="IE=edge" />
 
-  <title>TEMOTIVA | <span data-i18n="meta.tagline">Innovación en bienestar emocional</span></title>
+  <title>TEMOTIVA | Innovación en bienestar emocional</title>
   <meta name="description" content="Bienestar emocional para mejorar la salud mental y el autocuidado en la vida cotidiana. Descubre prácticas simples para cuidar tu mente y tu equilibrio día a día.">
   <meta name="keywords" content="bienestar emocional, salud mental, autocuidado, psicología, autocuidado diario, regulación emocional, progreso">
 
@@ -60,7 +60,7 @@
   <link rel="preconnect" href="https://ejhzxwnhqvcqjqxnuvya.supabase.co" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://formspree.io" crossorigin>
-  <link rel="prerender" href="/inicio.html">
+  <link rel="prerender" href="/index.html">
   <link rel="prefetch" href="/blog/index.html" as="document">
   <link rel="prefetch" href="/recursos.html" as="document">
 
@@ -93,14 +93,12 @@
       --radius:14px; --shadow:0 8px 28px rgba(0,0,0,.08); --header-h:64px; --focus:2px solid color-mix(in srgb, var(--ink) 35%, transparent);
       --lh:1.65; --h1:clamp(2rem, 3.6vw, 3rem); --h2:clamp(1.4rem, 2.2vw, 2rem); --h3:clamp(1.1rem, 1.6vw, 1.25rem);
       --container: min(1100px, 92%);
-      /* botones accesibles en ambos modos, sin cambiar tu paleta */
       --btn-bg:#111; --btn-ink:#fff;
       color-scheme: light dark;
     }
     html[data-theme="dark"]{
       --bg:#0f1115; --ink:#eaeaea; --ink-soft:#d6d6d6; --brand:#eaeaea; --card:#151923; --muted:#262a36;
       --shadow:0 8px 24px rgba(0,0,0,.45);
-      /* en dark, invertimos botón para buen contraste */
       --btn-bg:#eaeaea; --btn-ink:#111;
       color-scheme: dark;
     }
@@ -188,18 +186,13 @@
     .section.alt{ background:#f4f4f4; }
     html[data-theme="dark"] .section.alt{ background:#141923; }
 
-    /* Hero con imagen visible */
+    /* Hero */
     .hero{
       position:relative; isolation:isolate;
       background:linear-gradient(180deg, #ffffff, #f3f5f7);
       display:grid; place-items:center; padding:5.5rem 0 5rem; overflow:hidden;
     }
     html[data-theme="dark"] .hero{ background:linear-gradient(180deg, #121621, #0f131d); }
-    .hero::after{
-      content:""; position:absolute; inset:0 0 0 50%;
-      background:url("/chica-meditando.png") right center / contain no-repeat; opacity:.35; z-index:-1; pointer-events:none;
-    }
-    @media (max-width:900px){ .hero::after{ inset:0 0 0 60%; opacity:.22; } }
     .hero h1{ font-size:var(--h1); margin:0 0 .6rem; letter-spacing:.2px; }
     .hero p{ color:var(--ink-soft); margin:0 0 1.2rem; max-width:48ch; margin-inline:auto; }
     .cta-row{ display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:22px; }
@@ -246,27 +239,22 @@
     .form-pro .error{ color:#b00020; font-size:.9rem; display:none; margin:.25rem 0 0; }
     .form-pro .checkline{ display:grid; grid-template-columns:20px 1fr; align-items:center; column-gap:.6rem; margin-top:.75rem; }
 
-    /* App CTA caja */
     .app-cta { background:var(--card); border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
       border-radius:var(--radius); padding:1.2rem; box-shadow:var(--shadow); }
 
-    /* Footer */
     .site-footer{
       border-top:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
       padding:1.4rem 0; background:var(--card);
       padding-left:max(0px, env(safe-area-inset-left)); padding-right:max(0px, env(safe-area-inset-right));
     }
 
-    /* Accesibilidad básica */
     .skip-link{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
     .skip-link:focus{ position:fixed; left:16px; top:16px; padding:.55rem .8rem; border-radius:10px; background:var(--card); color:var(--ink);
       z-index:2000; box-shadow:0 8px 24px rgba(0,0,0,.15); }
 
-    /* Reveal */
     html.js-ready .reveal{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
     html.js-ready .reveal.visible{ opacity:1; transform:none; }
 
-    /* Banner PWA */
     .pwa-install{
       position:fixed; left:50%; bottom:16px; transform:translateX(-50%);
       background:var(--card); color:var(--ink); border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
@@ -282,29 +270,27 @@
   <a href="#app" class="skip-link" data-i18n="a11y.skip">Saltar al contenido</a>
   <noscript><div style="padding:12px;text-align:center;background:#fff4cd;color:#7a5d00" data-i18n="a11y.noscript">Activa JavaScript para usar TEMOTIVA.</div></noscript>
 
-  <!-- Overlay -->
   <div id="overlay" class="overlay" aria-hidden="true"></div>
 
   <!-- Header -->
   <header class="site-header" id="siteHeader" role="banner">
     <div class="container nav">
-      <a href="/inicio.html" class="logo" aria-label="Ir a inicio">
+      <a href="/index.html#inicio" class="logo" aria-label="Ir a inicio">
         <img src="/icon-192.png" alt="Logo TEMOTIVA" width="36" height="36">
         <span>TEMOTIVA</span>
       </a>
 
       <nav id="mainNav" class="nav-links" aria-label="Menú principal">
-  <a href="/index.html">Home</a>
-  <a href="/demo.html">La App TEMOTIVA</a>
-  <a href="/particular.html">Talleres y actividades</a>
-  <a href="/organizacion.html">Para organizaciones</a>
-  <a href="/recursos.html">Recursos</a>
-  <a href="/blogg index.html">Blog</a>
-  <a href="/temotiva-lab.html">TEMOTIVA LAB</a>
-  <a href="/ctl.html">Cognitiva Tech Lab</a>
-  <a href="/contacto.html">Contacto</a>
-</nav>
-
+        <a href="#inicio" data-i18n="nav.home">Inicio</a>
+        <a href="/demo.html">La App TEMOTIVA</a>
+        <a href="/particular.html">Talleres y actividades</a>
+        <a href="/organizacion.html">Para organizaciones</a>
+        <a href="/recursos.html">Recursos</a>
+        <a href="/blog/">Blog</a>
+        <a href="/temotiva-lab.html">TEMOTIVA LAB</a>
+        <a href="/ctl.html">Cognitiva Tech Lab</a>
+        <a href="/contacto.html">Contacto</a>
+      </nav>
 
       <div class="header-actions" role="group" aria-label="Acciones">
         <button id="langBtn" class="icon-btn" aria-label="Cambiar idioma">ES/EN</button>
@@ -317,26 +303,25 @@
 
   <!-- Panel lateral -->
   <nav id="sidePanel" class="sidebar" aria-label="Menú lateral" aria-hidden="true">
-  <a class="logo-side" href="/index.html">
-    <img src="/icon-192.png" alt="" aria-hidden="true" width="32" height="32">
-    <span>TEMOTIVA</span>
-  </a>
+    <a class="logo-side" href="#inicio">
+      <img src="/icon-192.png" alt="" aria-hidden="true" width="32" height="32">
+      <span>TEMOTIVA</span>
+    </a>
 
-  <ul class="menu-list" role="list">
-    <li><a href="/index.html">Home</a></li>
-    <li><a href="/demo.html">La App TEMOTIVA</a></li>
-    <li><a href="/particular.html">Talleres y actividades</a></li>
-    <li><a href="/organizacion.html">Para organizaciones</a></li>
-    <li><a href="/recursos.html">Recursos</a></li>
-    <li><a href="/blogg index.html">Blog</a></li>
-    <li><a href="/temotiva-lab.html">TEMOTIVA LAB</a></li>
-    <li><a href="/ctl.html">Cognitiva Tech Lab</a></li>
-    <li><a href="/contacto.html">Contacto</a></li>
-  </ul>
+    <ul class="menu-list" role="list">
+      <li><a href="#inicio" data-i18n="side.home">Inicio</a></li>
+      <li><a href="/demo.html">La App TEMOTIVA</a></li>
+      <li><a href="/particular.html">Talleres y actividades</a></li>
+      <li><a href="/organizacion.html">Para organizaciones</a></li>
+      <li><a href="/recursos.html" data-i18n="side.resources">Recursos</a></li>
+      <li><a href="/blog/" data-i18n="side.blog">Blog</a></li>
+      <li><a href="/temotiva-lab.html">TEMOTIVA LAB</a></li>
+      <li><a href="/ctl.html">Cognitiva Tech Lab</a></li>
+      <li><a href="/contacto.html" data-i18n="side.contact">Contacto</a></li>
+    </ul>
 
-  <a class="privacy-link" href="/privacidad.html">Privacidad</a>
-</nav>
-
+    <a class="privacy-link" href="/privacidad.html" data-i18n="side.privacy">Privacidad</a>
+  </nav>
 
   <main class="content" id="app" role="main">
     <!-- Hero -->
@@ -356,7 +341,6 @@
       <div class="container app-cta">
         <h2 id="app-title" style="font-size:var(--h2); margin:0 0 .6rem;" data-i18n="soon.title">Muy pronto en tu móvil</h2>
         <p class="frase" style="margin-top:.2rem;" data-i18n="soon.copy">Recordatorios suaves, uso sin conexión, privacidad por diseño. TEMOTIVA como app, lista para acompañarte cada día.</p>
-        <!-- formulario eliminado a petición -->
       </div>
     </section>
 
@@ -402,9 +386,6 @@
             <p data-i18n="product.f3.d">Gráficas simples, metas semanales y logros que te motivan sin presión.</p>
           </article>
         </div>
-
-        <!-- Imagen inferior eliminada porque no carga -->
-        <!-- <div class="product-media" aria-hidden="true"> ... </div> -->
       </div>
     </section>
 
@@ -425,6 +406,7 @@
         </div>
       </div>
     </section>
+
     <!-- Contacto -->
     <section id="contacto" class="section alt reveal" aria-labelledby="contact-title">
       <div class="container">
@@ -511,9 +493,8 @@
     const $ = s => document.querySelector(s);
     const $$ = s => Array.from(document.querySelectorAll(s));
 
-    /* Header sombra y nav activa por sección */
     const siteHeader = $("#siteHeader");
-    const sections = ["mision","producto","resenas","lanzamiento","contacto"].map(id => document.getElementById(id));
+    const sections = ["mision","producto","resenas","lanzamiento","contacto","inicio"].map(id => document.getElementById(id));
     const navLinks = $$("#mainNav a");
     function setActive(hash){
       navLinks.forEach(a => {
@@ -534,7 +515,6 @@
       sections.forEach(s => s && ioNav.observe(s));
     }
 
-    /* Panel lateral accesible */
     const body = document.body;
     const sidebar = $("#sidePanel");
     const overlay = $("#overlay");
@@ -573,7 +553,6 @@
     overlay?.addEventListener("click", closeSidebar);
     document.addEventListener("keydown", e => { if(e.key === "Escape") closeSidebar(); });
 
-    /* Tema: auto -> dark -> light con theme-color */
     const metaTheme = $("#meta-theme");
     const THEME_KEY = "temotiva-theme-mode";
     const mDark = window.matchMedia("(prefers-color-scheme: dark)");
@@ -600,7 +579,6 @@
     });
     applyTheme(localStorage.getItem(THEME_KEY) || "auto");
 
-    /* i18n completo */
     const i18n = {
       es: {
         "meta.tagline":"Innovación en bienestar emocional",
@@ -683,7 +661,6 @@
       applyLang(next);
     });
 
-    /* Reveal con IO */
     (function(){
       const items = $$(".reveal");
       if(!("IntersectionObserver" in window)){ items.forEach(el => el.classList.add("visible")); return; }
@@ -693,7 +670,6 @@
       items.forEach(el => io.observe(el));
     })();
 
-    /* Service Worker */
     if("serviceWorker" in navigator){
       window.addEventListener("load", ()=>{
         navigator.serviceWorker.register("/pwabuilder-sw.js", { scope: "/" })
@@ -702,7 +678,6 @@
       });
     }
 
-    /* Frase del día, si existiera el botón */
     const frases = [
       "Respira. Un paso a la vez.","Tu progreso importa, aunque sea pequeño.","Date permiso para descansar.","Lo que no mides, no mejoras."
     ];
@@ -711,7 +686,6 @@
       el.textContent = frases[Math.floor(Math.random()*frases.length)];
     });
 
-    /* Contacto: validación y envío */
     (function(){
       const form = document.getElementById('contactForm');
       const okMsg = document.getElementById('formMsg');
@@ -755,7 +729,6 @@
       });
     })();
 
-    /* PWA install banner */
     const INSTALL_KEY = "temotiva-install-dismissed";
     const VISITS_KEY = "temotiva-visit-count";
     let deferredPrompt = null;
@@ -796,10 +769,8 @@
     const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
     if (isStandalone) { installBtn?.setAttribute("hidden","true"); banner?.classList.remove("show"); }
 
-    /* GA para CTAs clave */
     document.querySelectorAll('[data-gtag]').forEach(b=>b.addEventListener('click',()=>gtag('event', b.dataset.gtag)));
 
-    /* Volver arriba con reduce motion */
     document.querySelector('.back-top')?.addEventListener('click', e=>{
       e.preventDefault();
       const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
