@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <title>Talleres Temotiva | Bienestar emocional para personas</title>
+  <title>Talleres Temotiva® | Bienestar emocional para personas</title>
 
   <meta name="description" content="Talleres y microexperiencias de bienestar emocional para personas adultas con alta carga mental. Sesiones breves, prácticas y con herramientas que puedes usar en tu día a día.">
   <meta name="keywords" content="taller bienestar emocional, autocuidado, regulación emocional, estrés, ansiedad leve, talleres online, talleres presenciales, bienestar en la vida diaria">
@@ -19,7 +19,7 @@
     "name":"Talleres de bienestar emocional para personas adultas",
     "provider":{
       "@type":"Organization",
-      "name":"TEMOTIVA",
+      "name":"Temotiva",
       "url":"https://www.temotiva.com"
     },
     "serviceType":"Talleres y actividades de bienestar emocional",
@@ -28,6 +28,38 @@
   </script>
 
   <style>
+    /* Ajustes extra para esta página */
+
+    /* Google Translate más integrado en el header */
+    .header-utilities{
+      display:flex;
+      align-items:center;
+      gap:.75rem;
+    }
+    #google_translate_element{
+      font-size:.8rem;
+      line-height:1;
+    }
+    #google_translate_element select{
+      border-radius:999px;
+      padding:.25rem .7rem;
+      border:1px solid #ddd;
+      background:#fff;
+      font-size:.8rem;
+      cursor:pointer;
+    }
+
+    /* Imágenes más protegidas y ocultas en impresión */
+    main img{
+      -webkit-user-drag:none;
+      user-select:none;
+    }
+    @media print{
+      img{
+        display:none !important;
+      }
+    }
+
     .pt-hero{
       padding:4.5rem 0 4.2rem;
       background:radial-gradient(circle at top left,#e6e9ff,#dfe5ff);
@@ -259,36 +291,105 @@
         font-size:.98rem;
       }
     }
+
+    /* Catálogo tech de talleres */
+    .pt-catalog{
+      margin-top:2rem;
+      border-radius:18px;
+      padding:1.1rem 1rem 1.2rem;
+      background:linear-gradient(135deg,#fdfdff,#eef2ff);
+      border:1px solid rgba(148,163,184,.35);
+    }
+    .pt-catalog-title{
+      font-size:.9rem;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      opacity:.85;
+      margin:0 0 .4rem;
+    }
+    .pt-catalog-sub{
+      margin:0 0 1rem;
+      font-size:.9rem;
+      opacity:.85;
+    }
+    .pt-catalog-grid{
+      display:grid;
+      gap:.5rem;
+    }
+    @media (min-width:820px){
+      .pt-catalog-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        column-gap:1.4rem;
+      }
+    }
+    .pt-catalog-item{
+      display:grid;
+      grid-template-columns:auto minmax(0,1fr);
+      gap:.35rem .75rem;
+      align-items:flex-start;
+      padding:.45rem .15rem;
+      border-bottom:1px solid rgba(148,163,184,.25);
+    }
+    .pt-catalog-item:last-child{
+      border-bottom:none;
+    }
+    .pt-catalog-number{
+      font-size:.8rem;
+      font-weight:600;
+      min-width:2.4rem;
+      height:1.7rem;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#111827;
+      color:#f9fafb;
+    }
+    .pt-catalog-item h3{
+      margin:0 0 .15rem;
+      font-size:.95rem;
+    }
+    .pt-catalog-item p{
+      margin:0;
+      font-size:.9rem;
+      opacity:.9;
+    }
   </style>
 </head>
 
 <body>
-  <!-- Header -->
-  <!-- Header -->
-<header class="site-header" id="siteHeader" role="banner">
-  <div class="container nav">
-    
-    <!-- Logo: siempre lleva a la Home -->
-    <a href="https://www.temotiva.com" class="logo" aria-label="Ir a inicio">
-      <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
-      <span>TEMOTIVA</span>
-    </a>
+  <!-- Header unificado -->
+  <header class="site-header" id="siteHeader" role="banner">
+    <div class="container nav">
+      <!-- Logo: siempre a la Home -->
+      <a href="https://www.temotiva.com" class="logo" aria-label="Ir a la página principal">
+        <img src="/logo-temotiva.png" alt="Logo Temotiva" width="36" height="36">
+        <span>Temotiva®</span>
+      </a>
 
-    <!-- Menú principal -->
-    <nav id="mainNav" class="nav-links" aria-label="Menú principal">
-      <a href="/demo.html">App</a>
-      <a href="/particular.html">Talleres</a>
-      <a href="/organizacion.html">Organizaciones</a>
-      <a href="/recursos.html">Recursos</a>
-      <a href="/blog/">Blog</a>
-      <a href="/temotiva-lab.html">Lab</a> <!-- cambiado -->
-      <a href="/ctl.html">CTL</a>
-      <a href="/contacto.html">Contacto</a>
-    </nav>
+      <div class="header-utilities">
+        <!-- Menú principal -->
+        <nav id="mainNav" class="nav-links" aria-label="Menú principal">
+          <a href="/demo.html">App</a>
+          <a href="/particular.html" aria-current="page">Talleres</a>
+          <a href="/organizacion.html">Organizaciones</a>
+          <a href="/recursos.html">Recursos</a>
+          <a href="/blog/">Blog</a>
+          <a href="/temotiva-lab.html">Lab</a>
+          <a href="/ctl.html">CTL</a>
+          <a href="/contacto.html">Contacto</a>
+        </nav>
 
-  </div>
-</header>
+        <!-- Traductor Google -->
+        <div id="google_translate_element" aria-label="Selector de idioma"></div>
 
+        <!-- Botón menú móvil -->
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú de navegación" aria-expanded="false">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
 
   <main class="content" role="main">
     <!-- HERO: persona individual -->
@@ -320,7 +421,7 @@
         <div class="pt-hero-side">
           <img
             src="/4_Mockup.png"
-            alt="Vista previa de los talleres de bienestar emocional de TEMOTIVA"
+            alt="Vista previa de los talleres de bienestar emocional de Temotiva®"
             class="pt-hero-mockup">
 
           <div class="pt-hero-metrics">
@@ -329,8 +430,8 @@
               por sesión
             </span>
             <span class="pt-hero-metric">
-              <strong>Grupos</strong>
-              pequeños
+              <strong>6 a 12</strong>
+              personas por grupo
             </span>
             <span class="pt-hero-metric">
               <strong>100 %</strong>
@@ -385,6 +486,96 @@
         <p class="pt-tagline">
           En cada edición se adaptan los contenidos al grupo y al contexto, para que lo que veamos tenga sentido con tu vida real.
         </p>
+
+        <!-- Catálogo tech de talleres Temotiva® -->
+        <section class="pt-catalog" aria-label="Listado de talleres Temotiva">
+          <p class="pt-catalog-title">Talleres Temotiva®</p>
+          <p class="pt-catalog-sub">
+            Un mapa claro de los temas que trabajamos para cuidar tus emociones y tu bienestar en la vida cotidiana.
+          </p>
+
+          <div class="pt-catalog-grid">
+            <article class="pt-catalog-item">
+              <span class="pt-catalog-number">01</span>
+              <div>
+                <h3>Emociones en modo práctico</h3>
+                <p>Entender lo que sientes, regularlo y usarlo a tu favor en el día a día.</p>
+              </div>
+            </article>
+
+            <article class="pt-catalog-item">
+              <span class="pt-catalog-number">02</span>
+              <div>
+                <h3>Calma en 5 minutos</h3>
+                <p>Técnicas rápidas y eficaces para bajar la intensidad emocional.</p>
+              </div>
+            </article>
+
+            <article class="pt-catalog-item">
+              <span class="pt-catalog-number">03</span>
+              <div>
+                <h3>Autocuidado real para mentes saturadas</h3>
+                <p>Cómo proteger tu energía sin renunciar a tu ritmo de vida.</p>
+              </div>
+            </article>
+
+            <article class="pt-catalog-item">
+              <span class="pt-catalog-number">04</span>
+              <div>
+                <h3>Salir de patrones que se repiten</h3>
+                <p>Detectar bucles emocionales y cambiarlos por respuestas más sanas.</p>
+              </div>
+            </article>
+
+            <article class="pt-catalog-item">
+              <span class="pt-catalog-number">05</span>
+              <div>
+                <h3>Hábitos de bienestar que funcionan</h3>
+                <p>Microacciones que sí se mantienen y mejoran tu calidad de vida.</p>
+              </div>
+            </article>
+
+            <article class="pt-catalog-item">
+              <span class="pt-catalog-number">06</span>
+              <div>
+                <h3>Límites sin culpa</h3>
+                <p>Aprender a decir no, proteger tu espacio y sentirte más segura.</p>
+              </div>
+            </article>
+
+            <article class="pt-catalog-item">
+              <span class="pt-catalog-number">07</span>
+              <div>
+                <h3>Ansiedad leve en la vida cotidiana</h3>
+                <p>Herramientas simples para parar la anticipación y recuperar control.</p>
+              </div>
+            </article>
+
+            <article class="pt-catalog-item">
+              <span class="pt-catalog-number">08</span>
+              <div>
+                <h3>Reconectar contigo</h3>
+                <p>Volver a ti, a tu presencia y a una relación interna más amable.</p>
+              </div>
+            </article>
+
+            <article class="pt-catalog-item">
+              <span class="pt-catalog-number">09</span>
+              <div>
+                <h3>Relaciones emocionales seguras</h3>
+                <p>Cómo comunicarte mejor y crear vínculos que suman.</p>
+              </div>
+            </article>
+
+            <article class="pt-catalog-item">
+              <span class="pt-catalog-number">10</span>
+              <div>
+                <h3>Autoestima sin autoexigencia</h3>
+                <p>Construir seguridad desde la autocompasión y el bienestar real.</p>
+              </div>
+            </article>
+          </div>
+        </section>
       </div>
     </section>
 
@@ -408,7 +599,7 @@
           <article class="pt-card">
             <h3>Qué te llevas</h3>
             <p>
-              Una pequeña guía o resumen, propuestas para los siguientes días y acceso a ejercicios relacionados dentro de la app cuando esté disponible.
+              Una pequeña guía o resumen, propuestas para los siguientes días y acceso a ejercicios relacionados dentro de la app de Temotiva® cuando esté disponible.
             </p>
             <div class="pt-chips">
               <span class="pt-chip">Ejercicios claros</span>
@@ -519,10 +710,10 @@
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Footer unificado -->
   <footer class="site-footer" role="contentinfo">
     <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
-      <p style="margin:0;">© TEMOTIVA desde 2024</p>
+      <p style="margin:0;">Temotiva® marca registrada desde 2025</p>
       <div style="display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;">
         <a href="/privacidad.html">Política de privacidad</a>
         <a href="/cookies.html">Política de cookies</a>
@@ -530,5 +721,46 @@
       </div>
     </div>
   </footer>
+
+  <!-- Menú móvil y protección básica de imágenes -->
+  <script>
+    (function(){
+      const menuBtn = document.getElementById('menuBtn');
+      const nav = document.getElementById('mainNav');
+      if(!menuBtn || !nav) return;
+
+      menuBtn.addEventListener('click', ()=>{
+        nav.classList.toggle('open');
+        const expanded = nav.classList.contains('open');
+        menuBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      });
+
+      nav.querySelectorAll('a').forEach(link=>{
+        link.addEventListener('click', ()=>{
+          nav.classList.remove('open');
+          menuBtn.setAttribute('aria-expanded','false');
+        });
+      });
+    })();
+
+    // Bloqueo simple de clic derecho en imágenes
+    document.addEventListener('contextmenu', function(e){
+      if(e.target.tagName === 'IMG'){
+        e.preventDefault();
+      }
+    });
+  </script>
+
+  <!-- Traductor de Google -->
+  <script>
+    function googleTranslateElementInit(){
+      new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        includedLanguages: 'es,en,fr,it,pt',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
