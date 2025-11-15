@@ -215,21 +215,71 @@
     .section.alt{ background:#f4f4f4; }
     html[data-theme="dark"] .section.alt{ background:#141923; }
 
-    /* Hero con imagen visible */
+    /* Hero con mockup visible */
     .hero{
-      position:relative; isolation:isolate;
+      position:relative;
+      isolation:isolate;
       background:linear-gradient(180deg, #ffffff, #f3f5f7);
-      display:grid; place-items:center; padding:5.5rem 0 5rem; overflow:hidden;
+      padding:5.5rem 0 5rem;
+      overflow:hidden;
     }
-    html[data-theme="dark"] .hero{ background:linear-gradient(180deg, #121621, #0f131d); }
-    .hero::after{
-      content:""; position:absolute; inset:0 0 0 50%;
-      background:url("/chica-meditando.png") right center / contain no-repeat; opacity:.35; z-index:-1; pointer-events:none;
+    html[data-theme="dark"] .hero{
+      background:linear-gradient(180deg, #121621, #0f131d);
     }
-    @media (max-width:900px){ .hero::after{ inset:0 0 0 60%; opacity:.22; } }
-    .hero h1{ font-size:var(--h1); margin:0 0 .6rem; letter-spacing:.2px; }
-    .hero p{ color:var(--ink-soft); margin:0 0 1.2rem; max-width:48ch; margin-inline:auto; }
-    .cta-row{ display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:22px; }
+
+    .hero-inner{
+      display:grid;
+      gap:2rem;
+      align-items:center;
+    }
+    @media (min-width:880px){
+      .hero-inner{
+        grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);
+      }
+    }
+    @media (max-width:879px){
+      .hero-inner{
+        grid-template-columns:minmax(0,1fr);
+      }
+    }
+
+    .hero-copy{
+      max-width:48ch;
+    }
+    .hero h1{
+      font-size:var(--h1);
+      margin:0 0 .6rem;
+      letter-spacing:.2px;
+    }
+    .hero p{
+      color:var(--ink-soft);
+      margin:0 0 1.2rem;
+    }
+
+    .hero-media{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .hero-mockup{
+      width:100%;
+      max-width:380px;
+      border-radius:24px;
+      filter:drop-shadow(0 18px 45px rgba(0,0,0,.18));
+      animation:floaty 5s ease-in-out infinite;
+    }
+    @keyframes floaty{
+      0%{ transform:translateY(0); }
+      50%{ transform:translateY(-10px); }
+      100%{ transform:translateY(0); }
+    }
+
+    .cta-row{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:22px;
+    }
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       border:0; border-radius:12px; padding:.9rem 1.2rem; background:var(--brand); color:#fff; min-height:44px;
@@ -378,16 +428,24 @@
   <main class="content" id="app" role="main">
     <!-- Hero -->
     <section id="inicio" class="section hero reveal" aria-labelledby="hero-title">
-      <div class="container u-col u-gap">
-        <h1 id="hero-title">Cuando te sientes sobrepasada y todo lo que quieres es saber qué hacer ahora mismo</h1>
-        <p>
-          Temotiva es una app de bienestar emocional pensada para adultas y adultos con mucha carga emocional.
-          Te ofrece pasos concretos para cuidarte en tu día a día cuando te sientes mal y no sabes por dónde empezar,
-          como apoyo intermedio entre la terapia y las apps genéricas de bienestar.
-        </p>
-        <div class="cta-row">
-          <a href="/particular.html" class="btn" data-gtag="cta_particular_click" rel="next">Soy particular</a>
-          <a href="/organizacion.html" class="btn" data-gtag="cta_org_click" rel="next">Soy organización</a>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1 id="hero-title">Cuando te sientes sobrepasada y todo lo que quieres es saber qué hacer ahora mismo</h1>
+          <p>
+            Temotiva es una app de bienestar emocional pensada para adultas y adultos con mucha carga emocional.
+            Te ofrece pasos concretos para cuidarte en tu día a día cuando te sientes mal y no sabes por dónde empezar,
+            como apoyo intermedio entre la terapia y las apps genéricas de bienestar.
+          </p>
+          <div class="cta-row">
+            <a href="/particular.html" class="btn" data-gtag="cta_particular_click" rel="next">Soy particular</a>
+            <a href="/organizacion.html" class="btn" data-gtag="cta_org_click" rel="next">Soy organización</a>
+          </div>
+        </div>
+
+        <div class="hero-media" aria-hidden="true">
+          <img src="/9_Mockup.png"
+               alt="Vista previa de la app Temotiva en el móvil"
+               class="hero-mockup">
         </div>
       </div>
     </section>
