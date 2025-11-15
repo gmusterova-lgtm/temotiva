@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="auto">
+<html lang="es">
 <head>
   <!-- Analítica -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DM1M9GM27Z"></script>
@@ -43,14 +43,14 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="TEMOTIVA">
-  <meta name="color-scheme" content="light dark">
+  <meta name="color-scheme" content="light">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
 
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 
-  <!-- Idiomas -->
+  <!-- Idiomas SEO -->
   <link rel="alternate" href="https://www.temotiva.com/" hreflang="es">
   <link rel="alternate" href="https://www.temotiva.com/?lang=en" hreflang="en">
   <link rel="alternate" href="https://www.temotiva.com/" hreflang="x-default">
@@ -134,17 +134,7 @@
       --h2:clamp(1.4rem, 2.2vw, 2rem);
       --h3:clamp(1.1rem, 1.6vw, 1.25rem);
       --container: min(1100px, 92%);
-      color-scheme: light dark;
-    }
-    html[data-theme="dark"]{
-      --bg:#050816;
-      --ink:#e5e7eb;
-      --ink-soft:#9ca3af;
-      --brand:#f9fafb;
-      --card:#0b1020;
-      --muted:#111827;
-      --shadow:0 12px 32px rgba(0,0,0,.65);
-      color-scheme: dark;
+      color-scheme: light;
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -182,12 +172,9 @@
       transition: box-shadow .2s ease, backdrop-filter .2s ease, background .2s ease;
       backdrop-filter: saturate(135%) blur(10px);
     }
-    html[data-theme="dark"] .site-header{
-      background:rgba(15,23,42,.9);
-    }
     .site-header.is-scrolled{ box-shadow:0 10px 30px rgba(15,23,42,.15); }
     .nav{ height:var(--header-h); display:flex; align-items:center; justify-content:space-between; gap:12px; }
-    .logo{ display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px; }
+    .logo{ display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px; white-space:nowrap; }
     .logo img{ width:36px; height:36px; border-radius:9px; }
 
     .header-actions{ display:flex; align-items:center; gap:.5rem; }
@@ -202,25 +189,10 @@
     .icon-btn:hover{ box-shadow:0 8px 22px rgba(15,23,42,.16); }
     .icon-btn:active{ transform:scale(.98); }
 
-    /* Botón idioma más discreto */
-    .lang-btn{
-      border:0;
-      background:transparent;
-      color:var(--ink-soft);
-      padding:.25rem .2rem;
-      font-size:.8rem;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      cursor:pointer;
-    }
-    .lang-btn:hover{
-      color:var(--ink);
-    }
-
     .menu-btn{ display:inline-flex; }
     @media (min-width:1024px){ .menu-btn{ display:none; } }
 
-    .nav-links{ display:none; gap:.4rem; }
+    .nav-links{ display:none; gap:.4rem; margin-left:auto; margin-right:1rem; }
     .nav-links a{
       padding:.45rem .7rem; border-radius:10px; color:var(--ink-soft); display:inline-flex; align-items:center;
       position:relative; font-size:.92rem;
@@ -231,6 +203,11 @@
       border-radius:2px; opacity:.35;
     }
     @media (min-width:1024px){ .nav-links{ display:flex; } }
+
+    /* Google translate contenedor */
+    #google_translate_element {
+      font-size: 0.8rem;
+    }
 
     /* Sidebar */
     #sidePanel{
@@ -254,9 +231,8 @@
     .content{ flex:1; min-width:0; }
     .section{ padding:4.5rem 0; }
     .section.alt{ background:#edf1ff; }
-    html[data-theme="dark"] .section.alt{ background:#050816; }
 
-    /* HERO NUEVO SUPER TECH */
+    /* HERO tech */
     .hero{
       position:relative;
       isolation:isolate;
@@ -266,12 +242,7 @@
         radial-gradient(circle at 120% 120%, rgba(59,130,246,.16), transparent 55%);
       overflow:hidden;
     }
-    html[data-theme="dark"] .hero{
-      background:
-        radial-gradient(circle at -10% -10%, rgba(248,250,252,.12), transparent 55%),
-        radial-gradient(circle at 110% 130%, rgba(56,189,248,.35), transparent 60%),
-        linear-gradient(135deg, #020617, #020617 40%, #02091f 100%);
-    }
+
     .hero-inner{
       display:grid;
       grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);
@@ -296,9 +267,6 @@
       color:#6366f1;
       margin:0 0 .4rem;
     }
-    html[data-theme="dark"] .hero-kicker{
-      color:#a5b4fc;
-    }
     .hero-title{
       font-size:var(--h1);
       margin:0 0 .5rem;
@@ -308,9 +276,6 @@
       -webkit-background-clip:text;
       background-clip:text;
       color:transparent;
-    }
-    html[data-theme="dark"] .hero-title{
-      background:linear-gradient(120deg,#e5e7eb,#93c5fd,#e5e7eb);
     }
     .hero-sub{
       margin:0;
@@ -342,10 +307,6 @@
     }
     .hero-metric-label{
       opacity:.8;
-    }
-    html[data-theme="dark"] .hero-metric{
-      background:rgba(15,23,42,.78);
-      border-color:rgba(148,163,184,.55);
     }
 
     .cta-row{
@@ -418,11 +379,6 @@
       color:#111827;
       box-shadow:0 10px 26px rgba(148,163,184,.35);
     }
-    html[data-theme="dark"] .btn.secondary{
-      background:rgba(15,23,42,.9);
-      color:#e5e7eb;
-      box-shadow:0 10px 30px rgba(15,23,42,.9);
-    }
 
     /* Cards y grillas */
     .grid{ display:grid; gap:1rem; grid-template-columns:repeat(3, 1fr); align-items:stretch; }
@@ -433,7 +389,6 @@
       transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
     }
     .card:hover{ transform:translateY(-2px); box-shadow:0 18px 40px rgba(15,23,42,.18); border-color:rgba(148,163,184,.55); }
-    html[data-theme="dark"] .card{ border-color:#1f2937; box-shadow:none; }
     .card h3{ font-size:var(--h3); margin:.2rem 0 .4rem; }
 
     /* Frase y reseñas */
@@ -499,6 +454,21 @@
     .pwa-install .msg{ font-size:14px; opacity:.9; }
     .pwa-install .actions{ margin-left:auto; display:flex; gap:8px; }
   </style>
+
+  <!-- Google Translate -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        {
+          pageLanguage: 'es',
+          includedLanguages: 'es,en,fr,it,pt,de',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        },
+        'google_translate_element'
+      );
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
   <a href="#app" class="skip-link">Saltar al contenido</a>
@@ -508,34 +478,29 @@
   <div id="overlay" class="overlay" aria-hidden="true"></div>
 
   <!-- Header -->
-<header class="site-header" id="siteHeader" role="banner">
-  <div class="container nav">
-    
-    <!-- Logo: siempre lleva a la Home -->
-    <a href="https://www.temotiva.com" class="logo" aria-label="Ir a inicio">
-      <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
-      <span>TEMOTIVA</span>
-    </a>
+  <header class="site-header" id="siteHeader" role="banner">
+    <div class="container nav">
+      <!-- Logo -->
+      <a href="https://www.temotiva.com" class="logo" aria-label="Ir a inicio">
+        <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
+        <span>TEMOTIVA</span>
+      </a>
 
-    <!-- Menú principal -->
-    <nav id="mainNav" class="nav-links" aria-label="Menú principal">
-      <a href="/demo.html">App</a>
-      <a href="/particular.html">Talleres</a>
-      <a href="/organizacion.html">Organizaciones</a>
-      <a href="/recursos.html">Recursos</a>
-      <a href="/blog/">Blog</a>
-      <a href="/temotiva-lab.html">Lab</a> <!-- cambiado --> 
-      <a href="/ctl.html">CTL</a>
-      <a href="/contacto.html">Contacto</a>
-    </nav>
+      <!-- Menú principal -->
+      <nav id="mainNav" class="nav-links" aria-label="Menú principal">
+        <a href="/demo.html">App</a>
+        <a href="/particular.html">Talleres</a>
+        <a href="/organizacion.html">Organizaciones</a>
+        <a href="/recursos.html">Recursos</a>
+        <a href="/blog/">Blog</a>
+        <a href="/temotiva-lab.html">Lab</a>
+        <a href="/ctl.html">CTL</a>
+        <a href="/contacto.html">Contacto</a>
+      </nav>
 
-  </div>
-</header>
-
-
+      <!-- Acciones header -->
       <div class="header-actions" role="group" aria-label="Acciones">
-        <button id="langBtn" class="lang-btn" aria-label="Cambiar idioma">ES | EN</button>
-        <button id="themeBtn" class="icon-btn" aria-label="Cambiar tema" title="Tema" aria-pressed="false">☾/☀︎</button>
+        <div id="google_translate_element"></div>
         <button id="installBtn" class="icon-btn" aria-label="Instalar TEMOTIVA" hidden>Instalar</button>
         <button id="menuBtn" class="menu-btn icon-btn" aria-label="Abrir panel lateral" aria-controls="sidePanel" aria-expanded="false">☰</button>
       </div>
@@ -544,19 +509,18 @@
 
   <!-- Panel lateral -->
   <nav id="sidePanel" class="sidebar" aria-label="Menú lateral" aria-hidden="true">
-    <a class="logo-side" href="/">
+    <a class="logo-side" href="https://www.temotiva.com">
       <img src="/logo-temotiva.png" alt="" aria-hidden="true" width="32" height="32">
       <span>TEMOTIVA</span>
     </a>
 
     <ul class="menu-list" role="list">
-      <li><a href="/">Inicio</a></li>
       <li><a href="/demo.html">App</a></li>
       <li><a href="/particular.html">Talleres</a></li>
       <li><a href="/organizacion.html">Organizaciones</a></li>
       <li><a href="/recursos.html">Recursos</a></li>
       <li><a href="/blog/">Blog</a></li>
-      <li><a href="/temotiva-lab.html">TEMOTIVA LAB</a></li>
+      <li><a href="/temotiva-lab.html">Lab</a></li>
       <li><a href="/ctl.html">CTL</a></li>
       <li><a href="/contacto.html">Contacto</a></li>
     </ul>
@@ -565,7 +529,7 @@
   </nav>
 
   <main class="content" id="app" role="main">
-    <!-- Hero tech con 9_Mockup -->
+    <!-- Hero tech con mockup -->
     <section id="inicio" class="section hero reveal" aria-labelledby="hero-title">
       <div class="container">
         <div class="hero-inner">
@@ -592,6 +556,10 @@
               <div class="hero-metric">
                 <span class="hero-metric-number">3</span>
                 <span class="hero-metric-label">niveles de intensidad</span>
+              </div>
+              <div class="hero-metric">
+                <span class="hero-metric-number">70 %</span>
+                <span class="hero-metric-label">contenidos pensados para menos de 10 minutos</span>
               </div>
             </div>
 
@@ -837,7 +805,7 @@
     <!-- Footer -->
     <footer class="site-footer" role="contentinfo">
       <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
-        <p style="margin:0;">© TEMOTIVA desde 2024</p>
+        <p style="margin:0;">Temotiva® marca registrada desde 2025</p>
         <div class="u-flex u-gap-s" style="align-items:center;">
           <a href="/privacidad.html">Política de privacidad</a>
           <a href="/cookies.html">Política de cookies</a>
@@ -931,33 +899,6 @@
     menuBtn?.addEventListener("click", () => sidebar.classList.contains("is-open") ? closeSidebar() : openSidebar());
     overlay?.addEventListener("click", closeSidebar);
     document.addEventListener("keydown", e => { if(e.key === "Escape") closeSidebar(); });
-
-    /* Tema: auto -> dark -> light con theme-color */
-    const metaTheme = $("#meta-theme");
-    const THEME_KEY = "temotiva-theme-mode";
-    const mDark = window.matchMedia("(prefers-color-scheme: dark)");
-    function applyTheme(mode){
-      const root = document.documentElement;
-      if(mode === "dark"){
-        root.setAttribute("data-theme", "dark");
-        metaTheme?.setAttribute("content", "#050816");
-      } else if(mode === "light"){
-        root.setAttribute("data-theme", "light");
-        metaTheme?.setAttribute("content", "#F7F7F7");
-      } else {
-        root.setAttribute("data-theme", mDark.matches ? "dark" : "light");
-        metaTheme?.setAttribute("content", mDark.matches ? "#050816" : "#F7F7F7");
-      }
-      localStorage.setItem(THEME_KEY, mode);
-      $("#themeBtn")?.setAttribute("aria-pressed", mode === "dark" ? "true" : "false");
-    }
-    mDark.addEventListener("change", () => { if((localStorage.getItem(THEME_KEY) || "auto") === "auto") applyTheme("auto"); });
-    $("#themeBtn")?.addEventListener("click", () => {
-      const cur = localStorage.getItem(THEME_KEY) || "auto";
-      const next = cur === "auto" ? "dark" : cur === "dark" ? "light" : "auto";
-      applyTheme(next);
-    });
-    applyTheme(localStorage.getItem(THEME_KEY) || "auto");
 
     /* Reveal con IO */
     (function(){
@@ -1118,92 +1059,6 @@
     document.getElementById("pwaInstallLater")?.addEventListener("click", function() {
       gtag('event', 'click_instalar_mas_tarde', { 'event_category': 'PWA', 'event_label': 'Botón Más tarde' });
     });
-  </script>
-
-  <!-- Sistema de idiomas ES / EN -->
-  <script>
-  const LANG_KEY = "temotiva-lang";
-  let curLang = localStorage.getItem(LANG_KEY) || "es";
-
-  const TR = {
-    es: {
-      '#hero-title': 'Cuando te sientes sobrepasada y solo quieres saber qué hacer ahora mismo',
-      '#inicio p.hero-sub': 'Temotiva es una app de bienestar emocional pensada para adultas y adultos con mucha carga mental. Convierte la psicología aplicada en microprácticas guiadas para esos momentos en los que notas que no puedes más, pero aún tienes que seguir con el día.',
-      'a[data-gtag="cta_particular_click"]': 'Soy particular',
-      'a[data-gtag="cta_org_click"]': 'Soy organización',
-      '#app-title': 'Muy pronto en tu móvil',
-      '#lanzamiento .frase': 'Recordatorios suaves, uso sin conexión y privacidad por diseño. Temotiva como app, lista para acompañarte en esos momentos en los que necesitas parar, regularte y cuidarte.',
-      '#mission-title': 'Para esos días en los que todo se hace cuesta arriba',
-      '#producto > .container > p': 'Temotiva convierte la psicología basada en evidencia en acciones breves y guiadas que puedes usar justo cuando aparece el bloqueo, la rumiación o ese “no sé qué hacer ahora mismo”, sin sesiones eternas ni pantallas infinitas.',
-      '#reviews-title': 'Reseñas',
-      '#resenas .frase': 'Personas que han probado Temotiva y han notado cambios en su día a día.',
-      '#contact-title': 'Contacto',
-      '#cf-submit': 'Enviar',
-      '.hint': 'Respondemos lo antes posible.',
-      '#formMsg': 'Gracias, te contactaremos pronto. Si lo deseas, puedes enviar un mensaje a <a href="mailto:info@temotiva.com">info@temotiva.com</a>, estaremos encantados de atenderte.',
-      '.back-top': 'Volver arriba ↑',
-      '#pwaBanner .msg': 'Instala TEMOTIVA para un acceso rápido y uso sin conexión.',
-      '#pwaInstallNow': 'Instalar',
-      '#pwaInstallLater': 'Más tarde'
-    },
-    en: {
-      '#hero-title': 'When you feel overwhelmed and all you want is to know what to do right now',
-      '#inicio p.hero-sub': 'Temotiva is an emotional wellbeing app designed for adults with high emotional load. It turns applied psychology into guided micro practices for those moments when you feel you cannot take it anymore but still need to keep going through the day.',
-      'a[data-gtag="cta_particular_click"]': 'I’m an individual',
-      'a[data-gtag="cta_org_click"]': 'I represent an organization',
-      '#app-title': 'Coming soon to your phone',
-      '#lanzamiento .frase': 'Gentle reminders, offline use and privacy by design. Temotiva as an app, ready to support you in those moments when you need to pause, regulate and take care of yourself.',
-      '#mission-title': 'For the days when everything feels uphill',
-      '#producto > .container > p': 'Temotiva turns evidence based psychology into short, guided actions that you can use right when blockage, rumination or that “I do not know what to do now” appears, without endless sessions or infinite screens.',
-      '#reviews-title': 'Reviews',
-      '#resenas .frase': 'People who have tried Temotiva and noticed changes in their daily life.',
-      '#contact-title': 'Contact',
-      '#cf-submit': 'Send',
-      '.hint': 'We’ll reply as soon as possible.',
-      '#formMsg': 'Thanks, we’ll get back to you soon. If you prefer, email <a href="mailto:info@temotiva.com">info@temotiva.com</a>.',
-      '.back-top': 'Back to top ↑',
-      '#pwaBanner .msg': 'Install TEMOTIVA for quick access and offline use.',
-      '#pwaInstallNow': 'Install',
-      '#pwaInstallLater': 'Later'
-    }
-  };
-
-  function setText(el, val){
-    if(!el) return;
-    if(/<\/?[a-z][\s\S]*>/i.test(val)) el.innerHTML = val;
-    else el.textContent = val;
-  }
-
-  function applyLang(lang){
-    const dict = TR[lang] || TR.es;
-    Object.entries(dict).forEach(([sel, val])=>{
-      const el = document.querySelector(sel);
-      setText(el, val);
-    });
-    if(lang === 'en'){
-      document.getElementById('cf-nombre')?.setAttribute('placeholder','Your name');
-      document.getElementById('cf-email')?.setAttribute('placeholder','you@email.com');
-      document.getElementById('cf-msg')?.setAttribute('placeholder','How can we help?');
-      document.documentElement.lang = 'en';
-      document.title = 'TEMOTIVA | Innovation in emotional wellbeing';
-      document.getElementById('langBtn')?.textContent = 'EN | ES';
-    } else {
-      document.getElementById('cf-nombre')?.setAttribute('placeholder','Tu nombre');
-      document.getElementById('cf-email')?.setAttribute('placeholder','tu@email.com');
-      document.getElementById('cf-msg')?.setAttribute('placeholder','¿Cómo podemos ayudarte?');
-      document.documentElement.lang = 'es';
-      document.title = 'TEMOTIVA | App de bienestar emocional para cuando no sabes qué hacer con lo que sientes';
-      document.getElementById('langBtn')?.textContent = 'ES | EN';
-    }
-    localStorage.setItem(LANG_KEY, lang);
-  }
-
-  document.getElementById('langBtn')?.addEventListener('click', ()=>{
-    curLang = curLang === 'es' ? 'en' : 'es';
-    applyLang(curLang);
-  });
-
-  applyLang(curLang);
   </script>
 </body>
 </html>
