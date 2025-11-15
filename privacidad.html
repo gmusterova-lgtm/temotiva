@@ -3,129 +3,344 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Política de privacidad | Temotiva</title>
 
-  
+  <title>Política de privacidad | TEMOTIVA</title>
+
   <meta name="description" content="Política de privacidad de TEMOTIVA, plataforma de bienestar emocional y educación. Información sobre datos, finalidades, base legal, derechos RGPD y contacto.">
   <meta name="theme-color" content="#f7f7f7">
   <meta name="robots" content="index,follow">
+
   <link rel="manifest" href="/manifest.json">
   <link rel="icon" href="/icon-192.png">
   <link rel="apple-touch-icon" href="/icon-512.png">
+  <link rel="stylesheet" href="/style.css">
+
   <style>
-    :root {
-      --ink: #222;
-      --soft: #555;
-      --bg: #f9f9f9;
-      --card: #fff;
-      color-scheme: light dark;
+    /* Ajustes globales extra para esta página */
+
+    /* Google Translate integrado en el header */
+    .header-utilities{
+      display:flex;
+      align-items:center;
+      gap:.75rem;
     }
-    @media (prefers-color-scheme: dark) {
-      :root { --ink:#eaeaea; --soft:#bbb; --bg:#0f1115; --card:#151923; }
+    #google_translate_element{
+      font-size:.8rem;
+      line-height:1;
     }
-    body {
-      margin:0; font-family:system-ui,-apple-system,Arial,sans-serif;
-      color:var(--ink); background:var(--bg); line-height:1.6;
-      -webkit-tap-highlight-color:transparent; text-rendering:optimizeLegibility;
+    #google_translate_element select{
+      border-radius:999px;
+      padding:.25rem .7rem;
+      border:1px solid #ddd;
+      background:#fff;
+      font-size:.8rem;
+      cursor:pointer;
     }
-    header { background:var(--card); border-bottom:1px solid #ddd; padding:1rem; text-align:center; }
-    main {
-      max-width: 820px; margin: 2rem auto; padding: 0 1rem 3rem;
-      background:var(--card); border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,.08);
+
+    /* Imágenes protegidas y ocultas en impresión */
+    main img{
+      -webkit-user-drag:none;
+      user-select:none;
     }
-    h1 { text-align:center; font-size:1.8rem; margin:0; padding:1.25rem 1rem 0; }
-    h2 { margin-top:1.6rem; font-size:1.15rem; }
-    p, li { color:var(--soft); }
-    ul { padding-left:1.1rem; }
-    footer { text-align:center; padding:2rem 1rem; font-size:.9rem; color:var(--soft); }
-    a { color:inherit; text-decoration:underline; }
-    .meta { color: var(--soft); font-size:.9rem; margin-top:1rem; }
-    .box {
-      background: rgba(0,0,0,.035); border-radius:10px; padding:12px 14px; margin:12px 0;
+    @media print{
+      img{
+        display:none !important;
+      }
     }
-    @media (prefers-color-scheme: dark){
-      .box { background: rgba(255,255,255,.06); }
+
+    /* Estilo específico de página legal */
+
+    .legal-shell{
+      padding-top:4.5rem;
+      background:#f3f4f6;
+      min-height:100vh;
+    }
+    .legal-main{
+      max-width:880px;
+      margin:2.5rem auto 3.5rem;
+      padding:0 1rem;
+    }
+    .legal-card{
+      background:#ffffff;
+      border-radius:16px;
+      box-shadow:0 10px 30px rgba(15,23,42,.08);
+      border:1px solid rgba(148,163,184,.3);
+      padding:1.6rem 1.6rem 2.2rem;
+    }
+    @media (min-width:720px){
+      .legal-card{
+        padding:2rem 2.2rem 2.6rem;
+      }
+    }
+
+    .legal-title{
+      text-align:center;
+      font-size:clamp(1.7rem,2.4vw,2rem);
+      margin:0 0 .8rem;
+    }
+    .legal-intro-box{
+      background:linear-gradient(135deg,#f3f4ff,#eef2ff);
+      border-radius:12px;
+      padding:1rem 1.1rem;
+      margin:0 0 1.4rem;
+      font-size:.96rem;
+    }
+
+    .legal-body{
+      font-size:.96rem;
+      line-height:1.7;
+      color:#374151;
+    }
+    .legal-body h2{
+      margin:1.8rem 0 .7rem;
+      font-size:1.08rem;
+      color:#111827;
+    }
+    .legal-body p{
+      margin:0 0 .9rem;
+    }
+    .legal-body ul{
+      padding-left:1.1rem;
+      margin:0 0 .9rem;
+    }
+    .legal-body li{
+      margin:0 0 .3rem;
+    }
+    .legal-body a{
+      color:#0f172a;
+      text-decoration:underline;
+      text-underline-offset:2px;
+    }
+
+    .legal-meta{
+      margin-top:1.2rem;
+      font-size:.86rem;
+      color:#6b7280;
+    }
+
+    @media (max-width:600px){
+      .legal-body,
+      .legal-intro-box{
+        font-size:.98rem;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <a href="/" style="text-decoration:none;color:inherit;">
-      <img src="/icon-192.png" alt="Logo TEMOTIVA" style="width:40px;height:40px;border-radius:8px;vertical-align:middle;">
-      <strong>TEMOTIVA</strong>
-    </a>
+  <!-- Header unificado con traductor -->
+  <header class="site-header" id="siteHeader" role="banner">
+    <div class="container nav">
+      <!-- Logo: siempre lleva a la Home -->
+      <a href="https://www.temotiva.com" class="logo" aria-label="Ir a inicio">
+        <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
+        <span>TEMOTIVA</span>
+      </a>
+
+      <div class="header-utilities">
+        <!-- Menú principal -->
+        <nav id="mainNav" class="nav-links" aria-label="Menú principal">
+          <a href="/demo.html">App</a>
+          <a href="/particular.html">Talleres</a>
+          <a href="/organizacion.html">Organizaciones</a>
+          <a href="/recursos.html">Recursos</a>
+          <a href="/blog/">Blog</a>
+          <a href="/temotiva-lab.html">Lab</a>
+          <a href="/ctl.html">CTL</a>
+          <a href="/contacto.html">Contacto</a>
+        </nav>
+
+        <!-- Traductor Google -->
+        <div id="google_translate_element" aria-label="Selector de idioma"></div>
+
+        <!-- Botón menú móvil -->
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú de navegación" aria-expanded="false">
+          ☰
+        </button>
+      </div>
+    </div>
   </header>
 
-  <main>
-    <h1>Política de privacidad</h1>
-    <p class="box"><strong>TEMOTIVA</strong> es una plataforma de bienestar emocional y educación. Esta política explica qué datos tratamos, con qué finalidad, la base legal, el tiempo de conservación, a quién se comunican, tus derechos y cómo ejercerlos.</p>
+  <main class="content legal-shell" role="main">
+    <div class="legal-main">
+      <article class="legal-card">
+        <h1 class="legal-title">Política de privacidad</h1>
 
-    <h2>1. Responsable del tratamiento</h2>
-    <p><strong>Equipo Temotiva</strong>, España.  
-    Contacto: <a href="mailto:info@temotiva.com">info@temotiva.com</a></p>
+        <div class="legal-intro-box">
+          <p>
+            <strong>TEMOTIVA</strong> es una plataforma de bienestar emocional y educación.
+            Esta política explica qué datos tratamos, con qué finalidad, la base legal,
+            el tiempo de conservación, a quién se comunican, tus derechos y cómo ejercerlos.
+          </p>
+        </div>
 
-    <h2>2. Datos que recopilamos</h2>
-    <ul>
-      <li><strong>Datos que proporcionas</strong>: nombre y correo en formularios de contacto u otros campos que decidas completar.</li>
-      <li><strong>Datos de uso</strong>: información técnica básica para mejorar el servicio, por ejemplo páginas visitadas, dispositivo o navegador. Se recopila de forma agregada y sólo si es necesario.</li>
-      <li><strong>Cuenta y autenticación</strong> (si se habilita el acceso con usuario): nombre, correo y metadatos mínimos para iniciar sesión y gestionar tu perfil.</li>
-    </ul>
+        <div class="legal-body">
+          <h2>1. Responsable del tratamiento</h2>
+          <p>
+            <strong>Equipo TEMOTIVA</strong>, España.<br>
+            Contacto: <a href="mailto:info@temotiva.com">info@temotiva.com</a>
+          </p>
 
-    <h2>3. Finalidades del tratamiento</h2>
-    <ul>
-      <li><strong>Responder tus consultas</strong> y dar soporte.</li>
-      <li><strong>Mejorar la plataforma</strong> y su seguridad, analizando uso de forma agregada.</li>
-      <li><strong>Comunicaciones informativas</strong> si lo autorizas, con opción de baja en cualquier momento.</li>
-    </ul>
+          <h2>2. Datos que recopilamos</h2>
+          <ul>
+            <li>
+              <strong>Datos que proporcionas</strong>: nombre y correo en formularios de contacto u otros campos que decidas completar.
+            </li>
+            <li>
+              <strong>Datos de uso</strong>: información técnica básica para mejorar el servicio, por ejemplo páginas visitadas, dispositivo o navegador. Se recopila de forma agregada y solo si es necesario.
+            </li>
+            <li>
+              <strong>Cuenta y autenticación</strong> (si se habilita el acceso con usuario): nombre, correo y metadatos mínimos para iniciar sesión y gestionar tu perfil.
+            </li>
+          </ul>
 
-    <h2>4. Base jurídica</h2>
-    <ul>
-      <li><strong>Consentimiento</strong> al enviar formularios o aceptar comunicaciones.</li>
-      <li><strong>Interés legítimo</strong> en mejorar la seguridad, prevenir fraude y optimizar la experiencia.</li>
-      <li><strong>Ejecución de medidas precontractuales</strong> cuando solicitas información o soporte específico.</li>
-    </ul>
+          <h2>3. Finalidades del tratamiento</h2>
+          <ul>
+            <li><strong>Responder tus consultas</strong> y dar soporte.</li>
+            <li><strong>Mejorar la plataforma</strong> y su seguridad, analizando uso de forma agregada.</li>
+            <li><strong>Comunicaciones informativas</strong> si lo autorizas, con opción de baja en cualquier momento.</li>
+          </ul>
 
-    <h2>5. Conservación</h2>
-    <p>Guardamos los datos el tiempo necesario para cumplir la finalidad y obligaciones legales. Eliminamos o anonimizamos información cuando ya no es necesaria.</p>
+          <h2>4. Base jurídica</h2>
+          <ul>
+            <li><strong>Consentimiento</strong> al enviar formularios o aceptar comunicaciones.</li>
+            <li><strong>Interés legítimo</strong> en mejorar la seguridad, prevenir fraude y optimizar la experiencia.</li>
+            <li><strong>Ejecución de medidas precontractuales</strong> cuando solicitas información o soporte específico.</li>
+          </ul>
 
-    <h2>6. Encargados y destinatarios</h2>
-    <p>Trabajamos con proveedores que actúan como <em>encargados del tratamiento</em> y que sólo tratan datos siguiendo instrucciones, con garantías adecuadas:</p>
-    <ul>
-      <li><strong>Alojamiento y base de datos</strong>: servicios en la nube para servir la web y, si corresponde, autenticar usuarios.</li>
-      <li><strong>Gestión de formularios</strong>: el envío de mensajes puede tramitarse mediante un proveedor especializado para trasladar tu consulta al correo del responsable.</li>
-      <li><strong>Analítica esencial</strong> no intrusiva, únicamente si fuese necesario para mejorar el servicio.</li>
-    </ul>
-    <p>No vendemos tus datos ni los cedemos para publicidad de terceros.</p>
+          <h2>5. Conservación</h2>
+          <p>
+            Guardamos los datos el tiempo necesario para cumplir la finalidad y obligaciones legales.
+            Eliminamos o anonimizamos información cuando ya no es necesaria.
+          </p>
 
-    <h2>7. Transferencias internacionales</h2>
-    <p>Algunos proveedores pueden ubicar servidores fuera del Espacio Económico Europeo. En esos casos exigimos garantías adecuadas conforme al RGPD, como <em>cláusulas contractuales tipo</em> o ubicaciones con nivel de protección equivalente.</p>
+          <h2>6. Encargados y destinatarios</h2>
+          <p>
+            Trabajamos con proveedores que actúan como encargados del tratamiento y que solo tratan datos siguiendo instrucciones,
+            con garantías adecuadas:
+          </p>
+          <ul>
+            <li>
+              <strong>Alojamiento y base de datos</strong>: servicios en la nube para servir la web y, si corresponde, autenticar usuarios.
+            </li>
+            <li>
+              <strong>Gestión de formularios</strong>: el envío de mensajes puede tramitarse mediante un proveedor especializado para trasladar tu consulta al correo del responsable.
+            </li>
+            <li>
+              <strong>Analítica esencial</strong> no intrusiva, únicamente si fuese necesaria para mejorar el servicio.
+            </li>
+          </ul>
+          <p>
+            No vendemos tus datos ni los cedemos para publicidad de terceros.
+          </p>
 
-    <h2>8. Seguridad</h2>
-    <p>Aplicamos medidas técnicas y organizativas razonables para proteger la información, como cifrado en tránsito, control de accesos y revisión periódica de configuraciones.</p>
+          <h2>7. Transferencias internacionales</h2>
+          <p>
+            Algunos proveedores pueden ubicar servidores fuera del Espacio Económico Europeo.
+            En esos casos exigimos garantías adecuadas conforme al RGPD, como cláusulas contractuales tipo
+            o ubicaciones con nivel de protección equivalente.
+          </p>
 
-    <h2>9. Tus derechos</h2>
-    <p>Puedes ejercer los derechos de <strong>acceso</strong>, <strong>rectificación</strong>, <strong>supresión</strong>, <strong>oposición</strong>, <strong>limitación</strong> y <strong>portabilidad</strong>, así como retirar tu consentimiento cuando sea la base legal.</p>
-    <p>Para ejercerlos escribe a <a href="mailto:info@temotiva.com">info@temotiva.com</a> indicando “Derechos de protección de datos” y explica tu solicitud. Responderemos en los plazos legales. También puedes reclamar ante la autoridad de control competente.</p>
+          <h2>8. Seguridad</h2>
+          <p>
+            Aplicamos medidas técnicas y organizativas razonables para proteger la información,
+            como cifrado en tránsito, control de accesos y revisión periódica de configuraciones.
+          </p>
 
-    <h2>10. Menores</h2>
-    <p>El servicio está dirigido a personas adultas. Si eres menor de edad, solicita asistencia de tus responsables legales.</p>
+          <h2>9. Tus derechos</h2>
+          <p>
+            Puedes ejercer los derechos de <strong>acceso</strong>, <strong>rectificación</strong>, <strong>supresión</strong>,
+            <strong>oposición</strong>, <strong>limitación</strong> y <strong>portabilidad</strong>, así como retirar tu consentimiento
+            cuando sea la base legal.
+          </p>
+          <p>
+            Para ejercerlos escribe a <a href="mailto:info@temotiva.com">info@temotiva.com</a>
+            indicando "Derechos de protección de datos" y explica tu solicitud.
+            Responderemos en los plazos legales. También puedes reclamar ante la autoridad de control competente.
+          </p>
 
-    <h2>11. Cookies</h2>
-    <p>Usamos cookies técnicas para el funcionamiento básico. Si en el futuro empleamos analíticas o preferencia, te informaremos y podrás gestionarlas desde el navegador y, si procede, mediante un panel de configuración.</p>
+          <h2>10. Menores</h2>
+          <p>
+            El servicio está dirigido a personas adultas. Si eres menor de edad, solicita asistencia de tus responsables legales.
+          </p>
 
-    <h2>12. Imágenes y material gráfico</h2>
-    <p>Las imágenes pueden ser de uso libre o generadas mediante inteligencia artificial con fines ilustrativos. No representan a personas reales ni suponen cesión de derechos de imagen.</p>
+          <h2>11. Cookies</h2>
+          <p>
+            Usamos cookies técnicas para el funcionamiento básico.
+            Si en el futuro empleamos analíticas o de preferencias, te informaremos y podrás gestionarlas desde el navegador
+            y, si procede, mediante un panel de configuración.
+          </p>
 
-    <h2>13. Cambios en esta política</h2>
-    <p>Podemos actualizar este documento para reflejar mejoras del servicio o cambios legales. Publicaremos la nueva versión con fecha de revisión.</p>
+          <h2>12. Imágenes y material gráfico</h2>
+          <p>
+            Las imágenes pueden ser de uso libre o generadas mediante inteligencia artificial con fines ilustrativos.
+            No representan a personas reales ni suponen cesión de derechos de imagen.
+          </p>
 
-    <p class="meta"><small>Última actualización: 1 de noviembre de 2025</small></p>
+          <h2>13. Cambios en esta política</h2>
+          <p>
+            Podemos actualizar este documento para reflejar mejoras del servicio o cambios legales.
+            Publicaremos la nueva versión con fecha de revisión.
+          </p>
+
+          <p class="legal-meta">
+            <small>Última actualización: 1 de noviembre de 2025</small>
+          </p>
+        </div>
+      </article>
+    </div>
   </main>
 
-  <footer>
-    <p>© TEMOTIVA 2024–2025</p>
-    <a href="/aviso-legal.html">Aviso legal</a> ·
-    <a href="/cookies.html">Política de cookies</a>
+  <!-- Footer unificado -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
+      <p style="margin:0;">© TEMOTIVA 2024-2025</p>
+      <div style="display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;">
+        <a href="/privacidad.html" aria-current="page">Política de privacidad</a>
+        <a href="/cookies.html">Política de cookies</a>
+        <a href="/aviso-legal.html">Aviso legal</a>
+      </div>
+    </div>
   </footer>
+
+  <!-- Menú móvil y protección básica de imágenes -->
+  <script>
+    (function(){
+      const menuBtn = document.getElementById('menuBtn');
+      const nav = document.getElementById('mainNav');
+      if(!menuBtn || !nav) return;
+
+      menuBtn.addEventListener('click', ()=>{
+        nav.classList.toggle('open');
+        const expanded = nav.classList.contains('open');
+        menuBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      });
+
+      nav.querySelectorAll('a').forEach(link=>{
+        link.addEventListener('click', ()=>{
+          nav.classList.remove('open');
+          menuBtn.setAttribute('aria-expanded','false');
+        });
+      });
+    })();
+
+    // Bloqueo simple de clic derecho en imágenes
+    document.addEventListener('contextmenu', function(e){
+      if(e.target.tagName === 'IMG'){
+        e.preventDefault();
+      }
+    });
+  </script>
+
+  <!-- Traductor de Google -->
+  <script>
+    function googleTranslateElementInit(){
+      new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        includedLanguages: 'es,en,fr,it,pt',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
