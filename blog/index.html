@@ -3,117 +3,355 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Blog | TEMOTIVA</title>
-  <meta name="description" content="Blog de TEMOTIVA sobre bienestar emocional, autocuidado y crecimiento personal.">
+
+  <title>Blog TEMOTIVA | Lecturas para días con demasiadas cosas en la cabeza</title>
+
+  <meta name="description" content="Blog de TEMOTIVA con tres lecturas breves sobre bienestar emocional, meditación y bienvenida al proyecto. Pensado para personas adultas con mucha carga mental.">
+  <meta name="keywords" content="blog bienestar emocional, meditacion, autocuidado, psicología cotidiana, salud mental diaria, estrés, saturación mental">
+
+  <link rel="canonical" href="https://www.temotiva.com/blog/index.html">
+
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F7F7F7">
+
   <link rel="stylesheet" href="/style.css">
 
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Blog",
+    "name":"Blog TEMOTIVA",
+    "url":"https://www.temotiva.com/blog/",
+    "description":"Lecturas breves de bienestar emocional, meditación y autocuidado.",
+    "inLanguage":"es",
+    "publisher":{
+      "@type":"Organization",
+      "name":"TEMOTIVA",
+      "url":"https://www.temotiva.com"
+    }
+  }
+  </script>
+
   <style>
-    .blog-hero {
-      background-color: #f7f7f7;
-      padding: 80px 0 60px 0;
-      text-align: center;
+    /* BLOQUE HERO EDITORIAL */
+    .blog-shell{
+      padding-top:4.5rem;
     }
-    .blog-hero h1 {
-      font-size: 2.4rem;
-      margin-bottom: 10px;
+    .blog-hero{
+      padding:3.2rem 0 2.8rem;
+      background:radial-gradient(circle at top left,#f0f4ff,#f9f9fb);
+      border-bottom:1px solid rgba(0,0,0,.04);
     }
-    .blog-hero p {
-      font-size: 1.1rem;
-      color: #555;
+    .blog-hero-inner{
+      max-width:960px;
+      margin:0 auto;
     }
-    .blog-list {
-      background-color: #fafafa;
-      padding: 60px 0;
+    .blog-kicker{
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:.76rem;
+      opacity:.8;
+      margin:0 0 .4rem;
     }
-    .blog-list .card {
-      background-color: #fff;
-      border-radius: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      padding: 24px;
-      margin-bottom: 24px;
+    .blog-title{
+      margin:0 0 .4rem;
+      font-size:clamp(2rem,3.1vw,2.6rem);
     }
-    .blog-list h2 a {
-      color: #333;
-      text-decoration: none;
-      transition: color 0.2s ease-in-out;
+    .blog-subtitle{
+      margin:0 0 .9rem;
+      font-size:1rem;
+      max-width:52ch;
     }
-    .blog-list h2 a:hover {
-      color: #666;
+    .blog-subtitle em{
+      font-style:italic;
     }
-    .blog-list p {
-      color: #555;
+    .blog-quote{
+      margin:0;
+      font-size:.96rem;
+      max-width:46ch;
+      font-style:italic;
+      opacity:.9;
+    }
+
+    /* LISTADO EDITORIAL */
+    .blog-main{
+      padding:3.2rem 0 3.4rem;
+    }
+    .blog-layout{
+      max-width:960px;
+      margin:0 auto;
+      display:grid;
+      gap:2rem;
+    }
+    @media (min-width:900px){
+      .blog-layout{
+        grid-template-columns:minmax(0,1.9fr) minmax(0,1.1fr);
+      }
+    }
+
+    .blog-section-title{
+      margin:0 0 .4rem;
+      font-size:clamp(1.4rem,2.2vw,1.8rem);
+    }
+    .blog-section-text{
+      margin:0 0 1.3rem;
+      max-width:60ch;
+      font-size:.98rem;
+      opacity:.95;
+    }
+    .blog-section-text em{
+      font-style:italic;
+    }
+
+    .blog-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:.9rem;
+    }
+
+    .blog-item{
+      border-radius:16px;
+      border:1px solid rgba(0,0,0,.05);
+      background:#ffffff;
+      box-shadow:0 10px 30px rgba(0,0,0,.05);
+      padding:1rem 1.1rem 1rem;
+    }
+    .blog-item a{
+      text-decoration:none;
+      color:inherit;
+      display:block;
+    }
+    .blog-item a:hover h2{
+      text-decoration:underline;
+      text-underline-offset:2px;
+    }
+
+    .blog-item-kicker{
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      opacity:.8;
+      margin:0 0 .25rem;
+    }
+    .blog-item h2{
+      margin:0 0 .3rem;
+      font-size:1.04rem;
+    }
+    .blog-item-lead{
+      margin:0;
+      font-size:.94rem;
+      line-height:1.6;
+    }
+    .blog-item-lead em{
+      font-style:italic;
+    }
+    .blog-item-meta{
+      margin-top:.4rem;
+      font-size:.8rem;
+      opacity:.8;
+      display:flex;
+      gap:.6rem;
+      flex-wrap:wrap;
+    }
+
+    /* COLUMNA LATERAL */
+    .blog-side{
+      display:flex;
+      flex-direction:column;
+      gap:1.1rem;
+      font-size:.94rem;
+    }
+    .blog-note-block{
+      border-radius:16px;
+      border:1px solid rgba(0,0,0,.06);
+      background:#ffffff;
+      box-shadow:0 6px 20px rgba(0,0,0,.05);
+      padding:1rem 1.1rem;
+    }
+    .blog-note-title{
+      margin:0 0 .4rem;
+      font-size:.96rem;
+      font-weight:600;
+    }
+    .blog-note-text{
+      margin:0;
+      line-height:1.6;
+    }
+    .blog-note-text em{
+      font-style:italic;
+    }
+    .blog-links{
+      margin:.7rem 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:.3rem;
+      font-size:.9rem;
+    }
+    .blog-links a{
+      text-decoration:underline;
+      text-underline-offset:2px;
+    }
+
+    @media (max-width:640px){
+      .blog-subtitle,
+      .blog-quote,
+      .blog-section-text,
+      .blog-item-lead,
+      .blog-note-text{
+        font-size:.98rem;
+      }
     }
   </style>
 </head>
 
 <body>
-
-  <!-- Header global -->
-  <header class="site-header">
+  <!-- Header -->
+  <header class="site-header" role="banner">
     <div class="container nav">
-
-      <a href="/inicio.html" class="logo" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:inherit;">
-        <img src="/icon-192.png" alt="Logo TEMOTIVA" style="width:36px;height:36px;border-radius:8px;">
+      <a href="/inicio.html" class="logo" aria-label="Ir a inicio">
+        <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
         <span>TEMOTIVA</span>
       </a>
 
-      <nav class="nav-links">
-        <a href="/inicio.html">Inicio</a>
+      <nav class="nav-links" aria-label="Menú principal">
         <a href="/demo.html">App</a>
         <a href="/particular.html">Talleres</a>
         <a href="/organizacion.html">Organizaciones</a>
         <a href="/recursos.html">Recursos</a>
-        <a href="/blog/index.html">Blog</a>
+        <a href="/blog/index.html" class="active" aria-current="page">Blog</a>
         <a href="/temotiva-lab.html">TEMOTIVA LAB</a>
         <a href="/ctl.html">CTL</a>
         <a href="/contacto.html">Contacto</a>
       </nav>
-
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="blog-hero">
-    <div class="container">
-      <h1>Blog TEMOTIVA</h1>
-      <p>Artículos y reflexiones sobre bienestar emocional, autoconocimiento y prácticas que fortalecen la mente y el cuerpo.</p>
-    </div>
-  </section>
+  <main class="content blog-shell" role="main">
+    <!-- HERO -->
+    <section class="blog-hero" aria-labelledby="blog-hero-title">
+      <div class="container blog-hero-inner">
+        <p class="blog-kicker">Blog TEMOTIVA</p>
+        <h1 id="blog-hero-title" class="blog-title">
+          Lecturas para días con demasiadas cosas en la cabeza
+        </h1>
+        <p class="blog-subtitle">
+          Pequeños textos pensados para leer sin prisa, cuando necesitas
+          <em>bajar una marcha</em> y entenderte un poco mejor.
+        </p>
+        <p class="blog-quote">
+          «No hace falta leer mucho, solo lo suficiente para que algo dentro de ti
+          respire un poco más tranquilo.»
+        </p>
+      </div>
+    </section>
 
-  <!-- Listado de entradas -->
-  <section class="blog-list">
-    <div class="container">
+    <!-- LISTADO DE LAS 3 ENTRADAS -->
+    <section class="blog-main">
+      <div class="container blog-layout">
+        <section aria-labelledby="blog-list-title">
+          <h2 id="blog-list-title" class="blog-section-title">Últimas lecturas</h2>
+          <p class="blog-section-text">
+            De momento el blog tiene tres piezas. Puedes entrar en la que más
+            resuene contigo hoy, y volver cuando lo necesites. <em>No hay orden
+            obligatorio.</em>
+          </p>
 
-      <!-- Entrada 1 -->
-      <article class="card">
-        <h2><a href="/blog/bienvenida.html">Bienvenida a TEMOTIVA</a></h2>
-        <p>Una introducción al proyecto TEMOTIVA, su visión de bienestar emocional y el propósito de acompañar procesos de autoconocimiento y crecimiento.</p>
-        <p><a href="/blog/bienvenida.html" class="btn">Leer más</a></p>
-      </article>
+          <ul class="blog-list">
+            <!-- 1. Bienvenida -->
+            <li class="blog-item">
+              <a href="/blog/bienvenida.html">
+                <p class="blog-item-kicker">Introducción</p>
+                <h2>Bienvenida</h2>
+                <p class="blog-item-lead">
+                  Una primera mirada al proyecto: por qué existe este espacio y cómo
+                  puede acompañarte cuando tu cabeza va más rápido que tu cuerpo.
+                </p>
+                <div class="blog-item-meta">
+                  <span>Lectura breve</span>
+                  <span>Contenido atemporal</span>
+                </div>
+              </a>
+            </li>
 
-      <!-- Entrada 2 -->
-      <article class="card">
-        <h2><a href="/blog/beneficios-meditacion.html">Beneficios de la meditación</a></h2>
-        <p>Exploramos cómo la práctica meditativa impacta en la regulación emocional, la atención plena y la resiliencia psicológica, más allá de los mitos y las modas.</p>
-        <p><a href="/blog/beneficios-meditacion.html" class="btn">Leer más</a></p>
-      </article>
+            <!-- 2. Bienvenidas -->
+            <li class="blog-item">
+              <a href="/blog/bienvenidas.html">
+                <p class="blog-item-kicker">Reflexión</p>
+                <h2>Bienvenidas las que llegan cansadas</h2>
+                <p class="blog-item-lead">
+                  Un texto pensado para quienes llegan aquí con cansancio acumulado,
+                  dudas y muchas pestañas abiertas en la mente. Un pequeño
+                  <em>descanso leído</em>.
+                </p>
+                <div class="blog-item-meta">
+                  <span>Para días grises</span>
+                  <span>Enfoque amable</span>
+                </div>
+              </a>
+            </li>
 
-      <!-- Entrada 3 -->
-      <article class="card">
-        <h2><a href="/blog/estrategias-respiracion.html">Estrategias de respiración consciente</a></h2>
-        <p>Una guía práctica para integrar ejercicios respiratorios basados en evidencia, diseñados para reducir la ansiedad y mejorar la concentración.</p>
-        <p><a href="/blog/estrategias-respiracion.html" class="btn">Leer más</a></p>
-      </article>
+            <!-- 3. Beneficios meditación -->
+            <li class="blog-item">
+              <a href="/blog/beneficios-meditacion.html">
+                <p class="blog-item-kicker">Meditación</p>
+                <h2>Beneficios de la meditación cuando tu mente no para</h2>
+                <p class="blog-item-lead">
+                  Más que una técnica de moda, una forma sencilla de darle un poco
+                  de espacio a tus pensamientos y a tu cuerpo, sin obligarte a
+                  dejar la mente en blanco.
+                </p>
+                <div class="blog-item-meta">
+                  <span>Bienestar emocional</span>
+                  <span>Uso cotidiano</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </section>
 
-    </div>
-  </section>
+        <!-- COLUMNA LATERAL -->
+        <aside class="blog-side" aria-label="Otras formas de seguir explorando">
+          <div class="blog-note-block">
+            <h3 class="blog-note-title">Si hoy necesitas algo más práctico</h3>
+            <p class="blog-note-text">
+              Puedes combinar estas lecturas con recursos o ejercicios breves.
+              A veces leer ayuda, y otras veces lo que hace falta es
+              <em>pasar a una acción pequeña</em>.
+            </p>
+            <ul class="blog-links">
+              <li><a href="/recursos.html">Ver recursos descargables</a></li>
+              <li><a href="/demo.html">Conocer mejor la app</a></li>
+              <li><a href="/particular.html">Explorar talleres para personas</a></li>
+              <li><a href="/organizacion.html">Opciones para equipos y entidades</a></li>
+            </ul>
+          </div>
+
+          <div class="blog-note-block">
+            <h3 class="blog-note-title">Volver cuando haga falta</h3>
+            <p class="blog-note-text">
+              Puedes guardar esta página en favoritos. La idea es que este blog
+              sea un lugar al que volver cuando algo se te hace cuesta arriba y
+              te viene bien leer <em>con calma</em>.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
-  <footer style="padding:16px;text-align:center;font-size:14px;">
-    <a href="/privacidad.html">Política de privacidad</a> ·
-    <a href="/cookies.html">Política de cookies</a> ·
-    <a href="/aviso-legal.html">Aviso legal</a>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
+      <p style="margin:0;">© TEMOTIVA desde 2024</p>
+      <div style="display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;">
+        <a href="/privacidad.html">Política de privacidad</a>
+        <a href="/cookies.html">Política de cookies</a>
+        <a href="/aviso-legal.html">Aviso legal</a>
+      </div>
+    </div>
   </footer>
-
 </body>
 </html>
