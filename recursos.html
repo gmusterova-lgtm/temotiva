@@ -25,7 +25,7 @@
     ],
     "isPartOf":{
       "@type":"WebSite",
-      "name":"TEMOTIVA",
+      "name":"Temotiva",
       "url":"https://www.temotiva.com"
     }
   }
@@ -218,7 +218,6 @@
       }
     }
 
-    /* Mockup tech para recursos */
     .res-hero-mockup{
       width:100%;
       max-width:380px;
@@ -236,32 +235,28 @@
 </head>
 
 <body>
-  <!-- Header -->
-<!-- Header -->
-<header class="site-header" id="siteHeader" role="banner">
-  <div class="container nav">
-    
-    <!-- Logo: siempre lleva a la Home -->
-    <a href="https://www.temotiva.com" class="logo" aria-label="Ir a inicio">
-      <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
-      <span>TEMOTIVA</span>
-    </a>
+  <!-- Header unificado -->
+  <header class="site-header" id="siteHeader" role="banner">
+    <div class="container nav">
+      <!-- Logo: siempre a la Home -->
+      <a href="https://www.temotiva.com" class="logo" aria-label="Ir a la página principal">
+        <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
+        <span>TEMOTIVA</span>
+      </a>
 
-    <!-- Menú principal -->
-    <nav id="mainNav" class="nav-links" aria-label="Menú principal">
-      <a href="/demo.html">App</a>
-      <a href="/particular.html">Talleres</a>
-      <a href="/organizacion.html">Organizaciones</a>
-      <a href="/recursos.html">Recursos</a>
-      <a href="/blog/">Blog</a>
-      <a href="/temotiva-lab.html">Lab</a> <!-- cambiado -->
-      <a href="/ctl.html">CTL</a>
-      <a href="/contacto.html">Contacto</a>
-    </nav>
-
-  </div>
-</header>
-
+      <!-- Menú principal -->
+      <nav id="mainNav" class="nav-links" aria-label="Menú principal">
+        <a href="/demo.html">App</a>
+        <a href="/particular.html">Talleres</a>
+        <a href="/organizacion.html">Organizaciones</a>
+        <a href="/recursos.html" aria-current="page">Recursos</a>
+        <a href="/blog/">Blog</a>
+        <a href="/temotiva-lab.html">Lab</a>
+        <a href="/ctl.html">CTL</a>
+        <a href="/contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
 
   <main class="content" role="main">
     <!-- HERO -->
@@ -330,7 +325,7 @@
       </div>
     </section>
 
-    <!-- Lista ejemplo recursos (puedes ir añadiendo enlaces reales) -->
+    <!-- Lista ejemplo recursos -->
     <section class="res-section alt" id="res-lista" aria-labelledby="res-lista-title">
       <div class="container">
         <h2 id="res-lista-title">Algunos recursos clave</h2>
