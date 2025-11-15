@@ -3,81 +3,373 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Blog | TEMOTIVA</title>
-  <meta name="description" content="Blog de TEMOTIVA, bienestar emocional y autocuidado.">
+
+  <title>Bienvenida a TEMOTIVA | Cuando te sientes desbordada y no sabes por dónde empezar</title>
+
+  <meta name="description" content="Bienvenida a TEMOTIVA, un espacio de bienestar emocional para personas adultas con mucha carga mental. Si a veces te sientes desbordada y no sabes qué hacer con lo que sientes, aquí encontrarás ideas, app, recursos y prácticas claras para tu día a día.">
+  <meta name="keywords" content="bienestar emocional, autocuidado, app bienestar emocional, salud mental cotidiana, sentirse desbordada, no sé qué hacer con lo que siento, saturación mental, estrés, vida adulta">
+
+  <link rel="canonical" href="https://www.temotiva.com/blog/bienvenida.html">
+
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F7F7F7">
+
   <link rel="stylesheet" href="/style.css">
+
+  <!-- Datos estructurados del artículo -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BlogPosting",
+    "headline":"Bienvenida a TEMOTIVA",
+    "description":"Bienvenida a TEMOTIVA, un espacio de bienestar emocional para personas adultas con mucha carga mental. Si te sientes desbordada y no sabes qué hacer con lo que sientes, aquí encontrarás ideas y herramientas aplicadas a la vida diaria.",
+    "inLanguage":"es",
+    "author":{
+      "@type":"Person",
+      "name":"Equipo TEMOTIVA"
+    },
+    "publisher":{
+      "@type":"Organization",
+      "name":"TEMOTIVA",
+      "url":"https://www.temotiva.com"
+    },
+    "mainEntityOfPage":{
+      "@type":"WebPage",
+      "@id":"https://www.temotiva.com/blog/bienvenida.html"
+    }
+  }
+  </script>
+
   <style>
-    /* Ajustes visuales específicos del blog */
-    .blog-hero {
-      background-color: #f7f7f7;
-      padding: 80px 0 60px 0;
-      text-align: center;
+    .article-shell{
+      padding-top:4.5rem;
     }
-    .blog-hero h1 {
-      font-size: 2.4rem;
-      margin-bottom: 10px;
+    .article-hero{
+      padding:3.2rem 0 2.8rem;
+      background:radial-gradient(circle at top left,#f0f4ff,#f9f9fb);
+      border-bottom:1px solid rgba(0,0,0,.04);
     }
-    .blog-hero p {
-      font-size: 1.1rem;
-      color: #555;
+    .article-hero-inner{
+      max-width:900px;
+      margin:0 auto;
     }
-    .blog-list {
-      background-color: #fafafa;
-      padding: 60px 0;
+    .article-kicker{
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:.76rem;
+      opacity:.8;
+      margin:0 0 .4rem;
     }
-    .blog-list .card {
-      background-color: #fff;
-      border-radius: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      padding: 24px;
-      margin-bottom: 24px;
+    .article-title{
+      margin:0 0 .4rem;
+      font-size:clamp(2rem,3.1vw,2.5rem);
     }
-    .blog-list h2 a {
-      color: #333;
-      text-decoration: none;
-      transition: color 0.2s ease-in-out;
+    .article-subtitle{
+      margin:0 0 .9rem;
+      max-width:52ch;
+      font-size:1rem;
     }
-    .blog-list h2 a:hover {
-      color: #666;
+    .article-subtitle em{
+      font-style:italic;
     }
-    .blog-list p {
-      color: #555;
+    .article-quote{
+      margin:0;
+      font-size:.96rem;
+      max-width:46ch;
+      font-style:italic;
+      opacity:.9;
+    }
+
+    .article-main{
+      padding:3rem 0 3.6rem;
+    }
+    .article-body{
+      max-width:900px;
+      margin:0 auto;
+      font-size:.98rem;
+      line-height:1.7;
+    }
+    .article-body p{
+      margin:0 0 1rem;
+    }
+    .article-body em{
+      font-style:italic;
+    }
+    .article-body h2{
+      margin:2rem 0 .6rem;
+      font-size:1.25rem;
+    }
+    .article-body h3{
+      margin:1.4rem 0 .4rem;
+      font-size:1.05rem;
+    }
+    .article-body ul{
+      padding-left:1.1rem;
+      margin:0 0 1rem;
+    }
+    .article-body li{
+      margin:0 0 .4rem;
+    }
+
+    .article-highlight{
+      background:#ffffff;
+      border-radius:16px;
+      padding:1rem 1.1rem;
+      box-shadow:0 10px 28px rgba(0,0,0,.05);
+      border:1px solid rgba(0,0,0,.05);
+      margin:1.2rem 0 1.6rem;
+    }
+    .article-highlight strong{
+      font-weight:600;
+    }
+
+    .article-cta{
+      margin:2.2rem 0 1.8rem;
+      padding:1.4rem 1.3rem;
+      border-radius:16px;
+      background:#0f172a;
+      color:#f9fafb;
+      display:grid;
+      gap:.9rem;
+    }
+    @media (min-width:780px){
+      .article-cta{
+        grid-template-columns:minmax(0,1.6fr) minmax(0,1.1fr);
+        align-items:center;
+      }
+    }
+    .article-cta h2{
+      margin:0 0 .4rem;
+      font-size:1.2rem;
+    }
+    .article-cta p{
+      margin:0 0 .3rem;
+      font-size:.96rem;
+    }
+    .article-cta small{
+      opacity:.9;
+      font-size:.86rem;
+    }
+    .article-cta-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      justify-content:flex-start;
+    }
+    .article-cta .btn{
+      background:#f9fafb;
+      color:#0f172a;
+    }
+    .article-cta .btn.secondary{
+      background:#111827;
+      color:#f9fafb;
+      border:1px solid rgba(249,250,251,.2);
+    }
+
+    .article-bottom-nav{
+      margin-top:2.2rem;
+      padding-top:1.3rem;
+      border-top:1px solid rgba(0,0,0,.06);
+      display:flex;
+      flex-wrap:wrap;
+      gap:.8rem;
+      font-size:.9rem;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .article-bottom-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.7rem;
+    }
+    .article-bottom-links a{
+      text-decoration:underline;
+      text-underline-offset:2px;
+    }
+
+    @media (max-width:640px){
+      .article-subtitle,
+      .article-quote,
+      .article-body{
+        font-size:.98rem;
+      }
+      .article-cta{
+        padding:1.1rem 1rem;
+      }
     }
   </style>
 </head>
 
 <body>
-  <header class="site-header">
+  <!-- Header -->
+  <header class="site-header" role="banner">
     <div class="container nav">
-      <a href="/" class="logo">TEMOTIVA</a>
-      <nav class="nav-links">
-        <a href="/">Inicio</a>
-        <a href="/blog/">Blog</a>
+      <a href="/inicio.html" class="logo" aria-label="Ir a inicio">
+        <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
+        <span>TEMOTIVA</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Menú principal">
+        <a href="/demo.html">App</a>
+        <a href="/particular.html">Talleres</a>
+        <a href="/organizacion.html">Organizaciones</a>
+        <a href="/recursos.html">Recursos</a>
+        <a href="/blog/index.html" class="active">Blog</a>
+        <a href="/temotiva-lab.html">TEMOTIVA LAB</a>
+        <a href="/ctl.html">CTL</a>
+        <a href="/contacto.html">Contacto</a>
       </nav>
     </div>
   </header>
 
-  <section class="blog-hero">
-    <div class="container">
-      <h1>Blog TEMOTIVA</h1>
-      <p>Reflexiones y prácticas sobre bienestar emocional, autocuidado y vida significativa.</p>
-    </div>
-  </section>
+  <main class="content article-shell" role="main">
+    <!-- HERO DEL ARTÍCULO -->
+    <section class="article-hero" aria-labelledby="article-title">
+      <div class="container article-hero-inner">
+        <p class="article-kicker">Bienvenida</p>
+        <h1 id="article-title" class="article-title">
+          Bienvenida a TEMOTIVA
+        </h1>
+        <p class="article-subtitle">
+          Este espacio está pensado para ti si alguna vez has pensado
+          <em>“me siento desbordada y no sé por dónde empezar para estar mejor”</em>.
+        </p>
+        <p class="article-quote">
+          Aquí no venimos a exigir más, sino a encontrar formas reales y concretas
+          de cuidarte en medio de la vida que ya tienes.
+        </p>
+      </div>
+    </section>
 
-  <section class="blog-list">
-    <div class="container">
-      <article class="card">
-        <h2><a href="/blog/bienvenida.html">Bienvenida a TEMOTIVA</a></h2>
-        <p>Este es el espacio donde compartiré ideas, prácticas y recursos de autocuidado y educación emocional.</p>
-        <p><a href="/blog/bienvenida.html" class="btn">Leer más</a></p>
+    <!-- CUERPO DEL ARTÍCULO -->
+    <section class="article-main">
+      <article class="article-body">
+        <p>
+          Tal vez llegas aquí después de un día muy lleno, con muchas pestañas abiertas en la cabeza.
+          Trabajo, estudios, familia, gestiones, mensajes sin responder.
+          En teoría todo está “bien”, pero por dentro hay ruido y cansancio.
+        </p>
+
+        <div class="article-highlight">
+          <strong>Si te sientes así, no estás sola.</strong>
+          Muchas personas adultas viven con una carga mental muy alta, sin llegar a un problema clínico,
+          pero con la sensación de ir en piloto automático y no encontrar un momento para respirar de verdad.
+        </div>
+
+        <h2>Cuando te sientes desbordada y no sabes qué hacer</h2>
+        <p>
+          Una de las frases que más se repiten cuando hablamos de bienestar emocional es:
+          <em>“sé que no estoy bien, pero no sé qué hacer con esto”</em>.
+        </p>
+        <p>
+          El problema no es solo “estar mal”, sino no tener claro el siguiente paso. Surgen pensamientos como:
+        </p>
+        <ul>
+          <li>No sé si necesito terapia o si “no es para tanto”.</li>
+          <li>Busco cosas en internet, pero la información me abruma más.</li>
+          <li>Empiezo a cuidarme y abandono a los pocos días.</li>
+          <li>Siento que voy apagando fuegos, pero no tengo un plan para mí.</li>
+        </ul>
+
+        <p>
+          TEMOTIVA nace justo en este punto intermedio, entre el “no estoy tan mal” y el
+          “no puedo más”, para darte una hoja de ruta sencilla cuando tu cabeza va por delante de tu energía.
+        </p>
+
+        <h2>Qué es TEMOTIVA en palabras sencillas</h2>
+        <p>
+          TEMOTIVA es una app y un ecosistema de recursos de bienestar emocional para la vida cotidiana.
+          No sustituye a una terapia, pero sí:
+        </p>
+        <ul>
+          <li>Te ayuda a poner nombre a lo que sientes.</li>
+          <li>Te propone pasos concretos que puedes hacer hoy, aunque tengas poco tiempo.</li>
+          <li>Te recuerda que tu bienestar cuenta tanto como tus tareas.</li>
+        </ul>
+
+        <p>
+          La idea es que no tengas que pensar desde cero cada vez que te sientes desbordada.
+          Abres la app, eliges cómo estás y recibes propuestas claras para ese momento.
+        </p>
+
+        <h2>Qué vas a encontrar en este espacio</h2>
+        <h3>1. Una app pensada para tu día real</h3>
+        <p>
+          En la <a href="/demo.html">página de la app</a> podrás ver cómo funciona TEMOTIVA.
+          Está diseñada para momentos concretos del día, no para añadir más horas de pantalla.
+        </p>
+
+        <h3>2. Recursos breves y descargables</h3>
+        <p>
+          En la sección de <a href="/recursos.html">recursos</a> tendrás guías simples, ejercicios
+          y materiales que puedes usar cuando necesites parar, ordenar tus ideas o
+          tomar una decisión con más calma.
+        </p>
+
+        <h3>3. Talleres y espacios compartidos</h3>
+        <p>
+          Si te ayuda aprender en grupo, en <a href="/particular.html">talleres y actividades</a>
+          encontrarás propuestas para trabajar el autocuidado, los límites y la regulación emocional
+          de forma acompañada.
+        </p>
+
+        <div class="article-cta" aria-label="Llamada a la acción para conocer la app">
+          <div>
+            <h2>Si te reconoces en estas líneas</h2>
+            <p>
+              El siguiente paso puede ser muy pequeño: conocer cómo funciona TEMOTIVA
+              y probar una primera ruta de bienestar emocional cuando tengas un día difícil.
+            </p>
+            <small>
+              No se trata de hacerlo perfecto, se trata de empezar a tener algo claro que hacer
+              cuando sientas que todo te supera.
+            </small>
+          </div>
+          <div class="article-cta-actions">
+            <a href="/demo.html" class="btn">Ver cómo funciona la app</a>
+            <a href="/recursos.html" class="btn secondary">Explorar recursos gratuitos</a>
+          </div>
+        </div>
+
+        <h2>Cómo seguir a tu ritmo</h2>
+        <p>
+          No hace falta que te lo leas todo ni que cambies tu vida de golpe.
+          Puedes:
+        </p>
+        <ul>
+          <li>Guardar este artículo para releerlo en un día difícil.</li>
+          <li>Visitar el <a href="/blog/index.html">índice del blog</a> y elegir otra lectura breve.</li>
+          <li>Entrar en la app cuando esté disponible y probar una ruta corta de autocuidado.</li>
+        </ul>
+
+        <p>
+          Lo importante es que empieces a tratar tu bienestar emocional como algo que merece
+          espacio en tu agenda, igual que el resto de tus responsabilidades.
+        </p>
+
+        <div class="article-bottom-nav">
+          <div class="article-bottom-links">
+            <a href="/blog/index.html">Volver al blog</a>
+          </div>
+          <div class="article-bottom-links">
+            <a href="/demo.html">Ir a la app</a>
+            <a href="/recursos.html">Ir a recursos</a>
+          </div>
+        </div>
       </article>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <footer style="padding:16px;text-align:center;font-size:14px;">
-    <a href="/privacidad.html">Política de privacidad</a> ·
-    <a href="/cookies.html">Política de cookies</a> ·
-    <a href="/aviso-legal.html">Aviso legal</a>
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
+      <p style="margin:0;">© TEMOTIVA desde 2024</p>
+      <div style="display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;">
+        <a href="/privacidad.html">Política de privacidad</a>
+        <a href="/cookies.html">Política de cookies</a>
+        <a href="/aviso-legal.html">Aviso legal</a>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
