@@ -1,122 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Analítica -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DM1M9GM27Z"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-DM1M9GM27Z', { 'anonymize_ip': true });
-  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <!-- Axeptio Cookies -->
-  <script>
-    window.axeptioSettings = { clientId: "69055200683c996cd378866f", cookiesVersion: "Spain GDPR Spanish Cookies" };
-    (function(d,s){ var t=d.getElementsByTagName(s)[0], e=d.createElement(s); e.async=true; e.src="https://static.axept.io/sdk.js"; t.parentNode.insertBefore(e,t); })(document,"script");
-  </script>
+  <title>Temotiva® para organizaciones | Bienestar emocional en equipos</title>
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="index,follow" />
-  <meta http-equiv="x-ua-compatible" content="IE=edge" />
+  <meta name="description" content="Programas y talleres de bienestar emocional para organizaciones y equipos con alta carga mental. Sesiones prácticas, breves y aplicadas al día a día laboral.">
+  <meta name="keywords" content="bienestar emocional en empresas, talleres para equipos, prevención burnout, regulación emocional en el trabajo, salud mental laboral, formación bienestar organizaciones">
 
-  <title>Temotiva | Bienestar emocional en tu día a día</title>
-  <meta name="description" content="Temotiva es una app de bienestar emocional que te guía con pasos concretos cuando te sientes sobrepasada y no sabes qué hacer. Autocuidado y regulación emocional en tu día a día.">
-  <meta name="keywords" content="app bienestar emocional, bienestar emocional, salud mental cotidiana, autocuidado, autocuidado diario, regulación emocional, estrés, ansiedad leve, saturación, hábitos saludables, psicología aplicada">
+  <link rel="canonical" href="https://www.temotiva.com/organizacion.html">
 
-  <!-- Open Graph y Twitter -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="TEMOTIVA | App de bienestar emocional para tu día a día">
-  <meta property="og:description" content="Una app de bienestar emocional que te ayuda a saber qué hacer cuando te sientes mal, con pasos concretos de autocuidado y regulación emocional.">
-  <meta property="og:image" content="https://www.temotiva.com/logo-temotiva.png">
-  <meta property="og:url" content="https://www.temotiva.com/">
-  <meta property="og:locale" content="es_ES">
-  <meta name="twitter:card" content="summary_large_image">
+  <!-- Estilos base del sitio -->
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/style-empresas.css">
 
-  <link rel="canonical" href="https://www.temotiva.com/">
-
-  <!-- PWA -->
-  <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#F7F7F7" id="meta-theme">
-  <meta name="application-name" content="TEMOTIVA">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="TEMOTIVA">
-  <meta name="color-scheme" content="light">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
-
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-
-  <!-- Idiomas SEO -->
-  <link rel="alternate" href="https://www.temotiva.com/" hreflang="es">
-  <link rel="alternate" href="https://www.temotiva.com/?lang=en" hreflang="en">
-  <link rel="alternate" href="https://www.temotiva.com/" hreflang="x-default">
-
-  <!-- Rendimiento -->
-  <link rel="preload" href="/style.css" as="style">
-  <link rel="stylesheet" href="/style.css" />
-  <link rel="preconnect" href="https://static.axept.io" crossorigin>
-  <link rel="preconnect" href="https://ejhzxwnhqvcqjqxnuvya.supabase.co" crossorigin>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="preconnect" href="https://formspree.io" crossorigin>
-  <link rel="prerender" href="/">
-  <link rel="prefetch" href="/blog/" as="document">
-  <link rel="prefetch" href="/recursos.html" as="document">
-
-  <!-- Datos estructurados base -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Temotiva",
-    "alternateName": "Temotiva bienestar emocional",
-    "url": "https://www.temotiva.com/",
-    "inLanguage": "es",
-    "description": "Temotiva es una app de bienestar emocional que convierte la psicología basada en evidencia en pasos concretos de autocuidado para la vida cotidiana.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Temotiva LAB",
-      "url": "https://www.temotiva.com/"
-    }
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Temotiva LAB",
-    "url": "https://www.temotiva.com/",
-    "logo": "https://www.temotiva.com/logo-temotiva.png",
-    "description": "Temotiva LAB impulsa Temotiva, una app de bienestar emocional centrada en el autocuidado cotidiano y la regulación emocional basada en psicología.",
-    "parentOrganization": {
-      "@type": "Organization",
-      "name": "Cognitiva Tech Lab",
-      "url": "https://www.temotiva.com/ctl.html"
-    },
-    "sameAs": []
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Inicio",
-        "item": "https://www.temotiva.com/"
-      }
-    ]
-  }
-  </script>
-
-  <!-- Estilos locales y utilidades -->
+  <!-- Estilos visuales alineados con el index -->
   <style>
     :root{
       --bg:#f7f8fb;
@@ -140,8 +39,13 @@
     @media (prefers-reduced-motion: reduce){
       * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
     }
+
     *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; scroll-padding-top:var(--header-h); }
+
+    html{
+      scroll-behavior:smooth;
+      scroll-padding-top:var(--header-h);
+    }
 
     body{
       margin:0;
@@ -153,87 +57,223 @@
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
     }
-    .container{ width:var(--container); margin:0 auto; }
-    img, video{ max-width:100%; height:auto; display:block; }
-    a, button, input, textarea, select{ font:inherit; }
-    a{ color:inherit; text-decoration:none; }
-    :focus-visible{ outline:var(--focus); outline-offset:3px; border-radius:10px; }
 
-    .u-center{ display:grid; place-items:center; }
-    .u-flex{ display:flex; } .u-col{ display:flex; flex-direction:column; }
-    .u-gap-xs{ gap:.25rem; } .u-gap-s{ gap:.5rem; } .u-gap{ gap:1rem; } .u-gap-l{ gap:1.5rem; }
-    .u-mt-s{ margin-top:.5rem; } .u-mt{ margin-top:1rem; } .u-mt-l{ margin-top:1.5rem; } .u-mb{ margin-bottom:1rem; }
-    .u-hidden{ display:none !important; }
+    .container{
+      width:var(--container);
+      margin:0 auto;
+    }
+
+    img{
+      max-width:100%;
+      height:auto;
+      display:block;
+    }
+
+    a, button, input, textarea, select{
+      font:inherit;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    :focus-visible{
+      outline:var(--focus);
+      outline-offset:3px;
+      border-radius:10px;
+    }
 
     /* Header */
     .site-header{
-      position:fixed; inset:0 0 auto 0; height:var(--header-h); z-index:1000; background:rgba(248,250,252,.9);
+      position:fixed;
+      inset:0 0 auto 0;
+      height:var(--header-h);
+      z-index:1000;
+      background:rgba(248,250,252,.9);
       border-bottom:1px solid color-mix(in srgb, var(--ink) 10%, transparent);
       transition: box-shadow .2s ease, backdrop-filter .2s ease, background .2s ease;
       backdrop-filter: saturate(135%) blur(10px);
     }
-    .site-header.is-scrolled{ box-shadow:0 10px 30px rgba(15,23,42,.15); }
-    .nav{ height:var(--header-h); display:flex; align-items:center; justify-content:space-between; gap:12px; }
-    .logo{ display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px; white-space:nowrap; }
-    .logo img{ width:36px; height:36px; border-radius:9px; }
+    .site-header.is-scrolled{
+      box-shadow:0 10px 30px rgba(15,23,42,.15);
+    }
 
-    .header-actions{ display:flex; align-items:center; gap:.5rem; }
+    .nav{
+      height:var(--header-h);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
 
-    .icon-btn{
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      letter-spacing:.3px;
+      white-space:nowrap;
+    }
+
+    .logo img{
+      width:36px;
+      height:36px;
+      border-radius:9px;
+    }
+
+    .header-actions{
+      display:flex;
+      align-items:center;
+      gap:.5rem;
+    }
+
+    #google_translate_element{
+      font-size:0.8rem;
+    }
+
+    .menu-btn{
       border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-      background:var(--card); color:var(--ink);
-      padding:.5rem .7rem; border-radius:12px; cursor:pointer; min-height:40px;
+      background:var(--card);
+      color:var(--ink);
+      padding:.5rem .7rem;
+      border-radius:12px;
+      cursor:pointer;
+      min-height:40px;
       transition:background .15s ease, transform .05s ease, box-shadow .2s ease;
       box-shadow:0 1px 1px rgba(15,23,42,.04);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
     }
-    .icon-btn:hover{ box-shadow:0 8px 22px rgba(15,23,42,.16); }
-    .icon-btn:active{ transform:scale(.98); }
 
-    .menu-btn{ display:inline-flex; }
-    @media (min-width:1024px){ .menu-btn{ display:none; } }
+    .menu-btn:hover{
+      box-shadow:0 8px 22px rgba(15,23,42,.16);
+    }
 
-    .nav-links{ display:none; gap:.4rem; margin-left:auto; margin-right:1rem; }
+    .menu-btn:active{
+      transform:scale(.98);
+    }
+
+    .nav-links{
+      display:none;
+      gap:.4rem;
+      margin-left:auto;
+      margin-right:1rem;
+    }
+
     .nav-links a{
-      padding:.45rem .7rem; border-radius:10px; color:var(--ink-soft); display:inline-flex; align-items:center;
-      position:relative; font-size:.92rem;
+      padding:.45rem .7rem;
+      border-radius:10px;
+      color:var(--ink-soft);
+      display:inline-flex;
+      align-items:center;
+      position:relative;
+      font-size:.92rem;
     }
-    .nav-links a:hover, .nav-links a.active{ background:var(--muted); color:var(--ink); }
+
+    .nav-links a:hover,
+    .nav-links a.active{
+      background:var(--muted);
+      color:var(--ink);
+    }
+
     .nav-links a.active::after{
-      content:""; position:absolute; left:10px; right:10px; bottom:4px; height:2px; background:var(--ink);
-      border-radius:2px; opacity:.35;
+      content:"";
+      position:absolute;
+      left:10px;
+      right:10px;
+      bottom:4px;
+      height:2px;
+      background:var(--ink);
+      border-radius:2px;
+      opacity:.35;
     }
-    @media (min-width:1024px){ .nav-links{ display:flex; } }
 
-    /* Google translate contenedor */
-    #google_translate_element {
-      font-size: 0.8rem;
+    @media (min-width:1024px){
+      .nav-links{
+        display:flex;
+      }
+      .menu-btn{
+        display:none;
+      }
     }
 
-    /* Sidebar */
-    #sidePanel{
-      position:fixed; top:var(--header-h); left:-280px; width:260px; height:calc(100vh - var(--header-h));
-      background:var(--card); border-right:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-      padding:20px 16px; transition:left .25s ease; z-index:9999;
+    /* Overlay y sidebar */
+    .overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(15,23,42,.35);
+      display:none;
+      z-index:999;
+    }
+    .overlay.show{
+      display:block;
+    }
+
+    .sidebar{
+      position:fixed;
+      top:var(--header-h);
+      left:-280px;
+      width:260px;
+      height:calc(100vh - var(--header-h));
+      background:var(--card);
+      border-right:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      padding:20px 16px;
+      transition:left .25s ease;
+      z-index:1000;
       box-shadow:0 14px 36px rgba(15,23,42,.35);
     }
-    #sidePanel.is-open{ left:0; }
-    .overlay{ position:fixed; inset:0; background:rgba(15,23,42,.35); display:none; z-index:9998; }
-    .overlay.show{ display:block; }
-    @media (min-width:1200px){ .overlay{ display:none !important; } }
-    .logo-side{ display:flex; align-items:center; gap:8px; color:var(--ink); font-weight:700; }
-    .logo-side img{ width:32px; height:32px; border-radius:8px; }
-    .menu-list{ list-style:none; padding:0; margin:16px 0; display:flex; flex-direction:column; gap:4px; }
-    .menu-list a{ display:block; padding:10px 12px; border-radius:10px; color:var(--ink); }
-    .menu-list a:hover{ background:var(--muted); }
-    .privacy-link{ display:block; margin-top:12px; font-size:14px; color:var(--ink-soft); }
+    .sidebar[aria-hidden="false"]{
+      left:0;
+    }
 
-    /* Layout principal */
-    .content{ flex:1; min-width:0; }
-    .section{ padding:4.5rem 0; }
-    .section.alt{ background:#edf1ff; }
+    .menu-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
 
-    /* HERO tech */
-    .hero{
+    .menu-list a{
+      display:block;
+      padding:10px 12px;
+      border-radius:10px;
+      color:var(--ink);
+    }
+
+    .menu-list a:hover{
+      background:var(--muted);
+    }
+
+    @media (min-width:1200px){
+      .overlay{
+        display:none !important;
+      }
+      .sidebar{
+        display:none;
+      }
+    }
+
+    /* Secciones generales */
+    .content{
+      flex:1;
+      min-width:0;
+    }
+
+    .section,
+    .org-section{
+      padding:4.5rem 0;
+    }
+
+    .org-section.alt{
+      background:#edf1ff;
+    }
+
+    /* Hero organizaciones alineado con index */
+    .org-hero{
       position:relative;
       isolation:isolate;
       padding:5.2rem 0 4.6rem;
@@ -243,33 +283,37 @@
       overflow:hidden;
     }
 
-    .hero-inner{
+    .org-hero-inner{
       display:grid;
-      grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);
+      grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);
       gap:2.3rem;
       align-items:center;
     }
+
     @media (max-width:900px){
-      .hero{ padding:4.5rem 0 3.8rem; }
-      .hero-inner{
+      .org-hero{
+        padding:4.5rem 0 3.8rem;
+      }
+      .org-hero-inner{
         grid-template-columns:minmax(0,1fr);
         gap:2rem;
       }
+      .org-hero-side{
+        order:-1;
+      }
     }
 
-    .hero-copy{
-      max-width:36rem;
-    }
-    .hero-kicker{
+    .org-eyebrow{
       font-size:.78rem;
       text-transform:uppercase;
       letter-spacing:.16em;
       color:#6366f1;
       margin:0 0 .4rem;
     }
-    .hero-title{
+
+    .org-title{
       font-size:var(--h1);
-      margin:0 0 .5rem;
+      margin:0 0 .6rem;
       line-height:1.1;
       letter-spacing:.02em;
       background:linear-gradient(120deg,#111827,#4b5563,#1f2937);
@@ -277,36 +321,12 @@
       background-clip:text;
       color:transparent;
     }
-    .hero-sub{
+
+    .org-hero-text{
       margin:0;
       color:var(--ink-soft);
-      max-width:32rem;
+      max-width:34rem;
       font-size:.98rem;
-    }
-
-    .hero-metrics{
-      display:flex;
-      flex-wrap:wrap;
-      gap:1.2rem;
-      margin-top:1.4rem;
-      font-size:.82rem;
-    }
-    .hero-metric{
-      display:flex;
-      flex-direction:column;
-      gap:.1rem;
-      padding:.5rem .8rem;
-      border-radius:999px;
-      border:1px solid rgba(148,163,184,.35);
-      background:rgba(255,255,255,.8);
-      backdrop-filter:blur(8px);
-    }
-    .hero-metric-number{
-      font-size:1.1rem;
-      font-weight:600;
-    }
-    .hero-metric-label{
-      opacity:.8;
     }
 
     .cta-row{
@@ -316,193 +336,377 @@
       margin-top:1.4rem;
     }
 
-    .hero-device{
+    .org-hero-meta{
+      margin-top:1rem;
+      font-size:.86rem;
+      color:var(--ink-soft);
       display:flex;
-      justify-content:center;
-    }
-
-    /* Contenedor del mockup hiper limpio */
-    .hero-device-shell{
-      position:relative;
-      width:min(260px, 70vw);
-      display:flex;
+      flex-wrap:wrap;
+      gap:.4rem;
       align-items:center;
+    }
+
+    .org-hero-metrics{
+      margin-top:1.1rem;
+      display:flex;
+      flex-wrap:wrap;
+      gap:.7rem;
+      font-size:.86rem;
+    }
+
+    .org-hero-metric{
+      display:flex;
+      flex-direction:column;
+      gap:.1rem;
+      padding:.55rem .8rem;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,.35);
+      background:rgba(255,255,255,.85);
+      backdrop-filter:blur(8px);
+    }
+
+    .org-hero-metric strong{
+      font-size:.96rem;
+    }
+
+    .org-hero-side{
+      display:flex;
       justify-content:center;
     }
 
-    .hero-device img{
-      position:relative;
-      width:100%;
-      height:auto;
-      display:block;
-    }
-
-    @media (max-width:900px){
-      .hero-copy{ order:2; text-align:left; }
-      .hero-device{ order:1; }
-      .hero-metrics{ justify-content:flex-start; }
+    .org-hero-mockup{
+      width:min(280px, 75vw);
+      border-radius:26px;
+      box-shadow:0 20px 55px rgba(15,23,42,.28);
     }
 
     /* Botones */
     .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      border:0; border-radius:999px; padding:.85rem 1.35rem; background:var(--brand); color:#fff;
-      min-height:44px; line-height:1; letter-spacing:.02em; text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:0;
+      border-radius:999px;
+      padding:.85rem 1.35rem;
+      background:var(--brand);
+      color:#fff;
+      min-height:44px;
+      line-height:1;
+      letter-spacing:.02em;
+      text-decoration:none;
       font-size:.92rem;
       transition:transform .05s ease, box-shadow .18s ease, filter .12s ease;
       box-shadow:0 14px 34px rgba(15,23,42,.28);
+      cursor:pointer;
     }
+
     .btn:hover{
       filter:brightness(.97);
       box-shadow:0 18px 40px rgba(15,23,42,.32);
     }
-    .btn:active{ transform:translateY(1px); box-shadow:0 10px 24px rgba(15,23,42,.22); }
+
+    .btn:active{
+      transform:translateY(1px);
+      box-shadow:0 10px 24px rgba(15,23,42,.22);
+    }
+
     .btn.secondary{
       background:rgba(255,255,255,.9);
       color:#111827;
       box-shadow:0 10px 26px rgba(148,163,184,.35);
     }
 
-    /* Cards y grillas */
-    .grid{ display:grid; gap:1rem; grid-template-columns:repeat(3, 1fr); align-items:stretch; }
-    @media (max-width:900px){ .grid{ grid-template-columns:1fr; } }
-    .card{
-      background:var(--card); border-radius:var(--radius); padding:1.1rem 1.2rem; box-shadow:var(--shadow);
-      border:1px solid color-mix(in srgb, var(--ink) 10%, transparent);
-      transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-    }
-    .card:hover{ transform:translateY(-2px); box-shadow:0 18px 40px rgba(15,23,42,.18); border-color:rgba(148,163,184,.55); }
-    .card h3{ font-size:var(--h3); margin:.2rem 0 .4rem; }
-
-    /* Frase y reseñas */
-    .frase{ font-size:clamp(1.05rem, 2.1vw, 1.25rem); color:var(--ink-soft); margin:.6rem 0 1rem; }
-    .reviews { padding:4rem 0; }
-    .reviews .grid { display:grid; gap:1rem; grid-template-columns:repeat(2,1fr); }
-    @media (max-width:900px){ .reviews .grid{ grid-template-columns:1fr; } }
-    .review { background:var(--card); border:1px solid color-mix(in srgb, var(--ink) 10%, transparent);
-      border-radius:var(--radius); padding:1rem 1.2rem; box-shadow:var(--shadow); }
-    .review blockquote{ margin:0 0 .4rem; font-size:1.02rem; line-height:1.6; }
-    .review .who{ color:var(--ink-soft); }
-
-    /* Formularios pro */
-    .form-pro input, .form-pro textarea {
-      width:100%; padding:.85rem 1rem; border-radius:12px; border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-      background:var(--card); color:var(--ink); transition:border-color .15s ease, box-shadow .15s ease;
-    }
-    .form-pro input:focus, .form-pro textarea:focus { border-color:#3b82f6; box-shadow:0 0 0 3px rgba(59,130,246,.2); outline:none; }
-    .form-pro .row{ display:grid; gap:.8rem; grid-template-columns:1fr 1fr; }
-    @media (max-width:720px){ .form-pro .row{ grid-template-columns:1fr; } }
-    .form-pro .hint{ color:var(--ink-soft); font-size:.9rem; margin:.25rem 0 0; }
-    .form-pro .error{ color:#b00020; font-size:.9rem; display:none; margin:.25rem 0 0; }
-    .form-pro .checkline{
-      display:grid; grid-template-columns:20px 1fr; align-items:center; column-gap:.6rem;
-      margin-top:.75rem;
-    }
-    .form-pro .checkline input{ width:18px; height:18px; }
-    .form-pro button[type="submit"]{ min-width:140px; }
-
-    /* App CTA */
-    .app-cta {
-      background:var(--card);
-      border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-      border-radius:var(--radius);
-      padding:1.2rem;
-      box-shadow:var(--shadow);
+    /* Textos organizaciones */
+    .org-lead{
+      max-width:70ch;
+      color:var(--ink-soft);
+      margin:.4rem 0 1.4rem;
+      font-size:.98rem;
     }
 
-    /* Newsletter */
-    .newsletter-card{
-      background:var(--card);
-      border-radius:24px;
-      padding:2.5rem 1.8rem 2.1rem;
-      box-shadow:var(--shadow);
-      border:1px solid color-mix(in srgb, var(--ink) 10%, transparent);
-      text-align:center;
-    }
-    .newsletter-card h2{
+    .org-section h2{
       font-size:var(--h2);
       margin:0 0 .4rem;
     }
-    .newsletter-card p{
-      max-width:40rem;
-      margin:0 auto 1.4rem;
+
+    .org-tagline{
+      margin-top:1.2rem;
+      font-size:.9rem;
       color:var(--ink-soft);
-      font-size:.96rem;
+      max-width:60ch;
     }
-    .newsletter-embed-wrapper{
-      max-width:600px;
-      margin:0 auto 1rem;
+
+    /* Grids y tarjetas */
+    .org-grid{
+      display:grid;
+      gap:1rem;
+      align-items:stretch;
     }
-    .newsletter-note{
-      font-size:.85rem;
-      color:var(--ink-soft);
+
+    .org-grid.cols-3{
+      grid-template-columns:repeat(3, minmax(0,1fr));
+    }
+
+    .org-grid.cols-2{
+      grid-template-columns:repeat(2, minmax(0,1fr));
+    }
+
+    @media (max-width:900px){
+      .org-grid.cols-3,
+      .org-grid.cols-2{
+        grid-template-columns:1fr;
+      }
+    }
+
+    .org-card{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:1.1rem 1.2rem;
+      box-shadow:var(--shadow);
+      border:1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+      transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    }
+
+    .org-card:hover{
+      transform:translateY(-2px);
+      box-shadow:0 18px 40px rgba(15,23,42,.18);
+      border-color:rgba(148,163,184,.55);
+    }
+
+    .org-card h3{
+      font-size:var(--h3);
+      margin:.2rem 0 .4rem;
+    }
+
+    .org-card p{
       margin:0;
+      font-size:.95rem;
+      color:var(--ink-soft);
+    }
+
+    .org-chips{
+      margin-top:.65rem;
+      display:flex;
+      flex-wrap:wrap;
+      gap:.4rem;
+    }
+
+    .org-chip{
+      font-size:.78rem;
+      padding:.2rem .55rem;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,.55);
+      background:rgba(255,255,255,.9);
+    }
+
+    /* Catálogo talleres */
+    .org-catalog-title{
+      font-weight:600;
+      margin:.2rem 0 .2rem;
+    }
+
+    .org-catalog-sub{
+      margin:0 0 1.2rem;
+      font-size:.9rem;
+      color:var(--ink-soft);
+      max-width:60ch;
+    }
+
+    .org-catalog-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:.9rem;
+    }
+
+    @media (max-width:900px){
+      .org-catalog-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    .org-catalog-item{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:.9rem 1rem;
+      display:grid;
+      grid-template-columns:auto 1fr;
+      column-gap:.8rem;
+      align-items:flex-start;
+      box-shadow:var(--shadow);
+      border:1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+    }
+
+    .org-catalog-number{
+      font-weight:600;
+      font-size:.9rem;
+      color:#6366f1;
+      margin-top:.15rem;
+    }
+
+    .org-catalog-item h3{
+      font-size:.95rem;
+      margin:0 0 .1rem;
+    }
+
+    .org-catalog-item p{
+      margin:0;
+      font-size:.9rem;
+      color:var(--ink-soft);
+    }
+
+    /* Pasos */
+    .org-steps{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:1rem;
+    }
+
+    @media (max-width:900px){
+      .org-steps{
+        grid-template-columns:1fr;
+      }
+    }
+
+    .org-step-label{
+      display:inline-flex;
+      padding:.2rem .6rem;
+      border-radius:999px;
+      font-size:.78rem;
+      background:#e5edff;
+      color:#1d3a8a;
+      margin-bottom:.4rem;
+    }
+
+    /* Formulario organizaciones */
+    .org-form-wrap{
+      max-width:780px;
+    }
+
+    .org-form-card{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:1.4rem 1.4rem 1.3rem;
+      box-shadow:var(--shadow);
+      border:1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+      margin-top:.7rem;
+    }
+
+    .org-form-row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:.8rem;
+    }
+
+    @media (max-width:720px){
+      .org-form-row{
+        grid-template-columns:1fr;
+      }
+    }
+
+    .org-label-small{
+      font-size:.82rem;
+      color:var(--ink-soft);
+      display:block;
+      margin-bottom:.15rem;
+    }
+
+    .form-pro input,
+    .form-pro textarea,
+    .form-pro select{
+      width:100%;
+      padding:.8rem 1rem;
+      border-radius:12px;
+      border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      background:var(--card);
+      color:var(--ink);
+      transition:border-color .15s ease, box-shadow .15s ease;
+      font-size:.92rem;
+    }
+
+    .form-pro input:focus,
+    .form-pro textarea:focus,
+    .form-pro select:focus{
+      border-color:#3b82f6;
+      box-shadow:0 0 0 3px rgba(59,130,246,.2);
+      outline:none;
+    }
+
+    .checkline{
+      display:grid;
+      grid-template-columns:20px 1fr;
+      align-items:center;
+      column-gap:.6rem;
+      font-size:.86rem;
+      color:var(--ink-soft);
+    }
+
+    .org-form-footer{
+      margin-top:1rem;
+      display:flex;
+      flex-wrap:wrap;
+      gap:.7rem;
+      align-items:center;
+      font-size:.86rem;
+      color:var(--ink-soft);
     }
 
     /* Footer */
     .site-footer{
       border-top:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-      padding:1.4rem 0; background:var(--card);
-      padding-left:max(0px, env(safe-area-inset-left)); padding-right:max(0px, env(safe-area-inset-right));
+      padding:1.4rem 0;
+      background:var(--card);
+      padding-left:max(0px, env(safe-area-inset-left));
+      padding-right:max(0px, env(safe-area-inset-right));
     }
 
-    /* Accesibilidad básica */
-    .skip-link{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
-    .skip-link:focus{ position:fixed; left:16px; top:16px; padding:.55rem .8rem; border-radius:10px; background:var(--card); color:var(--ink);
-      z-index:2000; box-shadow:0 8px 24px rgba(0,0,0,.15); }
-
-    /* Reveal */
-    html.js-ready .reveal{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
-    html.js-ready .reveal.visible{ opacity:1; transform:none; }
-
-    /* Banner PWA */
-    .pwa-install{
-      position:fixed; left:50%; bottom:16px; transform:translateX(-50%);
-      background:var(--card); color:var(--ink); border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-      box-shadow:0 8px 24px rgba(0,0,0,.15); border-radius:12px; padding:12px 14px; z-index:2000; display:none; max-width:96%;
+    /* Reveal animaciones suaves */
+    html.js-ready .reveal{
+      opacity:0;
+      transform:translateY(14px);
+      transition:opacity .6s ease, transform .6s ease;
     }
-    .pwa-install.show{ display:block; }
-    .pwa-install .row{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
-    .pwa-install .msg{ font-size:14px; opacity:.9; }
-    .pwa-install .actions{ margin-left:auto; display:flex; gap:8px; }
+
+    html.js-ready .reveal.visible{
+      opacity:1;
+      transform:none;
+    }
   </style>
 
-  <!-- Google Translate -->
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement(
-        {
-          pageLanguage: 'es',
-          includedLanguages: 'es,en,fr,it,pt,de',
-          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-        },
-        'google_translate_element'
-      );
-    }
+  <!-- Datos estructurados específicos de servicio -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Programas y talleres de bienestar emocional para organizaciones",
+    "provider":{
+      "@type":"Organization",
+      "name":"Temotiva®",
+      "url":"https://www.temotiva.com"
+    },
+    "serviceType":"Formación y talleres de bienestar emocional para equipos",
+    "description":"Sesiones prácticas para reducir la carga emocional, prevenir el desgaste y mejorar el bienestar en equipos de trabajo."
+  }
   </script>
-  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
-<body>
-  <a href="#app" class="skip-link">Saltar al contenido</a>
-  <noscript><div style="padding:12px;text-align:center;background:#fff4cd;color:#7a5d00">Activa JavaScript para usar TEMOTIVA.</div></noscript>
 
-  <!-- Overlay -->
+<body>
+  <!-- Overlay para menú lateral -->
   <div id="overlay" class="overlay" aria-hidden="true"></div>
 
-  <!-- Header -->
+  <!-- Header global TEMOTIVA® -->
   <header class="site-header" id="siteHeader" role="banner">
     <div class="container nav">
       <!-- Logo -->
-      <a href="https://www.temotiva.com" class="logo" aria-label="Ir a inicio">
-        <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
-        <span>TEMOTIVA</span>
+      <a href="https://www.temotiva.com" class="logo" aria-label="Ir al inicio">
+        <img src="/logo-temotiva.png" alt="Logo Temotiva®" width="36" height="36">
+        <span>Temotiva®</span>
       </a>
 
       <!-- Menú principal -->
       <nav id="mainNav" class="nav-links" aria-label="Menú principal">
         <a href="/demo.html">App</a>
         <a href="/particular.html">Talleres</a>
-        <a href="/organizacion.html">Organizaciones</a>
+        <a href="/organizacion.html" class="active" aria-current="page">Organizaciones</a>
         <a href="/recursos.html">Recursos</a>
         <a href="/blog/">Blog</a>
         <a href="/temotiva-lab.html">Lab</a>
@@ -510,556 +714,468 @@
         <a href="/contacto.html">Contacto</a>
       </nav>
 
-      <!-- Acciones header -->
-      <div class="header-actions" role="group" aria-label="Acciones">
-        <div id="google_translate_element"></div>
-        <button id="installBtn" class="icon-btn" aria-label="Instalar TEMOTIVA" hidden>Instalar</button>
-        <button id="menuBtn" class="menu-btn icon-btn" aria-label="Abrir panel lateral" aria-controls="sidePanel" aria-expanded="false">☰</button>
+      <!-- Acciones header: traductor + menú móvil -->
+      <div class="header-actions" role="group" aria-label="Acciones de página">
+        <div id="google_translate_element" aria-label="Selector de idioma"></div>
+        <button id="menuBtn" class="menu-btn" aria-label="Abrir menú lateral" aria-controls="sidePanel" aria-expanded="false">☰</button>
       </div>
     </div>
   </header>
 
-  <!-- Panel lateral -->
+  <!-- Menú lateral -->
   <nav id="sidePanel" class="sidebar" aria-label="Menú lateral" aria-hidden="true">
-    <a class="logo-side" href="https://www.temotiva.com">
-      <img src="/logo-temotiva.png" alt="" aria-hidden="true" width="32" height="32">
-      <span>TEMOTIVA</span>
-    </a>
-
     <ul class="menu-list" role="list">
       <li><a href="/demo.html">App</a></li>
       <li><a href="/particular.html">Talleres</a></li>
-      <li><a href="/organizacion.html">Organizaciones</a></li>
+      <li><a href="/organizacion.html" aria-current="page">Organizaciones</a></li>
       <li><a href="/recursos.html">Recursos</a></li>
       <li><a href="/blog/">Blog</a></li>
       <li><a href="/temotiva-lab.html">Lab</a></li>
       <li><a href="/ctl.html">CTL</a></li>
       <li><a href="/contacto.html">Contacto</a></li>
+      <li><a href="/privacidad.html">Privacidad</a></li>
     </ul>
-
-    <a class="privacy-link" href="/privacidad.html">Privacidad</a>
   </nav>
 
-  <main class="content" id="app" role="main">
-    <!-- Hero tech con mockup -->
-    <section id="inicio" class="section hero reveal" aria-labelledby="hero-title">
-      <div class="container">
-        <div class="hero-inner">
-          <div class="hero-copy">
-            <p class="hero-kicker">Bienestar emocional aumentado</p>
-            <h1 id="hero-title" class="hero-title">
-              Cuando te sientes sobrepasada y solo quieres saber qué hacer ahora mismo
-            </h1>
-            <p class="hero-sub">
-              Temotiva es una app de bienestar emocional pensada para adultas y adultos con mucha carga mental.
-              Convierte la psicología aplicada en microprácticas guiadas para esos momentos en los que notas que no puedes más,
-              pero aún tienes que seguir con el día.
-            </p>
+  <main class="content" role="main">
+    <!-- HERO organizaciones -->
+    <section class="section org-hero reveal" id="org-hero" aria-labelledby="org-hero-title">
+      <div class="container org-hero-inner">
+        <div>
+          <p class="org-eyebrow">Bienestar emocional en organizaciones</p>
+          <h1 id="org-hero-title" class="org-title">
+            Programas y talleres para equipos con alta carga mental
+          </h1>
+          <p class="org-hero-text">
+            Temotiva® acompaña a organizaciones que quieren cuidar la salud emocional de sus equipos con experiencias breves, claras y aplicadas a la realidad del trabajo.
+          </p>
 
-            <div class="hero-metrics">
-              <div class="hero-metric">
-                <span class="hero-metric-number">5 a 10</span>
-                <span class="hero-metric-label">min por uso real</span>
-              </div>
-              <div class="hero-metric">
-                <span class="hero-metric-number">120+</span>
-                <span class="hero-metric-label">microprácticas en diseño</span>
-              </div>
-              <div class="hero-metric">
-                <span class="hero-metric-number">3</span>
-                <span class="hero-metric-label">niveles de intensidad</span>
-              </div>
-              <div class="hero-metric">
-                <span class="hero-metric-number">70 %</span>
-                <span class="hero-metric-label">contenidos pensados para menos de 10 minutos</span>
-              </div>
-            </div>
-
-            <div class="cta-row">
-              <a href="/particular.html" class="btn" data-gtag="cta_particular_click" rel="next">Soy particular</a>
-              <a href="/organizacion.html" class="btn secondary" data-gtag="cta_org_click" rel="next">Soy organización</a>
-            </div>
+          <div class="cta-row" style="margin-top:.9rem;">
+            <a href="#org-form" class="btn">Quiero información para mi organización</a>
+            <a href="#org-catalog" class="btn secondary">Ver catálogo de talleres</a>
           </div>
 
-          <div class="hero-device" aria-hidden="true">
-            <div class="hero-device-shell">
-              <img src="/9_Mockup.png" alt="">
-            </div>
+          <div class="org-hero-meta">
+            <span>Enfoque preventivo</span>
+            <span>·</span>
+            <span>Aplicado a la vida laboral real</span>
+            <span>·</span>
+            <span>Lenguaje claro y sin tecnicismos</span>
+          </div>
+
+          <div class="org-hero-metrics">
+            <span class="org-hero-metric">
+              <strong>60 a 90 min</strong>
+              por sesión
+            </span>
+            <span class="org-hero-metric">
+              <strong>Formato</strong>
+              online o híbrido
+            </span>
+            <span class="org-hero-metric">
+              <strong>100 %</strong>
+              enfoque práctico
+            </span>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Newsletter Temotiva -->
-    <section id="newsletter" class="section reveal" aria-labelledby="newsletter-title">
-      <div class="container">
-        <div class="newsletter-card">
-          <h2 id="newsletter-title">Tu momento Temotiva en el correo</h2>
-          <p>Apúntate para recibir talleres, eventos y recursos breves de bienestar emocional para tu día a día. Contenido cuidado, sin ruido innecesario.</p>
-          <div class="newsletter-embed-wrapper">
-            <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
-            <iframe
-              src="https://subscribe-forms.beehiiv.com/dea8c242-bc64-433e-abb1-91773ac60526"
-              class="beehiiv-embed"
-              data-test-id="beehiiv-embed"
-              frameborder="0"
-              scrolling="no"
-              style="width: 575px; height: 339px; margin: 0 auto; background-color: transparent; max-width: 100%; border: 0; display: block;">
-            </iframe>
-          </div>
-          <p class="newsletter-note">Puedes darte de baja cuando quieras con un solo clic. Solo usaremos tu correo para enviarte novedades de Temotiva LAB.</p>
+        <div class="org-hero-side">
+          <img
+            src="/3_Mockup.png"
+            alt="Vista previa de Temotiva® aplicada a equipos y organizaciones"
+            class="org-hero-mockup protected-media">
         </div>
       </div>
     </section>
 
-    <!-- Misión / Dolor -->
-    <section id="mision" class="section reveal" aria-labelledby="mission-title">
+    <!-- Bloque: qué aporta Temotiva® a las organizaciones -->
+    <section class="org-section reveal" id="org-que-aporta" aria-labelledby="org-que-aporta-title">
       <div class="container">
-        <h2 id="mission-title" style="font-size:var(--h2); margin:0 0 .6rem;">Para esos días en los que todo se hace cuesta arriba</h2>
-        <p style="max-width:70ch;">
-          Hay momentos en los que vas en automático, tu cabeza no para y no tienes tiempo ni energía para pensar qué te ayudaría a sentirte mejor.
-          Ese espacio intermedio entre “no estoy tan mal” y “no puedo más” es justo donde se sitúa Temotiva, cuando necesitas algo claro y posible, no más exigencias.
-        </p>
-        <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:1rem;">
-          <article class="card">
-            <h3>Cambios vitales y ruido mental</h3>
-            <p>Reorganizar tu vida, tu trabajo o tus relaciones puede ser agotador. Temotiva te ayuda a parar, escuchar lo que necesitas y dar un paso concreto.</p>
-          </article>
-          <article class="card">
-            <h3>Trabajos que agotan por dentro</h3>
-            <p>Si trabajas con personas o bajo mucha demanda, es fácil llegar al final del día sin fuerzas. Aquí encuentras prácticas breves para regularte entre tareas.</p>
-          </article>
-          <article class="card">
-            <h3>Estudios y proyectos que saturan</h3>
-            <p>Cuando todo son fechas, entregas y objetivos, tu bienestar queda en segundo plano. Temotiva te recuerda que cuidarte también forma parte del plan.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Producto -->
-    <section id="producto" class="section alt reveal" aria-labelledby="product-title">
-      <div class="container">
-        <h2 id="product-title" style="font-size:var(--h2); margin:0 0 .6rem;">Qué hace la app Temotiva por ti</h2>
-        <p style="max-width:70ch;">
-          Temotiva convierte la psicología basada en evidencia en acciones breves y guiadas que puedes usar justo cuando aparece el bloqueo, la rumiación
-          o ese “no sé qué hacer ahora mismo”, sin sesiones eternas ni pantallas infinitas.
+        <h2 id="org-que-aporta-title">Qué aporta Temotiva® a tu organización</h2>
+        <p class="org-lead">
+          No son solo charlas puntuales. Son espacios pensados para que las personas se lleven herramientas concretas, fáciles de aplicar y sostenibles en su día a día laboral.
         </p>
 
-        <div class="grid" role="list">
-          <article class="card" role="listitem">
-            <h3>Te guía cuando no sabes qué hacer con lo que sientes</h3>
-            <p>Pequeñas rutas de autoexploración y regulación emocional que te acompañan paso a paso, para pasar del bloqueo y la rumiación a una acción posible aquí y ahora.</p>
-          </article>
-          <article class="card" role="listitem">
-            <h3>Hace que el autocuidado sea posible en tu día real</h3>
-            <p>Acciones cortas y realistas, que puedes integrar incluso en días llenos. Mejor un pequeño gesto sostenible que una lista de pendientes infinita.</p>
-          </article>
-          <article class="card" role="listitem">
-            <h3>Te ayuda a entender tus patrones emocionales</h3>
-            <p>Chequeos sencillos y reflexiones guiadas para conocer mejor tus picos, tus bajadas y lo que de verdad te ayuda a estar mejor en tu vida cotidiana.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Ecosistema -->
-    <section id="ecosistema" class="section reveal" aria-labelledby="ecosystem-title">
-      <div class="container">
-        <h2 id="ecosystem-title" style="font-size:var(--h2); margin:0 0 .6rem;">Temotiva es más que una app</h2>
-        <p style="max-width:70ch;">
-          A partir de la app Temotiva nace un pequeño ecosistema de bienestar emocional: recursos descargables, talleres y propuestas para personas y organizaciones
-          que quieren cuidar mejor de su salud emocional en el día a día.
-        </p>
-        <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:1rem;">
-          <article class="card">
-            <h3>Recursos</h3>
-            <p>Guías, ejercicios y materiales breves de bienestar emocional que podrás ir ampliando en la página de Recursos.</p>
-          </article>
-          <article class="card">
-            <h3>Talleres y actividades</h3>
-            <p>Espacios prácticos para trabajar el autocuidado, la regulación emocional y el bienestar cotidiano en grupo.</p>
-          </article>
-          <article class="card">
-            <h3>Para organizaciones</h3>
-            <p>Propuestas adaptadas para equipos, centros educativos y proyectos que quieren introducir el bienestar emocional en su día a día.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Quién impulsa -->
-    <section id="impulsa" class="section alt reveal" aria-labelledby="impulsa-title">
-      <div class="container">
-        <h2 id="impulsa-title" style="font-size:var(--h2); margin:0 0 .6rem;">Quién impulsa Temotiva</h2>
-        <p style="max-width:70ch;">
-          Temotiva nace en la intersección entre psicología, diseño accesible e innovación social. Detrás del proyecto hay un equipo que cuida tanto el contenido
-          como la forma en que se ofrece.
-        </p>
-        <div class="grid" style="grid-template-columns:repeat(2,1fr);gap:1rem;">
-          <article class="card">
-            <h3>Temotiva LAB</h3>
+        <div class="org-grid cols-3">
+          <article class="org-card">
+            <h3>Reducción del desgaste emocional</h3>
             <p>
-              El equipo que diseña y experimenta con nuevas formas de llevar la psicología aplicada y el bienestar emocional a la vida cotidiana,
-              con un enfoque humano, cercano y accesible.
+              Trabajamos la regulación emocional en momentos críticos para que los equipos puedan sostener la carga de trabajo sin llegar al límite.
             </p>
           </article>
-          <article class="card">
-            <h3>Cognitiva Tech Lab (CTL)</h3>
+          <article class="org-card">
+            <h3>Mejor clima y comunicación</h3>
             <p>
-              Una entidad que impulsa proyectos con impacto social y educativo, entre ellos Temotiva, poniendo la tecnología al servicio del cuidado emocional
-              y del acceso a recursos de calidad.
+              Introducimos recursos sencillos para comunicarse mejor, gestionar tensiones y evitar que pequeños roces crezcan sin trabajarlos.
+            </p>
+          </article>
+          <article class="org-card">
+            <h3>Bienestar integrado en la rutina</h3>
+            <p>
+              Propuestas de microhábitos que encajan en el día a día, sin requerir grandes cambios ni jornadas completas de formación.
             </p>
           </article>
         </div>
-      </div>
-    </section>
 
-    <!-- Reseñas -->
-    <section id="resenas" class="section reviews reveal" aria-labelledby="reviews-title">
-      <div class="container">
-        <h2 id="reviews-title" style="font-size:var(--h2); margin:0 0 .6rem;">Reseñas</h2>
-        <p class="frase" style="margin-top:.2rem;">Personas que han probado Temotiva y han notado cambios en su día a día.</p>
-        <div class="grid">
-          <article class="review" itemscope itemtype="https://schema.org/Review">
-            <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">
-              <meta itemprop="name" content="TEMOTIVA">
-              <meta itemprop="applicationCategory" content="HealthApplication">
-              <meta itemprop="operatingSystem" content="Android">
-            </div>
-
-            <blockquote itemprop="reviewBody">"Con cinco minutos al día consigo bajar revoluciones y dormir mejor."</blockquote>
-            <div class="who">
-              <span itemprop="author" itemscope itemtype="https://schema.org/Person">
-                <span itemprop="name">María</span>
-              </span>
-            </div>
-          </article>
-
-          <article class="review" itemscope itemtype="https://schema.org/Review">
-            <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">
-              <meta itemprop="name" content="TEMOTIVA">
-              <meta itemprop="applicationCategory" content="HealthApplication">
-              <meta itemprop="operatingSystem" content="Android">
-            </div>
-
-            <blockquote itemprop="reviewBody">"El diario emocional me ayuda a entender mis picos de ansiedad y prevenirlos."</blockquote>
-            <div class="who">
-              <span itemprop="author" itemscope itemtype="https://schema.org/Person">
-                <span itemprop="name">Rubén</span>
-              </span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contacto -->
-    <section id="contacto" class="section alt reveal" aria-labelledby="contact-title">
-      <div class="container">
-        <h2 id="contact-title" style="font-size:var(--h2); margin:0 0 .6rem;">Contacto</h2>
-
-        <form id="contactForm" class="form form-pro" novalidate>
-          <input type="hidden" name="_subject" value="Nuevo mensaje desde TEMOTIVA">
-          <input type="hidden" name="_language" value="es">
-
-          <div class="row">
-            <div>
-              <label for="cf-nombre">Nombre</label>
-              <input id="cf-nombre" type="text" name="nombre" placeholder="Tu nombre" required autocomplete="name">
-              <div class="error" id="cf-nombre-error">Indica tu nombre.</div>
-            </div>
-            <div>
-              <label for="cf-email">Correo</label>
-              <input id="cf-email" type="email" name="email" placeholder="tu@email.com" required autocomplete="email" inputmode="email">
-              <div class="error" id="cf-email-error">Introduce un correo válido.</div>
-            </div>
-          </div>
-
-          <div class="u-mt">
-            <label for="cf-msg">Mensaje</label>
-            <textarea id="cf-msg" name="mensaje" rows="4" placeholder="¿Cómo podemos ayudarte?" required></textarea>
-            <div class="error" id="cf-msg-error">Cuéntanos brevemente tu consulta.</div>
-          </div>
-
-          <div class="u-mt">
-            <label class="checkline" for="cf-consent">
-              <input id="cf-consent" type="checkbox" name="consent" required>
-              <span>Acepto la <a href="/privacidad.html">política de privacidad</a> y el tratamiento de mis datos para responder a mi consulta.</span>
-            </label>
-          </div>
-
-          <input type="text" name="_gotcha" class="u-hidden" aria-hidden="true" autocomplete="off">
-
-          <div class="u-flex u-gap-s u-mt">
-            <button type="submit" class="btn" id="cf-submit" disabled>Enviar</button>
-            <small class="hint">Respondemos lo antes posible.</small>
-          </div>
-        </form>
-
-        <p id="formMsg" class="form-msg u-hidden" style="color:#1a7f37; margin-top:1rem;">
-          Gracias, te contactaremos pronto. Si lo deseas, puedes enviar un mensaje a
-          <a href="mailto:info@temotiva.com">info@temotiva.com</a>, estaremos encantados de atenderte.
+        <p class="org-tagline">
+          Cada propuesta se adapta al contexto y al tipo de equipo, para que el contenido tenga sentido con la realidad de la organización.
         </p>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="site-footer" role="contentinfo">
-      <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
-        <p style="margin:0;">Temotiva® marca registrada desde 2025</p>
-        <div class="u-flex u-gap-s" style="align-items:center;">
-          <a href="/privacidad.html">Política de privacidad</a>
-          <a href="/cookies.html">Política de cookies</a>
-          <a href="/aviso-legal.html">Aviso legal</a>
-          <a href="#inicio" class="back-top" style="color:var(--ink-soft);">Volver arriba ↑</a>
+    <!-- Cómo son las sesiones y formatos -->
+    <section class="org-section alt reveal" id="org-formatos" aria-labelledby="org-formatos-title">
+      <div class="container">
+        <h2 id="org-formatos-title">Formatos pensados para equipos reales</h2>
+        <p class="org-lead">
+          Diseñamos sesiones que respetan los tiempos de la organización y se integran en la planificación habitual sin paralizar la actividad.
+        </p>
+
+        <div class="org-grid cols-2">
+          <article class="org-card">
+            <h3>Duración y estructura</h3>
+            <p>
+              Sesiones de 60 a 90 minutos, en directo, con una combinación de explicación breve, ejemplos prácticos y espacios de reflexión guiada.
+            </p>
+            <div class="org-chips">
+              <span class="org-chip">Online en grupo</span>
+              <span class="org-chip">Formato híbrido opcional</span>
+            </div>
+          </article>
+
+          <article class="org-card">
+            <h3>Material y seguimiento</h3>
+            <p>
+              Entregamos resúmenes claros, propuestas para los siguientes días y acceso a ejercicios relacionados a través de Temotiva® y su ecosistema.
+            </p>
+            <div class="org-chips">
+              <span class="org-chip">Recursos descargables</span>
+              <span class="org-chip">Microacciones para el equipo</span>
+            </div>
+          </article>
         </div>
       </div>
-    </footer>
+    </section>
+
+    <!-- Catálogo de talleres empresas Temotiva® -->
+    <section class="org-section reveal" id="org-catalog" aria-labelledby="org-catalog-title">
+      <div class="container">
+        <h2 id="org-catalog-title">Catálogo de talleres para empresas Temotiva®</h2>
+        <p class="org-lead">
+          Talleres diseñados para equipos con alta carga mental, entornos de trabajo intensos y organizaciones que quieren integrar el bienestar emocional en su cultura.
+        </p>
+
+        <section class="org-catalog" aria-label="Listado de talleres para empresas Temotiva">
+          <p class="org-catalog-title">Talleres para empresas Temotiva®</p>
+          <p class="org-catalog-sub">
+            Cada taller se puede adaptar en duración, profundidad y ejemplos al tipo de equipo y sector de tu organización.
+          </p>
+
+          <div class="org-catalog-grid">
+            <article class="org-catalog-item">
+              <span class="org-catalog-number">01</span>
+              <div>
+                <h3>Regulación emocional en momentos críticos</h3>
+                <p>Aprender a bajar el estrés en segundos y mantener foco incluso en picos de trabajo.</p>
+              </div>
+            </article>
+
+            <article class="org-catalog-item">
+              <span class="org-catalog-number">02</span>
+              <div>
+                <h3>Microhábitos de bienestar para la oficina</h3>
+                <p>Pequeñas acciones que mejoran energía, claridad mental y rendimiento diario.</p>
+              </div>
+            </article>
+
+            <article class="org-catalog-item">
+              <span class="org-catalog-number">03</span>
+              <div>
+                <h3>Comunicación consciente para equipos</h3>
+                <p>Cómo hablar, escuchar y coordinarse sin tensiones ni malentendidos.</p>
+              </div>
+            </article>
+
+            <article class="org-catalog-item">
+              <span class="org-catalog-number">04</span>
+              <div>
+                <h3>Prevención del burnout</h3>
+                <p>Detectar señales, cortar el desgaste y proteger la salud emocional del equipo.</p>
+              </div>
+            </article>
+
+            <article class="org-catalog-item">
+              <span class="org-catalog-number">05</span>
+              <div>
+                <h3>Liderazgo emocionalmente inteligente</h3>
+                <p>Liderar con empatía, claridad y límites para equipos más estables y motivados.</p>
+              </div>
+            </article>
+
+            <article class="org-catalog-item">
+              <span class="org-catalog-number">06</span>
+              <div>
+                <h3>Productividad sostenible</h3>
+                <p>Optimizar tiempo y energía sin caer en la autoexigencia que agota.</p>
+              </div>
+            </article>
+
+            <article class="org-catalog-item">
+              <span class="org-catalog-number">07</span>
+              <div>
+                <h3>Gestión de conflictos sin reactividad</h3>
+                <p>Reprogramar respuestas automáticas y mejorar la resolución de problemas.</p>
+              </div>
+            </article>
+
+            <article class="org-catalog-item">
+              <span class="org-catalog-number">08</span>
+              <div>
+                <h3>Cultura emocional en la empresa</h3>
+                <p>Diseñar hábitos colectivos que bajan la tensión y aumentan el bienestar.</p>
+              </div>
+            </article>
+
+            <article class="org-catalog-item">
+              <span class="org-catalog-number">09</span>
+              <div>
+                <h3>Decisiones bajo presión</h3>
+                <p>Técnicas para decidir con calma y criterio cuando todo va rápido.</p>
+              </div>
+            </article>
+
+            <article class="org-catalog-item">
+              <span class="org-catalog-number">10</span>
+              <div>
+                <h3>Resiliencia laboral y propósito</h3>
+                <p>Reconectar con el sentido del trabajo para sostener motivación a largo plazo.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- Cómo trabajamos con organizaciones -->
+    <section class="org-section alt reveal" id="org-pasos" aria-labelledby="org-pasos-title">
+      <div class="container">
+        <h2 id="org-pasos-title">Cómo trabajamos contigo</h2>
+
+        <div class="org-steps">
+          <article class="org-card">
+            <span class="org-step-label">Paso 1</span>
+            <h3>Escuchamos lo que necesitas</h3>
+            <p>
+              Nos cuentas el contexto de tu organización, el tipo de equipo y qué te preocupa a nivel emocional o de bienestar.
+            </p>
+          </article>
+
+          <article class="org-card">
+            <span class="org-step-label">Paso 2</span>
+            <h3>Te proponemos un encaje</h3>
+            <p>
+              Diseñamos una propuesta ajustada a tu realidad, con formatos, contenidos y tiempos claros.
+            </p>
+          </article>
+
+          <article class="org-card">
+            <span class="org-step-label">Paso 3</span>
+            <h3>Implementamos y medimos</h3>
+            <p>
+              Facilitamos las sesiones y, si lo deseas, recogemos feedback sencillo para valorar impacto y próximos pasos.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formulario de contacto para organizaciones -->
+    <section class="org-section reveal" id="org-form" aria-labelledby="org-form-title">
+      <div class="container org-form-wrap">
+        <h2 id="org-form-title">Quiero información para mi organización</h2>
+        <p class="org-lead">
+          Rellena este formulario y te escribiremos con una propuesta ajustada al tamaño del equipo, al sector y al tipo de necesidades que tengas detectadas.
+        </p>
+
+        <div class="org-form-card">
+          <form id="orgContactForm" class="form-pro" action="https://formspree.io/f/xnnobrvn" method="post">
+            <input type="hidden" name="_subject" value="Interés en programas de bienestar emocional para organizaciones">
+            <input type="hidden" name="_language" value="es">
+
+            <div class="org-form-row">
+              <div>
+                <label for="org-nombre" class="org-label-small">Nombre y apellidos</label>
+                <input id="org-nombre" name="nombre" type="text" required autocomplete="name" placeholder="Nombre y apellidos">
+              </div>
+              <div>
+                <label for="org-email" class="org-label-small">Correo de contacto</label>
+                <input id="org-email" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="correo@organizacion.com">
+              </div>
+            </div>
+
+            <div class="org-form-row" style="margin-top:.9rem;">
+              <div>
+                <label for="org-entidad" class="org-label-small">Nombre de la organización</label>
+                <input id="org-entidad" name="entidad" type="text" required placeholder="Nombre de la entidad o empresa">
+              </div>
+              <div>
+                <label for="org-tamano" class="org-label-small">Tamaño aproximado del equipo</label>
+                <select id="org-tamano" name="tamano">
+                  <option value="">Selecciona una opción</option>
+                  <option value="pequeno">Hasta 15 personas</option>
+                  <option value="mediano">De 16 a 50 personas</option>
+                  <option value="grande">Más de 50 personas</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="margin-top:.9rem;">
+              <label for="org-interes" class="org-label-small">Qué te interesa trabajar</label>
+              <select id="org-interes" name="interes">
+                <option value="">Selecciona una opción</option>
+                <option value="regulacion_estrés">Regulación emocional y estrés</option>
+                <option value="burnout">Prevención del burnout</option>
+                <option value="comunicacion_equipos">Comunicación y clima de equipo</option>
+                <option value="propuesta_general">Quiero una propuesta general de bienestar</option>
+              </select>
+            </div>
+
+            <div style="margin-top:.9rem;">
+              <label for="org-msg" class="org-label-small">Cuéntanos algo más</label>
+              <textarea id="org-msg" name="mensaje" rows="3" placeholder="Por ejemplo, tipo de equipo, contexto actual o cualquier detalle que quieras compartir."></textarea>
+            </div>
+
+            <div style="margin-top:.9rem;">
+              <label class="checkline" for="org-consent">
+                <input id="org-consent" type="checkbox" name="consent" required>
+                <span>Acepto la <a href="/privacidad.html">política de privacidad</a>.</span>
+              </label>
+            </div>
+
+            <input type="text" name="_gotcha" aria-hidden="true" autocomplete="off" style="display:none !important;">
+
+            <div class="org-form-footer">
+              <button type="submit" class="btn">Enviar</button>
+              <span>Te responderemos por correo con una propuesta ajustada a tu organización.</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- Supabase -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
-  <script>
-    window.addEventListener("load", () => {
-      try {
-        const SUPABASE_URL = "https://ejhzxwnhqvcqjqxnuvya.supabase.co";
-        const SUPABASE_ANON_KEY = "sb_publishable_8nz_638F1vO2JbkFw9DHSw_AxB179qA";
-        const supabase = window.supabase?.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-        console.log("Conectado a Supabase", !!supabase);
-      } catch(e){ console.warn("Supabase no disponible", e); }
-    });
-  </script>
-
-  <!-- JS base -->
-  <script src="/script.js" defer></script>
-
-  <!-- UI, accesibilidad, PWA y mejoras -->
-  <script>
-    document.documentElement.classList.add('js-ready');
-    const $ = s => document.querySelector(s);
-    const $$ = s => Array.from(document.querySelectorAll(s));
-
-    /* Header sombra y nav activa por sección */
-    const siteHeader = $("#siteHeader");
-    const sections = ["mision","producto","ecosistema","impulsa","resenas","contacto"].map(id => document.getElementById(id));
-    const navLinks = $$("#mainNav a");
-    function setActive(hash){
-      navLinks.forEach(a => {
-        const is = a.getAttribute("href") === hash || a.getAttribute("href") === location.pathname + hash;
-        a.classList.toggle("active", is);
-        if(is) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current");
-      });
-    }
-    const onScrollHeader = () => {
-      siteHeader.classList.toggle("is-scrolled", (window.scrollY || window.pageYOffset) > 8);
-    };
-    onScrollHeader();
-    document.addEventListener("scroll", onScrollHeader, { passive: true });
-    if ("IntersectionObserver" in window){
-      const ioNav = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting){ setActive(`#${e.target.id}`); } });
-      }, { threshold:.5 });
-      sections.forEach(s => s && ioNav.observe(s));
-    }
-
-    /* Panel lateral accesible */
-    const body = document.body;
-    const sidebar = $("#sidePanel");
-    const overlay = $("#overlay");
-    const menuBtn = $("#menuBtn");
-    let lastFocus = null;
-    function trapFocus(e){
-      const focusables = sidebar.querySelectorAll('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
-      if (!focusables.length) return;
-      const first = focusables[0], last = focusables[focusables.length - 1];
-      if (e.key === "Tab"){
-        if (e.shiftKey && document.activeElement === first){ last.focus(); e.preventDefault(); }
-        else if (!e.shiftKey && document.activeElement === last){ first.focus(); e.preventDefault(); }
-      }
-    }
-    function openSidebar(){
-      lastFocus = document.activeElement;
-      sidebar.classList.add("is-open");
-      sidebar.setAttribute("aria-hidden","false");
-      overlay.classList.add("show");
-      body.style.overflow = "hidden";
-      menuBtn?.setAttribute("aria-expanded","true");
-      const first = sidebar.querySelector("a, button, input, select, textarea");
-      first && first.focus();
-      sidebar.addEventListener("keydown", trapFocus);
-    }
-    function closeSidebar(){
-      sidebar.classList.remove("is-open");
-      sidebar.setAttribute("aria-hidden","true");
-      overlay.classList.remove("show");
-      body.style.overflow = "";
-      menuBtn?.setAttribute("aria-expanded","false");
-      sidebar.removeEventListener("keydown", trapFocus);
-      lastFocus && lastFocus.focus();
-    }
-    menuBtn?.addEventListener("click", () => sidebar.classList.contains("is-open") ? closeSidebar() : openSidebar());
-    overlay?.addEventListener("click", closeSidebar);
-    document.addEventListener("keydown", e => { if(e.key === "Escape") closeSidebar(); });
-
-    /* Reveal con IO */
-    (function(){
-      const items = $$(".reveal");
-      if(!("IntersectionObserver" in window)){ items.forEach(el => el.classList.add("visible")); return; }
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add("visible"); io.unobserve(e.target); } });
-      }, { threshold: .12, rootMargin: "0px 0px -8% 0px" });
-      items.forEach(el => io.observe(el));
-    })();
-
-    /* Service Worker */
-    if("serviceWorker" in navigator){
-      window.addEventListener("load", ()=>{
-        navigator.serviceWorker.register("/pwabuilder-sw.js", { scope: "/" })
-          .then(reg => console.log("Service Worker activo:", reg.scope))
-          .catch(err => console.error("Fallo al registrar el SW:", err));
-      });
-    }
-
-    /* Contacto: validación, consentimiento y envío con reintento */
-    (function(){
-      const form = document.getElementById('contactForm');
-      const okMsg = document.getElementById('formMsg');
-      if(!form) return;
-      const nombre = document.getElementById('cf-nombre');
-      const email = document.getElementById('cf-email');
-      const msg = document.getElementById('cf-msg');
-      const eNombre = document.getElementById('cf-nombre-error');
-      const eEmail = document.getElementById('cf-email-error');
-      const eMsg = document.getElementById('cf-msg-error');
-      const btn = document.getElementById('cf-submit');
-      const consent = document.getElementById('cf-consent');
-
-      function clearErr(i, e){ i.addEventListener('input', ()=>{ i.setCustomValidity(''); e.style.display='none'; }); }
-      clearErr(nombre, eNombre); clearErr(email, eEmail); clearErr(msg, eMsg);
-
-      function toggle(){ btn.disabled = !consent.checked; }
-      consent?.addEventListener('change', toggle); toggle();
-
-      async function postWithRetry(url, body){
-        const ctrl = new AbortController(); const t = setTimeout(()=>ctrl.abort(), 8000);
-        try{ const r = await fetch(url,{method:'POST',headers:{Accept:'application/json'},body,signal:ctrl.signal}); clearTimeout(t); if(r.ok) return true; }catch{}
-        try{ const r2 = await fetch(url,{method:'POST',headers:{Accept:'application/json'},body}); return r2.ok; }catch{ return false; }
-      }
-
-      form.addEventListener('submit', async e=>{
-        e.preventDefault();
-
-        let valid = true;
-        if(!nombre.value.trim()){ valid=false; nombre.setCustomValidity('Requerido'); eNombre.style.display='block'; }
-        if(!email.checkValidity()){ valid=false; email.setCustomValidity('Correo no válido'); eEmail.style.display='block'; }
-        if(!msg.value.trim()){ valid=false; msg.setCustomValidity('Requerido'); eMsg.style.display='block'; }
-        if(!valid){ [nombre,email,msg].forEach(el=>el.reportValidity()); return; }
-
-        btn.disabled = true;
-        const ok = await postWithRetry("https://formspree.io/f/xnnobrvn", new FormData(form));
-        btn.disabled = false;
-
-        if(ok){ form.reset(); okMsg?.classList.remove('u-hidden'); }
-        else { alert("No se pudo enviar, intenta de nuevo más tarde."); }
-      });
-    })();
-
-    /* App próximamente: validación simple y consentimiento */
-    (function(){
-      const form = document.getElementById('launchForm');
-      const email = document.getElementById('launch-email');
-      const err = document.getElementById('launch-email-error');
-      const consent = document.getElementById('launch-consent');
-      const submit = document.getElementById('launch-submit');
-      if(!form) return;
-
-      function toggle(){ if(submit) submit.disabled = !consent.checked; }
-      consent?.addEventListener('change', toggle); toggle();
-
-      email?.addEventListener('input', ()=>{ email.setCustomValidity(''); err.style.display = 'none'; });
-      form.addEventListener('submit', async e=>{
-        if(email && !email.checkValidity()){
-          e.preventDefault();
-          email.setCustomValidity('Correo no válido');
-          err.style.display = 'block';
-          email.reportValidity();
-          return;
-        }
-      });
-    })();
-
-    /* PWA install banner */
-    const INSTALL_KEY = "temotiva-install-dismissed";
-    const VISITS_KEY = "temotiva-visit-count";
-    let deferredPrompt = null;
-    try { const v = parseInt(localStorage.getItem(VISITS_KEY) || "0", 10) + 1; localStorage.setItem(VISITS_KEY, String(v)); } catch {}
-    const installBtn = $("#installBtn");
-    const banner = $("#pwaBanner");
-    const installNow = $("#pwaInstallNow");
-    const installLater = $("#pwaInstallLater");
-
-    window.addEventListener("beforeinstallprompt", (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      installBtn && (installBtn.hidden = false);
-      const dismissed = localStorage.getItem(INSTALL_KEY) === "1";
-      const visits = parseInt(localStorage.getItem(VISITS_KEY) || "0", 10);
-      if (!dismissed && visits >= 3 && banner) banner.classList.add("show");
-    });
-    async function promptInstall(){
-      try{
-        installBtn && (installBtn.hidden = true);
-        await deferredPrompt.prompt();
-        const res = await deferredPrompt.userChoice;
-        if (!res || res.outcome !== "accepted") banner?.classList.remove("show");
-      }catch{}
-      deferredPrompt = null;
-    }
-    installBtn?.addEventListener("click", ()=> deferredPrompt && promptInstall());
-    installNow?.addEventListener("click", ()=> deferredPrompt ? promptInstall() : banner?.classList.remove("show"));
-    installLater?.addEventListener("click", (ev)=> { ev.preventDefault(); localStorage.setItem(INSTALL_KEY,"1"); banner?.classList.remove("show"); });
-
-    window.addEventListener("appinstalled", () => {
-      try { localStorage.setItem(INSTALL_KEY, "1"); } catch {}
-      banner?.classList.remove("show");
-      installBtn && (installBtn.hidden = true);
-      console.log("TEMOTIVA instalada");
-    });
-
-    const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
-    if (isStandalone) { installBtn?.setAttribute("hidden","true"); banner?.classList.remove("show"); }
-
-    /* GA para CTAs clave */
-    document.querySelectorAll('[data-gtag]').forEach(b=>b.addEventListener('click',()=>gtag('event', b.dataset.gtag)));
-
-    /* Volver arriba con reduce motion */
-    document.querySelector('.back-top')?.addEventListener('click', e=>{
-      e.preventDefault();
-      const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-      window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
-    });
-  </script>
-
-  <!-- Banner de instalación PWA -->
-  <div id="pwaBanner" class="pwa-install" role="dialog" aria-live="polite" aria-label="Instalar TEMOTIVA">
-    <div class="row">
-      <img src="/logo-temotiva.png" alt="" width="28" height="28" style="border-radius:6px">
-      <div class="msg">Instala TEMOTIVA para un acceso rápido y uso sin conexión.</div>
-      <div class="actions">
-        <button id="pwaInstallNow" class="btn" type="button">Instalar</button>
-        <button id="pwaInstallLater" class="btn secondary" type="button">Más tarde</button>
+  <!-- Footer global coherente -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
+      <p style="margin:0;">
+        © Temotiva® desde 2024. Temotiva® marca registrada desde 2025.
+      </p>
+      <div style="display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;">
+        <a href="/privacidad.html">Política de privacidad</a>
+        <a href="/cookies.html">Política de cookies</a>
+        <a href="/aviso-legal.html">Aviso legal</a>
       </div>
     </div>
-  </div>
+  </footer>
 
-  <!-- Eventos GA del banner -->
+  <!-- Google Translate script -->
   <script>
-    document.getElementById("pwaInstallNow")?.addEventListener("click", function() {
-      gtag('event', 'click_instalar', { 'event_category': 'PWA', 'event_label': 'Botón Instalar TEMOTIVA' });
+    function googleTranslateElementInit(){
+      new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        includedLanguages: 'es,en,fr,it,pt',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <!-- JS para header, menú lateral y animaciones reveal -->
+  <script>
+    document.documentElement.classList.add('js-ready');
+
+    const siteHeader = document.getElementById('siteHeader');
+    const overlay = document.getElementById('overlay');
+    const sidePanel = document.getElementById('sidePanel');
+    const menuBtn = document.getElementById('menuBtn');
+
+    function onScrollHeader(){
+      if(!siteHeader) return;
+      siteHeader.classList.toggle('is-scrolled', (window.scrollY || window.pageYOffset) > 8);
+    }
+
+    onScrollHeader();
+    document.addEventListener('scroll', onScrollHeader, { passive:true });
+
+    let lastFocus = null;
+
+    function openSidebar(){
+      if(!sidePanel) return;
+      lastFocus = document.activeElement;
+      sidePanel.setAttribute('aria-hidden','false');
+      overlay?.classList.add('show');
+      document.body.style.overflow = 'hidden';
+      menuBtn?.setAttribute('aria-expanded','true');
+    }
+
+    function closeSidebar(){
+      if(!sidePanel) return;
+      sidePanel.setAttribute('aria-hidden','true');
+      overlay?.classList.remove('show');
+      document.body.style.overflow = '';
+      menuBtn?.setAttribute('aria-expanded','false');
+      if(lastFocus && typeof lastFocus.focus === 'function'){
+        lastFocus.focus();
+      }
+    }
+
+    menuBtn?.addEventListener('click', () => {
+      const isOpen = sidePanel.getAttribute('aria-hidden') === 'false';
+      if(isOpen) closeSidebar(); else openSidebar();
     });
-    document.getElementById("pwaInstallLater")?.addEventListener("click", function() {
-      gtag('event', 'click_instalar_mas_tarde', { 'event_category': 'PWA', 'event_label': 'Botón Más tarde' });
+
+    overlay?.addEventListener('click', closeSidebar);
+
+    document.addEventListener('keydown', e => {
+      if(e.key === 'Escape'){
+        closeSidebar();
+      }
+    });
+
+    // Reveal con IntersectionObserver
+    (function(){
+      const items = Array.from(document.querySelectorAll('.reveal'));
+      if(!('IntersectionObserver' in window)){
+        items.forEach(el => el.classList.add('visible'));
+        return;
+      }
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if(e.isIntersecting){
+            e.target.classList.add('visible');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold:.12, rootMargin:'0px 0px -8% 0px' });
+      items.forEach(el => io.observe(el));
+    })();
+  </script>
+
+  <!-- Bloqueo básico impresión e imágenes protegidas -->
+  <script>
+    // Bloquear menú contextual solo en imágenes protegidas
+    document.addEventListener('contextmenu', function(e){
+      if (e.target.matches('img.protected-media')){
+        e.preventDefault();
+      }
+    });
+
+    // Bloquear atajo de impresión en esta página
+    document.addEventListener('keydown', function(e){
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'p'){
+        e.preventDefault();
+        alert('La impresión se ha desactivado en esta página de Temotiva.');
+      }
     });
   </script>
 </body>
