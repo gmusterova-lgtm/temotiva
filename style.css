@@ -303,6 +303,7 @@ textarea:focus-visible { outline: var(--focus); outline-offset: 2px; border-radi
 
 /* Safari iOS fix */
 .sidebar.is-open { touch-action: none; }
+
 /* ===== PWA: instalación y modo offline ===== */
 
 /* Banner de instalación */
@@ -370,8 +371,33 @@ html[data-theme="dark"] .offline-card {
   border-color: #2a2e3a;
   box-shadow: 0 2px 16px rgba(0,0,0,.3);
 }
+
 /* Botones con texto negro en modo oscuro */
 html[data-theme="dark"] .btn{
   background:#eaeaea; 
   color:#111 !important;
+}
+
+/* ===== Hero específico de la App (mockup tech) ===== */
+
+.app-hero-mockup{
+  width:100%;
+  max-width:380px;
+  margin:0 auto;
+  filter:drop-shadow(0 14px 40px rgba(0,0,0,.16));
+  animation:floaty 5s ease-in-out infinite;
+  border-radius:22px;
+}
+
+@keyframes floaty{
+  0%{ transform:translateY(0); }
+  50%{ transform:translateY(-10px); }
+  100%{ transform:translateY(0); }
+}
+
+/* Ajuste de columnas del hero de la app en escritorio */
+@media (min-width:880px){
+  .app-hero-inner{
+    grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);
+  }
 }
