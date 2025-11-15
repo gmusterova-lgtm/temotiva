@@ -1,20 +1,370 @@
-<!DOCTYPE html><html lang="es"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bienvenida | Blog TEMOTIVA</title>
-<link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#F7F7F7">
-<link rel="stylesheet" href="/style.css">
-</head><body>
-<header class="site-header"><div class="container nav">
-  <a href="/inicio.html" class="logo" style="display:flex;gap:8px;align-items:center;text-decoration:none;color:inherit;">
-    <img src="/icon-192.png" alt="Logo" style="width:32px;height:32px;border-radius:8px;"><span>TEMOTIVA</span>
-  </a>
-</div></header>
-<main class="section"><div class="container">
-  <h1>Bienvenida</h1>
-  <p>Este blog comparte herramientas pequeñas, aplicables en la vida real. Lee, prueba una idea, y vuelve cuando te apetezca.</p>
-  <p><a href="/blog/">Volver al índice</a></p>
-</div></main>
-<footer class="site-footer"><div class="container">
-  <a href="/privacidad.html">Política de privacidad</a>
-</div></footer>
-</body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>Bienvenidas las que llegan cansadas | Reflexión para días grises</title>
+
+  <meta name="description" content="Reflexión breve para quienes llegan cansadas, con muchas pestañas abiertas en la cabeza y dudas acumuladas. Un pequeño descanso leído para días grises y mentes saturadas.">
+  <meta name="keywords" content="cansancio emocional, cansancio mental, saturación, días grises, bienestar emocional, descanso mental, pausa, autocuidado, reflexión breve">
+
+  <link rel="canonical" href="https://www.temotiva.com/blog/bienvenidas.html">
+
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F7F7F7">
+
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- Datos estructurados del artículo -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BlogPosting",
+    "headline":"Bienvenidas las que llegan cansadas",
+    "description":"Reflexión breve para quienes llegan con cansancio acumulado, dudas y muchas pestañas abiertas en la mente. Un pequeño descanso leído para días grises.",
+    "inLanguage":"es",
+    "author":{
+      "@type":"Person",
+      "name":"Equipo TEMOTIVA"
+    },
+    "publisher":{
+      "@type":"Organization",
+      "name":"TEMOTIVA",
+      "url":"https://www.temotiva.com"
+    },
+    "mainEntityOfPage":{
+      "@type":"WebPage",
+      "@id":"https://www.temotiva.com/blog/bienvenidas.html"
+    }
+  }
+  </script>
+
+  <style>
+    .article-shell{
+      padding-top:4.5rem;
+    }
+    .article-hero{
+      padding:3.2rem 0 2.8rem;
+      background:radial-gradient(circle at top left,#eef2ff,#f9fafb);
+      border-bottom:1px solid rgba(0,0,0,.04);
+    }
+    .article-hero-inner{
+      max-width:900px;
+      margin:0 auto;
+    }
+    .article-kicker{
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:.76rem;
+      opacity:.8;
+      margin:0 0 .4rem;
+    }
+    .article-title{
+      margin:0 0 .4rem;
+      font-size:clamp(2rem,3.1vw,2.5rem);
+    }
+    .article-subtitle{
+      margin:0 0 .9rem;
+      max-width:52ch;
+      font-size:1rem;
+    }
+    .article-subtitle em{
+      font-style:italic;
+    }
+    .article-quote{
+      margin:0;
+      font-size:.96rem;
+      max-width:46ch;
+      font-style:italic;
+      opacity:.9;
+    }
+
+    .article-main{
+      padding:3rem 0 3.6rem;
+    }
+    .article-body{
+      max-width:900px;
+      margin:0 auto;
+      font-size:.98rem;
+      line-height:1.7;
+    }
+    .article-body p{
+      margin:0 0 1rem;
+    }
+    .article-body em{
+      font-style:italic;
+    }
+    .article-body h2{
+      margin:2rem 0 .6rem;
+      font-size:1.25rem;
+    }
+    .article-body h3{
+      margin:1.4rem 0 .4rem;
+      font-size:1.05rem;
+    }
+
+    .article-highlight{
+      background:#ffffff;
+      border-radius:16px;
+      padding:1rem 1.1rem;
+      box-shadow:0 10px 28px rgba(0,0,0,.05);
+      border:1px solid rgba(0,0,0,.05);
+      margin:1.2rem 0 1.6rem;
+    }
+
+    .micro-practice{
+      margin:1.8rem 0;
+      border-radius:16px;
+      border:1px solid rgba(0,0,0,.06);
+      background:#f9fafb;
+      padding:1rem 1.1rem;
+      font-size:.95rem;
+    }
+    .micro-practice strong{
+      font-weight:600;
+    }
+    .micro-practice ol{
+      margin:.7rem 0 0;
+      padding-left:1.2rem;
+    }
+    .micro-practice li{
+      margin:0 0 .4rem;
+    }
+
+    .article-cta{
+      margin:2.2rem 0 1.8rem;
+      padding:1.4rem 1.3rem;
+      border-radius:16px;
+      background:#020617;
+      color:#f9fafb;
+      display:grid;
+      gap:.9rem;
+    }
+    @media (min-width:780px){
+      .article-cta{
+        grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);
+        align-items:center;
+      }
+    }
+    .article-cta h2{
+      margin:0 0 .4rem;
+      font-size:1.2rem;
+    }
+    .article-cta p{
+      margin:0 0 .3rem;
+      font-size:.96rem;
+    }
+    .article-cta small{
+      opacity:.9;
+      font-size:.86rem;
+    }
+    .article-cta-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      justify-content:flex-start;
+    }
+    .article-cta .btn{
+      background:#f9fafb;
+      color:#020617;
+    }
+    .article-cta .btn.secondary{
+      background:#0b1120;
+      color:#f9fafb;
+      border:1px solid rgba(249,250,251,.2);
+    }
+
+    .article-bottom-nav{
+      margin-top:2.2rem;
+      padding-top:1.3rem;
+      border-top:1px solid rgba(0,0,0,.06);
+      display:flex;
+      flex-wrap:wrap;
+      gap:.8rem;
+      font-size:.9rem;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .article-bottom-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.7rem;
+    }
+    .article-bottom-links a{
+      text-decoration:underline;
+      text-underline-offset:2px;
+    }
+
+    @media (max-width:640px){
+      .article-subtitle,
+      .article-quote,
+      .article-body{
+        font-size:.98rem;
+      }
+      .article-cta{
+        padding:1.1rem 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container nav">
+      <a href="/inicio.html" class="logo" aria-label="Ir a inicio">
+        <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
+        <span>TEMOTIVA</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Menú principal">
+        <a href="/demo.html">App</a>
+        <a href="/particular.html">Talleres</a>
+        <a href="/organizacion.html">Organizaciones</a>
+        <a href="/recursos.html">Recursos</a>
+        <a href="/blog/index.html" class="active">Blog</a>
+        <a href="/temotiva-lab.html">TEMOTIVA LAB</a>
+        <a href="/ctl.html">CTL</a>
+        <a href="/contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content article-shell" role="main">
+    <!-- HERO DEL ARTÍCULO -->
+    <section class="article-hero" aria-labelledby="article-title">
+      <div class="container article-hero-inner">
+        <p class="article-kicker">Reflexión</p>
+        <h1 id="article-title" class="article-title">
+          Bienvenidas las que llegan cansadas
+        </h1>
+        <p class="article-subtitle">
+          Este texto es para ti si llegas con cansancio acumulado, muchas dudas
+          y varias pestañas abiertas en la mente. Un pequeño <em>descanso leído</em>.
+        </p>
+        <p class="article-quote">
+          No hace falta que tengas fuerzas para cambiar tu vida,
+          solo para hacerte un poco de sitio a ti misma mientras lees.
+        </p>
+      </div>
+    </section>
+
+    <!-- CUERPO DEL ARTÍCULO -->
+    <section class="article-main">
+      <article class="article-body">
+        <p>
+          Quizá has llegado aquí después de un día largo, de una semana que se ha hecho eterna,
+          o de un periodo en el que sientes que tu energía siempre va por detrás de lo que la vida te pide.
+        </p>
+        <p>
+          Ese cansancio no siempre se ve hacia fuera. Por dentro, en cambio, se nota en forma de ruido,
+          dificultad para concentrarte y una sensación de ir cumpliendo, pero sin espacio para respirar de verdad.
+        </p>
+
+        <div class="article-highlight">
+          Puede que te digas a ti misma que no es para tanto, que hay gente peor, que deberías poder con todo.
+          Aun así, hay una parte de ti que sabe que <em>estar tan cansada todo el tiempo no puede ser la norma</em>.
+        </div>
+
+        <h2>Cuando la mente tiene demasiadas pestañas abiertas</h2>
+        <p>
+          El cansancio emocional no siempre aparece como un gran colapso.
+          A veces se parece más a esto:
+        </p>
+        <ul>
+          <li>Te cuesta parar, incluso cuando estás en el sofá.</li>
+          <li>Repasas mentalmente tareas, conversaciones y pendientes antes de dormir.</li>
+          <li>Te notas más irritable o más apagada de lo habitual.</li>
+          <li>Te dices que ya descansarás cuando “pase esta etapa”, pero nunca llega del todo.</li>
+        </ul>
+        <p>
+          No es que no quieras cuidarte. Es que cuesta encontrar por dónde empezar cuando la cabeza
+          está ocupada sosteniendo el día a día.
+        </p>
+
+        <h2>Un pequeño descanso aquí</h2>
+        <p>
+          Este texto no viene a pedirte que cambies todo, ni a decirte que con una frase se arregla un cansancio de años.
+          Viene a recordarte algo sencillo: tu agotamiento tiene sentido y merece ser escuchado con respeto.
+        </p>
+        <p>
+          Tal vez hoy lo único posible es esto, leer algo corto, reconocer que estás cansada y darte permiso
+          para no exigirte más en este momento.
+        </p>
+
+        <div class="micro-practice" aria-label="Micro práctica de descanso">
+          <strong>Micro práctica para hoy, si te apetece</strong>
+          <ol>
+            <li>Piensa en algo que has sostenido últimamente y que te ha desgastado.</li>
+            <li>Reconócelo en silencio: <em>“esto ha sido mucho para mí”</em>.</li>
+            <li>Elige una cosa mínima que puedas soltar hoy, aunque sea no responder un mensaje al momento.</li>
+          </ol>
+        </div>
+
+        <h2>Cuando el cuerpo pide pausa, pero la agenda no</h2>
+        <p>
+          A veces el cuerpo pide parar, pero tu agenda, tus responsabilidades o tus miedos dicen otra cosa.
+          Esa tensión también cansa, porque te coloca en lucha contigo misma.
+        </p>
+        <p>
+          Empezar a cuidarte no siempre pasa por grandes decisiones.
+          Muchas veces empieza por algo tan discreto como admitir delante de ti que necesitas descanso,
+          que no tienes que poder con todo y que está bien buscar formas más amables de estar en tu vida.
+        </p>
+
+        <div class="article-cta" aria-label="Llamada a la acción para días grises">
+          <div>
+            <h2>Si estos días son grises para ti</h2>
+            <p>
+              Puedes usar este cansancio como una señal. No para culparte, sino para preguntarte
+              qué apoyo te vendría bien y qué pasos pequeños podrías empezar a probar.
+            </p>
+            <small>
+              No es un examen, es un ensayo. Puedes equivocarte, cambiar de idea y volver a empezar
+              las veces que haga falta.
+            </small>
+          </div>
+          <div class="article-cta-actions">
+            <a href="/demo.html" class="btn">Ver una forma de cuidarte con la app</a>
+            <a href="/recursos.html" class="btn secondary">Buscar un recurso breve para hoy</a>
+          </div>
+        </div>
+
+        <h2>Cómo seguir si algo de esto te ha tocado</h2>
+        <p>
+          Puedes quedarte solo con esta lectura, o puedes seguir explorando a tu ritmo.
+          Algunas ideas:
+        </p>
+        <ul>
+          <li>Guardar este texto para releerlo en otro día difícil.</li>
+          <li>Ir al <a href="/blog/index.html">índice del blog</a> y elegir otra reflexión breve.</li>
+          <li>Explorar talleres o actividades si te ayuda sentirte acompañada.</li>
+        </ul>
+
+        <div class="article-bottom-nav">
+          <div class="article-bottom-links">
+            <a href="/blog/index.html">Volver al blog</a>
+          </div>
+          <div class="article-bottom-links">
+            <a href="/particular.html">Ver talleres y actividades</a>
+            <a href="/recursos.html">Ir a recursos</a>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
+      <p style="margin:0;">© TEMOTIVA desde 2024</p>
+      <div style="display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;">
+        <a href="/privacidad.html">Política de privacidad</a>
+        <a href="/cookies.html">Política de cookies</a>
+        <a href="/aviso-legal.html">Aviso legal</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
