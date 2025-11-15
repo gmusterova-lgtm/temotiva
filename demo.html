@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <title>La App Temotiva | Autocuidado práctico y regulación emocional</title>
+  <title>La App Temotiva® | Autocuidado práctico y regulación emocional</title>
 
   <meta name="description" content="App de bienestar emocional para personas adultas con alta carga mental. Rutas guiadas, chequeos rápidos y microprácticas para saber qué hacer cuando te sientes saturada.">
   <meta name="keywords" content="app bienestar emocional, autocuidado diario, regulación emocional, app salud mental no clínica, ansiedad leve, estrés, hábitos de autocuidado, bienestar en el día a día">
@@ -202,36 +202,77 @@
       50%{ transform:translateY(-10px); }
       100%{ transform:translateY(0); }
     }
+
+    /* Bloqueo suave de impresión de imágenes */
+    @media print {
+      img {
+        display:none !important;
+      }
+      body {
+        background:#fff;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <!-- Header -->
-<!-- Header -->
-<header class="site-header" id="siteHeader" role="banner">
-  <div class="container nav">
-    
-    <!-- Logo: siempre lleva a la Home -->
-    <a href="https://www.temotiva.com" class="logo" aria-label="Ir a inicio">
-      <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
-      <span>TEMOTIVA</span>
+  <!-- Overlay para menú lateral -->
+  <div id="overlay" class="overlay" aria-hidden="true"></div>
+
+  <!-- Header unificado -->
+  <header class="site-header" id="siteHeader" role="banner">
+    <div class="container nav">
+      <!-- Logo: siempre a la Home -->
+      <a href="https://www.temotiva.com" class="logo" aria-label="Ir a inicio">
+        <img src="/logo-temotiva.png" alt="Logo Temotiva" width="36" height="36">
+        <span>Temotiva®</span>
+      </a>
+
+      <!-- Menú principal escritorio -->
+      <nav id="mainNav" class="nav-links" aria-label="Menú principal">
+        <a href="/demo.html" aria-current="page" class="active">App</a>
+        <a href="/particular.html">Talleres</a>
+        <a href="/organizacion.html">Organizaciones</a>
+        <a href="/recursos.html">Recursos</a>
+        <a href="/blog/">Blog</a>
+        <a href="/temotiva-lab.html">Lab</a>
+        <a href="/ctl.html">CTL</a>
+        <a href="/contacto.html">Contacto</a>
+      </nav>
+
+      <!-- Acciones header: traductor + menú móvil -->
+      <div class="header-actions" style="display:flex;align-items:center;gap:.5rem;">
+        <!-- Traductor Google minimal -->
+        <div id="google_translate_element" aria-label="Cambiar idioma"></div>
+
+        <!-- Botón menú lateral para móvil -->
+        <button id="menuBtn" class="menu-btn" aria-label="Abrir menú" aria-controls="sidePanel" aria-expanded="false">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menú lateral móvil -->
+  <nav id="sidePanel" class="sidebar" aria-label="Menú lateral" aria-hidden="true">
+    <a class="logo" href="https://www.temotiva.com">
+      <img src="/logo-temotiva.png" alt="Logo Temotiva" width="32" height="32">
+      <span>Temotiva®</span>
     </a>
 
-    <!-- Menú principal -->
-    <nav id="mainNav" class="nav-links" aria-label="Menú principal">
-      <a href="/demo.html">App</a>
-      <a href="/particular.html">Talleres</a>
-      <a href="/organizacion.html">Organizaciones</a>
-      <a href="/recursos.html">Recursos</a>
-      <a href="/blog/">Blog</a>
-      <a href="/temotiva-lab.html">Lab</a> <!-- cambiado -->
-      <a href="/ctl.html">CTL</a>
-      <a href="/contacto.html">Contacto</a>
-    </nav>
+    <ul class="menu-list" role="list">
+      <li><a href="/demo.html">App</a></li>
+      <li><a href="/particular.html">Talleres</a></li>
+      <li><a href="/organizacion.html">Organizaciones</a></li>
+      <li><a href="/recursos.html">Recursos</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/temotiva-lab.html">Lab</a></li>
+      <li><a href="/ctl.html">CTL</a></li>
+      <li><a href="/contacto.html">Contacto</a></li>
+    </ul>
 
-  </div>
-</header>
-
+    <a class="privacy-link" href="/privacidad.html">Privacidad</a>
+  </nav>
 
   <main class="content" role="main">
     <!-- HERO: qué es la app y el dolor principal -->
@@ -243,27 +284,23 @@
             Una app para saber qué hacer cuando te sientes saturada
           </h1>
           <p class="app-hero-text">
-            Rutas guiadas, chequeos rápidos y microprácticas para esos momentos en los que notas que no puedes más, pero aún tienes que seguir con el día.
+            Temotiva® combina rutas guiadas, chequeos rápidos y microprácticas para esos momentos en los que notas que no puedes más, pero aún tienes que seguir con el día.
           </p>
 
-          <div class="cta-row" style="margin-top:.9rem;display:flex;flex-wrap:wrap;gap:.6rem;">
-            <a href="#app-cta" class="btn">Quiero probar la app</a>
-            <a href="#app-como-funciona" class="btn secondary">Cómo funciona</a>
-          </div>
-
+          <!-- Métricas tech -->
           <div class="app-hero-meta">
-            <span>Uso en 5 a 10 minutos</span>
+            <span>5 a 10 minutos por uso</span>
             <span>·</span>
-            <span>Enfoque no clínico</span>
+            <span>3 pasos por ruta</span>
             <span>·</span>
-            <span>Pensada para la vida real</span>
+            <span>120+ microprácticas en diseño</span>
           </div>
         </div>
 
         <div class="app-hero-side">
           <img
             src="/8_Mockup.png"
-            alt="Vista previa de la App TEMOTIVA"
+            alt="Vista previa de la app Temotiva®"
             class="app-hero-mockup">
         </div>
       </div>
@@ -274,7 +311,7 @@
       <div class="container">
         <h2 id="app-que-aporta-title">Qué hace la app por ti</h2>
         <p class="app-lead">
-          No son frases motivacionales sueltas, sino pequeñas decisiones guiadas para regularte y cuidarte mejor.
+          No son frases motivacionales sueltas, sino pequeñas decisiones guiadas para regularte y cuidarte mejor en menos de 10 minutos.
         </p>
 
         <div class="app-grid cols-3">
@@ -331,7 +368,7 @@
       </div>
     </section>
 
-    <!-- Características clave: privacidad, uso sin conexión, etc -->
+    <!-- Características clave -->
     <section class="app-section" id="app-caracteristicas" aria-labelledby="app-caracteristicas-title">
       <div class="container">
         <h2 id="app-caracteristicas-title">Qué la hace diferente</h2>
@@ -346,8 +383,8 @@
               Pantallas claras, poco texto y un lenguaje cercano. La idea es que puedas usarla incluso en días en los que estás agotada.
             </p>
             <div class="app-badges">
+              <span class="app-badge">Uso promedio 5–10 min</span>
               <span class="app-badge">Sin notificaciones invasivas</span>
-              <span class="app-badge">Uso en pocos minutos</span>
             </div>
           </article>
           <article class="app-card">
@@ -395,7 +432,7 @@
       </div>
     </section>
 
-    <!-- CTA: pedir acceso, testers, etc -->
+    <!-- CTA: pedir acceso -->
     <section class="app-section" id="app-cta" aria-labelledby="app-cta-title">
       <div class="container app-cta-wrap">
         <h2 id="app-cta-title">Quiero probar la app cuando esté lista</h2>
@@ -405,7 +442,7 @@
 
         <div class="app-cta-card">
           <form id="appAccessForm" class="form-pro" action="https://formspree.io/f/xnnobrvn" method="post">
-            <input type="hidden" name="_subject" value="Interés en probar la app TEMOTIVA">
+            <input type="hidden" name="_subject" value="Interés en probar la app Temotiva®">
             <input type="hidden" name="_language" value="es">
 
             <label for="app-email" class="pt-label-small">Correo electrónico</label>
@@ -445,16 +482,54 @@
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Footer unificado -->
   <footer class="site-footer" role="contentinfo">
     <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
-      <p style="margin:0;">© TEMOTIVA desde 2024</p>
+      <p style="margin:0;">© Temotiva® marca registrada desde 2025</p>
       <div style="display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;">
         <a href="/privacidad.html">Política de privacidad</a>
         <a href="/cookies.html">Política de cookies</a>
         <a href="/aviso-legal.html">Aviso legal</a>
+        <a href="#app-hero" class="back-top" style="color:var(--ink-soft);">Volver arriba ↑</a>
       </div>
     </div>
   </footer>
+
+  <!-- JS base global de la web (menú lateral, etc.) -->
+  <script src="/script.js" defer></script>
+
+  <!-- Traductor de Google -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        includedLanguages: 'es,en,fr,pt',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <!-- Bloqueo suave: dificultar guardar imágenes -->
+  <script>
+    // Evitar arrastrar imágenes
+    document.addEventListener('dragstart', function(e){
+      if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+      }
+    });
+
+    // Desactivar botón derecho solo sobre imágenes
+    document.addEventListener('contextmenu', function(e){
+      if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+      }
+    });
+
+    // Marcar imágenes como no arrastrables por defecto
+    document.querySelectorAll('img').forEach(function(img){
+      img.setAttribute('draggable', 'false');
+    });
+  </script>
 </body>
 </html>
