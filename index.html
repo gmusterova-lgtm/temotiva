@@ -427,6 +427,35 @@
       box-shadow:var(--shadow);
     }
 
+    /* Newsletter */
+    .newsletter-card{
+      background:var(--card);
+      border-radius:24px;
+      padding:2.5rem 1.8rem 2.1rem;
+      box-shadow:var(--shadow);
+      border:1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+      text-align:center;
+    }
+    .newsletter-card h2{
+      font-size:var(--h2);
+      margin:0 0 .4rem;
+    }
+    .newsletter-card p{
+      max-width:40rem;
+      margin:0 auto 1.4rem;
+      color:var(--ink-soft);
+      font-size:.96rem;
+    }
+    .newsletter-embed-wrapper{
+      max-width:600px;
+      margin:0 auto 1rem;
+    }
+    .newsletter-note{
+      font-size:.85rem;
+      color:var(--ink-soft);
+      margin:0;
+    }
+
     /* Footer */
     .site-footer{
       border-top:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
@@ -579,17 +608,27 @@
       </div>
     </section>
 
-  <!-- Formulario Newsletter Temotiva -->
-<script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
-<iframe src="https://subscribe-forms.beehiiv.com/dea8c242-bc64-433e-abb1-91773ac60526"
-class="beehiiv-embed"
-data-test-id="beehiiv-embed"
-frameborder="0"
-scrolling="no"
-style="width: 575px; height: 339px; margin: 0 auto; display: block; border-radius: 12px; background-color: transparent; box-shadow: 0 0 20px rgba(0,0,0,0.08); max-width: 100%;">
-</iframe>
-
-      
+    <!-- Newsletter Temotiva -->
+    <section id="newsletter" class="section reveal" aria-labelledby="newsletter-title">
+      <div class="container">
+        <div class="newsletter-card">
+          <h2 id="newsletter-title">Tu momento Temotiva en el correo</h2>
+          <p>Apúntate para recibir talleres, eventos y recursos breves de bienestar emocional para tu día a día. Contenido cuidado, sin ruido innecesario.</p>
+          <div class="newsletter-embed-wrapper">
+            <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+            <iframe
+              src="https://subscribe-forms.beehiiv.com/dea8c242-bc64-433e-abb1-91773ac60526"
+              class="beehiiv-embed"
+              data-test-id="beehiiv-embed"
+              frameborder="0"
+              scrolling="no"
+              style="width: 575px; height: 339px; margin: 0; border-radius: 16px; background-color: transparent; box-shadow: 0 0 20px rgba(15,23,42,0.08); max-width: 100%;">
+            </iframe>
+          </div>
+          <p class="newsletter-note">Puedes darte de baja cuando quieras con un solo clic. Solo usaremos tu correo para enviarte novedades de Temotiva LAB.</p>
+        </div>
+      </div>
+    </section>
 
     <!-- Misión / Dolor -->
     <section id="mision" class="section reveal" aria-labelledby="mission-title">
@@ -821,7 +860,7 @@ style="width: 575px; height: 339px; margin: 0 auto; display: block; border-radiu
 
     /* Header sombra y nav activa por sección */
     const siteHeader = $("#siteHeader");
-    const sections = ["mision","producto","resenas","lanzamiento","contacto"].map(id => document.getElementById(id));
+    const sections = ["mision","producto","ecosistema","impulsa","resenas","contacto"].map(id => document.getElementById(id));
     const navLinks = $$("#mainNav a");
     function setActive(hash){
       navLinks.forEach(a => {
