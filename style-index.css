@@ -441,39 +441,40 @@ a{
 }
 
 /* Contenedor más plano, sin sombra tipo móvil, estilo panel tech */
-.hero-device-shell{
-  width:100%;
-  max-width:360px;
-  margin:0 auto;
-  border-radius:16px;
-  padding:10px;
-  background:linear-gradient(135deg, rgba(15,23,42,.96), rgba(37,99,235,.85));
-  border:1px solid rgba(148,163,184,.6);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-  overflow:hidden;
+
+.hero-device {
+  display: flex;
+  justify-content: center;
 }
 
-/* Glow más suave y genérico, sin dibujar volumen raro debajo */
-.hero-device-glow{
-  position:absolute;
-  inset:18%;
-  border-radius:14px;
-  background:radial-gradient(circle at 50% 0, rgba(56,189,248,.4), transparent 65%);
-  opacity:.4;
-  pointer-events:none;
-  filter:blur(10px);
+/* Contenedor neutro, sin panel de color */
+.hero-device-shell {
+  position: relative;
+  width: min(320px, 80vw);
+  margin: 0 auto;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
 }
 
-/* Imagen sin sombra extra, solo dentro del panel */
-.hero-device img{
-  position:relative;
-  z-index:1;
-  width:100%;
-  border-radius:12px;
-  animation:hero-floaty 5s ease-in-out infinite;
+/* Sin glow ni nada extra */
+.hero-device-glow {
+  display: none;
+}
+
+/* Solo la imagen tal cual */
+.hero-device img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  transform: none;
 }
 
 
