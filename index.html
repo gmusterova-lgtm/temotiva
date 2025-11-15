@@ -13,10 +13,7 @@
   <!-- Axeptio Cookies -->
   <script>
     window.axeptioSettings = { clientId: "69055200683c996cd378866f", cookiesVersion: "Spain GDPR Spanish Cookies" };
-    (function(d,s){
-      var t=d.getElementsByTagName(s)[0], e=d.createElement(s);
-      e.async=true; e.src="https://static.axept.io/sdk.js"; t.parentNode.insertBefore(e,t);
-    })(document,"script");
+    (function(d,s){ var t=d.getElementsByTagName(s)[0], e=d.createElement(s); e.async=true; e.src="https://static.axept.io/sdk.js"; t.parentNode.insertBefore(e,t); })(document,"script");
   </script>
 
   <meta charset="UTF-8" />
@@ -24,7 +21,7 @@
   <meta name="robots" content="index,follow" />
   <meta http-equiv="x-ua-compatible" content="IE=edge" />
 
-  <title>TEMOTIVA | App de bienestar emocional para cuando no sabes qué hacer con lo que sientes</title>
+  <title>Temotiva | Bienestar emocional en tu día a día</title>
   <meta name="description" content="Temotiva es una app de bienestar emocional que te guía con pasos concretos cuando te sientes sobrepasada y no sabes qué hacer. Autocuidado y regulación emocional en tu día a día.">
   <meta name="keywords" content="app bienestar emocional, bienestar emocional, salud mental cotidiana, autocuidado, autocuidado diario, regulación emocional, estrés, ansiedad leve, saturación, hábitos saludables, psicología aplicada">
 
@@ -41,7 +38,7 @@
 
   <!-- PWA -->
   <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#F3F6FF" id="meta-theme">
+  <meta name="theme-color" content="#F7F7F7" id="meta-theme">
   <meta name="application-name" content="TEMOTIVA">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -122,44 +119,45 @@
   <!-- Estilos locales y utilidades -->
   <style>
     :root{
-      --bg:#f3f6ff;
-      --ink:#141824;
-      --ink-soft:#5b6476;
+      --bg:#f7f8fb;
+      --ink:#1f2933;
+      --ink-soft:#6b7280;
       --brand:#111827;
       --card:#ffffff;
-      --muted:#e1e7ff;
-      --radius:16px;
-      --shadow:0 18px 60px rgba(15,23,42,.20);
+      --muted:#e5e7eb;
+      --radius:14px;
+      --shadow:0 8px 28px rgba(15,23,42,.09);
       --header-h:64px;
       --focus:2px solid #3b82f6;
       --lh:1.65;
-      --h1:clamp(2.2rem, 3.8vw, 3.2rem);
-      --h2:clamp(1.6rem, 2.4vw, 2.1rem);
+      --h1:clamp(2rem, 3.2vw, 2.7rem);
+      --h2:clamp(1.4rem, 2.2vw, 2rem);
       --h3:clamp(1.1rem, 1.6vw, 1.25rem);
-      --container:min(1120px, 92%);
+      --container: min(1100px, 92%);
       color-scheme: light dark;
     }
     html[data-theme="dark"]{
-      --bg:#050815;
-      --ink:#e5e7f5;
-      --ink-soft:#a5b0c7;
+      --bg:#050816;
+      --ink:#e5e7eb;
+      --ink-soft:#9ca3af;
       --brand:#f9fafb;
       --card:#0b1020;
-      --muted:#1d253a;
-      --shadow:0 24px 80px rgba(0,0,0,.75);
+      --muted:#111827;
+      --shadow:0 12px 32px rgba(0,0,0,.65);
       color-scheme: dark;
     }
+
     @media (prefers-reduced-motion: reduce){
-      *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+      * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
     }
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; scroll-padding-top:var(--header-h); }
 
     body{
       margin:0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", Segoe UI, Roboto, Arial, sans-serif;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color:var(--ink);
-      background:radial-gradient(circle at top left,#ffffff 0,#eef2ff 40%,#e0ecff 100%);
+      background:var(--bg);
       line-height:var(--lh);
       padding-top:var(--header-h);
       -webkit-font-smoothing:antialiased;
@@ -172,560 +170,328 @@
     :focus-visible{ outline:var(--focus); outline-offset:3px; border-radius:10px; }
 
     .u-center{ display:grid; place-items:center; }
-    .u-flex{ display:flex; }
-    .u-col{ display:flex; flex-direction:column; }
+    .u-flex{ display:flex; } .u-col{ display:flex; flex-direction:column; }
     .u-gap-xs{ gap:.25rem; } .u-gap-s{ gap:.5rem; } .u-gap{ gap:1rem; } .u-gap-l{ gap:1.5rem; }
     .u-mt-s{ margin-top:.5rem; } .u-mt{ margin-top:1rem; } .u-mt-l{ margin-top:1.5rem; } .u-mb{ margin-bottom:1rem; }
     .u-hidden{ display:none !important; }
 
     /* Header */
     .site-header{
-      position:fixed;
-      inset:0 0 auto 0;
-      height:var(--header-h);
-      z-index:1000;
-      background:color-mix(in srgb, var(--card) 80%, transparent);
+      position:fixed; inset:0 0 auto 0; height:var(--header-h); z-index:1000; background:rgba(248,250,252,.9);
       border-bottom:1px solid color-mix(in srgb, var(--ink) 10%, transparent);
       transition: box-shadow .2s ease, backdrop-filter .2s ease, background .2s ease;
-      backdrop-filter:saturate(140%) blur(10px);
+      backdrop-filter: saturate(135%) blur(10px);
     }
-    .site-header.is-scrolled{
-      box-shadow:0 14px 40px rgba(15,23,42,.22);
-      background:color-mix(in srgb, var(--card) 96%, transparent);
+    html[data-theme="dark"] .site-header{
+      background:rgba(15,23,42,.9);
     }
-    .nav{
-      height:var(--header-h);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-    }
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight:800;
-      letter-spacing:.3px;
-    }
-    .logo img{
-      width:36px;
-      height:36px;
-      border-radius:10px;
-      box-shadow:0 0 0 1px rgba(15,23,42,.05);
-    }
+    .site-header.is-scrolled{ box-shadow:0 10px 30px rgba(15,23,42,.15); }
+    .nav{ height:var(--header-h); display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .logo{ display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px; }
+    .logo img{ width:36px; height:36px; border-radius:9px; }
 
-    .header-actions{
-      display:flex;
-      align-items:center;
-      gap:.45rem;
-    }
+    .header-actions{ display:flex; align-items:center; gap:.5rem; }
     .icon-btn{
       border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-      background:var(--card);
-      color:var(--ink);
-      padding:.5rem .7rem;
-      border-radius:12px;
-      cursor:pointer;
-      min-height:40px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
+      background:var(--card); color:var(--ink);
+      padding:.5rem .7rem; border-radius:12px; cursor:pointer; min-height:40px;
       transition:background .15s ease, transform .05s ease, box-shadow .2s ease;
-      box-shadow:0 1px 1px rgba(15,23,42,.06);
+      box-shadow:0 1px 1px rgba(15,23,42,.04);
     }
-    .icon-btn:hover{ box-shadow:0 12px 30px rgba(15,23,42,.18); }
+    .icon-btn:hover{ box-shadow:0 8px 22px rgba(15,23,42,.16); }
     .icon-btn:active{ transform:scale(.98); }
-
-    /* Google translate */
-    .gtranslate{
-      min-width:132px;
-      padding:.2rem .5rem;
-      border-radius:12px;
-      border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-      background:var(--card);
-      box-shadow:0 6px 20px rgba(15,23,42,.08);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .goog-te-gadget{
-      font-size:11px !important;
-      font-family:inherit !important;
-    }
-    .goog-te-gadget img{ display:none !important; }
-    .goog-te-gadget span{ display:none !important; }
-    .goog-te-combo{
-      border-radius:999px;
-      padding:.25rem .6rem;
-      border:1px solid color-mix(in srgb, var(--ink) 15%, transparent);
-      background:transparent;
-      font-size:.78rem;
-    }
 
     .menu-btn{ display:inline-flex; }
     @media (min-width:1024px){ .menu-btn{ display:none; } }
 
-    .nav-links{
-      display:none;
-      gap:.4rem;
-    }
+    .nav-links{ display:none; gap:.4rem; }
     .nav-links a{
-      padding:.45rem .7rem;
-      border-radius:10px;
-      color:var(--ink-soft);
-      display:inline-flex;
-      align-items:center;
-      position:relative;
-      font-size:.9rem;
+      padding:.45rem .7rem; border-radius:10px; color:var(--ink-soft); display:inline-flex; align-items:center;
+      position:relative; font-size:.92rem;
     }
-    .nav-links a:hover,
-    .nav-links a.active{
-      background:rgba(129,140,248,.16);
-      color:var(--ink);
-    }
+    .nav-links a:hover, .nav-links a.active{ background:var(--muted); color:var(--ink); }
     .nav-links a.active::after{
-      content:"";
-      position:absolute;
-      left:12px;
-      right:12px;
-      bottom:4px;
-      height:2px;
-      background:linear-gradient(90deg,#4f46e5,#22c1c3);
-      border-radius:999px;
-      opacity:.9;
+      content:""; position:absolute; left:10px; right:10px; bottom:4px; height:2px; background:var(--ink);
+      border-radius:2px; opacity:.35;
     }
     @media (min-width:1024px){ .nav-links{ display:flex; } }
 
     /* Sidebar */
     #sidePanel{
-      position:fixed;
-      top:var(--header-h);
-      left:-280px;
-      width:260px;
-      height:calc(100vh - var(--header-h));
-      background:var(--card);
-      border-right:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-      padding:20px 16px;
-      transition:left .25s ease;
-      z-index:9999;
-      box-shadow:0 16px 40px rgba(15,23,42,.38);
+      position:fixed; top:var(--header-h); left:-280px; width:260px; height:calc(100vh - var(--header-h));
+      background:var(--card); border-right:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      padding:20px 16px; transition:left .25s ease; z-index:9999;
+      box-shadow:0 14px 36px rgba(15,23,42,.35);
     }
     #sidePanel.is-open{ left:0; }
-    .overlay{
-      position:fixed;
-      inset:0;
-      background:rgba(15,23,42,.35);
-      display:none;
-      z-index:9998;
-    }
+    .overlay{ position:fixed; inset:0; background:rgba(15,23,42,.35); display:none; z-index:9998; }
     .overlay.show{ display:block; }
     @media (min-width:1200px){ .overlay{ display:none !important; } }
-    .logo-side{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      color:var(--ink);
-      font-weight:700;
-    }
-    .logo-side img{
-      width:32px;
-      height:32px;
-      border-radius:8px;
-    }
-    .menu-list{
-      list-style:none;
-      padding:0;
-      margin:16px 0;
-      display:flex;
-      flex-direction:column;
-      gap:4px;
-    }
-    .menu-list a{
-      display:block;
-      padding:10px 12px;
-      border-radius:10px;
-      color:var(--ink);
-    }
+    .logo-side{ display:flex; align-items:center; gap:8px; color:var(--ink); font-weight:700; }
+    .logo-side img{ width:32px; height:32px; border-radius:8px; }
+    .menu-list{ list-style:none; padding:0; margin:16px 0; display:flex; flex-direction:column; gap:4px; }
+    .menu-list a{ display:block; padding:10px 12px; border-radius:10px; color:var(--ink); }
     .menu-list a:hover{ background:var(--muted); }
-    .privacy-link{
-      display:block;
-      margin-top:12px;
-      font-size:14px;
-      color:var(--ink-soft);
-    }
+    .privacy-link{ display:block; margin-top:12px; font-size:14px; color:var(--ink-soft); }
 
+    /* Layout principal */
     .content{ flex:1; min-width:0; }
     .section{ padding:4.5rem 0; }
-    .section.alt{
-      background:radial-gradient(circle at top,#f9f9ff 0,#e9efff 50%,#dee7ff 100%);
-    }
-    html[data-theme="dark"] .section.alt{
-      background:radial-gradient(circle at top,#020617 0,#020617 40%,#020617 100%);
-    }
+    .section.alt{ background:#edf1ff; }
+    html[data-theme="dark"] .section.alt{ background:#050816; }
 
-    /* HERO NUEVO */
+    /* HERO NUEVO SUPER TECH */
     .hero{
       position:relative;
       isolation:isolate;
-      padding:5.5rem 0 4.5rem;
+      padding:5.2rem 0 4.6rem;
+      background:
+        radial-gradient(circle at 0 0, #ffffff 0, #eef3ff 45%, #cfd7ff 100%),
+        radial-gradient(circle at 120% 120%, rgba(59,130,246,.16), transparent 55%);
       overflow:hidden;
-      background:radial-gradient(circle at top left,#ffffff 0,#eef2ff 45%,#dde9ff 100%);
     }
     html[data-theme="dark"] .hero{
-      background:radial-gradient(circle at top left,#020617 0,#020617 40%,#020617 100%);
+      background:
+        radial-gradient(circle at -10% -10%, rgba(248,250,252,.12), transparent 55%),
+        radial-gradient(circle at 110% 130%, rgba(56,189,248,.35), transparent 60%),
+        linear-gradient(135deg, #020617, #020617 40%, #02091f 100%);
     }
     .hero-inner{
+      max-width:var(--container);
+      margin:0 auto;
       display:grid;
-      grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);
-      gap:2.5rem;
+      grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);
+      gap:2.3rem;
       align-items:center;
     }
     @media (max-width:900px){
+      .hero{ padding:4.5rem 0 3.8rem; }
       .hero-inner{
-        grid-template-columns:1fr;
-        padding-top:.5rem;
+        grid-template-columns:minmax(0,1fr);
+        gap:2rem;
       }
     }
+
+    .hero-copy{
+      max-width:36rem;
+    }
     .hero-kicker{
-      letter-spacing:.18em;
+      font-size:.78rem;
       text-transform:uppercase;
-      font-size:.72rem;
-      color:var(--ink-soft);
-      margin:0 0 .8rem;
+      letter-spacing:.16em;
+      color:#6366f1;
+      margin:0 0 .4rem;
+    }
+    html[data-theme="dark"] .hero-kicker{
+      color:#a5b4fc;
     }
     .hero-title{
       font-size:var(--h1);
-      margin:0 0 .8rem;
+      margin:0 0 .5rem;
+      line-height:1.1;
       letter-spacing:.02em;
-    }
-    .hero-title span{
-      background:linear-gradient(120deg,#4f46e5,#22c1c3);
+      background:linear-gradient(120deg,#111827,#4b5563,#1f2937);
       -webkit-background-clip:text;
       background-clip:text;
       color:transparent;
     }
-    .hero-lead{
-      max-width:42ch;
-      margin:0 0 1rem;
+    html[data-theme="dark"] .hero-title{
+      background:linear-gradient(120deg,#e5e7eb,#93c5fd,#e5e7eb);
+    }
+    .hero-sub{
+      margin:0;
       color:var(--ink-soft);
-      font-size:1rem;
-    }
-    .hero-lead strong{ color:var(--ink); }
-    .hero-easy{
-      font-size:.95rem;
-      margin:0 0 1.1rem;
-      color:var(--ink-soft);
-    }
-    .hero-easy b{ color:var(--ink); }
-
-    .cta-row{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:1.1rem;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      border:0;
-      border-radius:999px;
-      padding:.9rem 1.5rem;
-      background:linear-gradient(135deg,#4f46e5,#22c1c3);
-      color:#f9fafb;
-      min-height:44px;
-      line-height:1;
-      letter-spacing:.02em;
-      text-decoration:none;
-      font-weight:600;
-      font-size:.95rem;
-      box-shadow:0 16px 40px rgba(15,23,42,.35);
-      transition:transform .08s ease, box-shadow .18s ease, filter .12s ease;
-    }
-    .btn:hover{
-      filter:brightness(1.05);
-      box-shadow:0 22px 52px rgba(15,23,42,.45);
-    }
-    .btn:active{ transform:translateY(1px); box-shadow:0 10px 28px rgba(15,23,42,.35); }
-    .btn.secondary{
-      background:rgba(255,255,255,.9);
-      color:var(--ink);
-      box-shadow:0 10px 28px rgba(15,23,42,.18);
-    }
-    html[data-theme="dark"] .btn.secondary{
-      background:#020617;
-      color:#e5e7f5;
+      max-width:32rem;
+      font-size:.98rem;
     }
 
     .hero-metrics{
       display:flex;
       flex-wrap:wrap;
-      gap:.75rem;
+      gap:1.2rem;
       margin-top:1.4rem;
+      font-size:.82rem;
     }
-    .metric-pill{
-      flex:0 1 160px;
-      border-radius:999px;
-      padding:.7rem 1rem;
-      background:rgba(255,255,255,.96);
-      box-shadow:0 10px 30px rgba(15,23,42,.16);
-      border:1px solid rgba(148,163,184,.25);
-      font-size:.75rem;
-      color:var(--ink-soft);
+    .hero-metric{
       display:flex;
       flex-direction:column;
       gap:.1rem;
+      padding:.5rem .8rem;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,.35);
+      background:rgba(255,255,255,.8);
+      backdrop-filter:blur(8px);
     }
-    .metric-pill strong{
-      font-size:1.15rem;
-      color:var(--ink);
+    .hero-metric-number{
+      font-size:1.1rem;
+      font-weight:600;
     }
-    html[data-theme="dark"] .metric-pill{
-      background:#020617;
-      border-color:rgba(51,65,85,.85);
-      box-shadow:0 14px 40px rgba(0,0,0,.85);
+    .hero-metric-label{
+      opacity:.8;
+    }
+    html[data-theme="dark"] .hero-metric{
+      background:rgba(15,23,42,.78);
+      border-color:rgba(148,163,184,.55);
     }
 
-    /* COLUMNA DEL MÓVIL */
-    .hero-phone-wrap{
-      position:relative;
+    .cta-row{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:1.4rem;
+    }
+
+    .hero-device{
       display:flex;
       justify-content:center;
-      align-items:center;
     }
-    .hero-orbit{
-      position:absolute;
-      inset:-20%;
-      background:
-        radial-gradient(circle at 50% 0, rgba(255,255,255,.6) 0, transparent 55%),
-        radial-gradient(circle at 40% 120%, rgba(79,70,229,.45) 0, transparent 65%);
-      opacity:.9;
-      filter:blur(8px);
-      z-index:-2;
-    }
-    html[data-theme="dark"] .hero-orbit{
-      background:
-        radial-gradient(circle at 50% 0, rgba(56,189,248,.35) 0, transparent 55%),
-        radial-gradient(circle at 40% 120%, rgba(79,70,229,.75) 0, transparent 65%);
-    }
-    .hero-phone-shell{
+    .hero-device-shell{
       position:relative;
-      max-width:420px;
-      width:100%;
+      width:min(260px, 70vw);
       aspect-ratio:9/18;
-      border-radius:40px;
-      padding:10px;
-      background:radial-gradient(circle at top,#f9fafb 0,#e5e7eb 45%,#cbd5f5 100%);
-      box-shadow:var(--shadow);
+      border-radius:32px;
+      padding:16px;
+      background:radial-gradient(circle at 50% 0, rgba(255,255,255,.55), rgba(15,23,42,.08));
+      box-shadow:
+        0 18px 55px rgba(15,23,42,.25),
+        0 0 0 1px rgba(148,163,184,.45);
       display:flex;
       align-items:center;
       justify-content:center;
-    }
-    html[data-theme="dark"] .hero-phone-shell{
-      background:radial-gradient(circle at top,#020617 0,#020617 40%,#020617 100%);
-    }
-    .hero-phone-shell::after{
-      content:"";
-      position:absolute;
-      inset:-12px;
-      border-radius:48px;
-      border:1px solid rgba(255,255,255,.6);
-      opacity:.45;
-      pointer-events:none;
-    }
-    .hero-phone-img{
-      width:100%;
-      height:100%;
-      border-radius:32px;
       overflow:hidden;
-      background:#000;
     }
-    .hero-phone-img img{
+    .hero-device-glow{
+      position:absolute;
+      inset:18% 12%;
+      border-radius:30px;
+      background:radial-gradient(circle at 50% 0, rgba(56,189,248,.4), transparent 65%);
+      opacity:.55;
+      pointer-events:none;
+      filter:blur(14px);
+      mix-blend-mode:screen;
+    }
+    .hero-device img{
+      position:relative;
+      z-index:1;
       width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
+      height:auto;
+      border-radius:24px;
+      transform:translateY(2px);
     }
 
     @media (max-width:900px){
-      .hero{
-        padding:4.5rem 0 3rem;
-      }
-      .hero-phone-wrap{
-        order:-1;
-        max-width:360px;
-        margin:0 auto 1.6rem;
-      }
-      .hero-title{
-        text-align:left;
-      }
+      .hero-copy{ order:2; text-align:left; }
+      .hero-device{ order:1; }
+      .hero-metrics{ justify-content:flex-start; }
     }
 
-    /* Cards, secciones resto (mantenemos estructura previa) */
-    .grid{
-      display:grid;
-      gap:1rem;
-      grid-template-columns:repeat(3, 1fr);
-      align-items:stretch;
+    /* Botones */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      border:0; border-radius:999px; padding:.85rem 1.35rem; background:var(--brand); color:#fff;
+      min-height:44px; line-height:1; letter-spacing:.02em; text-decoration:none;
+      font-size:.92rem;
+      transition:transform .05s ease, box-shadow .18s ease, filter .12s ease;
+      box-shadow:0 14px 34px rgba(15,23,42,.28);
     }
+    .btn:hover{
+      filter:brightness(.97);
+      box-shadow:0 18px 40px rgba(15,23,42,.32);
+    }
+    .btn:active{ transform:translateY(1px); box-shadow:0 10px 24px rgba(15,23,42,.22); }
+    .btn.secondary{
+      background:rgba(255,255,255,.9);
+      color:#111827;
+      box-shadow:0 10px 26px rgba(148,163,184,.35);
+    }
+    html[data-theme="dark"] .btn.secondary{
+      background:rgba(15,23,42,.9);
+      color:#e5e7eb;
+      box-shadow:0 10px 30px rgba(15,23,42,.9);
+    }
+
+    /* Cards y grillas */
+    .grid{ display:grid; gap:1rem; grid-template-columns:repeat(3, 1fr); align-items:stretch; }
     @media (max-width:900px){ .grid{ grid-template-columns:1fr; } }
     .card{
-      background:var(--card);
-      border-radius:var(--radius);
-      padding:1.1rem 1.2rem;
-      box-shadow:var(--shadow);
-      border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      background:var(--card); border-radius:var(--radius); padding:1.1rem 1.2rem; box-shadow:var(--shadow);
+      border:1px solid color-mix(in srgb, var(--ink) 10%, transparent);
       transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-      font-size:.96rem;
     }
-    .card:hover{
-      transform:translateY(-2px);
-      box-shadow:0 18px 48px rgba(15,23,42,.32);
-      border-color:rgba(129,140,248,.7);
-    }
-    html[data-theme="dark"] .card{
-      border-color:#1f2937;
-      box-shadow:0 14px 40px rgba(0,0,0,.9);
-    }
-    .card h3{
-      font-size:var(--h3);
-      margin:.2rem 0 .4rem;
-    }
+    .card:hover{ transform:translateY(-2px); box-shadow:0 18px 40px rgba(15,23,42,.18); border-color:rgba(148,163,184,.55); }
+    html[data-theme="dark"] .card{ border-color:#1f2937; box-shadow:none; }
+    .card h3{ font-size:var(--h3); margin:.2rem 0 .4rem; }
 
-    .frase{
-      font-size:clamp(1.05rem, 2.1vw, 1.3rem);
-      color:var(--ink-soft);
-      margin:.6rem 0 1rem;
-    }
+    /* Frase y reseñas */
+    .frase{ font-size:clamp(1.05rem, 2.1vw, 1.25rem); color:var(--ink-soft); margin:.6rem 0 1rem; }
+    .reviews { padding:4rem 0; }
+    .reviews .grid { display:grid; gap:1rem; grid-template-columns:repeat(2,1fr); }
+    @media (max-width:900px){ .reviews .grid{ grid-template-columns:1fr; } }
+    .review { background:var(--card); border:1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+      border-radius:var(--radius); padding:1rem 1.2rem; box-shadow:var(--shadow); }
+    .review blockquote{ margin:0 0 .4rem; font-size:1.02rem; line-height:1.6; }
+    .review .who{ color:var(--ink-soft); }
 
-    /* Formularios y CTA app */
-    .form-pro input,
-    .form-pro textarea{
-      width:100%;
-      padding:.85rem 1rem;
-      border-radius:12px;
-      border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-      background:var(--card);
-      color:var(--ink);
-      transition:border-color .15s ease, box-shadow .15s ease;
+    /* Formularios pro */
+    .form-pro input, .form-pro textarea {
+      width:100%; padding:.85rem 1rem; border-radius:12px; border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      background:var(--card); color:var(--ink); transition:border-color .15s ease, box-shadow .15s ease;
     }
-    .form-pro input:focus,
-    .form-pro textarea:focus{
-      border-color:#3b82f6;
-      box-shadow:0 0 0 3px rgba(59,130,246,.24);
-      outline:none;
-    }
-    .form-pro .row{
-      display:grid;
-      gap:.8rem;
-      grid-template-columns:1fr 1fr;
-    }
+    .form-pro input:focus, .form-pro textarea:focus { border-color:#3b82f6; box-shadow:0 0 0 3px rgba(59,130,246,.2); outline:none; }
+    .form-pro .row{ display:grid; gap:.8rem; grid-template-columns:1fr 1fr; }
     @media (max-width:720px){ .form-pro .row{ grid-template-columns:1fr; } }
-    .form-pro .hint{
-      color:var(--ink-soft);
-      font-size:.9rem;
-      margin:.25rem 0 0;
-    }
-    .form-pro .error{
-      color:#b00020;
-      font-size:.9rem;
-      display:none;
-      margin:.25rem 0 0;
-    }
+    .form-pro .hint{ color:var(--ink-soft); font-size:.9rem; margin:.25rem 0 0; }
+    .form-pro .error{ color:#b00020; font-size:.9rem; display:none; margin:.25rem 0 0; }
     .form-pro .checkline{
-      display:grid;
-      grid-template-columns:20px 1fr;
-      align-items:center;
-      column-gap:.6rem;
+      display:grid; grid-template-columns:20px 1fr; align-items:center; column-gap:.6rem;
       margin-top:.75rem;
-      font-size:.9rem;
     }
-    .form-pro .checkline input{
-      width:18px;
-      height:18px;
-    }
+    .form-pro .checkline input{ width:18px; height:18px; }
+    .form-pro button[type="submit"]{ min-width:140px; }
 
-    .app-cta{
+    /* App CTA */
+    .app-cta {
       background:var(--card);
       border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
       border-radius:var(--radius);
-      padding:1.4rem 1.3rem;
+      padding:1.2rem;
       box-shadow:var(--shadow);
+    }
+
+    /* Producto imagen inferior visible */
+    .product-media { position:relative; isolation:isolate; margin-top:1rem; }
+    .product-media img, .product-media picture { display:block; width:100%; border-radius:12px; }
+    .product-media::after{
+      content:""; position:absolute; inset:0; pointer-events:none; border-radius:12px;
+      box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent);
     }
 
     /* Footer */
     .site-footer{
       border-top:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-      padding:1.4rem 0;
-      background:var(--card);
-      padding-left:max(0px, env(safe-area-inset-left));
-      padding-right:max(0px, env(safe-area-inset-right));
+      padding:1.4rem 0; background:var(--card);
+      padding-left:max(0px, env(safe-area-inset-left)); padding-right:max(0px, env(safe-area-inset-right));
     }
 
     /* Accesibilidad básica */
-    .skip-link{
-      position:absolute;
-      left:-9999px;
-      top:auto;
-      width:1px;
-      height:1px;
-      overflow:hidden;
-    }
-    .skip-link:focus{
-      position:fixed;
-      left:16px;
-      top:16px;
-      padding:.55rem .8rem;
-      border-radius:10px;
-      background:var(--card);
-      color:var(--ink);
-      z-index:2000;
-      box-shadow:0 8px 24px rgba(0,0,0,.15);
-    }
+    .skip-link{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip-link:focus{ position:fixed; left:16px; top:16px; padding:.55rem .8rem; border-radius:10px; background:var(--card); color:var(--ink);
+      z-index:2000; box-shadow:0 8px 24px rgba(0,0,0,.15); }
 
     /* Reveal */
-    html.js-ready .reveal{
-      opacity:0;
-      transform:translateY(14px);
-      transition:opacity .6s ease, transform .6s ease;
-    }
-    html.js-ready .reveal.visible{
-      opacity:1;
-      transform:none;
-    }
+    html.js-ready .reveal{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
+    html.js-ready .reveal.visible{ opacity:1; transform:none; }
 
     /* Banner PWA */
     .pwa-install{
-      position:fixed;
-      left:50%;
-      bottom:16px;
-      transform:translateX(-50%);
-      background:var(--card);
-      color:var(--ink);
-      border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-      box-shadow:0 8px 24px rgba(0,0,0,.15);
-      border-radius:12px;
-      padding:12px 14px;
-      z-index:2000;
-      display:none;
-      max-width:96%;
+      position:fixed; left:50%; bottom:16px; transform:translateX(-50%);
+      background:var(--card); color:var(--ink); border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      box-shadow:0 8px 24px rgba(0,0,0,.15); border-radius:12px; padding:12px 14px; z-index:2000; display:none; max-width:96%;
     }
     .pwa-install.show{ display:block; }
-    .pwa-install .row{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-    .pwa-install .msg{
-      font-size:14px;
-      opacity:.9;
-    }
-    .pwa-install .actions{
-      margin-left:auto;
-      display:flex;
-      gap:8px;
-    }
+    .pwa-install .row{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+    .pwa-install .msg{ font-size:14px; opacity:.9; }
+    .pwa-install .actions{ margin-left:auto; display:flex; gap:8px; }
   </style>
 </head>
 <body>
@@ -755,7 +521,7 @@
       </nav>
 
       <div class="header-actions" role="group" aria-label="Acciones">
-        <div id="google_translate_element" class="gtranslate" aria-label="Cambiar idioma"></div>
+        <button id="langBtn" class="icon-btn" aria-label="Cambiar idioma">ES/EN</button>
         <button id="themeBtn" class="icon-btn" aria-label="Cambiar tema" title="Tema" aria-pressed="false">☾/☀︎</button>
         <button id="installBtn" class="icon-btn" aria-label="Instalar TEMOTIVA" hidden>Instalar</button>
         <button id="menuBtn" class="menu-btn icon-btn" aria-label="Abrir panel lateral" aria-controls="sidePanel" aria-expanded="false">☰</button>
@@ -786,56 +552,45 @@
   </nav>
 
   <main class="content" id="app" role="main">
-    <!-- Hero tech + lectura fácil -->
+    <!-- Hero tech con 9_Mockup -->
     <section id="inicio" class="section hero reveal" aria-labelledby="hero-title">
-      <div class="container hero-inner">
+      <div class="hero-inner">
         <div class="hero-copy">
-          <p class="hero-kicker">BIENESTAR EMOCIONAL AUMENTADO</p>
+          <p class="hero-kicker">Bienestar emocional augmentado</p>
           <h1 id="hero-title" class="hero-title">
-            Cuando te sientes <span>sobrepasada</span> y solo quieres saber qué hacer ahora mismo
+            Cuando te sientes sobrepasada y solo quieres saber qué hacer ahora mismo
           </h1>
-
-          <p class="hero-lead">
-            <strong>Temotiva</strong> es una <em>app de bienestar emocional</em> pensada para personas adultas con mucha carga mental.
-            Te guía con <strong>pasos muy claros</strong> y de pocos minutos, para usar justo en el momento en el que notas que todo se hace cuesta arriba.
+          <p class="hero-sub">
+            Temotiva es una app de bienestar emocional pensada para adultas y adultos con mucha carga mental.
+            Convierte la psicología aplicada en microprácticas guiadas para esos momentos en los que notas que no puedes más,
+            pero aún tienes que seguir con el día.
           </p>
 
-          <p class="hero-easy">
-            Usamos <b>lenguaje sencillo</b>. Frases cortas, sin tecnicismos.  
-            La idea es que puedas entender todo <b>a la primera</b>, incluso en días difíciles.
-          </p>
-
-          <div class="cta-row">
-            <a href="/particular.html" class="btn" data-gtag="cta_particular_click" rel="next">
-              Quiero usarla para mí
-            </a>
-            <a href="/organizacion.html" class="btn secondary" data-gtag="cta_org_click" rel="next">
-              Soy organización
-            </a>
+          <div class="hero-metrics">
+            <div class="hero-metric">
+              <span class="hero-metric-number">5 a 10</span>
+              <span class="hero-metric-label">min por uso real</span>
+            </div>
+            <div class="hero-metric">
+              <span class="hero-metric-number">120+</span>
+              <span class="hero-metric-label">microprácticas en diseño</span>
+            </div>
+            <div class="hero-metric">
+              <span class="hero-metric-number">3</span>
+              <span class="hero-metric-label">niveles de intensidad</span>
+            </div>
           </div>
 
-          <div class="hero-metrics" aria-label="Datos aproximados de uso" role="list">
-            <div class="metric-pill" role="listitem">
-              <strong>5 a 10 min</strong>
-              por sesión, pensadas para tu día real.
-            </div>
-            <div class="metric-pill" role="listitem">
-              <strong>120+ microprácticas</strong>
-              en diseño para diferentes momentos.
-            </div>
-            <div class="metric-pill" role="listitem">
-              <strong>9 de cada 10</strong>
-              personas dicen entender mejor cómo se sienten.
-            </div>
+          <div class="cta-row">
+            <a href="/particular.html" class="btn" data-gtag="cta_particular_click" rel="next">Soy particular</a>
+            <a href="/organizacion.html" class="btn secondary" data-gtag="cta_org_click" rel="next">Soy organización</a>
           </div>
         </div>
 
-        <div class="hero-phone-wrap" aria-hidden="true">
-          <div class="hero-orbit"></div>
-          <div class="hero-phone-shell">
-            <div class="hero-phone-img">
-              <img src="/9_Mockup.png" alt="">
-            </div>
+        <div class="hero-device" aria-hidden="true">
+          <div class="hero-device-shell">
+            <div class="hero-device-glow"></div>
+            <img src="/9_Mockup.png" alt="">
           </div>
         </div>
       </div>
@@ -844,12 +599,9 @@
     <!-- Lanzamiento -->
     <section id="lanzamiento" class="section reveal" aria-labelledby="app-title">
       <div class="container app-cta">
-        <h2 id="app-title" style="font-size:var(--h2); margin:0 0 .6rem;">
-          Muy pronto en tu móvil
-        </h2>
+        <h2 id="app-title" style="font-size:var(--h2); margin:0 0 .6rem;">Muy pronto en tu móvil</h2>
         <p class="frase" style="margin-top:.2rem;">
-          Recordatorios suaves, uso sin conexión y privacidad por diseño. Temotiva como app, lista para acompañarte en esos momentos
-          en los que necesitas parar, regularte y cuidarte un poco mejor.
+          Recordatorios suaves, uso sin conexión y privacidad por diseño. Temotiva como app, lista para acompañarte en esos momentos en los que necesitas parar, regularte y cuidarte.
         </p>
         <form id="launchForm" action="https://example.com/newsletter" method="post" class="form-pro u-col u-gap-s" novalidate>
           <div class="row">
@@ -878,9 +630,7 @@
     <!-- Misión / Dolor -->
     <section id="mision" class="section reveal" aria-labelledby="mission-title">
       <div class="container">
-        <h2 id="mission-title" style="font-size:var(--h2); margin:0 0 .6rem;">
-          Para esos días en los que todo se hace cuesta arriba
-        </h2>
+        <h2 id="mission-title" style="font-size:var(--h2); margin:0 0 .6rem;">Para esos días en los que todo se hace cuesta arriba</h2>
         <p style="max-width:70ch;">
           Hay momentos en los que vas en automático, tu cabeza no para y no tienes tiempo ni energía para pensar qué te ayudaría a sentirte mejor.
           Ese espacio intermedio entre “no estoy tan mal” y “no puedo más” es justo donde se sitúa Temotiva, cuando necesitas algo claro y posible, no más exigencias.
@@ -905,9 +655,7 @@
     <!-- Producto -->
     <section id="producto" class="section alt reveal" aria-labelledby="product-title">
       <div class="container">
-        <h2 id="product-title" style="font-size:var(--h2); margin:0 0 .6rem;">
-          Qué hace la app Temotiva por ti
-        </h2>
+        <h2 id="product-title" style="font-size:var(--h2); margin:0 0 .6rem;">Qué hace la app Temotiva por ti</h2>
         <p style="max-width:70ch;">
           Temotiva convierte la psicología basada en evidencia en acciones breves y guiadas que puedes usar justo cuando aparece el bloqueo, la rumiación
           o ese “no sé qué hacer ahora mismo”, sin sesiones eternas ni pantallas infinitas.
@@ -933,9 +681,7 @@
     <!-- Ecosistema -->
     <section id="ecosistema" class="section reveal" aria-labelledby="ecosystem-title">
       <div class="container">
-        <h2 id="ecosystem-title" style="font-size:var(--h2); margin:0 0 .6rem;">
-          Temotiva es más que una app
-        </h2>
+        <h2 id="ecosystem-title" style="font-size:var(--h2); margin:0 0 .6rem;">Temotiva es más que una app</h2>
         <p style="max-width:70ch;">
           A partir de la app Temotiva nace un pequeño ecosistema de bienestar emocional: recursos descargables, talleres y propuestas para personas y organizaciones
           que quieren cuidar mejor de su salud emocional en el día a día.
@@ -960,9 +706,7 @@
     <!-- Quién impulsa -->
     <section id="impulsa" class="section alt reveal" aria-labelledby="impulsa-title">
       <div class="container">
-        <h2 id="impulsa-title" style="font-size:var(--h2); margin:0 0 .6rem;">
-          Quién impulsa Temotiva
-        </h2>
+        <h2 id="impulsa-title" style="font-size:var(--h2); margin:0 0 .6rem;">Quién impulsa Temotiva</h2>
         <p style="max-width:70ch;">
           Temotiva nace en la intersección entre psicología, diseño accesible e innovación social. Detrás del proyecto hay un equipo que cuida tanto el contenido
           como la forma en que se ofrece.
@@ -989,19 +733,16 @@
     <!-- Reseñas -->
     <section id="resenas" class="section reviews reveal" aria-labelledby="reviews-title">
       <div class="container">
-        <h2 id="reviews-title" style="font-size:var(--h2); margin:0 0 .6rem;">
-          Reseñas
-        </h2>
-        <p class="frase" style="margin-top:.2rem;">
-          Personas que han probado Temotiva y han notado cambios en su día a día.
-        </p>
-        <div class="grid" style="grid-template-columns:repeat(2,1fr);gap:1rem;">
-          <article class="card review" itemscope itemtype="https://schema.org/Review">
+        <h2 id="reviews-title" style="font-size:var(--h2); margin:0 0 .6rem;">Reseñas</h2>
+        <p class="frase" style="margin-top:.2rem;">Personas que han probado Temotiva y han notado cambios en su día a día.</p>
+        <div class="grid">
+          <article class="review" itemscope itemtype="https://schema.org/Review">
             <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">
               <meta itemprop="name" content="TEMOTIVA">
               <meta itemprop="applicationCategory" content="HealthApplication">
               <meta itemprop="operatingSystem" content="Android">
             </div>
+
             <blockquote itemprop="reviewBody">"Con cinco minutos al día consigo bajar revoluciones y dormir mejor."</blockquote>
             <div class="who">
               <span itemprop="author" itemscope itemtype="https://schema.org/Person">
@@ -1010,12 +751,13 @@
             </div>
           </article>
 
-          <article class="card review" itemscope itemtype="https://schema.org/Review">
+          <article class="review" itemscope itemtype="https://schema.org/Review">
             <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">
               <meta itemprop="name" content="TEMOTIVA">
               <meta itemprop="applicationCategory" content="HealthApplication">
               <meta itemprop="operatingSystem" content="Android">
             </div>
+
             <blockquote itemprop="reviewBody">"El diario emocional me ayuda a entender mis picos de ansiedad y prevenirlos."</blockquote>
             <div class="who">
               <span itemprop="author" itemscope itemtype="https://schema.org/Person">
@@ -1030,9 +772,7 @@
     <!-- Contacto -->
     <section id="contacto" class="section alt reveal" aria-labelledby="contact-title">
       <div class="container">
-        <h2 id="contact-title" style="font-size:var(--h2); margin:0 0 .6rem;">
-          Contacto
-        </h2>
+        <h2 id="contact-title" style="font-size:var(--h2); margin:0 0 .6rem;">Contacto</h2>
 
         <form id="contactForm" class="form form-pro" novalidate>
           <input type="hidden" name="_subject" value="Nuevo mensaje desde TEMOTIVA">
@@ -1115,13 +855,28 @@
     const $ = s => document.querySelector(s);
     const $$ = s => Array.from(document.querySelectorAll(s));
 
-    /* Header sombra */
+    /* Header sombra y nav activa por sección */
     const siteHeader = $("#siteHeader");
+    const sections = ["mision","producto","resenas","lanzamiento","contacto"].map(id => document.getElementById(id));
+    const navLinks = $$("#mainNav a");
+    function setActive(hash){
+      navLinks.forEach(a => {
+        const is = a.getAttribute("href") === hash || a.getAttribute("href") === location.pathname + hash;
+        a.classList.toggle("active", is);
+        if(is) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current");
+      });
+    }
     const onScrollHeader = () => {
       siteHeader.classList.toggle("is-scrolled", (window.scrollY || window.pageYOffset) > 8);
     };
     onScrollHeader();
     document.addEventListener("scroll", onScrollHeader, { passive: true });
+    if ("IntersectionObserver" in window){
+      const ioNav = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting){ setActive(`#${e.target.id}`); } });
+      }, { threshold:.5 });
+      sections.forEach(s => s && ioNav.observe(s));
+    }
 
     /* Panel lateral accesible */
     const body = document.body;
@@ -1162,7 +917,7 @@
     overlay?.addEventListener("click", closeSidebar);
     document.addEventListener("keydown", e => { if(e.key === "Escape") closeSidebar(); });
 
-    /* Tema auto -> dark -> light */
+    /* Tema: auto -> dark -> light con theme-color */
     const metaTheme = $("#meta-theme");
     const THEME_KEY = "temotiva-theme-mode";
     const mDark = window.matchMedia("(prefers-color-scheme: dark)");
@@ -1170,20 +925,18 @@
       const root = document.documentElement;
       if(mode === "dark"){
         root.setAttribute("data-theme", "dark");
-        metaTheme?.setAttribute("content", "#020617");
+        metaTheme?.setAttribute("content", "#050816");
       } else if(mode === "light"){
         root.setAttribute("data-theme", "light");
-        metaTheme?.setAttribute("content", "#F3F6FF");
+        metaTheme?.setAttribute("content", "#F7F7F7");
       } else {
         root.setAttribute("data-theme", mDark.matches ? "dark" : "light");
-        metaTheme?.setAttribute("content", mDark.matches ? "#020617" : "#F3F6FF");
+        metaTheme?.setAttribute("content", mDark.matches ? "#050816" : "#F7F7F7");
       }
       localStorage.setItem(THEME_KEY, mode);
       $("#themeBtn")?.setAttribute("aria-pressed", mode === "dark" ? "true" : "false");
     }
-    mDark.addEventListener("change", () => {
-      if((localStorage.getItem(THEME_KEY) || "auto") === "auto") applyTheme("auto");
-    });
+    mDark.addEventListener("change", () => { if((localStorage.getItem(THEME_KEY) || "auto") === "auto") applyTheme("auto"); });
     $("#themeBtn")?.addEventListener("click", () => {
       const cur = localStorage.getItem(THEME_KEY) || "auto";
       const next = cur === "auto" ? "dark" : cur === "dark" ? "light" : "auto";
@@ -1194,17 +947,9 @@
     /* Reveal con IO */
     (function(){
       const items = $$(".reveal");
-      if(!("IntersectionObserver" in window)){
-        items.forEach(el => el.classList.add("visible"));
-        return;
-      }
+      if(!("IntersectionObserver" in window)){ items.forEach(el => el.classList.add("visible")); return; }
       const io = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          if(e.isIntersecting){
-            e.target.classList.add("visible");
-            io.unobserve(e.target);
-          }
-        });
+        entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add("visible"); io.unobserve(e.target); } });
       }, { threshold: .12, rootMargin: "0px 0px -8% 0px" });
       items.forEach(el => io.observe(el));
     })();
@@ -1217,6 +962,18 @@
           .catch(err => console.error("Fallo al registrar el SW:", err));
       });
     }
+
+    /* Frase del día (si está presente el botón) */
+    const frases = [
+      "Respira. Un paso a la vez.",
+      "Tu progreso importa, aunque sea pequeño.",
+      "Date permiso para descansar.",
+      "Lo que no mides, no mejoras."
+    ];
+    $("#nuevaFraseBtn")?.addEventListener("click", ()=>{
+      const el = $("#fraseTexto");
+      el.textContent = frases[Math.floor(Math.random()*frases.length)];
+    });
 
     /* Contacto: validación, consentimiento y envío con reintento */
     (function(){
@@ -1232,70 +989,33 @@
       const btn = document.getElementById('cf-submit');
       const consent = document.getElementById('cf-consent');
 
-      function clearErr(i, e){
-        i.addEventListener('input', ()=>{
-          i.setCustomValidity('');
-          e.style.display='none';
-        });
-      }
-      clearErr(nombre, eNombre);
-      clearErr(email, eEmail);
-      clearErr(msg, eMsg);
+      function clearErr(i, e){ i.addEventListener('input', ()=>{ i.setCustomValidity(''); e.style.display='none'; }); }
+      clearErr(nombre, eNombre); clearErr(email, eEmail); clearErr(msg, eMsg);
 
       function toggle(){ btn.disabled = !consent.checked; }
-      consent?.addEventListener('change', toggle);
-      toggle();
+      consent?.addEventListener('change', toggle); toggle();
 
       async function postWithRetry(url, body){
-        const ctrl = new AbortController();
-        const t = setTimeout(()=>ctrl.abort(), 8000);
-        try{
-          const r = await fetch(url,{method:'POST',headers:{Accept:'application/json'},body,signal:ctrl.signal});
-          clearTimeout(t);
-          if(r.ok) return true;
-        }catch{}
-        try{
-          const r2 = await fetch(url,{method:'POST',headers:{Accept:'application/json'},body});
-          return r2.ok;
-        }catch{
-          return false;
-        }
+        const ctrl = new AbortController(); const t = setTimeout(()=>ctrl.abort(), 8000);
+        try{ const r = await fetch(url,{method:'POST',headers:{Accept:'application/json'},body,signal:ctrl.signal}); clearTimeout(t); if(r.ok) return true; }catch{}
+        try{ const r2 = await fetch(url,{method:'POST',headers:{Accept:'application/json'},body}); return r2.ok; }catch{ return false; }
       }
 
       form.addEventListener('submit', async e=>{
         e.preventDefault();
 
         let valid = true;
-        if(!nombre.value.trim()){
-          valid=false;
-          nombre.setCustomValidity('Requerido');
-          eNombre.style.display='block';
-        }
-        if(!email.checkValidity()){
-          valid=false;
-          email.setCustomValidity('Correo no válido');
-          eEmail.style.display='block';
-        }
-        if(!msg.value.trim()){
-          valid=false;
-          msg.setCustomValidity('Requerido');
-          eMsg.style.display='block';
-        }
-        if(!valid){
-          [nombre,email,msg].forEach(el=>el.reportValidity());
-          return;
-        }
+        if(!nombre.value.trim()){ valid=false; nombre.setCustomValidity('Requerido'); eNombre.style.display='block'; }
+        if(!email.checkValidity()){ valid=false; email.setCustomValidity('Correo no válido'); eEmail.style.display='block'; }
+        if(!msg.value.trim()){ valid=false; msg.setCustomValidity('Requerido'); eMsg.style.display='block'; }
+        if(!valid){ [nombre,email,msg].forEach(el=>el.reportValidity()); return; }
 
         btn.disabled = true;
         const ok = await postWithRetry("https://formspree.io/f/xnnobrvn", new FormData(form));
         btn.disabled = false;
 
-        if(ok){
-          form.reset();
-          okMsg?.classList.remove('u-hidden');
-        } else {
-          alert("No se pudo enviar, intenta de nuevo más tarde.");
-        }
+        if(ok){ form.reset(); okMsg?.classList.remove('u-hidden'); }
+        else { alert("No se pudo enviar, intenta de nuevo más tarde."); }
       });
     })();
 
@@ -1309,13 +1029,9 @@
       if(!form) return;
 
       function toggle(){ if(submit) submit.disabled = !consent.checked; }
-      consent?.addEventListener('change', toggle);
-      toggle();
+      consent?.addEventListener('change', toggle); toggle();
 
-      email?.addEventListener('input', ()=>{
-        email.setCustomValidity('');
-        err.style.display = 'none';
-      });
+      email?.addEventListener('input', ()=>{ email.setCustomValidity(''); err.style.display = 'none'; });
       form.addEventListener('submit', async e=>{
         if(email && !email.checkValidity()){
           e.preventDefault();
@@ -1331,10 +1047,7 @@
     const INSTALL_KEY = "temotiva-install-dismissed";
     const VISITS_KEY = "temotiva-visit-count";
     let deferredPrompt = null;
-    try {
-      const v = parseInt(localStorage.getItem(VISITS_KEY) || "0", 10) + 1;
-      localStorage.setItem(VISITS_KEY, String(v));
-    } catch {}
+    try { const v = parseInt(localStorage.getItem(VISITS_KEY) || "0", 10) + 1; localStorage.setItem(VISITS_KEY, String(v)); } catch {}
     const installBtn = $("#installBtn");
     const banner = $("#pwaBanner");
     const installNow = $("#pwaInstallNow");
@@ -1359,11 +1072,7 @@
     }
     installBtn?.addEventListener("click", ()=> deferredPrompt && promptInstall());
     installNow?.addEventListener("click", ()=> deferredPrompt ? promptInstall() : banner?.classList.remove("show"));
-    installLater?.addEventListener("click", (ev)=> {
-      ev.preventDefault();
-      localStorage.setItem(INSTALL_KEY,"1");
-      banner?.classList.remove("show");
-    });
+    installLater?.addEventListener("click", (ev)=> { ev.preventDefault(); localStorage.setItem(INSTALL_KEY,"1"); banner?.classList.remove("show"); });
 
     window.addEventListener("appinstalled", () => {
       try { localStorage.setItem(INSTALL_KEY, "1"); } catch {}
@@ -1373,15 +1082,10 @@
     });
 
     const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
-    if (isStandalone) {
-      installBtn?.setAttribute("hidden","true");
-      banner?.classList.remove("show");
-    }
+    if (isStandalone) { installBtn?.setAttribute("hidden","true"); banner?.classList.remove("show"); }
 
     /* GA para CTAs clave */
-    document.querySelectorAll('[data-gtag]').forEach(b =>
-      b.addEventListener('click',()=>gtag('event', b.dataset.gtag))
-    );
+    document.querySelectorAll('[data-gtag]').forEach(b=>b.addEventListener('click',()=>gtag('event', b.dataset.gtag)));
 
     /* Volver arriba con reduce motion */
     document.querySelector('.back-top')?.addEventListener('click', e=>{
@@ -1413,19 +1117,152 @@
     });
   </script>
 
-  <!-- Google Translate -->
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement(
-        {
-          pageLanguage: 'es',
-          includedLanguages: 'es,en,fr,it,pt,de',
-          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-        },
-        'google_translate_element'
-      );
+  <script>
+  // Idioma persistente
+  const LANG_KEY = "temotiva-lang";
+  let curLang = localStorage.getItem(LANG_KEY) || "es";
+
+  const TR = {
+    es: {
+      '#mainNav a[href="/inicio.html"]': 'Inicio',
+      '#mainNav a[href="#mision"]': 'Misión',
+      '#mainNav a[href="#producto"]': 'Producto',
+      '#mainNav a[href="#contacto"]': 'Contacto',
+
+      '#hero-title': 'Cuando te sientes sobrepasada y solo quieres saber qué hacer ahora mismo',
+      '#inicio p.hero-sub': 'Temotiva es una app de bienestar emocional pensada para adultas y adultos con mucha carga mental. Convierte la psicología aplicada en microprácticas guiadas para esos momentos en los que notas que no puedes más, pero aún tienes que seguir con el día.',
+      'a[data-gtag="cta_particular_click"]': 'Soy particular',
+      'a[data-gtag="cta_org_click"]': 'Soy organización',
+
+      '#app-title': 'Muy pronto en tu móvil',
+      '#lanzamiento .frase': 'Recordatorios suaves, uso sin conexión y privacidad por diseño. Temotiva como app, lista para acompañarte en esos momentos en los que necesitas parar, regularte y cuidarte.',
+
+      '#mission-title': 'Para esos días en los que todo se hace cuesta arriba',
+      '#mision > .container > p': 'Hay momentos en los que vas en automático, tu cabeza no para y no tienes tiempo ni energía para pensar qué te ayudaría a sentirte mejor. Ese espacio intermedio entre “no estoy tan mal” y “no puedo más” es justo donde se sitúa Temotiva, cuando necesitas algo claro y posible, no más exigencias.',
+      '#mision .card:nth-child(1) h3': 'Cambios vitales y ruido mental',
+      '#mision .card:nth-child(1) p': 'Reorganizar tu vida, tu trabajo o tus relaciones puede ser agotador. Temotiva te ayuda a parar, escuchar lo que necesitas y dar un paso concreto.',
+      '#mision .card:nth-child(2) h3': 'Trabajos que agotan por dentro',
+      '#mision .card:nth-child(2) p': 'Si trabajas con personas o bajo mucha demanda, es fácil llegar al final del día sin fuerzas. Aquí encuentras prácticas breves para regularte entre tareas.',
+      '#mision .card:nth-child(3) h3': 'Estudios y proyectos que saturan',
+      '#mision .card:nth-child(3) p': 'Cuando todo son fechas, entregas y objetivos, tu bienestar queda en segundo plano. Temotiva te recuerda que cuidarte también forma parte del plan.',
+
+      '#product-title': 'Qué hace la app Temotiva por ti',
+      '#producto > .container > p': 'Temotiva convierte la psicología basada en evidencia en acciones breves y guiadas que puedes usar justo cuando aparece el bloqueo, la rumiación o ese “no sé qué hacer ahora mismo”, sin sesiones eternas ni pantallas infinitas.',
+      '#producto .card:nth-child(1) h3': 'Te guía cuando no sabes qué hacer con lo que sientes',
+      '#producto .card:nth-child(1) p': 'Pequeñas rutas de autoexploración y regulación emocional que te acompañan paso a paso, para pasar del bloqueo y la rumiación a una acción posible aquí y ahora.',
+      '#producto .card:nth-child(2) h3': 'Hace que el autocuidado sea posible en tu día real',
+      '#producto .card:nth-child(2) p': 'Acciones cortas y realistas, que puedes integrar incluso en días llenos. Mejor un pequeño gesto sostenible que una lista de pendientes infinita.',
+      '#producto .card:nth-child(3) h3': 'Te ayuda a entender tus patrones emocionales',
+      '#producto .card:nth-child(3) p': 'Chequeos sencillos y reflexiones guiadas para conocer mejor tus picos, tus bajadas y lo que de verdad te ayuda a estar mejor en tu vida cotidiana.',
+
+      '#reviews-title': 'Reseñas',
+      '#resenas .frase': 'Personas que han probado Temotiva y han notado cambios en su día a día.',
+
+      '#contact-title': 'Contacto',
+      'label[for="cf-nombre"]': 'Nombre',
+      'label[for="cf-email"]': 'Correo',
+      'label[for="cf-msg"]': 'Mensaje',
+      '#cf-submit': 'Enviar',
+      '.hint': 'Respondemos lo antes posible.',
+      '#formMsg': 'Gracias, te contactaremos pronto. Si lo deseas, puedes enviar un mensaje a <a href="mailto:info@temotiva.com">info@temotiva.com</a>, estaremos encantados de atenderte.',
+
+      'a[href="/privacidad.html"]': 'Política de privacidad',
+      'a[href="/cookies.html"]': 'Política de cookies',
+      'a[href="/aviso-legal.html"]': 'Aviso legal',
+      '.back-top': 'Volver arriba ↑',
+
+      '#pwaBanner .msg': 'Instala TEMOTIVA para un acceso rápido y uso sin conexión.',
+      '#pwaInstallNow': 'Instalar',
+      '#pwaInstallLater': 'Más tarde'
+    },
+    en: {
+      '#mainNav a[href="/inicio.html"]': 'Home',
+      '#mainNav a[href="#mision"]': 'Mission',
+      '#mainNav a[href="#producto"]': 'Product',
+      '#mainNav a[href="#contacto"]': 'Contact',
+
+      '#hero-title': 'When you feel overwhelmed and all you want is to know what to do right now',
+      '#inicio p.hero-sub': 'Temotiva is an emotional wellbeing app designed for adults with high emotional load. It turns applied psychology into guided micro practices for those moments when you feel you cannot take it anymore but still need to keep going through the day.',
+      'a[data-gtag="cta_particular_click"]': 'I’m an individual',
+      'a[data-gtag="cta_org_click"]': 'I represent an organization',
+
+      '#app-title': 'Coming soon to your phone',
+      '#lanzamiento .frase': 'Gentle reminders, offline use and privacy by design. Temotiva as an app, ready to support you in those moments when you need to pause, regulate and take care of yourself.',
+
+      '#mission-title': 'For the days when everything feels uphill',
+      '#mision > .container > p': 'There are moments when you run on autopilot, your head does not stop and you do not have the time or energy to think about what would help you feel better. That space between “I am not that bad” and “I cannot take it anymore” is exactly where Temotiva stands, when you need something clear and doable, not more demands.',
+      '#mision .card:nth-child(1) h3': 'Life changes and mental noise',
+      '#mision .card:nth-child(1) p': 'Reorganizing your life, your work or your relationships can be exhausting. Temotiva helps you pause, listen to what you need and take one concrete step.',
+      '#mision .card:nth-child(2) h3': 'Work that drains you inside',
+      '#mision .card:nth-child(2) p': 'If you work with people or under high demand, it is easy to end the day with no energy left. Here you find brief practices to regulate yourself between tasks.',
+      '#mision .card:nth-child(3) h3': 'Studies and projects that exhaust you',
+      '#mision .card:nth-child(3) p': 'When everything is deadlines, deliveries and goals, your wellbeing goes to the background. Temotiva reminds you that taking care of yourself is also part of the plan.',
+
+      '#product-title': 'What the Temotiva app does for you',
+      '#producto > .container > p': 'Temotiva turns evidence based psychology into short, guided actions that you can use right when blockage, rumination or that “I do not know what to do now” appears, without endless sessions or infinite screens.',
+      '#producto .card:nth-child(1) h3': 'Guides you when you do not know what to do with what you feel',
+      '#producto .card:nth-child(1) p': 'Small routes of self exploration and emotional regulation that walk you step by step, helping you move from blockage and rumination to one possible action here and now.',
+      '#producto .card:nth-child(2) h3': 'Makes self care possible in real life',
+      '#producto .card:nth-child(2) p': 'Short and realistic actions that you can integrate even on busy days. Better one sustainable gesture than an endless to do list.',
+      '#producto .card:nth-child(3) h3': 'Helps you understand your emotional patterns',
+      '#producto .card:nth-child(3) p': 'Simple check ins and guided reflections to know your peaks, your lows and what truly helps you feel better in everyday life.',
+
+      '#reviews-title': 'Reviews',
+      '#resenas .frase': 'People who have tried Temotiva and noticed changes in their daily life.',
+
+      '#contact-title': 'Contact',
+      'label[for="cf-nombre"]': 'Name',
+      'label[for="cf-email"]': 'Email',
+      'label[for="cf-msg"]': 'Message',
+      '#cf-submit': 'Send',
+      '.hint': 'We’ll reply as soon as possible.',
+      '#formMsg': 'Thanks, we’ll get back to you soon. If you prefer, email <a href="mailto:info@temotiva.com">info@temotiva.com</a>.',
+
+      'a[href="/privacidad.html"]': 'Privacy policy',
+      'a[href="/cookies.html"]': 'Cookie policy',
+      'a[href="/aviso-legal.html"]': 'Legal notice',
+      '.back-top': 'Back to top ↑',
+
+      '#pwaBanner .msg': 'Install TEMOTIVA for quick access and offline use.',
+      '#pwaInstallNow': 'Install',
+      '#pwaInstallLater': 'Later'
     }
+  };
+
+  function setText(el, val){
+    if(!el) return;
+    if(/<\/?[a-z][\s\S]*>/i.test(val)) el.innerHTML = val;
+    else el.textContent = val;
+  }
+
+  function applyLang(lang){
+    const dict = TR[lang] || TR.es;
+    Object.entries(dict).forEach(([sel, val])=>{
+      const el = document.querySelector(sel);
+      setText(el, val);
+    });
+    if(lang === 'en'){
+      document.getElementById('cf-nombre')?.setAttribute('placeholder','Your name');
+      document.getElementById('cf-email')?.setAttribute('placeholder','you@email.com');
+      document.getElementById('cf-msg')?.setAttribute('placeholder','How can we help?');
+      document.documentElement.lang = 'en';
+      document.title = 'TEMOTIVA | Innovation in emotional wellbeing';
+    } else {
+      document.getElementById('cf-nombre')?.setAttribute('placeholder','Tu nombre');
+      document.getElementById('cf-email')?.setAttribute('placeholder','tu@email.com');
+      document.getElementById('cf-msg')?.setAttribute('placeholder','¿Cómo podemos ayudarte?');
+      document.documentElement.lang = 'es';
+      document.title = 'TEMOTIVA | App de bienestar emocional para cuando no sabes qué hacer con lo que sientes';
+    }
+    localStorage.setItem(LANG_KEY, lang);
+  }
+
+  document.getElementById('langBtn')?.addEventListener('click', ()=>{
+    curLang = curLang === 'es' ? 'en' : 'es';
+    applyLang(curLang);
+  });
+
+  applyLang(curLang);
   </script>
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
