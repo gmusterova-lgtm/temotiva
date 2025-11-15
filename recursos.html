@@ -4,28 +4,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <title>Blog Temotiva | Psicología aplicada y bienestar cotidiano</title>
+  <title>Recursos Temotiva | Guías y ejercicios de bienestar emocional</title>
 
-  <meta name="description" content="Blog de TEMOTIVA con tres lecturas breves sobre bienestar emocional, meditación y bienvenida al proyecto. Pensado para personas adultas con mucha carga mental.">
-  <meta name="keywords" content="blog bienestar emocional, meditacion, autocuidado, psicología cotidiana, salud mental diaria, estrés, saturación mental">
+  <meta name="description" content="Recursos de bienestar emocional en formato breve: guías, ejercicios y plantillas para cuidarte en tu día a día. Material pensado para personas adultas con alta carga mental.">
+  <meta name="keywords" content="recursos bienestar emocional, guías autocuidado, ejercicios regulación emocional, plantillas de autocuidado, diario emocional, bienestar en la vida diaria, materiales descargables">
 
-  <link rel="canonical" href="https://www.temotiva.com/blog/index.html">
-
-  <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#F7F7F7">
-
+  <link rel="canonical" href="https://www.temotiva.com/recursos.html">
   <link rel="stylesheet" href="/style.css">
 
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
-    "@type":"Blog",
-    "name":"Blog TEMOTIVA",
-    "url":"https://www.temotiva.com/blog/",
-    "description":"Lecturas breves de bienestar emocional, meditación y autocuidado.",
-    "inLanguage":"es",
-    "publisher":{
-      "@type":"Organization",
+    "@type":"CollectionPage",
+    "name":"Recursos de bienestar emocional",
+    "description":"Recursos breves de bienestar emocional para uso personal o en grupo.",
+    "about":[
+      "autocuidado",
+      "regulación emocional",
+      "bienestar en la vida cotidiana"
+    ],
+    "isPartOf":{
+      "@type":"WebSite",
       "name":"TEMOTIVA",
       "url":"https://www.temotiva.com"
     }
@@ -33,63 +32,194 @@
   </script>
 
   <style>
-    /* BLOQUE HERO EDITORIAL */
-    .blog-shell{
-      padding-top:4.5rem;
-    }
-    .blog-hero{
-      padding:4.2rem 0 4rem;
+    .res-hero{
+      padding:4.5rem 0 4rem;
       background:linear-gradient(135deg,#f7f7fb,#f0f4ff);
-      border-bottom:1px solid rgba(0,0,0,.04);
     }
-    .blog-hero-inner{
+    .res-hero-inner{
       max-width:960px;
       margin:0 auto;
       display:grid;
       gap:2rem;
     }
     @media (min-width:880px){
-      .blog-hero-inner{
-        grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);
+      .res-hero-inner{
+        grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);
         align-items:center;
       }
     }
-
-    .blog-kicker{
+    .res-eyebrow{
       text-transform:uppercase;
-      letter-spacing:.16em;
-      font-size:.76rem;
+      letter-spacing:.12em;
+      font-size:.78rem;
       opacity:.8;
-      margin:0 0 .4rem;
+      margin:0 0 .35rem;
     }
-    .blog-title{
-      margin:0 0 .4rem;
-      font-size:clamp(2rem,3.1vw,2.6rem);
+    .res-title{
+      margin:0 0 .7rem;
+      font-size:clamp(1.9rem,3vw,2.4rem);
     }
-    .blog-subtitle{
-      margin:0 0 .9rem;
-      font-size:1rem;
-      max-width:52ch;
+    .res-hero-text{
+      max-width:44ch;
+      margin:0 0 1.2rem;
     }
-    .blog-subtitle em{
-      font-style:italic;
-    }
-    .blog-quote{
-      margin:0;
-      font-size:.96rem;
-      max-width:46ch;
-      font-style:italic;
+    .res-hero-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      font-size:.9rem;
       opacity:.9;
+      margin-top:.9rem;
     }
-
-    .blog-hero-side{
+    .res-hero-meta span:nth-child(2n){
+      opacity:.5;
+    }
+    .res-hero-side{
       display:flex;
       flex-direction:column;
+      gap:.8rem;
       align-items:center;
       justify-content:center;
-      gap:.7rem;
     }
-    .blog-hero-mockup{
+
+    .res-section{
+      padding:3.5rem 0;
+    }
+    .res-section.alt{
+      background:#f7f7f9;
+    }
+    .res-section h2{
+      margin:0 0 .5rem;
+      font-size:clamp(1.4rem,2.3vw,1.8rem);
+    }
+    .res-lead{
+      max-width:60ch;
+      margin:0 0 1.4rem;
+      opacity:.95;
+    }
+
+    .res-grid{
+      display:grid;
+      gap:1rem;
+    }
+    @media (min-width:820px){
+      .res-grid.cols-3{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+      .res-grid.cols-2{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+
+    .res-card{
+      background:#fff;
+      border-radius:14px;
+      padding:1rem 1.05rem;
+      box-shadow:0 8px 24px rgba(0,0,0,.04);
+      border:1px solid rgba(0,0,0,.04);
+      font-size:.95rem;
+    }
+    .res-card h3{
+      margin:.1rem 0 .4rem;
+      font-size:1rem;
+    }
+    .res-card p{
+      margin:0;
+      line-height:1.6;
+      opacity:.95;
+    }
+
+    .res-tagline{
+      font-size:.9rem;
+      opacity:.85;
+      margin-top:.4rem;
+    }
+
+    .res-chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      margin-top:.8rem;
+      font-size:.88rem;
+      opacity:.9;
+    }
+    .res-chip{
+      padding:.35rem .8rem;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,.08);
+      background:#fff;
+    }
+
+    .res-list{
+      margin-top:1rem;
+      display:grid;
+      gap:.8rem;
+      font-size:.94rem;
+    }
+    .res-item-header{
+      display:flex;
+      justify-content:space-between;
+      gap:.8rem;
+      align-items:center;
+      font-size:.9rem;
+      opacity:.9;
+    }
+    .res-item-label{
+      font-size:.82rem;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      opacity:.7;
+    }
+    .res-item-tag{
+      padding:.1rem .6rem;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,.12);
+      font-size:.78rem;
+    }
+
+    .res-steps{
+      display:grid;
+      gap:1rem;
+    }
+    @media (min-width:820px){
+      .res-steps{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+    }
+    .res-step-label{
+      display:inline-block;
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      opacity:.7;
+      margin-bottom:.25rem;
+    }
+
+    .res-cta-wrap{
+      max-width:720px;
+      margin:0 auto;
+    }
+    .res-cta-card{
+      background:#fff;
+      border-radius:16px;
+      padding:1.5rem 1.4rem;
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+      border:1px solid rgba(0,0,0,.04);
+      font-size:.95rem;
+    }
+    .res-cta-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      align-items:center;
+      margin-top:1rem;
+      font-size:.9rem;
+    }
+
+    @media (max-width:600px){
+      .res-hero-text,
+      .res-lead,
+      .res-card p{
+        font-size:.98rem;
+      }
+    }
+
+    /* Mockup tech para recursos */
+    .res-hero-mockup{
       width:100%;
       max-width:380px;
       margin:0 auto;
@@ -97,143 +227,10 @@
       animation:floaty 5s ease-in-out infinite;
       border-radius:22px;
     }
-
     @keyframes floaty{
       0%{ transform:translateY(0); }
       50%{ transform:translateY(-10px); }
       100%{ transform:translateY(0); }
-    }
-
-    /* LISTADO EDITORIAL */
-    .blog-main{
-      padding:3.2rem 0 3.4rem;
-    }
-    .blog-layout{
-      max-width:960px;
-      margin:0 auto;
-      display:grid;
-      gap:2rem;
-    }
-    @media (min-width:900px){
-      .blog-layout{
-        grid-template-columns:minmax(0,1.9fr) minmax(0,1.1fr);
-      }
-    }
-
-    .blog-section-title{
-      margin:0 0 .4rem;
-      font-size:clamp(1.4rem,2.2vw,1.8rem);
-    }
-    .blog-section-text{
-      margin:0 0 1.3rem;
-      max-width:60ch;
-      font-size:.98rem;
-      opacity:.95;
-    }
-    .blog-section-text em{
-      font-style:italic;
-    }
-
-    .blog-list{
-      list-style:none;
-      padding:0;
-      margin:0;
-      display:grid;
-      gap:.9rem;
-    }
-
-    .blog-item{
-      border-radius:16px;
-      border:1px solid rgba(0,0,0,.05);
-      background:#ffffff;
-      box-shadow:0 10px 30px rgba(0,0,0,.05);
-      padding:1rem 1.1rem 1rem;
-    }
-    .blog-item a{
-      text-decoration:none;
-      color:inherit;
-      display:block;
-    }
-    .blog-item a:hover h2{
-      text-decoration:underline;
-      text-underline-offset:2px;
-    }
-
-    .blog-item-kicker{
-      font-size:.8rem;
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      opacity:.8;
-      margin:0 0 .25rem;
-    }
-    .blog-item h2{
-      margin:0 0 .3rem;
-      font-size:1.04rem;
-    }
-    .blog-item-lead{
-      margin:0;
-      font-size:.94rem;
-      line-height:1.6;
-    }
-    .blog-item-lead em{
-      font-style:italic;
-    }
-    .blog-item-meta{
-      margin-top:.4rem;
-      font-size:.8rem;
-      opacity:.8;
-      display:flex;
-      gap:.6rem;
-      flex-wrap:wrap;
-    }
-
-    /* COLUMNA LATERAL */
-    .blog-side{
-      display:flex;
-      flex-direction:column;
-      gap:1.1rem;
-      font-size:.94rem;
-    }
-    .blog-note-block{
-      border-radius:16px;
-      border:1px solid rgba(0,0,0,.06);
-      background:#ffffff;
-      box-shadow:0 6px 20px rgba(0,0,0,.05);
-      padding:1rem 1.1rem;
-    }
-    .blog-note-title{
-      margin:0 0 .4rem;
-      font-size:.96rem;
-      font-weight:600;
-    }
-    .blog-note-text{
-      margin:0;
-      line-height:1.6;
-    }
-    .blog-note-text em{
-      font-style:italic;
-    }
-    .blog-links{
-      margin:.7rem 0 0;
-      padding:0;
-      list-style:none;
-      display:grid;
-      gap:.3rem;
-      font-size:.9rem;
-    }
-    .blog-links a{
-      text-decoration:underline;
-      text-underline-offset:2px;
-    }
-
-    @media (max-width:640px){
-      .blog-subtitle,
-      .blog-quote,
-      .blog-section-text,
-      .blog-item-lead,
-      .blog-note-text{
-        font-size:.98rem;
-      }
     }
   </style>
 </head>
@@ -251,8 +248,8 @@
         <a href="/demo.html">App</a>
         <a href="/particular.html">Talleres</a>
         <a href="/organizacion.html">Organizaciones</a>
-        <a href="/recursos.html">Recursos</a>
-        <a href="/blog/index.html" class="active" aria-current="page">Blog</a>
+        <a href="/recursos.html" class="active" aria-current="page">Recursos</a>
+        <a href="/blog/index.html">Blog</a>
         <a href="/temotiva-lab.html">TEMOTIVA LAB</a>
         <a href="/ctl.html">CTL</a>
         <a href="/contacto.html">Contacto</a>
@@ -260,124 +257,206 @@
     </div>
   </header>
 
-  <main class="content blog-shell" role="main">
+  <main class="content" role="main">
     <!-- HERO -->
-    <section class="blog-hero" aria-labelledby="blog-hero-title">
-      <div class="container blog-hero-inner">
+    <section class="section res-hero" id="res-hero" aria-labelledby="res-hero-title">
+      <div class="container res-hero-inner">
         <div>
-          <p class="blog-kicker">Blog TEMOTIVA</p>
-          <h1 id="blog-hero-title" class="blog-title">
-            Lecturas para días con demasiadas cosas en la cabeza
+          <p class="res-eyebrow">Material para usar en tu día a día</p>
+          <h1 id="res-hero-title" class="res-title">
+            Recursos de bienestar emocional fáciles de usar
           </h1>
-          <p class="blog-subtitle">
-            Pequeños textos pensados para leer sin prisa, cuando necesitas
-            <em>bajar una marcha</em> y entenderte un poco mejor.
+          <p class="res-hero-text">
+            Guías, ejercicios y plantillas sencillas para parar, revisar cómo estás y darte un poco más de cuidado sin complicarte la vida.
           </p>
-          <p class="blog-quote">
-            «No hace falta leer mucho, solo lo suficiente para que algo dentro de ti
-            respire un poco más tranquilo.»
-          </p>
+
+          <div class="cta-row" style="margin-top:.9rem;display:flex;flex-wrap:wrap;gap:.6rem;">
+            <a href="#res-basicos" class="btn">Ver recursos básicos</a>
+            <a href="#res-cta" class="btn secondary">Quiero que me avisen de nuevos recursos</a>
+          </div>
+
+          <div class="res-hero-meta">
+            <span>Formato breve</span>
+            <span>·</span>
+            <span>Lenguaje sencillo</span>
+            <span>·</span>
+            <span>Uso personal o en grupo</span>
+          </div>
         </div>
 
-        <div class="blog-hero-side">
+        <div class="res-hero-side">
           <img
-            src="/1_Mockup.png"
-            alt="Vista previa del blog de TEMOTIVA con lecturas breves de bienestar emocional"
-            class="blog-hero-mockup">
+            src="/2_Mockup.png"
+            alt="Vista previa de los recursos de TEMOTIVA"
+            class="res-hero-mockup">
         </div>
       </div>
     </section>
 
-    <!-- LISTADO DE LAS 3 ENTRADAS -->
-    <section class="blog-main">
-      <div class="container blog-layout">
-        <section aria-labelledby="blog-list-title">
-          <h2 id="blog-list-title" class="blog-section-title">Últimas lecturas</h2>
-          <p class="blog-section-text">
-            De momento el blog tiene tres piezas. Puedes entrar en la que más
-            resuene contigo hoy, y volver cuando lo necesites. <em>No hay orden
-            obligatorio.</em>
-          </p>
+    <!-- Categorías de recursos -->
+    <section class="res-section" id="res-basicos" aria-labelledby="res-basicos-title">
+      <div class="container">
+        <h2 id="res-basicos-title">Tipos de recursos que encontrarás</h2>
+        <p class="res-lead">
+          Todos tienen un objetivo común, ayudarte a entender cómo estás y a pasar a una acción pequeña posible.
+        </p>
 
-          <ul class="blog-list">
-            <!-- 1. Bienvenida -->
-            <li class="blog-item">
-              <a href="/blog/bienvenida.html">
-                <p class="blog-item-kicker">Introducción</p>
-                <h2>Bienvenida</h2>
-                <p class="blog-item-lead">
-                  Una primera mirada al proyecto, por qué existe este espacio y cómo
-                  puede acompañarte cuando tu cabeza va más rápido que tu cuerpo.
-                </p>
-                <div class="blog-item-meta">
-                  <span>Lectura breve</span>
-                  <span>Contenido atemporal</span>
-                </div>
-              </a>
-            </li>
-
-            <!-- 2. Bienvenidas -->
-            <li class="blog-item">
-              <a href="/blog/bienvenidas.html">
-                <p class="blog-item-kicker">Reflexión</p>
-                <h2>Bienvenidas las que llegan cansadas</h2>
-                <p class="blog-item-lead">
-                  Un texto pensado para quienes llegan aquí con cansancio acumulado,
-                  dudas y muchas pestañas abiertas en la mente. Un pequeño
-                  <em>descanso leído</em>.
-                </p>
-                <div class="blog-item-meta">
-                  <span>Para días grises</span>
-                  <span>Enfoque amable</span>
-                </div>
-              </a>
-            </li>
-
-            <!-- 3. Beneficios meditación -->
-            <li class="blog-item">
-              <a href="/blog/beneficios-meditacion.html">
-                <p class="blog-item-kicker">Meditación</p>
-                <h2>Beneficios de la meditación cuando tu mente no para</h2>
-                <p class="blog-item-lead">
-                  Más que una técnica de moda, una forma sencilla de darle un poco
-                  de espacio a tus pensamientos y a tu cuerpo, sin obligarte a
-                  dejar la mente en blanco.
-                </p>
-                <div class="blog-item-meta">
-                  <span>Bienestar emocional</span>
-                  <span>Uso cotidiano</span>
-                </div>
-              </a>
-            </li>
-          </ul>
-        </section>
-
-        <!-- COLUMNA LATERAL -->
-        <aside class="blog-side" aria-label="Otras formas de seguir explorando">
-          <div class="blog-note-block">
-            <h3 class="blog-note-title">Si hoy necesitas algo más práctico</h3>
-            <p class="blog-note-text">
-              Puedes combinar estas lecturas con recursos o ejercicios breves.
-              A veces leer ayuda, y otras veces lo que hace falta es
-              <em>pasar a una acción pequeña</em>.
+        <div class="res-grid cols-3">
+          <article class="res-card">
+            <h3>Ejercicios rápidos</h3>
+            <p>
+              Prácticas de pocos minutos para bajar intensidad, ordenar un poco la cabeza o reconectar con el cuerpo.
             </p>
-            <ul class="blog-links">
-              <li><a href="/recursos.html">Ver recursos descargables</a></li>
-              <li><a href="/demo.html">Conocer mejor la app</a></li>
-              <li><a href="/particular.html">Explorar talleres para personas</a></li>
-              <li><a href="/organizacion.html">Opciones para equipos y entidades</a></li>
-            </ul>
-          </div>
-
-          <div class="blog-note-block">
-            <h3 class="blog-note-title">Volver cuando haga falta</h3>
-            <p class="blog-note-text">
-              Puedes guardar esta página en favoritos. La idea es que este blog
-              sea un lugar al que volver cuando algo se te hace cuesta arriba y
-              te viene bien leer <em>con calma</em>.
+          </article>
+          <article class="res-card">
+            <h3>Guías y mini cuadernos</h3>
+            <p>
+              Materiales en PDF con pasos sencillos y ejemplos para trabajar un tema concreto como límites, descanso o autoexigencia.
             </p>
-          </div>
-        </aside>
+          </article>
+          <article class="res-card">
+            <h3>Plantillas y checklists</h3>
+            <p>
+              Hojas imprimibles o digitales para hacer seguimiento de tu autocuidado y ver tu progreso sin agobios.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lista ejemplo recursos (puedes ir añadiendo enlaces reales) -->
+    <section class="res-section alt" id="res-lista" aria-labelledby="res-lista-title">
+      <div class="container">
+        <h2 id="res-lista-title">Algunos recursos clave</h2>
+        <p class="res-lead">
+          Aquí puedes ir incorporando los materiales a medida que los tengas listos. De momento, una propuesta de estructura.
+        </p>
+
+        <div class="res-list">
+          <article class="res-card">
+            <div class="res-item-header">
+              <div>
+                <span class="res-item-label">Ejercicio rápido</span>
+                <h3>Parar tres minutos para ver cómo estoy</h3>
+              </div>
+              <span class="res-item-tag">Duración aproximada 3 a 5 min</span>
+            </div>
+            <p>
+              Pequeño ejercicio guiado para revisar cómo está tu cuerpo, tus pensamientos y tus emociones, y decidir una sola cosa que puedas hacer por ti ese día.
+            </p>
+            <!-- En el futuro: <a href="/recursos/parar-tres-minutos.pdf">Descargar PDF</a> -->
+          </article>
+
+          <article class="res-card">
+            <div class="res-item-header">
+              <div>
+                <span class="res-item-label">Plantilla</span>
+                <h3>Diario suave de bienestar semanal</h3>
+              </div>
+              <span class="res-item-tag">Uso continuo</span>
+            </div>
+            <p>
+              Hoja sencilla para anotar un momento al día en el que te has cuidado un poco, sin juicios ni listas largas.
+            </p>
+          </article>
+
+          <article class="res-card">
+            <div class="res-item-header">
+              <div>
+                <span class="res-item-label">Mini guía</span>
+                <h3>Cuando la cabeza no para por la noche</h3>
+              </div>
+              <span class="res-item-tag">Lectura breve</span>
+            </div>
+            <p>
+              Ideas prácticas para esos momentos de rumiación nocturna, con pasos pequeños para bajar intensidad y preparar el descanso.
+            </p>
+          </article>
+        </div>
+
+        <p class="res-tagline">
+          Puedes usar estos recursos por tu cuenta o combinarlos con la app y los talleres cuando estén disponibles.
+        </p>
+      </div>
+    </section>
+
+    <!-- Cómo usar los recursos -->
+    <section class="res-section" id="res-uso" aria-labelledby="res-uso-title">
+      <div class="container">
+        <h2 id="res-uso-title">Cómo sacarle más partido a los materiales</h2>
+
+        <div class="res-steps">
+          <article class="res-card">
+            <span class="res-step-label">Paso 1</span>
+            <h3>Empieza por algo muy pequeño</h3>
+            <p>
+              Elige un solo recurso y pruébalo unos días, sin objetivo de perfección, solo de curiosidad.
+            </p>
+          </article>
+          <article class="res-card">
+            <span class="res-step-label">Paso 2</span>
+            <h3>Ajusta a tu realidad</h3>
+            <p>
+              Adapta las propuestas a tu energía, tu tiempo y tu forma de ser. No hace falta hacerlo todo.
+            </p>
+          </article>
+          <article class="res-card">
+            <span class="res-step-label">Paso 3</span>
+            <h3>Conecta con otras personas</h3>
+            <p>
+              Si quieres, puedes usar algunos materiales en grupo, en clase o con tu equipo, para abrir conversaciones sobre bienestar.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA novedades recursos -->
+    <section class="res-section alt" id="res-cta" aria-labelledby="res-cta-title">
+      <div class="container res-cta-wrap">
+        <h2 id="res-cta-title">Quiero saber cuándo haya nuevos recursos</h2>
+        <p class="res-lead">
+          Si te interesa recibir avisos puntuales cuando se publiquen materiales nuevos, puedes dejar tu correo.
+        </p>
+
+        <div class="res-cta-card">
+          <form id="resContactForm" class="form-pro" action="https://formspree.io/f/xnnobrvn" method="post">
+            <input type="hidden" name="_subject" value="Interés en nuevos recursos de bienestar emocional">
+            <input type="hidden" name="_language" value="es">
+
+            <label for="res-email" class="pt-label-small">Correo electrónico</label>
+            <input id="res-email" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="correo@ejemplo.com">
+
+            <div style="margin-top:.9rem;">
+              <label class="pt-label-small" for="res-perfil">Perfil aproximado</label>
+              <select id="res-perfil" name="perfil">
+                <option value="">Selecciona una opción</option>
+                <option value="uso_personal">Uso personal</option>
+                <option value="profesional_ayuda">Profesional de la ayuda o la educación</option>
+                <option value="organizacion">Uso con equipos o grupos</option>
+              </select>
+            </div>
+
+            <div style="margin-top:.9rem;">
+              <label class="pt-label-small" for="res-msg">Qué tipo de recursos te interesan</label>
+              <textarea id="res-msg" name="mensaje" rows="3" placeholder="Por ejemplo, ejercicios rápidos, plantillas, materiales para usar en grupo."></textarea>
+            </div>
+
+            <div style="margin-top:.9rem;">
+              <label class="checkline" for="res-consent">
+                <input id="res-consent" type="checkbox" name="consent" required>
+                <span>Acepto la <a href="/privacidad.html">política de privacidad</a>.</span>
+              </label>
+            </div>
+
+            <input type="text" name="_gotcha" aria-hidden="true" autocomplete="off" style="display:none !important;">
+
+            <div class="res-cta-actions">
+              <button type="submit" class="btn">Recibir avisos</button>
+              <span>Solo correos puntuales cuando haya novedades importantes.</span>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
   </main>
