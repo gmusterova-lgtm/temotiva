@@ -191,6 +191,7 @@
     .logo img{ width:36px; height:36px; border-radius:9px; }
 
     .header-actions{ display:flex; align-items:center; gap:.5rem; }
+
     .icon-btn{
       border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
       background:var(--card); color:var(--ink);
@@ -200,6 +201,21 @@
     }
     .icon-btn:hover{ box-shadow:0 8px 22px rgba(15,23,42,.16); }
     .icon-btn:active{ transform:scale(.98); }
+
+    /* Botón idioma más discreto */
+    .lang-btn{
+      border:0;
+      background:transparent;
+      color:var(--ink-soft);
+      padding:.25rem .2rem;
+      font-size:.8rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      cursor:pointer;
+    }
+    .lang-btn:hover{
+      color:var(--ink);
+    }
 
     .menu-btn{ display:inline-flex; }
     @media (min-width:1024px){ .menu-btn{ display:none; } }
@@ -257,8 +273,6 @@
         linear-gradient(135deg, #020617, #020617 40%, #02091f 100%);
     }
     .hero-inner{
-      max-width:var(--container);
-      margin:0 auto;
       display:grid;
       grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);
       gap:2.3rem;
@@ -458,14 +472,6 @@
       box-shadow:var(--shadow);
     }
 
-    /* Producto imagen inferior visible */
-    .product-media { position:relative; isolation:isolate; margin-top:1rem; }
-    .product-media img, .product-media picture { display:block; width:100%; border-radius:12px; }
-    .product-media::after{
-      content:""; position:absolute; inset:0; pointer-events:none; border-radius:12px;
-      box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent);
-    }
-
     /* Footer */
     .site-footer{
       border-top:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
@@ -521,7 +527,7 @@
       </nav>
 
       <div class="header-actions" role="group" aria-label="Acciones">
-        <button id="langBtn" class="icon-btn" aria-label="Cambiar idioma">ES/EN</button>
+        <button id="langBtn" class="lang-btn" aria-label="Cambiar idioma">ES | EN</button>
         <button id="themeBtn" class="icon-btn" aria-label="Cambiar tema" title="Tema" aria-pressed="false">☾/☀︎</button>
         <button id="installBtn" class="icon-btn" aria-label="Instalar TEMOTIVA" hidden>Instalar</button>
         <button id="menuBtn" class="menu-btn icon-btn" aria-label="Abrir panel lateral" aria-controls="sidePanel" aria-expanded="false">☰</button>
@@ -554,43 +560,45 @@
   <main class="content" id="app" role="main">
     <!-- Hero tech con 9_Mockup -->
     <section id="inicio" class="section hero reveal" aria-labelledby="hero-title">
-      <div class="hero-inner">
-        <div class="hero-copy">
-          <p class="hero-kicker">Bienestar emocional augmentado</p>
-          <h1 id="hero-title" class="hero-title">
-            Cuando te sientes sobrepasada y solo quieres saber qué hacer ahora mismo
-          </h1>
-          <p class="hero-sub">
-            Temotiva es una app de bienestar emocional pensada para adultas y adultos con mucha carga mental.
-            Convierte la psicología aplicada en microprácticas guiadas para esos momentos en los que notas que no puedes más,
-            pero aún tienes que seguir con el día.
-          </p>
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <p class="hero-kicker">Bienestar emocional augmentado</p>
+            <h1 id="hero-title" class="hero-title">
+              Cuando te sientes sobrepasada y solo quieres saber qué hacer ahora mismo
+            </h1>
+            <p class="hero-sub">
+              Temotiva es una app de bienestar emocional pensada para adultas y adultos con mucha carga mental.
+              Convierte la psicología aplicada en microprácticas guiadas para esos momentos en los que notas que no puedes más,
+              pero aún tienes que seguir con el día.
+            </p>
 
-          <div class="hero-metrics">
-            <div class="hero-metric">
-              <span class="hero-metric-number">5 a 10</span>
-              <span class="hero-metric-label">min por uso real</span>
+            <div class="hero-metrics">
+              <div class="hero-metric">
+                <span class="hero-metric-number">5 a 10</span>
+                <span class="hero-metric-label">min por uso real</span>
+              </div>
+              <div class="hero-metric">
+                <span class="hero-metric-number">120+</span>
+                <span class="hero-metric-label">microprácticas en diseño</span>
+              </div>
+              <div class="hero-metric">
+                <span class="hero-metric-number">3</span>
+                <span class="hero-metric-label">niveles de intensidad</span>
+              </div>
             </div>
-            <div class="hero-metric">
-              <span class="hero-metric-number">120+</span>
-              <span class="hero-metric-label">microprácticas en diseño</span>
-            </div>
-            <div class="hero-metric">
-              <span class="hero-metric-number">3</span>
-              <span class="hero-metric-label">niveles de intensidad</span>
+
+            <div class="cta-row">
+              <a href="/particular.html" class="btn" data-gtag="cta_particular_click" rel="next">Soy particular</a>
+              <a href="/organizacion.html" class="btn secondary" data-gtag="cta_org_click" rel="next">Soy organización</a>
             </div>
           </div>
 
-          <div class="cta-row">
-            <a href="/particular.html" class="btn" data-gtag="cta_particular_click" rel="next">Soy particular</a>
-            <a href="/organizacion.html" class="btn secondary" data-gtag="cta_org_click" rel="next">Soy organización</a>
-          </div>
-        </div>
-
-        <div class="hero-device" aria-hidden="true">
-          <div class="hero-device-shell">
-            <div class="hero-device-glow"></div>
-            <img src="/9_Mockup.png" alt="">
+          <div class="hero-device" aria-hidden="true">
+            <div class="hero-device-shell">
+              <div class="hero-device-glow"></div>
+              <img src="/9_Mockup.png" alt="">
+            </div>
           </div>
         </div>
       </div>
@@ -963,18 +971,6 @@
       });
     }
 
-    /* Frase del día (si está presente el botón) */
-    const frases = [
-      "Respira. Un paso a la vez.",
-      "Tu progreso importa, aunque sea pequeño.",
-      "Date permiso para descansar.",
-      "Lo que no mides, no mejoras."
-    ];
-    $("#nuevaFraseBtn")?.addEventListener("click", ()=>{
-      const el = $("#fraseTexto");
-      el.textContent = frases[Math.floor(Math.random()*frases.length)];
-    });
-
     /* Contacto: validación, consentimiento y envío con reintento */
     (function(){
       const form = document.getElementById('contactForm');
@@ -1117,112 +1113,48 @@
     });
   </script>
 
+  <!-- Sistema de idiomas ES / EN -->
   <script>
-  // Idioma persistente
   const LANG_KEY = "temotiva-lang";
   let curLang = localStorage.getItem(LANG_KEY) || "es";
 
   const TR = {
     es: {
-      '#mainNav a[href="/inicio.html"]': 'Inicio',
-      '#mainNav a[href="#mision"]': 'Misión',
-      '#mainNav a[href="#producto"]': 'Producto',
-      '#mainNav a[href="#contacto"]': 'Contacto',
-
       '#hero-title': 'Cuando te sientes sobrepasada y solo quieres saber qué hacer ahora mismo',
       '#inicio p.hero-sub': 'Temotiva es una app de bienestar emocional pensada para adultas y adultos con mucha carga mental. Convierte la psicología aplicada en microprácticas guiadas para esos momentos en los que notas que no puedes más, pero aún tienes que seguir con el día.',
       'a[data-gtag="cta_particular_click"]': 'Soy particular',
       'a[data-gtag="cta_org_click"]': 'Soy organización',
-
       '#app-title': 'Muy pronto en tu móvil',
       '#lanzamiento .frase': 'Recordatorios suaves, uso sin conexión y privacidad por diseño. Temotiva como app, lista para acompañarte en esos momentos en los que necesitas parar, regularte y cuidarte.',
-
       '#mission-title': 'Para esos días en los que todo se hace cuesta arriba',
-      '#mision > .container > p': 'Hay momentos en los que vas en automático, tu cabeza no para y no tienes tiempo ni energía para pensar qué te ayudaría a sentirte mejor. Ese espacio intermedio entre “no estoy tan mal” y “no puedo más” es justo donde se sitúa Temotiva, cuando necesitas algo claro y posible, no más exigencias.',
-      '#mision .card:nth-child(1) h3': 'Cambios vitales y ruido mental',
-      '#mision .card:nth-child(1) p': 'Reorganizar tu vida, tu trabajo o tus relaciones puede ser agotador. Temotiva te ayuda a parar, escuchar lo que necesitas y dar un paso concreto.',
-      '#mision .card:nth-child(2) h3': 'Trabajos que agotan por dentro',
-      '#mision .card:nth-child(2) p': 'Si trabajas con personas o bajo mucha demanda, es fácil llegar al final del día sin fuerzas. Aquí encuentras prácticas breves para regularte entre tareas.',
-      '#mision .card:nth-child(3) h3': 'Estudios y proyectos que saturan',
-      '#mision .card:nth-child(3) p': 'Cuando todo son fechas, entregas y objetivos, tu bienestar queda en segundo plano. Temotiva te recuerda que cuidarte también forma parte del plan.',
-
-      '#product-title': 'Qué hace la app Temotiva por ti',
       '#producto > .container > p': 'Temotiva convierte la psicología basada en evidencia en acciones breves y guiadas que puedes usar justo cuando aparece el bloqueo, la rumiación o ese “no sé qué hacer ahora mismo”, sin sesiones eternas ni pantallas infinitas.',
-      '#producto .card:nth-child(1) h3': 'Te guía cuando no sabes qué hacer con lo que sientes',
-      '#producto .card:nth-child(1) p': 'Pequeñas rutas de autoexploración y regulación emocional que te acompañan paso a paso, para pasar del bloqueo y la rumiación a una acción posible aquí y ahora.',
-      '#producto .card:nth-child(2) h3': 'Hace que el autocuidado sea posible en tu día real',
-      '#producto .card:nth-child(2) p': 'Acciones cortas y realistas, que puedes integrar incluso en días llenos. Mejor un pequeño gesto sostenible que una lista de pendientes infinita.',
-      '#producto .card:nth-child(3) h3': 'Te ayuda a entender tus patrones emocionales',
-      '#producto .card:nth-child(3) p': 'Chequeos sencillos y reflexiones guiadas para conocer mejor tus picos, tus bajadas y lo que de verdad te ayuda a estar mejor en tu vida cotidiana.',
-
       '#reviews-title': 'Reseñas',
       '#resenas .frase': 'Personas que han probado Temotiva y han notado cambios en su día a día.',
-
       '#contact-title': 'Contacto',
-      'label[for="cf-nombre"]': 'Nombre',
-      'label[for="cf-email"]': 'Correo',
-      'label[for="cf-msg"]': 'Mensaje',
       '#cf-submit': 'Enviar',
       '.hint': 'Respondemos lo antes posible.',
       '#formMsg': 'Gracias, te contactaremos pronto. Si lo deseas, puedes enviar un mensaje a <a href="mailto:info@temotiva.com">info@temotiva.com</a>, estaremos encantados de atenderte.',
-
-      'a[href="/privacidad.html"]': 'Política de privacidad',
-      'a[href="/cookies.html"]': 'Política de cookies',
-      'a[href="/aviso-legal.html"]': 'Aviso legal',
       '.back-top': 'Volver arriba ↑',
-
       '#pwaBanner .msg': 'Instala TEMOTIVA para un acceso rápido y uso sin conexión.',
       '#pwaInstallNow': 'Instalar',
       '#pwaInstallLater': 'Más tarde'
     },
     en: {
-      '#mainNav a[href="/inicio.html"]': 'Home',
-      '#mainNav a[href="#mision"]': 'Mission',
-      '#mainNav a[href="#producto"]': 'Product',
-      '#mainNav a[href="#contacto"]': 'Contact',
-
       '#hero-title': 'When you feel overwhelmed and all you want is to know what to do right now',
       '#inicio p.hero-sub': 'Temotiva is an emotional wellbeing app designed for adults with high emotional load. It turns applied psychology into guided micro practices for those moments when you feel you cannot take it anymore but still need to keep going through the day.',
       'a[data-gtag="cta_particular_click"]': 'I’m an individual',
       'a[data-gtag="cta_org_click"]': 'I represent an organization',
-
       '#app-title': 'Coming soon to your phone',
       '#lanzamiento .frase': 'Gentle reminders, offline use and privacy by design. Temotiva as an app, ready to support you in those moments when you need to pause, regulate and take care of yourself.',
-
       '#mission-title': 'For the days when everything feels uphill',
-      '#mision > .container > p': 'There are moments when you run on autopilot, your head does not stop and you do not have the time or energy to think about what would help you feel better. That space between “I am not that bad” and “I cannot take it anymore” is exactly where Temotiva stands, when you need something clear and doable, not more demands.',
-      '#mision .card:nth-child(1) h3': 'Life changes and mental noise',
-      '#mision .card:nth-child(1) p': 'Reorganizing your life, your work or your relationships can be exhausting. Temotiva helps you pause, listen to what you need and take one concrete step.',
-      '#mision .card:nth-child(2) h3': 'Work that drains you inside',
-      '#mision .card:nth-child(2) p': 'If you work with people or under high demand, it is easy to end the day with no energy left. Here you find brief practices to regulate yourself between tasks.',
-      '#mision .card:nth-child(3) h3': 'Studies and projects that exhaust you',
-      '#mision .card:nth-child(3) p': 'When everything is deadlines, deliveries and goals, your wellbeing goes to the background. Temotiva reminds you that taking care of yourself is also part of the plan.',
-
-      '#product-title': 'What the Temotiva app does for you',
       '#producto > .container > p': 'Temotiva turns evidence based psychology into short, guided actions that you can use right when blockage, rumination or that “I do not know what to do now” appears, without endless sessions or infinite screens.',
-      '#producto .card:nth-child(1) h3': 'Guides you when you do not know what to do with what you feel',
-      '#producto .card:nth-child(1) p': 'Small routes of self exploration and emotional regulation that walk you step by step, helping you move from blockage and rumination to one possible action here and now.',
-      '#producto .card:nth-child(2) h3': 'Makes self care possible in real life',
-      '#producto .card:nth-child(2) p': 'Short and realistic actions that you can integrate even on busy days. Better one sustainable gesture than an endless to do list.',
-      '#producto .card:nth-child(3) h3': 'Helps you understand your emotional patterns',
-      '#producto .card:nth-child(3) p': 'Simple check ins and guided reflections to know your peaks, your lows and what truly helps you feel better in everyday life.',
-
       '#reviews-title': 'Reviews',
       '#resenas .frase': 'People who have tried Temotiva and noticed changes in their daily life.',
-
       '#contact-title': 'Contact',
-      'label[for="cf-nombre"]': 'Name',
-      'label[for="cf-email"]': 'Email',
-      'label[for="cf-msg"]': 'Message',
       '#cf-submit': 'Send',
       '.hint': 'We’ll reply as soon as possible.',
       '#formMsg': 'Thanks, we’ll get back to you soon. If you prefer, email <a href="mailto:info@temotiva.com">info@temotiva.com</a>.',
-
-      'a[href="/privacidad.html"]': 'Privacy policy',
-      'a[href="/cookies.html"]': 'Cookie policy',
-      'a[href="/aviso-legal.html"]': 'Legal notice',
       '.back-top': 'Back to top ↑',
-
       '#pwaBanner .msg': 'Install TEMOTIVA for quick access and offline use.',
       '#pwaInstallNow': 'Install',
       '#pwaInstallLater': 'Later'
@@ -1247,12 +1179,14 @@
       document.getElementById('cf-msg')?.setAttribute('placeholder','How can we help?');
       document.documentElement.lang = 'en';
       document.title = 'TEMOTIVA | Innovation in emotional wellbeing';
+      document.getElementById('langBtn')?.textContent = 'EN | ES';
     } else {
       document.getElementById('cf-nombre')?.setAttribute('placeholder','Tu nombre');
       document.getElementById('cf-email')?.setAttribute('placeholder','tu@email.com');
       document.getElementById('cf-msg')?.setAttribute('placeholder','¿Cómo podemos ayudarte?');
       document.documentElement.lang = 'es';
       document.title = 'TEMOTIVA | App de bienestar emocional para cuando no sabes qué hacer con lo que sientes';
+      document.getElementById('langBtn')?.textContent = 'ES | EN';
     }
     localStorage.setItem(LANG_KEY, lang);
   }
