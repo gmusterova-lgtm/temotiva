@@ -4,491 +4,386 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <title>Temotiva para organizaciones | Programas de bienestar emocional</title>
+  <title>Temotiva® para organizaciones | Bienestar emocional en equipos</title>
 
-  <meta name="description" content="App y microprácticas de bienestar emocional para equipos con alta carga emocional. Soluciones sencillas para centros educativos, servicios sociales, ONG y pequeñas empresas.">
-  <meta name="keywords" content="bienestar emocional para equipos, app bienestar emocional, autocuidado en organizaciones, prevención desgaste emocional, salud mental trabajo, bienestar para docentes, bienestar servicios sociales">
+  <meta name="description" content="Programas y talleres de bienestar emocional para organizaciones y equipos con alta carga mental. Sesiones prácticas, breves y aplicadas al día a día laboral.">
+  <meta name="keywords" content="bienestar emocional en empresas, talleres para equipos, prevención burnout, regulación emocional en el trabajo, salud mental laboral, formación bienestar organizaciones">
 
   <link rel="canonical" href="https://www.temotiva.com/organizacion.html">
+
   <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/style-empresas.css">
 
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"Service",
-    "name":"Soluciones de bienestar emocional para equipos",
+    "name":"Programas y talleres de bienestar emocional para organizaciones",
     "provider":{
       "@type":"Organization",
-      "name":"TEMOTIVA",
+      "name":"Temotiva®",
       "url":"https://www.temotiva.com"
     },
-    "areaServed":"ES",
-    "serviceType":"Bienestar emocional para organizaciones",
-    "description":"App y microprácticas de bienestar emocional para equipos con alta carga emocional."
+    "serviceType":"Formación y talleres de bienestar emocional para equipos",
+    "description":"Sesiones prácticas para reducir la carga emocional, prevenir el desgaste y mejorar el bienestar en equipos de trabajo."
   }
   </script>
-
-  <!-- Estilos específicos de esta página -->
-  <style>
-    .org-hero{
-      padding:4.5rem 0 4.2rem;
-      background:radial-gradient(circle at top left,#e5e8ff,#d9e0ff);
-      border-bottom:1px solid rgba(0,0,0,.05);
-    }
-    .org-hero-inner{
-      max-width:1000px;
-      margin:0 auto;
-      display:grid;
-      gap:2rem;
-    }
-    @media (min-width:900px){
-      .org-hero-inner{
-        grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);
-        align-items:center;
-      }
-    }
-    .org-eyebrow{
-      text-transform:uppercase;
-      letter-spacing:.12em;
-      font-size:.78rem;
-      opacity:.85;
-      margin:0 0 .35rem;
-    }
-    .org-title{
-      margin:0 0 .7rem;
-      font-size:clamp(1.9rem,3vw,2.4rem);
-    }
-    .org-hero-text{
-      max-width:42ch;
-      margin:0 0 1.2rem;
-    }
-    .org-hero-meta{
-      display:flex;
-      flex-wrap:wrap;
-      gap:.6rem;
-      font-size:.9rem;
-      opacity:.9;
-      margin-top:.9rem;
-    }
-    .org-hero-meta span:nth-child(2n){
-      opacity:.5;
-    }
-
-    .org-hero-side{
-      display:flex;
-      flex-direction:column;
-      gap:.8rem;
-      align-items:center;
-      justify-content:center;
-    }
-
-    .org-hero-mockup{
-      width:100%;
-      max-width:380px;
-      margin:0 auto;
-      border-radius:22px;
-      filter:drop-shadow(0 16px 46px rgba(0,0,0,.22));
-      animation:floaty 5s ease-in-out infinite;
-    }
-
-    .org-hero-metrics{
-      display:flex;
-      flex-wrap:wrap;
-      gap:.5rem;
-      margin:.9rem 0 0;
-      font-size:.8rem;
-    }
-    .org-hero-metric{
-      padding:.35rem .8rem;
-      border-radius:999px;
-      background:rgba(255,255,255,.92);
-      border:1px solid rgba(0,0,0,.06);
-      box-shadow:0 6px 20px rgba(0,0,0,.08);
-      display:flex;
-      align-items:center;
-      gap:.25rem;
-      white-space:nowrap;
-    }
-    .org-hero-metric strong{
-      font-weight:600;
-    }
-
-    @keyframes floaty{
-      0%{ transform:translateY(0); }
-      50%{ transform:translateY(-10px); }
-      100%{ transform:translateY(0); }
-    }
-
-    .org-pill-card{
-      background:#fff;
-      border-radius:14px;
-      padding:1rem 1.1rem;
-      box-shadow:0 10px 30px rgba(0,0,0,.06);
-      border:1px solid rgba(0,0,0,.04);
-      font-size:.95rem;
-      margin-top:.6rem;
-    }
-    .org-pill-title{
-      margin:0 0 .4rem;
-      font-weight:600;
-    }
-    .org-pill-list{
-      list-style:none;
-      padding:0;
-      margin:0;
-      display:grid;
-      gap:.35rem;
-      font-size:.9rem;
-    }
-
-    .org-section{
-      padding:3.5rem 0;
-    }
-    .org-section.alt{
-      background:#f7f7f9;
-    }
-    .org-section h2{
-      margin:0 0 .5rem;
-      font-size:clamp(1.4rem,2.3vw,1.8rem);
-    }
-    .org-lead{
-      max-width:60ch;
-      margin:0 0 1.4rem;
-      opacity:.95;
-    }
-
-    .org-grid{
-      display:grid;
-      gap:1rem;
-    }
-    @media (min-width:820px){
-      .org-grid.cols-3{ grid-template-columns:repeat(3,minmax(0,1fr)); }
-      .org-grid.cols-2{ grid-template-columns:repeat(2,minmax(0,1fr)); }
-    }
-
-    .org-card{
-      background:#fff;
-      border-radius:14px;
-      padding:1rem 1.05rem;
-      box-shadow:0 8px 24px rgba(0,0,0,.04);
-      border:1px solid rgba(0,0,0,.04);
-      font-size:.95rem;
-    }
-    .org-card h3{
-      margin:.1rem 0 .4rem;
-      font-size:1rem;
-    }
-    .org-card p{
-      margin:0;
-      line-height:1.6;
-      opacity:.95;
-    }
-
-    .org-chips{
-      display:flex;
-      flex-wrap:wrap;
-      gap:.6rem;
-      margin-top:1rem;
-    }
-    .org-chip{
-      padding:.45rem .85rem;
-      border-radius:999px;
-      font-size:.9rem;
-      background:#fff;
-      border:1px solid rgba(0,0,0,.06);
-      box-shadow:0 4px 12px rgba(0,0,0,.03);
-    }
-
-    .org-step-label{
-      display:inline-block;
-      font-size:.8rem;
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      opacity:.7;
-      margin-bottom:.25rem;
-    }
-
-    .org-form-wrap{
-      max-width:720px;
-      margin:0 auto;
-    }
-    .org-form-card{
-      background:#fff;
-      border-radius:16px;
-      padding:1.5rem 1.4rem;
-      box-shadow:0 10px 30px rgba(0,0,0,.06);
-      border:1px solid rgba(0,0,0,.04);
-    }
-    .org-form-row{
-      display:grid;
-      gap:.9rem;
-    }
-    @media (min-width:720px){
-      .org-form-row{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-      }
-    }
-    .org-form-footer{
-      display:flex;
-      flex-wrap:wrap;
-      gap:.6rem;
-      align-items:center;
-      margin-top:1rem;
-      font-size:.9rem;
-    }
-
-    .org-label-small{
-      font-size:.85rem;
-      opacity:.85;
-      display:block;
-      margin-bottom:.12rem;
-    }
-
-    @media (max-width:600px){
-      .org-hero-text,
-      .org-lead,
-      .org-card p{
-        font-size:.98rem;
-      }
-    }
-  </style>
 </head>
 
 <body>
-  <!-- Header -->
- <!-- Header -->
-<header class="site-header" id="siteHeader" role="banner">
-  <div class="container nav">
-    
-    <!-- Logo: siempre lleva a la Home -->
-    <a href="https://www.temotiva.com" class="logo" aria-label="Ir a inicio">
-      <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
-      <span>TEMOTIVA</span>
-    </a>
+  <!-- Overlay para menú lateral -->
+  <div id="overlay" class="overlay" aria-hidden="true"></div>
 
-    <!-- Menú principal -->
-    <nav id="mainNav" class="nav-links" aria-label="Menú principal">
-      <a href="/demo.html">App</a>
-      <a href="/particular.html">Talleres</a>
-      <a href="/organizacion.html">Organizaciones</a>
-      <a href="/recursos.html">Recursos</a>
-      <a href="/blog/">Blog</a>
-      <a href="/temotiva-lab.html">Lab</a> <!-- cambiado -->
-      <a href="/ctl.html">CTL</a>
-      <a href="/contacto.html">Contacto</a>
-    </nav>
+  <!-- Header global TEMOTIVA® -->
+  <header class="site-header" id="siteHeader" role="banner">
+    <div class="container nav">
+      <!-- Logo -->
+      <a href="https://www.temotiva.com" class="logo" aria-label="Ir al inicio">
+        <img src="/logo-temotiva.png" alt="Logo Temotiva®" width="36" height="36">
+        <span>Temotiva®</span>
+      </a>
 
-  </div>
-</header>
+      <!-- Menú principal -->
+      <nav id="mainNav" class="nav-links" aria-label="Menú principal">
+        <a href="/demo.html">App</a>
+        <a href="/particular.html">Talleres</a>
+        <a href="/organizacion.html" class="active" aria-current="page">Organizaciones</a>
+        <a href="/recursos.html">Recursos</a>
+        <a href="/blog/">Blog</a>
+        <a href="/temotiva-lab.html">Lab</a>
+        <a href="/ctl.html">CTL</a>
+        <a href="/contacto.html">Contacto</a>
+      </nav>
 
+      <!-- Acciones header: traductor + menú móvil -->
+      <div class="header-actions" role="group" aria-label="Acciones de página">
+        <div id="google_translate_element" aria-label="Selector de idioma"></div>
+        <button id="menuBtn" class="menu-btn" aria-label="Abrir menú lateral" aria-controls="sidePanel" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menú lateral -->
+  <nav id="sidePanel" class="sidebar" aria-label="Menú lateral" aria-hidden="true">
+    <ul class="menu-list" role="list">
+      <li><a href="/demo.html">App</a></li>
+      <li><a href="/particular.html">Talleres</a></li>
+      <li><a href="/organizacion.html" aria-current="page">Organizaciones</a></li>
+      <li><a href="/recursos.html">Recursos</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/temotiva-lab.html">Lab</a></li>
+      <li><a href="/ctl.html">CTL</a></li>
+      <li><a href="/contacto.html">Contacto</a></li>
+      <li><a href="/privacidad.html">Privacidad</a></li>
+    </ul>
+  </nav>
 
   <main class="content" role="main">
-    <!-- HERO -->
+    <!-- HERO organizaciones -->
     <section class="section org-hero" id="org-hero" aria-labelledby="org-hero-title">
       <div class="container org-hero-inner">
         <div>
-          <p class="org-eyebrow">Equipos que cuidan, equipos que se desgastan</p>
+          <p class="org-eyebrow">Bienestar emocional en organizaciones</p>
           <h1 id="org-hero-title" class="org-title">
-            Bienestar emocional para equipos con mucha carga
+            Programas y talleres para equipos con alta carga mental
           </h1>
           <p class="org-hero-text">
-            Una app de bienestar emocional y microprácticas breves para que tu equipo sepa qué hacer cuando se siente saturado, sin añadir más ruido.
+            Temotiva® acompaña a organizaciones que quieren cuidar la salud emocional de sus equipos con experiencias breves, claras y aplicadas a la realidad del trabajo.
           </p>
 
           <div class="cta-row" style="margin-top:.9rem;display:flex;flex-wrap:wrap;gap:.6rem;">
-            <a href="#org-form" class="btn">Pedir información</a>
-            <a href="/demo.html" class="btn secondary">Ver la app</a>
+            <a href="#org-form" class="btn">Quiero información para mi organización</a>
+            <a href="#org-catalog" class="btn secondary">Ver catálogo de talleres</a>
           </div>
 
           <div class="org-hero-meta">
-            <span>Prácticas de 5 a 10 minutos</span>
-            <span>·</span>
             <span>Enfoque preventivo</span>
             <span>·</span>
-            <span>Sin lenguaje clínico</span>
+            <span>Aplicado a la vida laboral real</span>
+            <span>·</span>
+            <span>Lenguaje claro y sin tecnicismos</span>
+          </div>
+
+          <div class="org-hero-metrics">
+            <span class="org-hero-metric">
+              <strong>60 a 90 min</strong>
+              por sesión
+            </span>
+            <span class="org-hero-metric">
+              <strong>Formato</strong>
+              online o híbrido
+            </span>
+            <span class="org-hero-metric">
+              <strong>100 %</strong>
+              enfoque práctico
+            </span>
           </div>
         </div>
 
         <div class="org-hero-side">
           <img
-            src="/3_Mockup.png"
-            alt="Vista previa de Temotiva para equipos y organizaciones"
-            class="org-hero-mockup">
-
-          <div class="org-hero-metrics">
-            <span class="org-hero-metric">
-              <strong>5 a 10 min</strong>
-              por práctica
-            </span>
-            <span class="org-hero-metric">
-              <strong>3 bloques</strong>
-              clave del día
-            </span>
-            <span class="org-hero-metric">
-              <strong>100 %</strong>
-              lenguaje claro
-            </span>
-          </div>
-
-          <div class="org-pill-card">
-            <p class="org-pill-title">El problema que vemos en los equipos</p>
-            <ul class="org-pill-list">
-              <li>Mucho cuidado hacia otras personas y poco tiempo para cuidarse a sí mismas.</li>
-              <li>Desgaste emocional que no siempre se traduce en baja, pero sí en cansancio y tensión.</li>
-              <li>Demasiados contenidos sobre bienestar y pocas guías claras para aplicar mañana mismo.</li>
-            </ul>
-          </div>
+            src="/5_Mockup.png"
+            alt="Vista previa de Temotiva® aplicada a equipos y organizaciones"
+            class="org-hero-mockup protected-media">
         </div>
       </div>
     </section>
 
-    <!-- Qué aporta -->
-    <section class="org-section" id="org-oferta" aria-labelledby="org-oferta-title">
+    <!-- Bloque: qué aporta Temotiva® a las organizaciones -->
+    <section class="org-section" id="org-que-aporta" aria-labelledby="org-que-aporta-title">
       <div class="container">
-        <h2 id="org-oferta-title">Qué aportamos a tu organización</h2>
+        <h2 id="org-que-aporta-title">Qué aporta Temotiva® a tu organización</h2>
         <p class="org-lead">
-          Tres piezas sencillas que puedes combinar según el tamaño y la realidad de tu equipo.
+          No son solo charlas puntuales. Son espacios pensados para que las personas se lleven herramientas concretas, fáciles de aplicar y sostenibles en su día a día laboral.
         </p>
 
         <div class="org-grid cols-3">
           <article class="org-card">
-            <h3>App para el día a día</h3>
+            <h3>Reducción del desgaste emocional</h3>
             <p>
-              Rutas guiadas y chequeos rápidos para usar cuando alguien se nota en piloto automático, con la cabeza llena o sin energía.
+              Trabajamos la regulación emocional en momentos críticos para que los equipos puedan sostener la carga de trabajo sin llegar al límite.
             </p>
           </article>
           <article class="org-card">
-            <h3>Sesiones breves y prácticas</h3>
+            <h3>Mejor clima y comunicación</h3>
             <p>
-              Talleres de 60 a 90 minutos sobre regulación emocional y autocuidado sostenible, pensados para agendas ajustadas.
+              Introducimos recursos sencillos para comunicarse mejor, gestionar tensiones y evitar que pequeños roces crezcan sin trabajarlos.
             </p>
           </article>
           <article class="org-card">
-            <h3>Itinerarios ligeros de bienestar</h3>
+            <h3>Bienestar integrado en la rutina</h3>
             <p>
-              Programas cortos que combinan app y pequeñas acciones para integrar el cuidado emocional en el día a día del equipo.
+              Propuestas de microhábitos que encajan en el día a día, sin requerir grandes cambios ni jornadas completas de formación.
             </p>
           </article>
         </div>
-      </div>
-    </section>
 
-    <!-- Sectores -->
-    <section class="org-section alt" id="org-sectores" aria-labelledby="org-sectores-title">
-      <div class="container">
-        <h2 id="org-sectores-title">Especialmente útil para</h2>
-        <p class="org-lead">
-          Equipos que trabajan con personas y sostienen mucha carga emocional.
+        <p class="org-tagline">
+          Cada propuesta se adapta al contexto y al tipo de equipo, para que el contenido tenga sentido con la realidad de la organización.
         </p>
-
-        <div class="org-chips">
-          <span class="org-chip">Centros educativos</span>
-          <span class="org-chip">Servicios sociales</span>
-          <span class="org-chip">Proyectos comunitarios</span>
-          <span class="org-chip">ONG y asociaciones</span>
-          <span class="org-chip">Pequeñas empresas</span>
-          <span class="org-chip">Startups</span>
-        </div>
       </div>
     </section>
 
-    <!-- Por qué funciona -->
-    <section class="org-section" id="org-por-que" aria-labelledby="org-por-que-title">
+    <!-- Cómo son las sesiones y formatos -->
+    <section class="org-section alt" id="org-formatos" aria-labelledby="org-formatos-title">
       <div class="container">
-        <h2 id="org-por-que-title">Por qué funciona en la práctica</h2>
-
-        <div class="org-grid cols-3">
-          <article class="org-card">
-            <span class="org-step-label">Tiempo</span>
-            <h3>Encaja en agendas reales</h3>
-            <p>
-              Prácticas muy cortas que pueden usarse antes o después de una reunión, en cambios de turno o al cerrar la jornada.
-            </p>
-          </article>
-          <article class="org-card">
-            <span class="org-step-label">Lenguaje</span>
-            <h3>Claro y respetuoso</h3>
-            <p>
-              Mensajes sencillos, centrados en bienestar y autocuidado, sin diagnóstico ni tecnicismos.
-            </p>
-          </article>
-          <article class="org-card">
-            <span class="org-step-label">Continuidad</span>
-            <h3>Más allá de un taller</h3>
-            <p>
-              La app ayuda a mantener lo aprendido, para que no se quede en una sesión aislada sino en hábitos pequeños.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Quién impulsa -->
-    <section class="org-section alt" id="org-confianza" aria-labelledby="org-confianza-title">
-      <div class="container">
-        <h2 id="org-confianza-title">Quién está detrás</h2>
+        <h2 id="org-formatos-title">Formatos pensados para equipos reales</h2>
+        <p class="org-lead">
+          Diseñamos sesiones que respetan los tiempos de la organización y se integran en la planificación habitual sin paralizar la actividad.
+        </p>
 
         <div class="org-grid cols-2">
           <article class="org-card">
-            <h3>Temotiva LAB</h3>
+            <h3>Duración y estructura</h3>
             <p>
-              Equipo que diseña la app y los contenidos, con base en psicología aplicada, diseño accesible y bienestar cotidiano.
+              Sesiones de 60 a 90 minutos, en directo, con una combinación de explicación breve, ejemplos prácticos y espacios de reflexión guiada.
+            </p>
+            <div class="org-chips">
+              <span class="org-chip">Online en grupo</span>
+              <span class="org-chip">Formato híbrido opcional</span>
+            </div>
+          </article>
+
+          <article class="org-card">
+            <h3>Material y seguimiento</h3>
+            <p>
+              Entregamos resúmenes claros, propuestas para los siguientes días y acceso a ejercicios relacionados a través de Temotiva® y su ecosistema.
+            </p>
+            <div class="org-chips">
+              <span class="org-chip">Recursos descargables</span>
+              <span class="org-chip">Microacciones para el equipo</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Catálogo de talleres empresas Temotiva® -->
+    <section class="org-section" id="org-catalog" aria-labelledby="org-catalog-title">
+      <div class="container">
+        <h2 id="org-catalog-title">Catálogo de talleres para empresas Temotiva®</h2>
+        <p class="org-lead">
+          Talleres diseñados para equipos con alta carga mental, entornos de trabajo intensos y organizaciones que quieren integrar el bienestar emocional en su cultura.
+        </p>
+
+        <section class="org-catalog" aria-label="Listado de talleres para empresas Temotiva">
+          <p class="org-catalog-title">Talleres para empresas Temotiva®</p>
+          <p class="org-catalog-sub">
+            Cada taller se puede adaptar en duración, profundidad y ejemplos al tipo de equipo y sector de tu organización.
+          </p>
+
+          <div class="org-catalog-grid">
+            <article class="org-catalog-item">
+              <span class="org-catalog-number">01</span>
+              <div>
+                <h3>Regulación emocional en momentos críticos</h3>
+                <p>Aprender a bajar el estrés en segundos y mantener foco incluso en picos de trabajo.</p>
+              </div>
+            </article>
+
+            <article class="org-catalog-item">
+              <span class="org-catalog-number">02</span>
+              <div>
+                <h3>Microhábitos de bienestar para la oficina</h3>
+                <p>Pequeñas acciones que mejoran energía, claridad mental y rendimiento diario.</p>
+              </div>
+            </article>
+
+            <article class="org-catalog-item">
+              <span class="org-catalog-number">03</span>
+              <div>
+                <h3>Comunicación consciente para equipos</h3>
+                <p>Cómo hablar, escuchar y coordinarse sin tensiones ni malentendidos.</p>
+              </div>
+            </article>
+
+            <article class="org-catalog-item">
+              <span class="org-catalog-number">04</span>
+              <div>
+                <h3>Prevención del burnout</h3>
+                <p>Detectar señales, cortar el desgaste y proteger la salud emocional del equipo.</p>
+              </div>
+            </article>
+
+            <article class="org-catalog-item">
+              <span class="org-catalog-number">05</span>
+              <div>
+                <h3>Liderazgo emocionalmente inteligente</h3>
+                <p>Liderar con empatía, claridad y límites para equipos más estables y motivados.</p>
+              </div>
+            </article>
+
+            <article class="org-catalog-item">
+              <span class="org-catalog-number">06</span>
+              <div>
+                <h3>Productividad sostenible</h3>
+                <p>Optimizar tiempo y energía sin caer en la autoexigencia que agota.</p>
+              </div>
+            </article>
+
+            <article class="org-catalog-item">
+              <span class="org-catalog-number">07</span>
+              <div>
+                <h3>Gestión de conflictos sin reactividad</h3>
+                <p>Reprogramar respuestas automáticas y mejorar la resolución de problemas.</p>
+              </div>
+            </article>
+
+            <article class="org-catalog-item">
+              <span class="org-catalog-number">08</span>
+              <div>
+                <h3>Cultura emocional en la empresa</h3>
+                <p>Diseñar hábitos colectivos que bajan la tensión y aumentan el bienestar.</p>
+              </div>
+            </article>
+
+            <article class="org-catalog-item">
+              <span class="org-catalog-number">09</span>
+              <div>
+                <h3>Decisiones bajo presión</h3>
+                <p>Técnicas para decidir con calma y criterio cuando todo va rápido.</p>
+              </div>
+            </article>
+
+            <article class="org-catalog-item">
+              <span class="org-catalog-number">10</span>
+              <div>
+                <h3>Resiliencia laboral y propósito</h3>
+                <p>Reconectar con el sentido del trabajo para sostener motivación a largo plazo.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- Cómo trabajamos con organizaciones -->
+    <section class="org-section alt" id="org-pasos" aria-labelledby="org-pasos-title">
+      <div class="container">
+        <h2 id="org-pasos-title">Cómo trabajamos contigo</h2>
+
+        <div class="org-steps">
+          <article class="org-card">
+            <span class="org-step-label">Paso 1</span>
+            <h3>Escuchamos lo que necesitas</h3>
+            <p>
+              Nos cuentas el contexto de tu organización, el tipo de equipo y qué te preocupa a nivel emocional o de bienestar.
             </p>
           </article>
+
           <article class="org-card">
-            <h3>Cognitiva Tech Lab</h3>
+            <span class="org-step-label">Paso 2</span>
+            <h3>Te proponemos un encaje</h3>
             <p>
-              Entidad que impulsa proyectos con impacto social y educativo, poniendo la tecnología al servicio del cuidado emocional.
+              Diseñamos una propuesta ajustada a tu realidad, con formatos, contenidos y tiempos claros.
+            </p>
+          </article>
+
+          <article class="org-card">
+            <span class="org-step-label">Paso 3</span>
+            <h3>Implementamos y medimos</h3>
+            <p>
+              Facilitamos las sesiones y, si lo deseas, recogemos feedback sencillo para valorar impacto y próximos pasos.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Formulario más moderno -->
+    <!-- Formulario de contacto para organizaciones -->
     <section class="org-section" id="org-form" aria-labelledby="org-form-title">
       <div class="container org-form-wrap">
-        <h2 id="org-form-title">Cuéntanos qué necesita tu equipo</h2>
+        <h2 id="org-form-title">Quiero información para mi organización</h2>
         <p class="org-lead">
-          Déjanos unos datos básicos y te responderemos con una propuesta ajustada.
+          Rellena este formulario y te escribiremos con una propuesta ajustada al tamaño del equipo, al sector y al tipo de necesidades que tengas detectadas.
         </p>
 
         <div class="org-form-card">
           <form id="orgContactForm" class="form-pro" action="https://formspree.io/f/xnnobrvn" method="post">
-            <input type="hidden" name="_subject" value="Interés en bienestar emocional para organizaciones">
+            <input type="hidden" name="_subject" value="Interés en programas de bienestar emocional para organizaciones">
             <input type="hidden" name="_language" value="es">
 
             <div class="org-form-row">
               <div>
-                <label for="org-nombre" class="org-label-small">Nombre</label>
+                <label for="org-nombre" class="org-label-small">Nombre y apellidos</label>
                 <input id="org-nombre" name="nombre" type="text" required autocomplete="name" placeholder="Nombre y apellidos">
               </div>
               <div>
-                <label for="org-email" class="org-label-small">Correo</label>
-                <input id="org-email" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="correo@ejemplo.com">
+                <label for="org-email" class="org-label-small">Correo de contacto</label>
+                <input id="org-email" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="correo@organizacion.com">
+              </div>
+            </div>
+
+            <div class="org-form-row" style="margin-top:.9rem;">
+              <div>
+                <label for="org-entidad" class="org-label-small">Nombre de la organización</label>
+                <input id="org-entidad" name="entidad" type="text" required placeholder="Nombre de la entidad o empresa">
+              </div>
+              <div>
+                <label for="org-tamano" class="org-label-small">Tamaño aproximado del equipo</label>
+                <select id="org-tamano" name="tamano">
+                  <option value="">Selecciona una opción</option>
+                  <option value="pequeno">Hasta 15 personas</option>
+                  <option value="mediano">De 16 a 50 personas</option>
+                  <option value="grande">Más de 50 personas</option>
+                </select>
               </div>
             </div>
 
             <div style="margin-top:.9rem;">
-              <label for="org-entidad" class="org-label-small">Organización</label>
-              <input id="org-entidad" name="organizacion" type="text" required placeholder="Nombre de la entidad">
-            </div>
-
-            <div style="margin-top:.9rem;">
-              <label for="org-tipo" class="org-label-small">Tipo de equipo</label>
-              <select id="org-tipo" name="tipo_equipo" required>
+              <label for="org-interes" class="org-label-small">Qué te interesa trabajar</label>
+              <select id="org-interes" name="interes">
                 <option value="">Selecciona una opción</option>
-                <option value="educativo">Centro educativo</option>
-                <option value="social">Servicios sociales o proyecto comunitario</option>
-                <option value="ong">ONG o asociación</option>
-                <option value="empresa">Pequeña empresa o startup</option>
-                <option value="otro">Otro</option>
+                <option value="regulacion_estrés">Regulación emocional y estrés</option>
+                <option value="burnout">Prevención del burnout</option>
+                <option value="comunicacion_equipos">Comunicación y clima de equipo</option>
+                <option value="propuesta_general">Quiero una propuesta general de bienestar</option>
               </select>
             </div>
 
             <div style="margin-top:.9rem;">
-              <label for="org-msg" class="org-label-small">Resumen de la necesidad</label>
-              <textarea id="org-msg" name="mensaje" rows="4" required placeholder="Personas aproximadas y qué os gustaría trabajar."></textarea>
+              <label for="org-msg" class="org-label-small">Cuéntanos algo más</label>
+              <textarea id="org-msg" name="mensaje" rows="3" placeholder="Por ejemplo, tipo de equipo, contexto actual o cualquier detalle que quieras compartir."></textarea>
             </div>
 
             <div style="margin-top:.9rem;">
@@ -498,12 +393,11 @@
               </label>
             </div>
 
-            <!-- Honeypot totalmente oculto -->
             <input type="text" name="_gotcha" aria-hidden="true" autocomplete="off" style="display:none !important;">
 
             <div class="org-form-footer">
               <button type="submit" class="btn">Enviar</button>
-              <span>Te responderemos por correo.</span>
+              <span>Te responderemos por correo con una propuesta ajustada a tu organización.</span>
             </div>
           </form>
         </div>
@@ -511,10 +405,12 @@
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Footer global coherente -->
   <footer class="site-footer" role="contentinfo">
     <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
-      <p style="margin:0;">© TEMOTIVA desde 2024</p>
+      <p style="margin:0;">
+        © Temotiva® desde 2024. Temotiva® marca registrada desde 2025.
+      </p>
       <div style="display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;">
         <a href="/privacidad.html">Política de privacidad</a>
         <a href="/cookies.html">Política de cookies</a>
@@ -522,5 +418,35 @@
       </div>
     </div>
   </footer>
+
+  <!-- Google Translate script -->
+  <script>
+    function googleTranslateElementInit(){
+      new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        includedLanguages: 'es,en,fr,it,pt',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <!-- Bloqueo básico impresión e imágenes protegidas -->
+  <script>
+    // Bloquear menú contextual solo en imágenes protegidas
+    document.addEventListener('contextmenu', function(e){
+      if (e.target.matches('img.protected-media')){
+        e.preventDefault();
+      }
+    });
+
+    // Bloquear atajo de impresión en esta página
+    document.addEventListener('keydown', function(e){
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'p'){
+        e.preventDefault();
+        alert('La impresión se ha desactivado en esta página de Temotiva.');
+      }
+    });
+  </script>
 </body>
 </html>
