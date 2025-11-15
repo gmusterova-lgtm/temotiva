@@ -3,139 +3,316 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Aviso legal | Temotiva</title>
+
+  <title>Aviso legal | TEMOTIVA</title>
 
   <meta name="description" content="Aviso legal y condiciones de uso de TEMOTIVA, plataforma de bienestar emocional y educación.">
   <meta name="theme-color" content="#f7f7f7">
   <meta name="robots" content="index,follow">
+
   <link rel="icon" href="/icon-192.png">
   <link rel="apple-touch-icon" href="/icon-512.png">
   <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/style.css">
+
   <style>
-    :root {
-      --ink: #222;
-      --soft: #555;
-      --bg: #f9f9f9;
-      --card: #fff;
-      color-scheme: light dark;
+    /* Ajustes extra comunes: traductor y protección de imágenes */
+
+    .header-utilities{
+      display:flex;
+      align-items:center;
+      gap:.75rem;
     }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --ink: #eaeaea;
-        --soft: #bbb;
-        --bg: #0f1115;
-        --card: #151923;
+    #google_translate_element{
+      font-size:.8rem;
+      line-height:1;
+    }
+    #google_translate_element select{
+      border-radius:999px;
+      padding:.25rem .7rem;
+      border:1px solid #ddd;
+      background:#fff;
+      font-size:.8rem;
+      cursor:pointer;
+    }
+
+    main img{
+      -webkit-user-drag:none;
+      user-select:none;
+    }
+    @media print{
+      img{
+        display:none !important;
       }
     }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Arial, sans-serif;
-      color: var(--ink);
-      background: var(--bg);
-      line-height: 1.6;
-      -webkit-tap-highlight-color: transparent;
-      text-rendering: optimizeLegibility;
+
+    /* Estilo específico de página legal */
+
+    :root{
+      --ink:#222;
+      --soft:#555;
+      --bg:#f3f4f6;
+      --card:#ffffff;
+      color-scheme:light dark;
     }
-    header {
-      background: var(--card);
-      border-bottom: 1px solid #ddd;
-      padding: 1rem;
-      text-align: center;
+    @media (prefers-color-scheme: dark){
+      :root{
+        --ink:#eaeaea;
+        --soft:#bbb;
+        --bg:#0f1115;
+        --card:#151923;
+      }
     }
-    main {
-      max-width: 720px;
-      margin: 2rem auto;
-      padding: 0 1rem 3rem;
-      background: var(--card);
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Arial,sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      line-height:1.6;
+      -webkit-tap-highlight-color:transparent;
+      text-rendering:optimizeLegibility;
     }
-    h1 {
-      text-align: center;
-      font-size: 1.8rem;
-      margin-top: 0;
+
+    .legal-shell{
+      padding-top:4.5rem;
+      min-height:100vh;
     }
-    h2 {
-      margin-top: 1.6rem;
-      font-size: 1.15rem;
+    .legal-main{
+      max-width:880px;
+      margin:2.5rem auto 3.5rem;
+      padding:0 1rem;
     }
-    p {
-      color: var(--soft);
+    .legal-card{
+      background:var(--card);
+      border-radius:16px;
+      box-shadow:0 10px 30px rgba(15,23,42,.08);
+      border:1px solid rgba(148,163,184,.3);
+      padding:1.6rem 1.6rem 2.2rem;
     }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      color: var(--soft);
+    @media (min-width:720px){
+      .legal-card{
+        padding:2rem 2.2rem 2.6rem;
+      }
     }
-    a {
-      color: inherit;
-      text-decoration: underline;
+
+    .legal-title{
+      text-align:center;
+      font-size:clamp(1.7rem,2.4vw,2rem);
+      margin:0 0 .8rem;
     }
-    ul { padding-left: 1.1rem; }
-    .box {
-      background: rgba(0,0,0,.035);
-      border-radius: 10px;
-      padding: 12px 14px;
-      margin: 12px 0;
+    .legal-body{
+      font-size:.96rem;
+      line-height:1.7;
+      color:var(--soft);
     }
-    @media (prefers-color-scheme: dark) {
-      .box { background: rgba(255,255,255,.06); }
+    .legal-body h2{
+      margin:1.8rem 0 .7rem;
+      font-size:1.08rem;
+      color:#111827;
+    }
+    .legal-body p{
+      margin:0 0 .9rem;
+    }
+    .legal-body ul{
+      padding-left:1.1rem;
+      margin:0 0 .9rem;
+    }
+    .legal-body li{
+      margin:0 0 .3rem;
+    }
+    .legal-body a{
+      color:#0f172a;
+      text-decoration:underline;
+      text-underline-offset:2px;
+    }
+
+    .legal-alert{
+      background:linear-gradient(135deg,#fef3c7,#fee2e2);
+      border-radius:12px;
+      padding:1rem 1.1rem;
+      margin:1rem 0 1.4rem;
+      font-size:.96rem;
+      color:#7c2d12;
+      border:1px solid rgba(248,113,113,.6);
+    }
+
+    .legal-meta{
+      margin-top:1.2rem;
+      font-size:.86rem;
+      color:#6b7280;
+    }
+
+    @media (max-width:600px){
+      .legal-body{
+        font-size:.98rem;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <a href="/" style="text-decoration:none;color:inherit;">
-      <img src="/icon-192.png" alt="Logo TEMOTIVA" style="width:40px;height:40px;border-radius:8px;vertical-align:middle;">
-      <strong>TEMOTIVA</strong>
-    </a>
+  <!-- Header unificado con menú y traductor -->
+  <header class="site-header" id="siteHeader" role="banner">
+    <div class="container nav">
+      <!-- Logo: siempre a Home -->
+      <a href="https://www.temotiva.com" class="logo" aria-label="Ir a inicio">
+        <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
+        <span>TEMOTIVA</span>
+      </a>
+
+      <div class="header-utilities">
+        <!-- Menú principal -->
+        <nav id="mainNav" class="nav-links" aria-label="Menú principal">
+          <a href="/demo.html">App</a>
+          <a href="/particular.html">Talleres</a>
+          <a href="/organizacion.html">Organizaciones</a>
+          <a href="/recursos.html">Recursos</a>
+          <a href="/blog/">Blog</a>
+          <a href="/temotiva-lab.html">Lab</a>
+          <a href="/ctl.html">CTL</a>
+          <a href="/contacto.html">Contacto</a>
+        </nav>
+
+        <!-- Traductor Google -->
+        <div id="google_translate_element" aria-label="Selector de idioma"></div>
+
+        <!-- Botón menú móvil -->
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú de navegación" aria-expanded="false">
+          ☰
+        </button>
+      </div>
+    </div>
   </header>
 
-  <main>
-    <h1>Aviso legal</h1>
+  <main class="content legal-shell" role="main">
+    <div class="legal-main">
+      <article class="legal-card">
+        <h1 class="legal-title">Aviso legal</h1>
 
-    <p><strong>TEMOTIVA</strong> es una plataforma dedicada al bienestar emocional y la educación psicológica. Su contenido tiene carácter informativo y educativo, sin sustituir el diagnóstico, tratamiento ni la intervención de profesionales de la salud mental o sanitaria.</p>
+        <div class="legal-body">
+          <p>
+            <strong>TEMOTIVA</strong> es una plataforma dedicada al bienestar emocional y la educación psicológica.
+            Su contenido tiene carácter informativo y educativo, sin sustituir el diagnóstico, tratamiento
+            ni la intervención de profesionales de la salud mental o sanitaria.
+          </p>
 
-    <div class="box">
-      <p>Ante una urgencia, contacta con el <strong>112</strong> o acude a los servicios de emergencia de tu zona.  
-      Si tienes dudas sobre tu salud o bienestar, consulta siempre con profesionales cualificados.</p>
+          <div class="legal-alert">
+            <p>
+              Ante una urgencia, contacta con el <strong>112</strong> o acude a los servicios de emergencia de tu zona.
+              Si tienes dudas sobre tu salud o bienestar, consulta siempre con profesionales cualificados.
+            </p>
+          </div>
+
+          <h2>Propiedad intelectual</h2>
+          <p>
+            El nombre, logotipo, estructura, diseño y contenidos de TEMOTIVA son propiedad de su autora.
+            Los textos y materiales pueden citarse con atribución, pero no modificarse ni reproducirse
+            con fines comerciales sin consentimiento previo.
+          </p>
+
+          <h2>Condiciones de uso</h2>
+          <ul>
+            <li>El acceso a la web implica la aceptación de este aviso legal.</li>
+            <li>El uso debe ser conforme a la buena fe y la legislación vigente.</li>
+            <li>
+              El usuario se compromete a no utilizar los contenidos con fines ilícitos o que puedan dañar
+              la imagen o intereses de TEMOTIVA.
+            </li>
+          </ul>
+
+          <h2>Limitación de responsabilidad</h2>
+          <p>
+            El uso de la información publicada es responsabilidad exclusiva del usuario.
+            TEMOTIVA no garantiza la disponibilidad permanente del sitio ni la ausencia de errores técnicos,
+            aunque se esfuerza en mantenerlo actualizado y seguro.
+          </p>
+
+          <h2>Enlaces externos</h2>
+          <p>
+            La web puede contener enlaces a recursos de terceros con fines informativos.
+            TEMOTIVA no se responsabiliza del contenido, exactitud ni seguridad de dichos sitios,
+            ni del tratamiento de datos que realicen.
+          </p>
+
+          <h2>Imágenes y material gráfico</h2>
+          <p>
+            Las imágenes utilizadas son de uso libre o generadas mediante inteligencia artificial
+            con fines ilustrativos. No representan a personas reales ni implican derechos de imagen
+            o propiedad ajena.
+          </p>
+
+          <h2>Protección de datos</h2>
+          <p>
+            Los datos personales se tratan conforme al Reglamento General de Protección de Datos (RGPD)
+            y se detallan en la <a href="/privacidad.html">Política de privacidad</a>.
+          </p>
+
+          <h2>Contacto</h2>
+          <p>
+            Responsable: <strong>Equipo TEMOTIVA</strong><br>
+            Correo electrónico:
+            <a href="mailto:info@temotiva.com">info@temotiva.com</a><br>
+            Ubicación: España
+          </p>
+
+          <p class="legal-meta">
+            <small>Última actualización: 1 de noviembre de 2025</small>
+          </p>
+        </div>
+      </article>
     </div>
-
-    <h2>Propiedad intelectual</h2>
-    <p>El nombre, logotipo, estructura, diseño y contenidos de TEMOTIVA son propiedad de su autora. Los textos y materiales pueden citarse con atribución, pero no modificarse ni reproducirse con fines comerciales sin consentimiento previo.</p>
-
-    <h2>Condiciones de uso</h2>
-    <ul>
-      <li>El acceso a la web implica la aceptación de este aviso legal.</li>
-      <li>El uso debe ser conforme a la buena fe y la legislación vigente.</li>
-      <li>El usuario se compromete a no utilizar los contenidos con fines ilícitos o que puedan dañar la imagen o intereses de TEMOTIVA.</li>
-    </ul>
-
-    <h2>Limitación de responsabilidad</h2>
-    <p>El uso de la información publicada es responsabilidad exclusiva del usuario. TEMOTIVA no garantiza la disponibilidad permanente del sitio ni la ausencia de errores técnicos, aunque se esfuerza en mantenerlo actualizado y seguro.</p>
-
-    <h2>Enlaces externos</h2>
-    <p>La web puede contener enlaces a recursos de terceros con fines informativos. TEMOTIVA no se responsabiliza del contenido, exactitud ni seguridad de dichos sitios, ni del tratamiento de datos que realicen.</p>
-
-    <h2>Imágenes y material gráfico</h2>
-    <p>Las imágenes utilizadas son de uso libre o generadas mediante inteligencia artificial con fines ilustrativos. No representan a personas reales ni implican derechos de imagen o propiedad ajena.</p>
-
-    <h2>Protección de datos</h2>
-    <p>Los datos personales se tratan conforme al Reglamento General de Protección de Datos (RGPD) y se detallan en la <a href="/privacidad.html">Política de privacidad</a>.</p>
-
-    <h2>Contacto</h2>
-    <p>Responsable: <strong>Equipo Temotiva</strong><br>
-    Correo electrónico: <a href="mailto:info@temotiva.com">info@temotiva.com</a><br>
-    Ubicación: España</p>
-
-    <p><small>Última actualización: 1 de noviembre de 2025</small></p>
   </main>
 
-  <footer>
-    <p>© TEMOTIVA 2024–2025 · Todos los derechos reservados</p>
-    <a href="/privacidad.html">Política de privacidad</a> · 
-    <a href="/cookies.html">Política de cookies</a>
+  <!-- Footer unificado -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
+      <p style="margin:0;">© TEMOTIVA 2024-2025 · Todos los derechos reservados</p>
+      <div style="display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;">
+        <a href="/privacidad.html">Política de privacidad</a>
+        <a href="/cookies.html">Política de cookies</a>
+        <a href="/aviso-legal.html" aria-current="page">Aviso legal</a>
+      </div>
+    </div>
   </footer>
+
+  <!-- Menú móvil y protección básica de imágenes -->
+  <script>
+    (function(){
+      const menuBtn = document.getElementById('menuBtn');
+      const nav = document.getElementById('mainNav');
+      if(!menuBtn || !nav) return;
+
+      menuBtn.addEventListener('click', ()=>{
+        nav.classList.toggle('open');
+        const expanded = nav.classList.contains('open');
+        menuBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      });
+
+      nav.querySelectorAll('a').forEach(link=>{
+        link.addEventListener('click', ()=>{
+          nav.classList.remove('open');
+          menuBtn.setAttribute('aria-expanded','false');
+        });
+      });
+    })();
+
+    document.addEventListener('contextmenu', function(e){
+      if(e.target.tagName === 'IMG'){
+        e.preventDefault();
+      }
+    });
+  </script>
+
+  <!-- Traductor de Google -->
+  <script>
+    function googleTranslateElementInit(){
+      new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        includedLanguages: 'es,en,fr,it,pt',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
