@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>La App Temotiva | Autocuidado práctico y regulación emocional</title>
+  <title>La App Temotiva | Autocuidado práctico y regulación emocional</title>
 
   <meta name="description" content="App de bienestar emocional para personas adultas con alta carga mental. Rutas guiadas, chequeos rápidos y microprácticas para saber qué hacer cuando te sientes saturada.">
   <meta name="keywords" content="app bienestar emocional, autocuidado diario, regulación emocional, app salud mental no clínica, ansiedad leve, estrés, hábitos de autocuidado, bienestar en el día a día">
@@ -41,7 +41,7 @@
     }
     @media (min-width:880px){
       .app-hero-inner{
-        grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);
+        grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);
         align-items:center;
       }
     }
@@ -75,26 +75,8 @@
       display:flex;
       flex-direction:column;
       gap:.8rem;
-    }
-    .app-pill{
-      background:#fff;
-      border-radius:14px;
-      padding:1rem 1.1rem;
-      box-shadow:0 10px 30px rgba(0,0,0,.06);
-      border:1px solid rgba(0,0,0,.04);
-      font-size:.95rem;
-    }
-    .app-pill h3{
-      margin:0 0 .5rem;
-      font-size:.98rem;
-    }
-    .app-pill ul{
-      list-style:none;
-      padding:0;
-      margin:0;
-      display:grid;
-      gap:.35rem;
-      font-size:.9rem;
+      align-items:center;
+      justify-content:center;
     }
 
     .app-section{
@@ -205,6 +187,21 @@
         font-size:.98rem;
       }
     }
+
+    /* Mockup tech en el hero */
+    .app-hero-mockup{
+      width:100%;
+      max-width:380px;
+      margin:0 auto;
+      filter:drop-shadow(0 14px 40px rgba(0,0,0,.16));
+      animation:floaty 5s ease-in-out infinite;
+      border-radius:22px;
+    }
+    @keyframes floaty{
+      0%{ transform:translateY(0); }
+      50%{ transform:translateY(-10px); }
+      100%{ transform:translateY(0); }
+    }
   </style>
 </head>
 
@@ -258,14 +255,10 @@
         </div>
 
         <div class="app-hero-side">
-          <div class="app-pill">
-            <h3>Para qué sirve en el día a día</h3>
-            <ul>
-              <li>Cuando sales de una reunión, clase o turno con la cabeza llena.</li>
-              <li>Cuando notas ansiedad leve o nudo en el estómago y no sabes qué hacer con ello.</li>
-              <li>Cuando quieres cuidarte más, pero cualquier lista de hábitos te parece imposible.</li>
-            </ul>
-          </div>
+          <img
+            src="/8_Mockup.png"
+            alt="Vista previa de la App TEMOTIVA"
+            class="app-hero-mockup">
         </div>
       </div>
     </section>
