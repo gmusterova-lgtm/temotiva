@@ -4,8 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Temotiva para organizaciones | Programas de bienestar emocional</title>
-
+  <title>Temotiva para organizaciones | Programas de bienestar emocional</title>
 
   <meta name="description" content="App y microprácticas de bienestar emocional para equipos con alta carga emocional. Soluciones sencillas para centros educativos, servicios sociales, ONG y pequeñas empresas.">
   <meta name="keywords" content="bienestar emocional para equipos, app bienestar emocional, autocuidado en organizaciones, prevención desgaste emocional, salud mental trabajo, bienestar para docentes, bienestar servicios sociales">
@@ -32,8 +31,9 @@
   <!-- Estilos específicos de esta página -->
   <style>
     .org-hero{
-      padding:4.5rem 0 4rem;
-      background:linear-gradient(135deg,#f7f7fb,#f0f4ff);
+      padding:4.5rem 0 4.2rem;
+      background:radial-gradient(circle at top left,#e5e8ff,#d9e0ff);
+      border-bottom:1px solid rgba(0,0,0,.05);
     }
     .org-hero-inner{
       max-width:1000px;
@@ -51,7 +51,7 @@
       text-transform:uppercase;
       letter-spacing:.12em;
       font-size:.78rem;
-      opacity:.8;
+      opacity:.85;
       margin:0 0 .35rem;
     }
     .org-title{
@@ -73,11 +73,52 @@
     .org-hero-meta span:nth-child(2n){
       opacity:.5;
     }
+
     .org-hero-side{
       display:flex;
       flex-direction:column;
       gap:.8rem;
+      align-items:center;
+      justify-content:center;
     }
+
+    .org-hero-mockup{
+      width:100%;
+      max-width:380px;
+      margin:0 auto;
+      border-radius:22px;
+      filter:drop-shadow(0 16px 46px rgba(0,0,0,.22));
+      animation:floaty 5s ease-in-out infinite;
+    }
+
+    .org-hero-metrics{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.5rem;
+      margin:.9rem 0 0;
+      font-size:.8rem;
+    }
+    .org-hero-metric{
+      padding:.35rem .8rem;
+      border-radius:999px;
+      background:rgba(255,255,255,.92);
+      border:1px solid rgba(0,0,0,.06);
+      box-shadow:0 6px 20px rgba(0,0,0,.08);
+      display:flex;
+      align-items:center;
+      gap:.25rem;
+      white-space:nowrap;
+    }
+    .org-hero-metric strong{
+      font-weight:600;
+    }
+
+    @keyframes floaty{
+      0%{ transform:translateY(0); }
+      50%{ transform:translateY(-10px); }
+      100%{ transform:translateY(0); }
+    }
+
     .org-pill-card{
       background:#fff;
       border-radius:14px;
@@ -85,6 +126,7 @@
       box-shadow:0 10px 30px rgba(0,0,0,.06);
       border:1px solid rgba(0,0,0,.04);
       font-size:.95rem;
+      margin-top:.6rem;
     }
     .org-pill-title{
       margin:0 0 .4rem;
@@ -262,6 +304,26 @@
         </div>
 
         <div class="org-hero-side">
+          <img
+            src="/3_Mockup.png"
+            alt="Vista previa de Temotiva para equipos y organizaciones"
+            class="org-hero-mockup">
+
+          <div class="org-hero-metrics">
+            <span class="org-hero-metric">
+              <strong>5 a 10 min</strong>
+              por práctica
+            </span>
+            <span class="org-hero-metric">
+              <strong>3 bloques</strong>
+              clave del día
+            </span>
+            <span class="org-hero-metric">
+              <strong>100 %</strong>
+              lenguaje claro
+            </span>
+          </div>
+
           <div class="org-pill-card">
             <p class="org-pill-title">El problema que vemos en los equipos</p>
             <ul class="org-pill-list">
