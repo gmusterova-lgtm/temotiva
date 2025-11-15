@@ -1,40 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Home canónica -->
+  <!-- Página principal -->
   <url>
     <loc>https://www.temotiva.com/</loc>
     <lastmod>2025-11-13</lastmod>
     <priority>1.0</priority>
   </url>
 
-  <!-- Versión inicio (alternativa válida) -->
+  <!-- Versión alternativa de inicio -->
   <url>
     <loc>https://www.temotiva.com/inicio.html</loc>
+    <lastmod>2025-11-13</lastmod>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- App / Demo -->
+  <url>
+    <loc>https://www.temotiva.com/demo.html</loc>
     <lastmod>2025-11-13</lastmod>
     <priority>0.9</priority>
   </url>
 
-  <!-- Páginas centrales -->
+  <!-- Talleres (B2C) -->
+  <url>
+    <loc>https://www.temotiva.com/particular.html</loc>
+    <lastmod>2025-11-13</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Organizaciones (B2B) -->
+  <url>
+    <loc>https://www.temotiva.com/organizacion.html</loc>
+    <lastmod>2025-11-13</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Recursos -->
+  <url>
+    <loc>https://www.temotiva.com/recursos.html</loc>
+    <lastmod>2025-11-13</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog -->
   <url>
     <loc>https://www.temotiva.com/blog/</loc>
     <lastmod>2025-11-13</lastmod>
     <priority>0.8</priority>
   </url>
 
+  <!-- Temotiva LAB -->
   <url>
-    <loc>https://www.temotiva.com/recursos.html</loc>
-    <lastmod>2025-11-13</lastmod>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.temotiva.com/contacto.html</loc>
+    <loc>https://www.temotiva.com/temotiva-lab.html</loc>
     <lastmod>2025-11-13</lastmod>
     <priority>0.6</priority>
   </url>
 
-  <!-- Página offline PWA -->
+  <!-- Cognitiva Tech Lab -->
+  <url>
+    <loc>https://www.temotiva.com/ctl.html</loc>
+    <lastmod>2025-11-13</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Contacto -->
+  <url>
+    <loc>https://www.temotiva.com/contacto.html</loc>
+    <lastmod>2025-11-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Offline PWA -->
   <url>
     <loc>https://www.temotiva.com/offline.html</loc>
     <lastmod>2025-11-13</lastmod>
@@ -45,10 +82,17 @@
   <url>
     <loc>https://www.temotiva.com/privacidad.html</loc>
     <lastmod>2025-11-13</lastmod>
-    <priority>0.4</priority>
+    <priority>0.3</priority>
   </url>
+
   <url>
     <loc>https://www.temotiva.com/cookies.html</loc>
+    <lastmod>2025-11-13</lastmod>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://www.temotiva.com/aviso-legal.html</loc>
     <lastmod>2025-11-13</lastmod>
     <priority>0.3</priority>
   </url>
