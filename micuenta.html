@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>Mi cuenta | Espacio Temotiva</title>
+
+  <meta name="description" content="Espacio personal para acceder a tu cuenta, ver tus talleres y gestionar tu participación en Temotiva.">
+  <link rel="canonical" href="https://www.temotiva.com/micuenta.html">
+
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F7F7F7">
+
+  <link rel="icon" href="/icon-192.png">
+  <link rel="apple-touch-icon" href="/icon-512.png">
+  <link rel="stylesheet" href="/style.css">
+
+  <style>
+    .account-shell{
+      padding-top:4.5rem;
+      background:#f3f4f6;
+      min-height:100vh;
+    }
+    .account-hero{
+      padding:3rem 0 2.4rem;
+      background:linear-gradient(135deg,#f7f7fb,#eef2ff);
+      border-bottom:1px solid rgba(148,163,184,.35);
+    }
+    .account-inner{
+      max-width:960px;
+      margin:0 auto;
+      display:grid;
+      gap:2rem;
+    }
+    @media (min-width:900px){
+      .account-inner{
+        grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);
+        align-items:flex-start;
+      }
+    }
+    .acc-eyebrow{
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:.78rem;
+      opacity:.75;
+      margin:0 0 .4rem;
+    }
+    .acc-title{
+      margin:0 0 .6rem;
+      font-size:clamp(1.9rem,2.6vw,2.3rem);
+    }
+    .acc-lead{
+      margin:0 0 1.1rem;
+      max-width:48ch;
+      opacity:.96;
+      line-height:1.7;
+    }
+    .acc-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      font-size:.9rem;
+      opacity:.9;
+    }
+    .pill-subtle{
+      padding:.25rem .7rem;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,.4);
+      background:#ffffffd9;
+      font-size:.8rem;
+    }
+
+    .acc-panel{
+      background:#ffffff;
+      border-radius:18px;
+      padding:1.6rem 1.4rem;
+      box-shadow:0 12px 32px rgba(15,23,42,.12);
+      border:1px solid rgba(148,163,184,.4);
+      font-size:.95rem;
+    }
+    .acc-panel h2{
+      margin:0 0 .8rem;
+      font-size:1.1rem;
+    }
+    .acc-row{
+      display:flex;
+      flex-direction:column;
+      gap:.25rem;
+      margin-bottom:.6rem;
+      font-size:.9rem;
+    }
+    .acc-label{
+      font-size:.78rem;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      opacity:.7;
+    }
+    .acc-value{
+      font-weight:500;
+    }
+
+    .acc-status{
+      margin-top:.8rem;
+      font-size:.88rem;
+      opacity:.95;
+    }
+
+    .btn-logout{
+      margin-top:1rem;
+      padding:.55rem 1.1rem;
+      border-radius:999px;
+      border:1px solid #dc2626;
+      background:#fef2f2;
+      color:#b91c1c;
+      font-size:.9rem;
+      cursor:pointer;
+      font-weight:500;
+    }
+    .btn-logout:hover{
+      background:#fee2e2;
+    }
+
+    .acc-section{
+      padding:2.8rem 0 3rem;
+    }
+    .acc-section h2{
+      margin:0 0 .5rem;
+      font-size:1.2rem;
+    }
+    .acc-section p{
+      margin:0 0 1rem;
+      opacity:.95;
+    }
+    .acc-empty{
+      padding:1rem 1.1rem;
+      border-radius:14px;
+      border:1px dashed rgba(148,163,184,.7);
+      font-size:.9rem;
+      background:#f9fafb;
+    }
+
+    @media (max-width:720px){
+      .account-hero{
+        padding:2.5rem 0 2rem;
+      }
+      .acc-panel{
+        padding:1.3rem 1.1rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header reutilizado -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="https://www.temotiva.com" class="logo">
+        <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
+        <span>TEMOTIVA</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="/demo.html">App</a>
+        <a href="/particular.html">Talleres</a>
+        <a href="/organizacion.html">Organizaciones</a>
+        <a href="/recursos.html">Recursos</a>
+        <a href="/blog/">Blog</a>
+        <a href="/temotiva-lab.html">Lab</a>
+        <a href="/ctl.html">CTL</a>
+        <a href="/contacto.html">Contacto</a>
+        <a href="/micuenta.html" aria-current="page">Mi cuenta</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="account-shell">
+    <!-- HERO CUENTA -->
+    <section class="account-hero">
+      <div class="account-inner">
+        <div>
+          <p class="acc-eyebrow">Espacio Temotiva</p>
+          <h1 class="acc-title">Tu cuenta y participación en el proyecto</h1>
+          <p class="acc-lead">
+            Desde aquí podrás ver tus datos principales, tus talleres y actividades asociadas a Temotiva. Poco a poco iremos sumando más funciones para personas y organizaciones.
+          </p>
+          <div class="acc-meta">
+            <span class="pill-subtle">Sesión segura con Supabase</span>
+            <span class="pill-subtle">Diseñado para uso responsable</span>
+          </div>
+        </div>
+
+        <!-- Panel usuario -->
+        <aside class="acc-panel" id="account-panel">
+          <h2>Resumen de tu cuenta</h2>
+
+          <div class="acc-row">
+            <span class="acc-label">Correo</span>
+            <span class="acc-value" id="acc-email">Cargando...</span>
+          </div>
+
+          <div class="acc-row">
+            <span class="acc-label">Tipo de cuenta</span>
+            <span class="acc-value" id="acc-type">Sin datos todavía</span>
+          </div>
+
+          <p class="acc-status" id="acc-status">
+            Estamos leyendo tu sesión activa. Si no ves tus datos en unos segundos, es posible que necesites iniciar sesión de nuevo.
+          </p>
+
+          <button type="button" class="btn-logout" id="btn-logout">
+            Cerrar sesión
+          </button>
+        </aside>
+      </div>
+    </section>
+
+    <!-- BLOQUE TALLERES -->
+    <section class="acc-section">
+      <div class="container">
+        <h2>Tus talleres y actividades</h2>
+        <p>
+          Aquí aparecerán los talleres reservados, cursos online y otras actividades vinculadas a tu cuenta de Temotiva.
+        </p>
+
+        <div class="acc-empty" id="acc-talleres">
+          Todavía no hay talleres ni cursos asociados a tu cuenta en esta vista. Usaremos este espacio cuando integremos las reservas y las compras de manera segura.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer básico -->
+  <footer class="site-footer">
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:.8rem;justify-content:space-between;">
+      <p style="margin:0;">© TEMOTIVA y Cognitiva Tech Lab</p>
+      <div style="display:flex;gap:.7rem;">
+        <a href="/privacidad.html">Privacidad</a>
+        <a href="/cookies.html">Cookies</a>
+        <a href="/aviso-legal.html">Aviso legal</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Supabase -->
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL = "https://ejhzxwnhqvcqjqxnuvya.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVqaHp4d25ocXZjcWpxeG51dnlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE1OTg4NTUsImV4cCI6MjA3NzE3NDg1NX0.5tyEz-JqqjDa0Eduy7R2O1U0KO5JgU-vqa4afCb0_Ag";
+
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      const emailSpan = document.getElementById('acc-email');
+      const typeSpan = document.getElementById('acc-type');
+      const statusP = document.getElementById('acc-status');
+      const logoutBtn = document.getElementById('btn-logout');
+
+      // Consultar usuario actual
+      const { data, error } = await supabase.auth.getUser();
+
+      if (error || !data || !data.user) {
+        emailSpan.textContent = 'No hay ninguna sesión activa.';
+        typeSpan.textContent = 'Invitado';
+        statusP.textContent = 'Para ver los detalles de tu cuenta, inicia sesión desde la página de contacto.';
+        statusP.style.color = '#b91c1c';
+      } else {
+        const user = data.user;
+        emailSpan.textContent = user.email || 'Sin correo disponible';
+        typeSpan.textContent = 'En desarrollo para personas y organizaciones.';
+        statusP.textContent = 'Sesión activa. Iremos añadiendo más contenido y opciones en este espacio.';
+        statusP.style.color = '#166534';
+      }
+
+      // Cerrar sesión
+      logoutBtn.addEventListener('click', async () => {
+        await supabase.auth.signOut();
+        window.location.href = '/contacto.html';
+      });
+    });
+  </script>
+
+</body>
+</html>
