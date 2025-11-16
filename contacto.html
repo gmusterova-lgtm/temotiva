@@ -546,14 +546,71 @@
   </script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-  <!-- Supabase: cliente JS -->
+    <!-- Supabase: cliente JS -->
   <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
   <script>
     const SUPABASE_URL = "https://ejhzxwnhqvcqjqxnuvya.supabase.co";
     const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVqaHp4d25ocXZjcWpxeG51dnlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE1OTg4NTUsImV4cCI6MjA3NzE3NDg1NX0.5tyEz-JqqjDa0Eduy7R2O1U0KO5JgU-vqa4afCb0_Ag";
 
     const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const loginForm = document.getElementById('login-form');
+      const emailInput = document.getElementById('login-email');
+      const passwordInput = document.getElementById('login-password');
+
+      if (!loginForm || !emailInput || !passwordInput) return;
+
+      // Mensaje de estado debajo del botón
+      const message = document.createElement('p');
+      message.id = 'login-message';
+      message.style.marginTop = '0.5rem';
+      message.style.fontSize = '.9rem';
+      message.style.textAlign = 'center';
+      message.style.opacity = '0.95';
+
+      const loginLinks = document.querySelector('.login-links');
+      if (loginLinks && loginForm.contains(loginLinks)) {
+        loginForm.insertBefore(message, loginLinks);
+      } else {
+        loginForm.appendChild(message);
+      }
+
+      loginForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const email = emailInput.value.trim();
+        const password = passwordInput.value;
+
+        if (!email || !password) {
+          message.textContent = 'Por favor, rellena el correo y la contraseña.';
+          message.style.color = '#b91c1c';
+          return;
+        }
+
+        message.textContent = 'Iniciando sesión...';
+        message.style.color = '#4b5563';
+
+        const { data, error } = await supabase.auth.signInWithPassword({
+          email,
+          password
+        });
+
+        if (error) {
+          console.error(error);
+          message.textContent = 'No hemos podido iniciar sesión. Revisa el correo y la contraseña o confirma tu cuenta.';
+          message.style.color = '#b91c1c';
+          return;
+        }
+
+        message.textContent = 'Sesión iniciada correctamente.';
+        message.style.color = '#166534';
+        // Aquí más adelante podrás redirigir, por ejemplo:
+        // window.location.href = '/demo.html';
+      });
+    });
   </script>
+
 
 </body>
 </html>
