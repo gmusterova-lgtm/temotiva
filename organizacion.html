@@ -31,16 +31,18 @@
 </head>
 
 <body>
-  <!-- Overlay para menú lateral -->
+
+  <!-- Overlay -->
   <div id="overlay" class="overlay" aria-hidden="true"></div>
 
-  <!-- Header global TEMOTIVA® -->
+  <!-- Header unificado -->
   <header class="site-header" id="siteHeader" role="banner">
     <div class="container nav">
+
       <!-- Logo -->
-      <a href="https://www.temotiva.com" class="logo" aria-label="Ir al inicio">
-        <img src="/logo-temotiva.png" alt="Logo Temotiva®" width="36" height="36">
-        <span>Temotiva®</span>
+      <a href="https://www.temotiva.com" class="logo" aria-label="Ir a inicio">
+        <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
+        <span>TEMOTIVA</span>
       </a>
 
       <!-- Menú principal -->
@@ -55,16 +57,32 @@
         <a href="/contacto.html">Contacto</a>
       </nav>
 
-      <!-- Acciones header: traductor + menú móvil -->
-      <div class="header-actions" role="group" aria-label="Acciones de página">
-        <div id="google_translate_element" aria-label="Selector de idioma"></div>
-        <button id="menuBtn" class="menu-btn" aria-label="Abrir menú lateral" aria-controls="sidePanel" aria-expanded="false">☰</button>
+      <!-- Acciones header -->
+      <div class="header-actions" role="group" aria-label="Acciones" style="display:flex;align-items:center;gap:.6rem;">
+        
+        <div id="google_translate_element" aria-label="Cambiar idioma"></div>
+
+        <button id="installBtn" class="icon-btn" aria-label="Instalar Temotiva" hidden>
+          Instalar
+        </button>
+
+        <button id="menuBtn" class="menu-btn icon-btn" aria-label="Abrir menú" aria-controls="sidePanel" aria-expanded="false">
+          ☰
+        </button>
+
       </div>
+
     </div>
   </header>
 
-  <!-- Menú lateral -->
+  <!-- Panel lateral unificado -->
   <nav id="sidePanel" class="sidebar" aria-label="Menú lateral" aria-hidden="true">
+
+    <a class="logo-side" href="https://www.temotiva.com">
+      <img src="/logo-temotiva.png" alt="" aria-hidden="true" width="32" height="32">
+      <span>TEMOTIVA</span>
+    </a>
+
     <ul class="menu-list" role="list">
       <li><a href="/demo.html">App</a></li>
       <li><a href="/particular.html">Talleres</a></li>
@@ -74,11 +92,15 @@
       <li><a href="/temotiva-lab.html">Lab</a></li>
       <li><a href="/ctl.html">CTL</a></li>
       <li><a href="/contacto.html">Contacto</a></li>
-      <li><a href="/privacidad.html">Privacidad</a></li>
     </ul>
+
+    <a class="privacy-link" href="/privacidad.html">Privacidad</a>
   </nav>
 
+
+  <!-- CONTENIDO ORIGINAL (no tocado) -->
   <main class="content" role="main">
+
     <!-- HERO organizaciones -->
     <section class="section org-hero" id="org-hero" aria-labelledby="org-hero-title">
       <div class="container org-hero-inner">
@@ -123,16 +145,16 @@
         <div class="org-hero-side">
           <img
             src="/3_Mockup.png"
-            alt="Vista previa de Temotiva® aplicada a equipos y organizaciones"
+            alt="Vista previa de Temotiva aplicada a equipos y organizaciones"
             class="org-hero-mockup protected-media">
         </div>
       </div>
     </section>
 
-    <!-- Bloque: qué aporta Temotiva® a las organizaciones -->
+    <!-- Bloque: qué aporta Temotiva a las organizaciones -->
     <section class="org-section" id="org-que-aporta" aria-labelledby="org-que-aporta-title">
       <div class="container">
-        <h2 id="org-que-aporta-title">Qué aporta Temotiva® a tu organización</h2>
+        <h2 id="org-que-aporta-title">Qué aporta Temotiva a tu organización</h2>
         <p class="org-lead">
           No son solo charlas puntuales. Son espacios pensados para que las personas se lleven herramientas concretas, fáciles de aplicar y sostenibles en su día a día laboral.
         </p>
@@ -187,7 +209,7 @@
           <article class="org-card">
             <h3>Material y seguimiento</h3>
             <p>
-              Entregamos resúmenes claros, propuestas para los siguientes días y acceso a ejercicios relacionados a través de Temotiva® y su ecosistema.
+              Entregamos resúmenes claros, propuestas para los siguientes días y acceso a ejercicios relacionados a través de Temotiva y su ecosistema.
             </p>
             <div class="org-chips">
               <span class="org-chip">Recursos descargables</span>
@@ -198,16 +220,16 @@
       </div>
     </section>
 
-    <!-- Catálogo de talleres empresas Temotiva® -->
+    <!-- Catálogo de talleres -->
     <section class="org-section" id="org-catalog" aria-labelledby="org-catalog-title">
       <div class="container">
-        <h2 id="org-catalog-title">Catálogo de talleres para empresas Temotiva®</h2>
+        <h2 id="org-catalog-title">Catálogo de talleres para empresas Temotiva</h2>
         <p class="org-lead">
           Talleres diseñados para equipos con alta carga mental, entornos de trabajo intensos y organizaciones que quieren integrar el bienestar emocional en su cultura.
         </p>
 
         <section class="org-catalog" aria-label="Listado de talleres para empresas Temotiva">
-          <p class="org-catalog-title">Talleres para empresas Temotiva®</p>
+          <p class="org-catalog-title">Talleres para empresas Temotiva</p>
           <p class="org-catalog-sub">
             Cada taller se puede adaptar en duración, profundidad y ejemplos al tipo de equipo y sector de tu organización.
           </p>
@@ -297,7 +319,7 @@
       </div>
     </section>
 
-    <!-- Cómo trabajamos con organizaciones -->
+    <!-- Cómo trabajamos -->
     <section class="org-section alt" id="org-pasos" aria-labelledby="org-pasos-title">
       <div class="container">
         <h2 id="org-pasos-title">Cómo trabajamos contigo</h2>
@@ -330,7 +352,7 @@
       </div>
     </section>
 
-    <!-- Formulario de contacto para organizaciones -->
+    <!-- Formulario de contacto -->
     <section class="org-section" id="org-form" aria-labelledby="org-form-title">
       <div class="container org-form-wrap">
         <h2 id="org-form-title">Quiero información para mi organización</h2>
@@ -403,13 +425,15 @@
         </div>
       </div>
     </section>
+
   </main>
 
-  <!-- Footer global coherente -->
+
+  <!-- Footer global -->
   <footer class="site-footer" role="contentinfo">
     <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
       <p style="margin:0;">
-        © Temotiva® desde 2024. Temotiva® marca registrada desde 2025.
+        © Temotiva desde 2024. Temotiva marca registrada desde 2025.
       </p>
       <div style="display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;">
         <a href="/privacidad.html">Política de privacidad</a>
@@ -418,6 +442,7 @@
       </div>
     </div>
   </footer>
+
 
   <!-- Google Translate script -->
   <script>
@@ -431,16 +456,14 @@
   </script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-  <!-- Bloqueo básico impresión e imágenes protegidas -->
+  <!-- Bloqueo imágenes impresión -->
   <script>
-    // Bloquear menú contextual solo en imágenes protegidas
     document.addEventListener('contextmenu', function(e){
       if (e.target.matches('img.protected-media')){
         e.preventDefault();
       }
     });
 
-    // Bloquear atajo de impresión en esta página
     document.addEventListener('keydown', function(e){
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'p'){
         e.preventDefault();
@@ -448,5 +471,6 @@
       }
     });
   </script>
+
 </body>
 </html>
