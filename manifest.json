@@ -24,12 +24,13 @@
     "productivity"
   ],
   "prefer_related_applications": false,
+
   "icons": [
     {
       "src": "/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
       "src": "/icon-256.png",
@@ -47,19 +48,7 @@
       "src": "/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/icon-maskable-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/icon-maskable-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     },
     {
       "src": "/icon-mono-192.png",
@@ -68,36 +57,45 @@
       "purpose": "monochrome"
     }
   ],
+
   "screenshots": [
-  {
-    "src": "/screenshot-1.png",
-    "sizes": "828x1792",
-    "type": "image/png",
-    "form_factor": "narrow",
-    "label": "Pantalla de inicio TEMOTIVA"
-  },
-  {
-    "src": "/screenshot-2.png",
-    "sizes": "828x1792",
-    "type": "image/png",
-    "form_factor": "narrow",
-    "label": "Interfaz del blog TEMOTIVA"
-  },
-  {
-    "src": "/screenshot-3.png",
-    "sizes": "828x1792",
-    "type": "image/png",
-    "form_factor": "narrow",
-    "label": "Chequeo diario"
-  },
-  {
-    "src": "/screenshot-4.png",
-    "sizes": "828x1792",
-    "type": "image/png",
-    "form_factor": "narrow",
-    "label": "Ejercicios guiados"
-  }
-],
+    {
+      "src": "/screenshot-1.png",
+      "sizes": "828x1792",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Pantalla de inicio TEMOTIVA"
+    },
+    {
+      "src": "/screenshot-2.png",
+      "sizes": "828x1792",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Interfaz del blog TEMOTIVA"
+    },
+    {
+      "src": "/screenshot-3.png",
+      "sizes": "828x1792",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Chequeo diario"
+    },
+    {
+      "src": "/screenshot-4.png",
+      "sizes": "828x1792",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Ejercicios guiados"
+    },
+    {
+      "src": "/screenshot-wide-1.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Vista de TEMOTIVA en escritorio"
+    }
+  ],
+
   "shortcuts": [
     {
       "name": "Blog",
@@ -139,6 +137,7 @@
       ]
     }
   ],
+
   "share_target": {
     "action": "/share.html",
     "method": "POST",
@@ -157,6 +156,7 @@
       ]
     }
   },
+
   "file_handlers": [
     {
       "action": "/open.html",
@@ -174,22 +174,28 @@
       }
     }
   ],
+
   "protocol_handlers": [
     {
       "protocol": "web+temotiva",
       "url": "/inicio.html?data=%s"
     }
   ],
+
   "launch_handler": {
     "client_mode": "focus-existing"
   },
+
   "handle_links": "preferred",
+
   "edge_side_panel": {
     "preferred_width": 420
   },
+
   "note_taking": {
     "new_note_url": "/nota.html"
   },
+
   "tabs": [
     {
       "url": "/inicio.html",
