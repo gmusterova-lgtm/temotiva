@@ -34,7 +34,7 @@
   </script>
 
   <style>
-    /* Utilidades de cabecera: traductor y ajustes */
+    /* Utilidades de cabecera, traductor y ajustes */
 
     .header-utilities{
       display:flex;
@@ -242,6 +242,115 @@
         padding:1.25rem 1.1rem 1.8rem;
       }
     }
+
+    /* Login estilo startup TEMOTIVA */
+
+    .login-layout{
+      display:grid;
+      gap:2rem;
+      align-items:center;
+    }
+    @media (min-width:880px){
+      .login-layout{
+        grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);
+      }
+    }
+
+    .login-copy{
+      max-width:480px;
+    }
+    .login-title{
+      margin:0 0 .7rem;
+      font-size:clamp(1.6rem,2.4vw,2rem);
+    }
+    .login-sub{
+      margin:0 0 1rem;
+      opacity:.95;
+      line-height:1.6;
+    }
+    .login-benefits{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:.4rem;
+      font-size:.9rem;
+      opacity:.95;
+    }
+
+    .login-box{
+      background:#ffffff;
+      border-radius:16px;
+      padding:1.6rem 1.4rem;
+      box-shadow:0 12px 32px rgba(15,23,42,.12);
+      border:1px solid rgba(148,163,184,.4);
+      max-width:420px;
+      margin:0 auto;
+    }
+    .login-box form{
+      display:grid;
+      gap:.9rem;
+    }
+    .form-group{
+      margin-bottom:.1rem;
+    }
+    .form-group label{
+      display:block;
+      margin-bottom:.3rem;
+      font-size:.9rem;
+      font-weight:500;
+    }
+    .form-group input{
+      width:100%;
+      padding:.65rem .7rem;
+      border-radius:10px;
+      border:1px solid #d1d5db;
+      font-size:1rem;
+      background:#f9fafb;
+    }
+    .form-group input:focus{
+      outline:2px solid #3b82f6;
+      outline-offset:1px;
+      background:#ffffff;
+    }
+    .login-btn{
+      width:100%;
+      padding:.8rem;
+      border-radius:999px;
+      border:none;
+      font-size:1rem;
+      font-weight:500;
+      cursor:pointer;
+      background:#111827;
+      color:#ffffff;
+      transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+      box-shadow:0 10px 28px rgba(15,23,42,.2);
+    }
+    .login-btn:hover{
+      background:#020617;
+      transform:translateY(-1px);
+      box-shadow:0 16px 40px rgba(15,23,42,.28);
+    }
+    .login-links{
+      margin:0;
+      margin-top:.3rem;
+      font-size:.9rem;
+      text-align:center;
+      opacity:.95;
+    }
+    .login-links a{
+      color:#2563eb;
+      text-decoration:none;
+    }
+    .login-links a:hover{
+      text-decoration:underline;
+    }
+
+    @media (max-width:720px){
+      .login-box{
+        padding:1.3rem 1.1rem 1.5rem;
+      }
+    }
   </style>
 </head>
 
@@ -249,7 +358,7 @@
   <!-- Header unificado con menú y traductor -->
   <header class="site-header" id="siteHeader" role="banner">
     <div class="container nav">
-      <!-- Logo: siempre lleva a la Home -->
+      <!-- Logo, siempre lleva a la Home -->
       <a href="https://www.temotiva.com" class="logo" aria-label="Ir a inicio">
         <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
         <span>TEMOTIVA</span>
@@ -310,6 +419,44 @@
             </ul>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- LOGIN TEMOTIVA, ESTILO STARTUP -->
+    <section class="ct-section alt" id="login-temotiva" aria-labelledby="login-temotiva-title">
+      <div class="container login-layout">
+        <div class="login-copy">
+          <h2 id="login-temotiva-title" class="login-title">Accede a tu espacio TEMOTIVA</h2>
+          <p class="login-sub">
+            Centraliza tu acceso a la app y a los próximos contenidos de TEMOTIVA, desde un mismo lugar. Una cuenta para web y app, pensada para acompañarte en tu bienestar emocional en el día a día.
+          </p>
+          <ul class="login-benefits">
+            <li>Una cuenta única para web y app.</li>
+            <li>Acceso desde cualquier dispositivo.</li>
+            <li>Preparado para futuros talleres y contenidos premium.</li>
+          </ul>
+        </div>
+
+        <section class="login-box" aria-label="Formulario de acceso a cuenta">
+          <form id="login-form">
+            <div class="form-group">
+              <label for="login-email">Correo electrónico</label>
+              <input type="email" id="login-email" required placeholder="tu correo">
+            </div>
+
+            <div class="form-group">
+              <label for="login-password">Contraseña</label>
+              <input type="password" id="login-password" required placeholder="tu contraseña">
+            </div>
+
+            <button type="submit" class="login-btn">Iniciar sesión</button>
+
+            <p class="login-links">
+              <a href="#" id="forgot-password">¿Olvidaste tu contraseña?</a><br>
+              <a href="#" id="go-register">¿No tienes cuenta? Crear cuenta</a>
+            </p>
+          </form>
+        </section>
       </div>
     </section>
 
@@ -410,31 +557,6 @@
     </section>
   </main>
 
-
-  <section class="login-box">
-  <h2 class="login-title">Accede a tu cuenta</h2>
-
-  <form id="login-form">
-    <div class="form-group">
-      <label for="login-email">Correo electrónico</label>
-      <input type="email" id="login-email" required placeholder="tu correo">
-    </div>
-
-    <div class="form-group">
-      <label for="login-password">Contraseña</label>
-      <input type="password" id="login-password" required placeholder="tu contraseña">
-    </div>
-
-    <button type="submit" class="login-btn">Iniciar sesión</button>
-
-    <p class="login-links">
-      <a href="#" id="forgot-password">¿Olvidaste tu contraseña?</a><br>
-      <a href="#" id="go-register">¿No tienes cuenta? Crear cuenta</a>
-    </p>
-  </form>
-</section>
-
-  
   <!-- Footer unificado -->
   <footer class="site-footer" role="contentinfo">
     <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
