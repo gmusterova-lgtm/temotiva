@@ -959,3 +959,44 @@ img {
 /* Titlebar (por si algun layout lo usa) */
 .titlebar { pointer-events: none; }
 .titlebar .controls { pointer-events: auto; }
+
+/* Traductor Google minimal en cabecera */
+#google_translate_element {
+  display: inline-flex;
+  align-items: center;
+  padding: .25rem .7rem;
+  border-radius: 999px;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  font-size: .78rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+#google_translate_element .goog-te-gadget {
+  font-family: inherit;
+  font-size: .78rem !important;
+}
+
+#google_translate_element img {
+  display: none !important;
+}
+
+#google_translate_element select {
+  border: none;
+  background: transparent;
+  font-size: .78rem;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+}
+
+.goog-te-banner-frame.skiptranslate,
+body > .goog-te-spinner-pos {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
