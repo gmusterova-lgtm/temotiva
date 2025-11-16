@@ -89,7 +89,7 @@
     },
     {
       "src": "/screenshot-wide-1.png",
-      "sizes": "1920x1080",
+   "sizes": "1440x900",
       "type": "image/png",
       "form_factor": "wide",
       "label": "Vista de TEMOTIVA en escritorio"
