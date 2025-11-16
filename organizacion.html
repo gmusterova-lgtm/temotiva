@@ -31,14 +31,12 @@
 </head>
 
 <body>
-
-  <!-- Overlay -->
+  <!-- Overlay para menú lateral -->
   <div id="overlay" class="overlay" aria-hidden="true"></div>
 
-  <!-- Header unificado -->
+  <!-- Header global TEMOTIVA® (igual que index, con Org activa) -->
   <header class="site-header" id="siteHeader" role="banner">
     <div class="container nav">
-
       <!-- Logo -->
       <a href="https://www.temotiva.com" class="logo" aria-label="Ir a inicio">
         <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
@@ -57,27 +55,26 @@
         <a href="/contacto.html">Contacto</a>
       </nav>
 
-      <!-- Acciones header -->
+      <!-- Acciones header: traductor + instalar + menú -->
       <div class="header-actions" role="group" aria-label="Acciones" style="display:flex;align-items:center;gap:.6rem;">
-        
+        <!-- Traductor Google -->
         <div id="google_translate_element" aria-label="Cambiar idioma"></div>
 
+        <!-- Botón instalar (PWA) -->
         <button id="installBtn" class="icon-btn" aria-label="Instalar Temotiva" hidden>
           Instalar
         </button>
 
+        <!-- Botón menú lateral móvil -->
         <button id="menuBtn" class="menu-btn icon-btn" aria-label="Abrir menú" aria-controls="sidePanel" aria-expanded="false">
           ☰
         </button>
-
       </div>
-
     </div>
   </header>
 
-  <!-- Panel lateral unificado -->
+  <!-- Menú lateral -->
   <nav id="sidePanel" class="sidebar" aria-label="Menú lateral" aria-hidden="true">
-
     <a class="logo-side" href="https://www.temotiva.com">
       <img src="/logo-temotiva.png" alt="" aria-hidden="true" width="32" height="32">
       <span>TEMOTIVA</span>
@@ -92,15 +89,11 @@
       <li><a href="/temotiva-lab.html">Lab</a></li>
       <li><a href="/ctl.html">CTL</a></li>
       <li><a href="/contacto.html">Contacto</a></li>
+      <li><a href="/privacidad.html">Privacidad</a></li>
     </ul>
-
-    <a class="privacy-link" href="/privacidad.html">Privacidad</a>
   </nav>
 
-
-  <!-- CONTENIDO ORIGINAL (no tocado) -->
   <main class="content" role="main">
-
     <!-- HERO organizaciones -->
     <section class="section org-hero" id="org-hero" aria-labelledby="org-hero-title">
       <div class="container org-hero-inner">
@@ -220,7 +213,7 @@
       </div>
     </section>
 
-    <!-- Catálogo de talleres -->
+    <!-- Catálogo de talleres empresas Temotiva -->
     <section class="org-section" id="org-catalog" aria-labelledby="org-catalog-title">
       <div class="container">
         <h2 id="org-catalog-title">Catálogo de talleres para empresas Temotiva</h2>
@@ -319,7 +312,7 @@
       </div>
     </section>
 
-    <!-- Cómo trabajamos -->
+    <!-- Cómo trabajamos con organizaciones -->
     <section class="org-section alt" id="org-pasos" aria-labelledby="org-pasos-title">
       <div class="container">
         <h2 id="org-pasos-title">Cómo trabajamos contigo</h2>
@@ -352,7 +345,7 @@
       </div>
     </section>
 
-    <!-- Formulario de contacto -->
+    <!-- Formulario de contacto para organizaciones -->
     <section class="org-section" id="org-form" aria-labelledby="org-form-title">
       <div class="container org-form-wrap">
         <h2 id="org-form-title">Quiero información para mi organización</h2>
@@ -425,15 +418,13 @@
         </div>
       </div>
     </section>
-
   </main>
 
-
-  <!-- Footer global -->
+  <!-- Footer global coherente -->
   <footer class="site-footer" role="contentinfo">
     <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
       <p style="margin:0;">
-        © Temotiva desde 2024. Temotiva marca registrada desde 2025.
+        © Temotiva® desde 2024. Temotiva® marca registrada desde 2025.
       </p>
       <div style="display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;">
         <a href="/privacidad.html">Política de privacidad</a>
@@ -442,7 +433,6 @@
       </div>
     </div>
   </footer>
-
 
   <!-- Google Translate script -->
   <script>
@@ -456,14 +446,46 @@
   </script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-  <!-- Bloqueo imágenes impresión -->
+  <!-- JS global -->
+  <script src="/script.js" defer></script>
+
+  <!-- JS menú lateral y bloqueo básico impresión/imágenes protegidas -->
   <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      var menuBtn = document.getElementById('menuBtn');
+      var sidePanel = document.getElementById('sidePanel');
+      var overlay = document.getElementById('overlay');
+
+      if (menuBtn && sidePanel){
+        menuBtn.addEventListener('click', function(){
+          var isOpen = sidePanel.classList.contains('is-open');
+          sidePanel.classList.toggle('is-open', !isOpen);
+          sidePanel.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+          if (overlay){
+            overlay.classList.toggle('show', !isOpen);
+          }
+          menuBtn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+        });
+      }
+
+      if (overlay && sidePanel && menuBtn){
+        overlay.addEventListener('click', function(){
+          sidePanel.classList.remove('is-open');
+          sidePanel.setAttribute('aria-hidden','true');
+          overlay.classList.remove('show');
+          menuBtn.setAttribute('aria-expanded','false');
+        });
+      }
+    });
+
+    // Bloquear menú contextual solo en imágenes protegidas
     document.addEventListener('contextmenu', function(e){
       if (e.target.matches('img.protected-media')){
         e.preventDefault();
       }
     });
 
+    // Bloquear atajo de impresión en esta página
     document.addEventListener('keydown', function(e){
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'p'){
         e.preventDefault();
@@ -471,6 +493,5 @@
       }
     });
   </script>
-
 </body>
 </html>
