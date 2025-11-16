@@ -257,16 +257,32 @@
     }
 
     .login-copy{
-      max-width:480px;
+      max-width:520px;
+    }
+    .login-eyebrow{
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:.78rem;
+      opacity:.75;
+      margin:0 0 .4rem;
     }
     .login-title{
       margin:0 0 .7rem;
-      font-size:clamp(1.6rem,2.4vw,2rem);
+      font-size:clamp(1.7rem,2.5vw,2.1rem);
     }
     .login-sub{
       margin:0 0 1rem;
-      opacity:.95;
-      line-height:1.6;
+      opacity:.96;
+      line-height:1.65;
+    }
+    .login-highlight{
+      display:inline-block;
+      padding:.18rem .5rem;
+      border-radius:999px;
+      background:rgba(59,130,246,.08);
+      font-size:.82rem;
+      font-weight:500;
+      margin-bottom:.6rem;
     }
     .login-benefits{
       list-style:none;
@@ -389,51 +405,21 @@
   </header>
 
   <main class="content ct-shell" role="main">
-    <!-- HERO CONTACTO -->
-    <section class="section ct-hero" id="contacto-hero" aria-labelledby="contacto-hero-title">
-      <div class="container ct-hero-inner">
-        <div>
-          <p class="ct-eyebrow">Hablemos</p>
-          <h1 id="contacto-hero-title" class="ct-title">
-            Contacto con TEMOTIVA y Cognitiva Tech Lab
-          </h1>
-          <p class="ct-hero-text">
-            Si tienes dudas sobre la app, talleres, recursos o posibles colaboraciones, puedes escribirnos desde aquí.
-          </p>
-          <div class="ct-hero-meta">
-            <span>Consultas de personas</span>
-            <span>·</span>
-            <span>Organizaciones y proyectos</span>
-            <span>·</span>
-            <span>Alianzas y propuestas</span>
-          </div>
-        </div>
 
-        <div class="ct-hero-side">
-          <div class="ct-pill">
-            <h3>Usa este formulario si</h3>
-            <ul>
-              <li>Quieres información sobre la app o próximos talleres.</li>
-              <li>Representas un centro, entidad o equipo y te interesa colaborar.</li>
-              <li>Necesitas aclarar algún aspecto de los proyectos en marcha.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- LOGIN TEMOTIVA, ESTILO STARTUP -->
+    <!-- LOGIN TEMOTIVA, ARRIBA ESTILO STARTUP -->
     <section class="ct-section alt" id="login-temotiva" aria-labelledby="login-temotiva-title">
       <div class="container login-layout">
         <div class="login-copy">
-          <h2 id="login-temotiva-title" class="login-title">Accede a tu espacio TEMOTIVA</h2>
+          <p class="login-eyebrow">Acceso a la app y al entorno web</p>
+          <span class="login-highlight">Espacio TEMOTIVA para personas con alta carga mental</span>
+          <h1 id="login-temotiva-title" class="login-title">Accede a tu espacio TEMOTIVA</h1>
           <p class="login-sub">
-            Centraliza tu acceso a la app y a los próximos contenidos de TEMOTIVA, desde un mismo lugar. Una cuenta para web y app, pensada para acompañarte en tu bienestar emocional en el día a día.
+            Crea o usa tu cuenta para entrar en la app, probar nuevas funcionalidades y, en el futuro, gestionar tus talleres, contenidos premium y microprácticas guardadas desde un solo lugar.
           </p>
           <ul class="login-benefits">
-            <li>Una cuenta única para web y app.</li>
-            <li>Acceso desde cualquier dispositivo.</li>
-            <li>Preparado para futuros talleres y contenidos premium.</li>
+            <li>Una cuenta única para web y app TEMOTIVA.</li>
+            <li>Acceso sencillo, pensado para días de poca energía mental.</li>
+            <li>Estructura lista para futuros pagos con tarjeta y planes avanzados.</li>
           </ul>
         </div>
 
@@ -457,6 +443,39 @@
             </p>
           </form>
         </section>
+      </div>
+    </section>
+
+    <!-- HERO CONTACTO -->
+    <section class="section ct-hero" id="contacto-hero" aria-labelledby="contacto-hero-title">
+      <div class="container ct-hero-inner">
+        <div>
+          <p class="ct-eyebrow">Hablemos</p>
+          <h2 id="contacto-hero-title" class="ct-title">
+            Contacto con TEMOTIVA y Cognitiva Tech Lab
+          </h2>
+          <p class="ct-hero-text">
+            Si tienes dudas sobre la app, talleres, recursos o posibles colaboraciones, puedes escribirnos desde aquí.
+          </p>
+          <div class="ct-hero-meta">
+            <span>Consultas de personas</span>
+            <span>·</span>
+            <span>Organizaciones y proyectos</span>
+            <span>·</span>
+            <span>Alianzas y propuestas</span>
+          </div>
+        </div>
+
+        <div class="ct-hero-side">
+          <div class="ct-pill">
+            <h3>Usa este formulario si</h3>
+            <ul>
+              <li>Quieres información sobre la app o próximos talleres.</li>
+              <li>Representas un centro, entidad o equipo y te interesa colaborar.</li>
+              <li>Necesitas aclarar algún aspecto de los proyectos en marcha.</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
