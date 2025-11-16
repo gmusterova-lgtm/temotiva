@@ -60,28 +60,28 @@
 
   "screenshots": [
     {
-      "src": "/screenshot-1.png",
+      "src": "/App_1.png",
       "sizes": "1024x1536",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Pantalla de Autoexploración"
     },
     {
-      "src": "/screenshot-2.png",
+      "src": "/App_2.png",
       "sizes": "1024x1536",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Interfaz de Recursos"
     },
     {
-      "src": "/screenshot-3.png",
+      "src": "/App_3.png",
       "sizes": "1024x1536",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Pantalla de Autoeevaluación"
     },
     {
-      "src": "/screenshot-4.png",
+      "src": "/App_4.png",
       "sizes": "1024x1536",
       "type": "image/png",
       "form_factor": "narrow",
