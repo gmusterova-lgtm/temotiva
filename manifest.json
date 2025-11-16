@@ -23,7 +23,20 @@
     "lifestyle",
     "productivity"
   ],
+
   "prefer_related_applications": false,
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://www.temotiva.com/manifest.json"
+    }
+  ],
+
+  "iarc_rating_id": "IARC_TEMOTIVA",
+
+  "scope_extensions": [
+    "https://www.temotiva.com"
+  ],
 
   "icons": [
     {
@@ -89,7 +102,7 @@
     },
     {
       "src": "/screenshot-wide-1.png",
-   "sizes": "1440x900",
+      "sizes": "1440x900",
       "type": "image/png",
       "form_factor": "wide",
       "label": "Vista de Temotiva en escritorio"
