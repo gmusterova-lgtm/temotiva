@@ -26,13 +26,17 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Contenedor universal centrado */
+/* Contenedores centrados */
 .container{
-  max-width: 1200px;
+  width: min(1100px, 92%);
   margin: 0 auto;
   padding: 0 1.2rem;
 }
 
+.container-narrow {
+  width: min(820px, 92%);
+  margin: 0 auto;
+}
 
 img, video { max-width: 100%; height: auto; display: block; }
 a, button, input, textarea, select { font: inherit; }
@@ -48,10 +52,6 @@ a { color: inherit; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
-
-/* Contenedor */
-.container { width: min(1100px, 92%); margin: 0 auto; }
-.container-narrow { width: min(820px, 92%); margin: 0 auto; }
 
 /* ===== HEADER GLOBAL ===== */
 
@@ -139,12 +139,6 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: .12em;
   color: var(--ink-soft);
 }
-#google_translate_element {
-  font-size: .78rem;
-  border-radius: 999px;
-  padding: .15rem .45rem;
-  background: #f3f4ff;
-}
 
 /* Overlay para menú lateral */
 .overlay {
@@ -212,7 +206,7 @@ a { color: inherit; text-decoration: none; }
     z-index: 1200;
   }
   .nav-links.open { display: flex; }
-  .header-translate { display: none; } /* el traductor se puede poner en el lateral si quieres */
+  .header-translate { display: none; }
 }
 
 /* ===== SECCIONES GENERALES ===== */
@@ -262,6 +256,8 @@ html:not(.js-ready) .reveal { opacity: 1; transform: none; }
   grid-template-columns: minmax(0,1.35fr) minmax(0,1fr);
   gap: 2.3rem;
   align-items: center;
+  width: min(1100px, 92%);
+  margin: 0 auto;
 }
 .hero-copy { max-width: 36rem; }
 .hero-kicker {
@@ -340,7 +336,7 @@ html:not(.js-ready) .reveal { opacity: 1; transform: none; }
   overflow: visible;
 }
 
-/* Sin glow ni nada extra */
+/* Sin glow */
 .hero-device-glow {
   display: none;
 }
@@ -354,9 +350,6 @@ html:not(.js-ready) .reveal { opacity: 1; transform: none; }
   border-radius: 0;
   transform: none;
 }
-
-
-
 
 /* ===== BOTONES ===== */
 
@@ -520,7 +513,7 @@ select:focus-visible {
   color: #111;
 }
 
-/* Mensaje “sin conexión” */
+/* Mensaje sin conexión */
 .offline-card {
   max-width: 600px;
   margin: 10vh auto;
@@ -960,7 +953,7 @@ select:focus-visible {
   }
 }
 
-/* También evitar arrastrar imágenes (no las rompe, pero dificulta guardarlas rápido) */
+/* Evitar arrastrar imágenes */
 img {
   -webkit-user-drag: none;
 }
@@ -1000,17 +993,9 @@ img {
   cursor: pointer;
 }
 
+/* Arreglos traductor Google que rompe el layout */
 .goog-te-banner-frame.skiptranslate,
 body > .goog-te-spinner-pos {
-  display: none !important;
-}
-
-body {
-  top: 0 !important;
-}
-
-/* Arreglo del traductor Google que rompe el layout */
-.goog-te-banner-frame.skiptranslate {
   display: none !important;
 }
 
@@ -1032,6 +1017,8 @@ body {
   max-width: 120px !important;
   overflow: hidden;
 }
+
+/* ===== LOGIN BOX ===== */
 
 .login-box{
   background:#fff;
