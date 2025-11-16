@@ -296,7 +296,7 @@
 <body>
   <!-- Header -->
   <header class="site-header" id="siteHeader" role="banner">
-    <div class="container nav">
+       <div class="container nav">
       <a href="https://www.temotiva.com" class="logo">
         <img src="/logo-temotiva.png" alt="Logo TEMOTIVA" width="36" height="36">
         <span>TEMOTIVA</span>
@@ -546,7 +546,7 @@
   </script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-    <!-- Supabase: cliente JS -->
+  <!-- Supabase: cliente JS con login y registro -->
   <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
   <script>
     const SUPABASE_URL = "https://ejhzxwnhqvcqjqxnuvya.supabase.co";
@@ -558,10 +558,13 @@
       const loginForm = document.getElementById('login-form');
       const emailInput = document.getElementById('login-email');
       const passwordInput = document.getElementById('login-password');
+      const registerLink = document.getElementById('go-register');
+      const forgotLink = document.getElementById('forgot-password');
 
       if (!loginForm || !emailInput || !passwordInput) return;
 
-      // Mensaje de estado debajo del botón
+      let mode = 'login';
+
       const message = document.createElement('p');
       message.id = 'login-message';
       message.style.marginTop = '0.5rem';
@@ -576,6 +579,40 @@
         loginForm.appendChild(message);
       }
 
+      function setMode(newMode){
+        mode = newMode;
+        const submitBtn = loginForm.querySelector('button[type="submit"]');
+        if(!submitBtn) return;
+
+        if(mode === 'login'){
+          submitBtn.textContent = 'Iniciar sesión';
+          if(registerLink) registerLink.textContent = '¿No tienes cuenta? Crear cuenta';
+          message.textContent = '';
+        }else{
+          submitBtn.textContent = 'Crear cuenta';
+          if(registerLink) registerLink.textContent = '¿Ya tienes cuenta? Inicia sesión';
+          message.textContent = 'Estás creando una nueva cuenta para acceder al espacio Temotiva.';
+          message.style.color = '#2563eb';
+        }
+      }
+
+      setMode('login');
+
+      if(registerLink){
+        registerLink.addEventListener('click', (event)=>{
+          event.preventDefault();
+          setMode(mode === 'login' ? 'register' : 'login');
+        });
+      }
+
+      if(forgotLink){
+        forgotLink.addEventListener('click', (event)=>{
+          event.preventDefault();
+          message.textContent = 'Pronto activaremos la recuperación de contraseña desde aquí.';
+          message.style.color = '#4b5563';
+        });
+      }
+
       loginForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
@@ -588,29 +625,55 @@
           return;
         }
 
-        message.textContent = 'Iniciando sesión...';
-        message.style.color = '#4b5563';
-
-        const { data, error } = await supabase.auth.signInWithPassword({
-          email,
-          password
-        });
-
-        if (error) {
-          console.error(error);
-          message.textContent = 'No hemos podido iniciar sesión. Revisa el correo y la contraseña o confirma tu cuenta.';
+        if (password.length < 6) {
+          message.textContent = 'La contraseña debe tener al menos 6 caracteres.';
           message.style.color = '#b91c1c';
           return;
         }
 
-        message.textContent = 'Sesión iniciada correctamente.';
-        message.style.color = '#166534';
-        // Aquí más adelante podrás redirigir, por ejemplo:
-        // window.location.href = '/demo.html';
+        if (mode === 'login') {
+          message.textContent = 'Iniciando sesión...';
+          message.style.color = '#4b5563';
+
+          const { error } = await supabase.auth.signInWithPassword({
+            email,
+            password
+          });
+
+          if (error) {
+            console.error(error);
+            message.textContent = 'No hemos podido iniciar sesión. Revisa el correo y la contraseña o confirma tu cuenta.';
+            message.style.color = '#b91c1c';
+            return;
+          }
+
+          message.textContent = 'Sesión iniciada correctamente.';
+          message.style.color = '#166534';
+          // Aquí más adelante puedes redirigir:
+          // window.location.href = '/demo.html';
+        } else {
+          message.textContent = 'Creando tu cuenta...';
+          message.style.color = '#4b5563';
+
+          const { error } = await supabase.auth.signUp({
+            email,
+            password
+          });
+
+          if (error) {
+            console.error(error);
+            message.textContent = 'No hemos podido crear la cuenta. Prueba con otro correo o revisa los datos.';
+            message.style.color = '#b91c1c';
+            return;
+          }
+
+          message.textContent = 'Hemos creado tu cuenta. Revisa tu correo para confirmar y después inicia sesión.';
+          message.style.color = '#166534';
+          setMode('login');
+        }
       });
     });
   </script>
-
 
 </body>
 </html>
