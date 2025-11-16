@@ -13,7 +13,11 @@
   <!-- Axeptio Cookies -->
   <script>
     window.axeptioSettings = { clientId: "69055200683c996cd378866f", cookiesVersion: "Spain GDPR Spanish Cookies" };
-    (function(d,s){ var t=d.getElementsByTagName(s)[0], e=d.createElement(s); e.async=true; e.src="https://static.axept.io/sdk.js"; t.parentNode.insertBefore(e,t); })(document,"script");
+    (function(d,s){
+      var t=d.getElementsByTagName(s)[0], e=d.createElement(s);
+      e.async=true; e.src="https://static.axept.io/sdk.js";
+      t.parentNode.insertBefore(e,t);
+    })(document,"script");
   </script>
 
   <meta charset="UTF-8" />
@@ -22,7 +26,7 @@
   <meta http-equiv="x-ua-compatible" content="IE=edge" />
 
   <title>Temotiva | Bienestar emocional en tu día a día</title>
-  <meta name="description" content="Temotiva es una app de bienestar emocional que te guía con pasos concretos cuando te sientes sobrepasada y no sabes qué hacer. Autocuidado y regulación emocional en tu día a día.">
+  <meta name="description" content="Temotiva es una app de bienestar emocional que te guía con pasos concretos cuando te sientes sobrepasad@ y no sabes qué hacer. Autocuidado y regulación emocional en tu día a día.">
   <meta name="keywords" content="app bienestar emocional, bienestar emocional, salud mental cotidiana, autocuidado, autocuidado diario, regulación emocional, estrés, ansiedad leve, saturación, hábitos saludables, psicología aplicada">
 
   <!-- Open Graph y Twitter -->
@@ -133,8 +137,12 @@
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
-  <a href="#app" class="skip-link">Saltar al contenido</a>
-  <noscript><div style="padding:12px;text-align:center;background:#fff4cd;color:#7a5d00">Activa JavaScript para usar TEMOTIVA.</div></noscript>
+  <a href="#app" class="skip-link">Saltar al contenido principal</a>
+  <noscript>
+    <div style="padding:12px;text-align:center;background:#fff4cd;color:#7a5d00">
+      Activa JavaScript para usar TEMOTIVA.
+    </div>
+  </noscript>
 
   <!-- Overlay -->
   <div id="overlay" class="overlay" aria-hidden="true"></div>
@@ -196,20 +204,20 @@
       <div class="container">
         <div class="hero-inner">
           <div class="hero-copy">
-            <p class="hero-kicker">Bienestar emocional augmentado</p>
+            <p class="hero-kicker">Bienestar emocional aumentado para vidas con alta carga mental</p>
             <h1 id="hero-title" class="hero-title">
-              Cuando te sientes sobrepasad@ y solo quieres saber qué hacer ahora mismo
+              Cuando te sientes sobrepasad@ y necesitas saber qué hacer ahora mismo
             </h1>
             <p class="hero-sub">
-              Temotiva es una app de bienestar emocional pensada para adultas y adultos con mucha carga mental.
-              Convierte la psicología aplicada en microprácticas guiadas para esos momentos en los que notas que no puedes más,
-              pero aún tienes que seguir con el día.
+              Temotiva es una app de bienestar emocional para personas con mucha carga mental.
+              Convierte la psicología basada en evidencia en microprácticas guiadas para esos momentos
+              en los que sientes que no puedes más, pero aún tienes que seguir con el día.
             </p>
 
             <div class="hero-metrics">
               <div class="hero-metric">
-                <span class="hero-metric-number">5 a 10</span>
-                <span class="hero-metric-label">min por uso real</span>
+                <span class="hero-metric-number">5 a 10 min</span>
+                <span class="hero-metric-label">tiempo real por sesión</span>
               </div>
               <div class="hero-metric">
                 <span class="hero-metric-number">120+</span>
@@ -217,11 +225,11 @@
               </div>
               <div class="hero-metric">
                 <span class="hero-metric-number">3</span>
-                <span class="hero-metric-label">niveles de intensidad</span>
+                <span class="hero-metric-label">niveles de carga emocional</span>
               </div>
               <div class="hero-metric">
                 <span class="hero-metric-number">70 %</span>
-                <span class="hero-metric-label">contenidos pensados para menos de 10 minutos</span>
+                <span class="hero-metric-label">contenidos de menos de 10 min</span>
               </div>
             </div>
 
@@ -246,7 +254,8 @@
       <div class="container">
         <h2 id="newsletter-title" class="section-title">Recibe novedades de Temotiva</h2>
         <p class="section-text">
-          Te avisamos de nuevas microprácticas, recursos y talleres. Revisa la carpeta de spam unos minutos después y añade nuestro correo a tus contactos para no perderte nada.
+          Te avisamos de nuevas microprácticas, recursos y talleres. Máximo 1 o 2 correos al mes.
+          Revisa la carpeta de spam unos minutos después y añade nuestro correo a tus contactos.
         </p>
 
         <div class="newsletter-embed">
@@ -429,7 +438,7 @@
 
           <div class="u-mt">
             <label for="cf-msg">Mensaje</label>
-            <textarea id="cf-msg" name="mensaje" rows="4" placeholder="¿Cómo podemos ayudarte?" required></textarea>
+            <textarea id="cf-msg" name="mensaje" rows="4" placeholder="Cómo podemos ayudarte" required></textarea>
             <div class="error" id="cf-msg-error">Cuéntanos brevemente tu consulta.</div>
           </div>
 
@@ -472,13 +481,17 @@
   <!-- Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
   <script>
-    window.addEventListener("load", () => {
+    window.addEventListener("load", function(){
       try {
-        const SUPABASE_URL = "https://ejhzxwnhqvcqjqxnuvya.supabase.co";
-        const SUPABASE_ANON_KEY = "sb_publishable_8nz_638F1vO2JbkFw9DHSw_AxB179qA";
-        const supabase = window.supabase?.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        var SUPABASE_URL = "https://ejhzxwnhqvcqjqxnuvya.supabase.co";
+        var SUPABASE_ANON_KEY = "sb_publishable_8nz_638F1vO2JbkFw9DHSw_AxB179qA";
+        var supabase = window.supabase && window.supabase.createClient
+          ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+          : null;
         console.log("Conectado a Supabase", !!supabase);
-      } catch(e){ console.warn("Supabase no disponible", e); }
+      } catch(e){
+        console.warn("Supabase no disponible", e);
+      }
     });
   </script>
 
@@ -488,244 +501,392 @@
   <!-- UI, accesibilidad, PWA y mejoras -->
   <script>
     document.documentElement.classList.add('js-ready');
-    const $ = s => document.querySelector(s);
-    const $$ = s => Array.from(document.querySelectorAll(s));
+    function $(s){ return document.querySelector(s); }
+    function $all(s){ return Array.prototype.slice.call(document.querySelectorAll(s)); }
 
     /* Header sombra y nav activa por sección */
-    const siteHeader = $("#siteHeader");
-    const sections = ["mision","producto","ecosistema","impulsa","resenas","contacto","newsletter"]
-      .map(id => document.getElementById(id))
-      .filter(Boolean);
-    const navLinks = $$("#mainNav a");
+    var siteHeader = $("#siteHeader");
+    var sections = ["newsletter","mision","producto","ecosistema","impulsa","resenas","contacto"]
+      .map(function(id){ return document.getElementById(id); })
+      .filter(function(el){ return !!el; });
+    var navLinks = $all("#mainNav a");
 
     function setActive(hash){
-      navLinks.forEach(a => {
-        const href = a.getAttribute("href");
-        const is = href === hash || href === location.pathname + hash;
-        a.classList.toggle("active", is);
-        if(is) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current");
+      navLinks.forEach(function(a){
+        var href = a.getAttribute("href");
+        var isActive = href === hash || href === (location.pathname + hash);
+        a.classList.toggle("active", isActive);
+        if(isActive){
+          a.setAttribute("aria-current","page");
+        } else {
+          a.removeAttribute("aria-current");
+        }
       });
     }
 
-    const onScrollHeader = () => {
-      siteHeader.classList.toggle("is-scrolled", (window.scrollY || window.pageYOffset) > 8);
-    };
+    function onScrollHeader(){
+      var y = window.scrollY || window.pageYOffset || 0;
+      if(siteHeader){
+        siteHeader.classList.toggle("is-scrolled", y > 8);
+      }
+    }
     onScrollHeader();
     document.addEventListener("scroll", onScrollHeader, { passive: true });
 
     if ("IntersectionObserver" in window){
-      const ioNav = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting){ setActive(`#${e.target.id}`); } });
-      }, { threshold:.5 });
-      sections.forEach(s => s && ioNav.observe(s));
+      var ioNav = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting){
+            setActive("#" + e.target.id);
+          }
+        });
+      }, { threshold: 0.5 });
+      sections.forEach(function(s){
+        ioNav.observe(s);
+      });
     }
 
     /* Panel lateral accesible */
-    const body = document.body;
-    const sidebar = $("#sidePanel");
-    const overlay = $("#overlay");
-    const menuBtn = $("#menuBtn");
-    let lastFocus = null;
+    var body = document.body;
+    var sidebar = $("#sidePanel");
+    var overlay = $("#overlay");
+    var menuBtn = $("#menuBtn");
+    var lastFocus = null;
 
     function trapFocus(e){
-      const focusables = sidebar.querySelectorAll('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      if(!sidebar) return;
+      var focusables = sidebar.querySelectorAll('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
       if (!focusables.length) return;
-      const first = focusables[0], last = focusables[focusables.length - 1];
+      focusables = Array.prototype.slice.call(focusables);
+      var first = focusables[0];
+      var last = focusables[focusables.length - 1];
       if (e.key === "Tab"){
-        if (e.shiftKey && document.activeElement === first){ last.focus(); e.preventDefault(); }
-        else if (!e.shiftKey && document.activeElement === last){ first.focus(); e.preventDefault(); }
+        if (e.shiftKey && document.activeElement === first){
+          last.focus();
+          e.preventDefault();
+        } else if (!e.shiftKey && document.activeElement === last){
+          first.focus();
+          e.preventDefault();
+        }
       }
     }
 
     function openSidebar(){
+      if(!sidebar || !overlay) return;
       lastFocus = document.activeElement;
       sidebar.classList.add("is-open");
       sidebar.setAttribute("aria-hidden","false");
       overlay.classList.add("show");
       body.style.overflow = "hidden";
-      menuBtn?.setAttribute("aria-expanded","true");
-      const first = sidebar.querySelector("a, button, input, select, textarea");
-      first && first.focus();
+      if(menuBtn){
+        menuBtn.setAttribute("aria-expanded","true");
+      }
+      var first = sidebar.querySelector("a, button, input, select, textarea");
+      if(first){ first.focus(); }
       sidebar.addEventListener("keydown", trapFocus);
     }
 
     function closeSidebar(){
+      if(!sidebar || !overlay) return;
       sidebar.classList.remove("is-open");
       sidebar.setAttribute("aria-hidden","true");
       overlay.classList.remove("show");
       body.style.overflow = "";
-      menuBtn?.setAttribute("aria-expanded","false");
+      if(menuBtn){
+        menuBtn.setAttribute("aria-expanded","false");
+      }
       sidebar.removeEventListener("keydown", trapFocus);
-      lastFocus && lastFocus.focus();
+      if(lastFocus && lastFocus.focus){
+        lastFocus.focus();
+      }
     }
 
-    menuBtn?.addEventListener("click", () =>
-      sidebar.classList.contains("is-open") ? closeSidebar() : openSidebar()
-    );
-    overlay?.addEventListener("click", closeSidebar);
-    document.addEventListener("keydown", e => { if(e.key === "Escape") closeSidebar(); });
+    if(menuBtn){
+      menuBtn.addEventListener("click", function(){
+        if (sidebar && sidebar.classList.contains("is-open")){
+          closeSidebar();
+        } else {
+          openSidebar();
+        }
+      });
+    }
+    if(overlay){
+      overlay.addEventListener("click", closeSidebar);
+    }
+    document.addEventListener("keydown", function(e){
+      if(e.key === "Escape"){
+        closeSidebar();
+      }
+    });
 
     /* Reveal con IO */
     (function(){
-      const items = $$(".reveal");
-      if(!("IntersectionObserver" in window)){ items.forEach(el => el.classList.add("visible")); return; }
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add("visible"); io.unobserve(e.target); } });
-      }, { threshold: .12, rootMargin: "0px 0px -8% 0px" });
-      items.forEach(el => io.observe(el));
+      var items = $all(".reveal");
+      if(!("IntersectionObserver" in window)){
+        items.forEach(function(el){ el.classList.add("visible"); });
+        return;
+      }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){
+            e.target.classList.add("visible");
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+      items.forEach(function(el){ io.observe(el); });
     })();
 
     /* Service Worker */
     if("serviceWorker" in navigator){
-      window.addEventListener("load", ()=>{
+      window.addEventListener("load", function(){
         navigator.serviceWorker.register("/pwabuilder-sw.js", { scope: "/" })
-          .then(reg => console.log("Service Worker activo:", reg.scope))
-          .catch(err => console.error("Fallo al registrar el SW:", err));
+          .then(function(reg){ console.log("Service Worker activo:", reg.scope); })
+          .catch(function(err){ console.error("Fallo al registrar el SW:", err); });
       });
     }
 
     /* Contacto: validación, consentimiento y envío con reintento */
     (function(){
-      const form = document.getElementById('contactForm');
-      const okMsg = document.getElementById('formMsg');
+      var form = document.getElementById('contactForm');
+      var okMsg = document.getElementById('formMsg');
       if(!form) return;
-      const nombre = document.getElementById('cf-nombre');
-      const email = document.getElementById('cf-email');
-      const msg = document.getElementById('cf-msg');
-      const eNombre = document.getElementById('cf-nombre-error');
-      const eEmail = document.getElementById('cf-email-error');
-      const eMsg = document.getElementById('cf-msg-error');
-      const btn = document.getElementById('cf-submit');
-      const consent = document.getElementById('cf-consent');
+      var nombre = document.getElementById('cf-nombre');
+      var email = document.getElementById('cf-email');
+      var msg = document.getElementById('cf-msg');
+      var eNombre = document.getElementById('cf-nombre-error');
+      var eEmail = document.getElementById('cf-email-error');
+      var eMsg = document.getElementById('cf-msg-error');
+      var btn = document.getElementById('cf-submit');
+      var consent = document.getElementById('cf-consent');
 
-      function clearErr(i, e){ i.addEventListener('input', ()=>{ i.setCustomValidity(''); e.style.display='none'; }); }
-      clearErr(nombre, eNombre); clearErr(email, eEmail); clearErr(msg, eMsg);
+      function clearErr(input, errorEl){
+        if(!input || !errorEl) return;
+        input.addEventListener('input', function(){
+          input.setCustomValidity('');
+          errorEl.style.display='none';
+        });
+      }
+      clearErr(nombre, eNombre);
+      clearErr(email, eEmail);
+      clearErr(msg, eMsg);
 
-      function toggle(){ btn.disabled = !consent.checked; }
-      consent?.addEventListener('change', toggle); toggle();
+      function toggle(){
+        if(!btn || !consent) return;
+        btn.disabled = !consent.checked;
+      }
+      if(consent){
+        consent.addEventListener('change', toggle);
+      }
+      toggle();
 
       async function postWithRetry(url, body){
-        const ctrl = new AbortController(); const t = setTimeout(()=>ctrl.abort(), 8000);
+        var ctrl = null;
+        var t = null;
+        var options = {
+          method:'POST',
+          headers:{Accept:'application/json'},
+          body: body
+        };
+
+        if (window.AbortController){
+          ctrl = new AbortController();
+          options.signal = ctrl.signal;
+          t = setTimeout(function(){ ctrl.abort(); }, 8000);
+        }
+
         try{
-          const r = await fetch(url,{method:'POST',headers:{Accept:'application/json'},body,signal:ctrl.signal});
-          clearTimeout(t);
+          var r = await fetch(url, options);
+          if(t){ clearTimeout(t); }
           if(r.ok) return true;
-        }catch{}
+        }catch(e){}
+
         try{
-          const r2 = await fetch(url,{method:'POST',headers:{Accept:'application/json'},body});
+          var r2 = await fetch(url, {
+            method:'POST',
+            headers:{Accept:'application/json'},
+            body: body
+          });
           return r2.ok;
-        }catch{
+        }catch(e2){
           return false;
         }
       }
 
-      form.addEventListener('submit', async e=>{
+      form.addEventListener('submit', function(e){
         e.preventDefault();
 
-        let valid = true;
-        if(!nombre.value.trim()){ valid=false; nombre.setCustomValidity('Requerido'); eNombre.style.display='block'; }
-        if(!email.checkValidity()){ valid=false; email.setCustomValidity('Correo no válido'); eEmail.style.display='block'; }
-        if(!msg.value.trim()){ valid=false; msg.setCustomValidity('Requerido'); eMsg.style.display='block'; }
-        if(!valid){ [nombre,email,msg].forEach(el=>el.reportValidity()); return; }
+        var valid = true;
+        if(!nombre || !email || !msg){ return; }
 
-        btn.disabled = true;
-        const ok = await postWithRetry("https://formspree.io/f/xnnobrvn", new FormData(form));
-        btn.disabled = false;
-
-        if(ok){ form.reset(); okMsg?.classList.remove('u-hidden'); }
-        else { alert("No se pudo enviar, intenta de nuevo más tarde."); }
-      });
-    })();
-
-    /* App próximamente: validación simple y consentimiento */
-    (function(){
-      const form = document.getElementById('launchForm');
-      const email = document.getElementById('launch-email');
-      const err = document.getElementById('launch-email-error');
-      const consent = document.getElementById('launch-consent');
-      const submit = document.getElementById('launch-submit');
-      if(!form) return;
-
-      function toggle(){ if(submit) submit.disabled = !consent.checked; }
-      consent?.addEventListener('change', toggle); toggle();
-
-      email?.addEventListener('input', ()=>{ email.setCustomValidity(''); err.style.display = 'none'; });
-      form.addEventListener('submit', async e=>{
-        if(email && !email.checkValidity()){
-          e.preventDefault();
+        if(!nombre.value.trim()){
+          valid=false;
+          nombre.setCustomValidity('Requerido');
+          if(eNombre){ eNombre.style.display='block'; }
+        }
+        if(!email.checkValidity()){
+          valid=false;
           email.setCustomValidity('Correo no válido');
-          err.style.display = 'block';
-          email.reportValidity();
+          if(eEmail){ eEmail.style.display='block'; }
+        }
+        if(!msg.value.trim()){
+          valid=false;
+          msg.setCustomValidity('Requerido');
+          if(eMsg){ eMsg.style.display='block'; }
+        }
+        if(!valid){
+          [nombre,email,msg].forEach(function(el){
+            if(el && el.reportValidity){ el.reportValidity(); }
+          });
           return;
         }
+
+        if(btn){ btn.disabled = true; }
+        postWithRetry("https://formspree.io/f/xnnobrvn", new FormData(form)).then(function(ok){
+          if(btn){ btn.disabled = false; }
+          if(ok){
+            form.reset();
+            if(okMsg){
+              okMsg.classList.remove('u-hidden');
+            }
+          } else {
+            alert("No se pudo enviar, intenta de nuevo más tarde.");
+          }
+        });
       });
     })();
 
     /* PWA install banner */
-    const INSTALL_KEY = "temotiva-install-dismissed";
-    const VISITS_KEY = "temotiva-visit-count";
-    let deferredPrompt = null;
+    var INSTALL_KEY = "temotiva-install-dismissed";
+    var VISITS_KEY = "temotiva-visit-count";
+    var deferredPrompt = null;
     try {
-      const v = parseInt(localStorage.getItem(VISITS_KEY) || "0", 10) + 1;
+      var v = parseInt(localStorage.getItem(VISITS_KEY) || "0", 10) + 1;
       localStorage.setItem(VISITS_KEY, String(v));
-    } catch {}
+    } catch(e){}
 
-    const installBtn = $("#installBtn");
-    const banner = $("#pwaBanner");
-    const installNow = $("#pwaInstallNow");
-    const installLater = $("#pwaInstallLater");
+    var installBtn = $("#installBtn");
+    var banner = $("#pwaBanner");
+    var installNow = $("#pwaInstallNow");
+    var installLater = $("#pwaInstallLater");
 
-    window.addEventListener("beforeinstallprompt", (e) => {
+    window.addEventListener("beforeinstallprompt", function(e){
       e.preventDefault();
       deferredPrompt = e;
-      installBtn && (installBtn.hidden = false);
-      const dismissed = localStorage.getItem(INSTALL_KEY) === "1";
-      const visits = parseInt(localStorage.getItem(VISITS_KEY) || "0", 10);
-      if (!dismissed && visits >= 3 && banner) banner.classList.add("show");
+      if(installBtn){
+        installBtn.hidden = false;
+      }
+
+      var dismissed = false;
+      var visits = 0;
+      try {
+        dismissed = localStorage.getItem(INSTALL_KEY) === "1";
+        visits = parseInt(localStorage.getItem(VISITS_KEY) || "0", 10);
+      } catch(e2){}
+
+      if (!dismissed && visits >= 3 && banner){
+        banner.classList.add("show");
+      }
     });
 
     async function promptInstall(){
       try{
-        installBtn && (installBtn.hidden = true);
+        if(installBtn){
+          installBtn.hidden = true;
+        }
+        if(!deferredPrompt) return;
         await deferredPrompt.prompt();
-        const res = await deferredPrompt.userChoice;
-        if (!res || res.outcome !== "accepted") banner?.classList.remove("show");
-      }catch{}
+        var res = await deferredPrompt.userChoice;
+        if (!res || res.outcome !== "accepted"){
+          if(banner){
+            banner.classList.remove("show");
+          }
+        }
+      }catch(e){}
       deferredPrompt = null;
     }
 
-    installBtn?.addEventListener("click", ()=> deferredPrompt && promptInstall());
-    installNow?.addEventListener("click", ()=> deferredPrompt ? promptInstall() : banner?.classList.remove("show"));
-    installLater?.addEventListener("click", (ev)=> {
-      ev.preventDefault();
-      localStorage.setItem(INSTALL_KEY,"1");
-      banner?.classList.remove("show");
-    });
+    if(installBtn){
+      installBtn.addEventListener("click", function(){
+        if(deferredPrompt){
+          promptInstall();
+        }
+      });
+    }
+    if(installNow){
+      installNow.addEventListener("click", function(){
+        if(deferredPrompt){
+          promptInstall();
+        } else if(banner){
+          banner.classList.remove("show");
+        }
+      });
+    }
+    if(installLater){
+      installLater.addEventListener("click", function(ev){
+        ev.preventDefault();
+        try {
+          localStorage.setItem(INSTALL_KEY,"1");
+        } catch(e){}
+        if(banner){
+          banner.classList.remove("show");
+        }
+      });
+    }
 
-    window.addEventListener("appinstalled", () => {
-      try { localStorage.setItem(INSTALL_KEY, "1"); } catch {}
-      banner?.classList.remove("show");
-      installBtn && (installBtn.hidden = true);
+    window.addEventListener("appinstalled", function(){
+      try {
+        localStorage.setItem(INSTALL_KEY, "1");
+      } catch(e){}
+      if(banner){
+        banner.classList.remove("show");
+      }
+      if(installBtn){
+        installBtn.hidden = true;
+      }
       console.log("TEMOTIVA instalada");
     });
 
-    const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
-    if (isStandalone) {
-      installBtn?.setAttribute("hidden","true");
-      banner?.classList.remove("show");
+    var isStandalone = false;
+    try {
+      isStandalone =
+        (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) ||
+        window.navigator.standalone;
+    } catch(e){}
+    if (isStandalone){
+      if(installBtn){
+        installBtn.setAttribute("hidden","true");
+      }
+      if(banner){
+        banner.classList.remove("show");
+      }
     }
 
     /* GA para CTAs clave */
-    document.querySelectorAll('[data-gtag]').forEach(b =>
-      b.addEventListener('click',()=>gtag('event', b.dataset.gtag))
-    );
+    (function(){
+      var ctas = document.querySelectorAll('[data-gtag]');
+      Array.prototype.forEach.call(ctas, function(b){
+        b.addEventListener('click', function(){
+          if(typeof gtag === "function"){
+            gtag('event', b.dataset.gtag);
+          }
+        });
+      });
+    })();
 
     /* Volver arriba con reduce motion */
-    document.querySelector('.back-top')?.addEventListener('click', e=>{
-      e.preventDefault();
-      const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-      window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
-    });
+    (function(){
+      var backTop = document.querySelector('.back-top');
+      if(!backTop) return;
+      backTop.addEventListener('click', function(e){
+        e.preventDefault();
+        var prefersReduced = false;
+        try {
+          prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        } catch(err){}
+        window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+      });
+    })();
   </script>
 
   <!-- Banner de instalación PWA -->
@@ -742,12 +903,29 @@
 
   <!-- Eventos GA del banner -->
   <script>
-    document.getElementById("pwaInstallNow")?.addEventListener("click", function() {
-      gtag('event', 'click_instalar', { 'event_category': 'PWA', 'event_label': 'Botón Instalar TEMOTIVA' });
-    });
-    document.getElementById("pwaInstallLater")?.addEventListener("click", function() {
-      gtag('event', 'click_instalar_mas_tarde', { 'event_category': 'PWA', 'event_label': 'Botón Más tarde' });
-    });
+    var btnInstallNow = document.getElementById("pwaInstallNow");
+    var btnInstallLater = document.getElementById("pwaInstallLater");
+
+    if(btnInstallNow){
+      btnInstallNow.addEventListener("click", function() {
+        if(typeof gtag === "function"){
+          gtag('event', 'click_instalar', {
+            event_category: 'PWA',
+            event_label: 'Botón Instalar TEMOTIVA'
+          });
+        }
+      });
+    }
+    if(btnInstallLater){
+      btnInstallLater.addEventListener("click", function() {
+        if(typeof gtag === "function"){
+          gtag('event', 'click_instalar_mas_tarde', {
+            event_category: 'PWA',
+            event_label: 'Botón Más tarde'
+          });
+        }
+      });
+    }
   </script>
 </body>
 </html>
