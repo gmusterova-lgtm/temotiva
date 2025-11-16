@@ -61,38 +61,38 @@
   "screenshots": [
     {
       "src": "/screenshot-1.png",
-      "sizes": "828x1792",
+      "sizes": "1024x1536",
       "type": "image/png",
       "form_factor": "narrow",
-      "label": "Pantalla de inicio TEMOTIVA"
+      "label": "Pantalla de Autoexploración"
     },
     {
       "src": "/screenshot-2.png",
-      "sizes": "828x1792",
+      "sizes": "1024x1536",
       "type": "image/png",
       "form_factor": "narrow",
-      "label": "Interfaz del blog TEMOTIVA"
+      "label": "Interfaz de Recursos"
     },
     {
       "src": "/screenshot-3.png",
-      "sizes": "828x1792",
+      "sizes": "1024x1536",
       "type": "image/png",
       "form_factor": "narrow",
-      "label": "Chequeo diario"
+      "label": "Pantalla de Autoeevaluación"
     },
     {
       "src": "/screenshot-4.png",
-      "sizes": "828x1792",
+      "sizes": "1024x1536",
       "type": "image/png",
       "form_factor": "narrow",
-      "label": "Ejercicios guiados"
+      "label": "Interfaz de Lecturas"
     },
     {
       "src": "/screenshot-wide-1.png",
    "sizes": "1440x900",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Vista de TEMOTIVA en escritorio"
+      "label": "Vista de Temotiva en escritorio"
     }
   ],
 
