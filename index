@@ -799,5 +799,17 @@
       gtag('event', 'click_instalar_mas_tarde', { 'event_category': 'PWA', 'event_label': 'Botón Más tarde' });
     });
   </script>
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker
+        .register("/sw.js")
+        .catch(function (error) {
+          console.error("Error al registrar el Service Worker:", error);
+        });
+    });
+  }
+</script>
 </body>
 </html>
+
