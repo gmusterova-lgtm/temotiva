@@ -647,10 +647,12 @@
             return;
           }
 
-          message.textContent = 'Sesión iniciada correctamente.';
-          message.style.color = '#166534';
-          // Aquí más adelante puedes redirigir:
-          // window.location.href = '/demo.html';
+        message.textContent = 'Sesión iniciada correctamente. Entrando en tu cuenta...';
+        message.style.color = '#166534';
+
+        setTimeout(() => {
+        window.location.href = '/micuenta.html';
+        }, 800);
         } else {
           message.textContent = 'Creando tu cuenta...';
           message.style.color = '#4b5563';
