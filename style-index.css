@@ -816,3 +816,16 @@ html.js-ready .reveal.visible{
     font-size:.98rem;
   }
 }
+.newsletter-embed{
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.newsletter-embed iframe{
+  width: 100%;
+  min-height: 380px;
+  border: 0;
+  display: block;
+  touch-action: manipulation;
+  -webkit-transform: translateZ(0);
+}
