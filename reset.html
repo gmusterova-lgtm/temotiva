@@ -10,9 +10,16 @@
       --bg2: #e5f3ff;
       --card-bg: #ffffff;
       --accent: #111111;
+      --accent-soft: #00b894;
       --text-main: #111111;
       --text-soft: #555555;
       --border-soft: #e3e3e3;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
@@ -22,7 +29,6 @@
       align-items: center;
       justify-content: center;
       padding: 32px 16px;
-      margin: 0;
       background: radial-gradient(circle at top left, var(--bg2), var(--bg1));
       color: var(--text-main);
     }
@@ -39,8 +45,13 @@
       text-align: center;
     }
 
+    .icon {
+      font-size: 42px;
+      margin-bottom: 14px;
+    }
+
     h1 {
-      font-size: 24px;
+      font-size: 23px;
       margin-bottom: 10px;
       font-weight: 700;
       letter-spacing: 0.4px;
@@ -50,23 +61,51 @@
       font-size: 15px;
       line-height: 1.6;
       color: var(--text-soft);
-      margin-bottom: 14px;
+      margin-bottom: 10px;
+    }
+
+    .highlight {
+      margin-top: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .email {
+      margin-top: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--accent-soft);
+    }
+
+    .footnote {
+      margin-top: 18px;
+      font-size: 13px;
+      color: #777777;
     }
   </style>
 </head>
 <body>
   <div class="card">
+    <div class="icon">🔐</div>
     <h1>Recuperar contraseña</h1>
+
     <p>
-      Has abierto este enlace para recuperar tu contraseña de Temotiva.
+      Has abierto este enlace para recuperar la contraseña de tu cuenta de Temotiva.
     </p>
     <p>
-      En esta versión inicial, el cambio de contraseña aún no es automático desde esta página.
+      En esta versión inicial, el cambio de contraseña todavía no se puede hacer de forma automática desde esta página.
     </p>
-    <p>
-      Si necesitas recuperar el acceso, escribe a:
-      <br>
-      <strong>info@temotiva.com</strong>
+
+    <p class="highlight">
+      Si necesitas recuperar el acceso, escríbenos y te ayudaremos personalmente:
+    </p>
+    <p class="email">
+      info@temotiva.com
+    </p>
+
+    <p class="footnote">
+      Gracias por tu paciencia y por formar parte de Temotiva 💚
     </p>
   </div>
 </body>
