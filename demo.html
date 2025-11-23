@@ -79,6 +79,34 @@
       justify-content:center;
     }
 
+    /* Bloque CTA directa a la app */
+    .app-cta-inline{
+      margin-top:1rem;
+      display:flex;
+      flex-direction:column;
+      gap:.35rem;
+      align-items:flex-start;
+    }
+    .app-cta-inline .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:.7rem 1.4rem;
+      border-radius:999px;
+      border:none;
+      background:#000;
+      color:#fff;
+      font-weight:600;
+      font-size:.95rem;
+      text-decoration:none;
+      cursor:pointer;
+    }
+    .app-tagline{
+      font-size:.9rem;
+      opacity:.85;
+      margin-top:.1rem;
+    }
+
     .app-section{
       padding:3.5rem 0;
     }
@@ -120,12 +148,6 @@
       margin:0;
       line-height:1.6;
       opacity:.95;
-    }
-
-    .app-tagline{
-      font-size:.9rem;
-      opacity:.85;
-      margin-top:.4rem;
     }
 
     .app-badges{
@@ -185,6 +207,13 @@
       .app-lead,
       .app-card p{
         font-size:.98rem;
+      }
+      .app-cta-inline{
+        align-items:stretch;
+      }
+      .app-cta-inline .btn{
+        width:100%;
+        justify-content:center;
       }
     }
 
@@ -362,7 +391,7 @@
       <li><a href="/blog/">Blog</a></li>
       <li><a href="/temotiva-lab.html">Lab</a></li>
       <li><a href="/ctl.html">CTL</a></li>
-    <li><a href="/contacto.html"><strong>Mi cuenta</strong></a></li>
+      <li><a href="/contacto.html"><strong>Mi cuenta</strong></a></li>
     </ul>
 
     <a class="privacy-link" href="/privacidad.html">Privacidad</a>
@@ -380,6 +409,16 @@
           <p class="app-hero-text">
             Temotiva combina rutas guiadas, chequeos rápidos y microprácticas para esos momentos en los que notas que no puedes más, pero aún tienes que seguir con el día.
           </p>
+
+          <!-- CTA directa a la app -->
+          <div class="app-cta-inline">
+            <a href="https://app.temotiva.com" class="btn">
+              Entrar en la app Temotiva
+            </a>
+            <p class="app-tagline">
+              Si ya tienes cuenta, puedes entrar desde aquí con tus datos habituales.
+            </p>
+          </div>
 
           <!-- Métricas tech -->
           <div class="app-hero-meta">
@@ -405,8 +444,7 @@
       <div class="container">
         <h2 id="app-que-aporta-title">Qué hace la app por ti</h2>
         <p class="app-lead">
-          No son frases motivacionales sueltas, sino pequeñas decisiones guiadas para regul
-arte y cuidarte mejor en menos de 10 minutos.
+          No son frases motivacionales sueltas, sino pequeñas decisiones guiadas para regularte y cuidarte mejor en menos de 10 minutos.
         </p>
 
         <div class="app-grid cols-3">
