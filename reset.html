@@ -14,6 +14,8 @@
       --text-main: #111111;
       --text-soft: #555555;
       --border-soft: #e3e3e3;
+      --danger: #e74c3c;
+      --success: #27ae60;
     }
 
     * {
@@ -42,19 +44,21 @@
         0 18px 40px rgba(0, 0, 0, 0.06),
         0 0 0 1px rgba(0, 0, 0, 0.02);
       padding: 28px 22px 26px;
-      text-align: center;
+      text-align: left;
     }
 
     .icon {
-      font-size: 42px;
-      margin-bottom: 14px;
+      font-size: 40px;
+      margin-bottom: 10px;
+      text-align: center;
     }
 
     h1 {
-      font-size: 23px;
-      margin-bottom: 10px;
+      font-size: 22px;
+      margin-bottom: 8px;
       font-weight: 700;
-      letter-spacing: 0.4px;
+      letter-spacing: 0.3px;
+      text-align: center;
     }
 
     p {
@@ -64,49 +68,214 @@
       margin-bottom: 10px;
     }
 
-    .highlight {
-      margin-top: 10px;
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--accent);
+    .info {
+      margin-top: 4px;
+      margin-bottom: 16px;
+      text-align: center;
+      font-size: 14px;
     }
 
-    .email {
-      margin-top: 6px;
+    form {
+      margin-top: 10px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+
+    input[type="password"] {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border-soft);
+      font-size: 14px;
+      margin-bottom: 12px;
+      outline: none;
+    }
+
+    input[type="password"]:focus {
+      border-color: var(--accent-soft);
+      box-shadow: 0 0 0 1px rgba(0, 184, 148, 0.15);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
       font-size: 15px;
       font-weight: 600;
-      color: var(--accent-soft);
+      background-color: #111111;
+      color: #ffffff;
+      margin-top: 6px;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: default;
+    }
+
+    .message {
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    .message.error {
+      color: var(--danger);
+    }
+
+    .message.success {
+      color: var(--success);
     }
 
     .footnote {
       margin-top: 18px;
-      font-size: 13px;
+      font-size: 12px;
       color: #777777;
+      text-align: center;
     }
   </style>
+
+  <!-- Supabase JS v2 desde CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
   <div class="card">
     <div class="icon">🔐</div>
-    <h1>Recuperar contraseña</h1>
-
-    <p>
-      Has abierto este enlace para recuperar la contraseña de tu cuenta de Temotiva.
-    </p>
-    <p>
-      En esta versión inicial, el cambio de contraseña todavía no se puede hacer de forma automática desde esta página.
+    <h1>Restablecer contraseña</h1>
+    <p class="info">
+      Has abierto este enlace para cambiar la contraseña de tu cuenta de Temotiva.
     </p>
 
-    <p class="highlight">
-      Si necesitas recuperar el acceso, escríbenos y te ayudaremos personalmente:
+    <p>
+      Elige una nueva contraseña para continuar. Por seguridad, te recomendamos usar al menos 8 caracteres y algo que puedas recordar con facilidad.
     </p>
-    <p class="email">
-      info@temotiva.com
-    </p>
+
+    <form id="reset-form">
+      <label for="password">Nueva contraseña</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        autocomplete="new-password"
+        required
+      >
+
+      <label for="confirm">Repetir nueva contraseña</label>
+      <input
+        type="password"
+        id="confirm"
+        name="confirm"
+        autocomplete="new-password"
+        required
+      >
+
+      <button type="submit" id="submit-btn">
+        Cambiar contraseña
+      </button>
+
+      <div id="message" class="message" aria-live="polite"></div>
+    </form>
 
     <p class="footnote">
-      Gracias por tu paciencia y por formar parte de Temotiva 💚
+      Si algo falla, puedes escribir a <strong>info@temotiva.com</strong> y te ayudaremos a recuperar el acceso.
     </p>
   </div>
+
+  <script>
+    // Configura Supabase con tu proyecto
+    const SUPABASE_URL = "https://ejhzxwnhqvcqjqxnuvya.supabase.co";
+    const SUPABASE_ANON = "sb_publishable_8nz_638F1vO2JbkFw9DHSw_AxB179qA";
+
+    const { createClient } = supabase;
+    const client = createClient(SUPABASE_URL, SUPABASE_ANON);
+
+    const form = document.getElementById("reset-form");
+    const passwordInput = document.getElementById("password");
+    const confirmInput = document.getElementById("confirm");
+    const messageEl = document.getElementById("message");
+    const submitBtn = document.getElementById("submit-btn");
+
+    let passwordRecoveryReady = false;
+
+    // Escuchar el evento PASSWORD_RECOVERY para saber que la sesion es valida
+    client.auth.onAuthStateChange((event, session) => {
+      if (event === "PASSWORD_RECOVERY") {
+        passwordRecoveryReady = true;
+      }
+    });
+
+    function setMessage(text, type) {
+      messageEl.textContent = text || "";
+      messageEl.className = "message" + (type ? " " + type : "");
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      setMessage("", null);
+
+      const password = passwordInput.value.trim();
+      const confirm = confirmInput.value.trim();
+
+      if (!password || !confirm) {
+        setMessage("Escribe y repite tu nueva contraseña.", "error");
+        return;
+      }
+
+      if (password.length < 8) {
+        setMessage("La contraseña debe tener al menos 8 caracteres.", "error");
+        return;
+      }
+
+      if (password !== confirm) {
+        setMessage("Las contraseñas no coinciden.", "error");
+        return;
+      }
+
+      submitBtn.disabled = true;
+      setMessage("Guardando nueva contraseña...", null);
+
+      try {
+        // Intentar actualizar el usuario con la nueva contraseña
+        const { data, error } = await client.auth.updateUser({
+          password: password,
+        });
+
+        if (error) {
+          // Mensajes amigables
+          if (error.message && error.message.toLowerCase().includes("session")) {
+            setMessage(
+              "El enlace de recuperación ya no es válido o ha caducado. Pide un nuevo email desde la opción 'He olvidado mi contraseña'.",
+              "error"
+            );
+          } else {
+            setMessage(
+              "No se pudo actualizar la contraseña. Inténtalo de nuevo o contacta con info@temotiva.com.",
+              "error"
+            );
+          }
+        } else {
+          setMessage(
+            "Tu contraseña se ha actualizado correctamente. Ya puedes iniciar sesión con tu nueva contraseña.",
+            "success"
+          );
+          passwordInput.value = "";
+          confirmInput.value = "";
+        }
+      } catch (err) {
+        setMessage(
+          "Ha ocurrido un error inesperado. Inténtalo de nuevo en unos minutos.",
+          "error"
+        );
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
 </body>
 </html>
