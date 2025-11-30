@@ -137,7 +137,7 @@
   <script>
     const SUPABASE_URL = "https://ejhzxwnhqvcqjqxnuvya.supabase.co";
     const SUPABASE_ANON = "sb_publishable_8nz_638F1vO2JbkFw9DHSw_AxB179qA";
-    const { createClient } = supabase;
+const { createClient } = window.supabase;
     const client = createClient(SUPABASE_URL, SUPABASE_ANON);
 
     const passwordInput = document.getElementById("password");
