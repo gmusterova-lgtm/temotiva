@@ -135,27 +135,43 @@
     }
   </script>
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  <script>
+
+    <script>
     (function () {
       try {
-        var params = new URLSearchParams(window.location.search);
-        // Si viene de Supabase con type=recovery, mandamos a reset.html
-        if (params.get("type") === "recovery") {
-          var url = new URL(window.location.origin + "/reset.html");
+        var search = window.location.search || "";
+        var hash = window.location.hash || "";
 
-          ["token", "type", "redirect_to", "code"].forEach(function (key) {
+        var params = new URLSearchParams(search);
+        var hashParams = new URLSearchParams(
+          hash && hash.startsWith("#") ? hash.slice(1) : hash
+        );
+
+        var isRecovery =
+          params.get("type") === "recovery" ||
+          hashParams.get("type") === "recovery";
+
+        if (!isRecovery) return;
+
+        var url = new URL(window.location.origin + "/reset.html");
+
+        ["token", "type", "redirect_to", "code", "access_token", "refresh_token"]
+          .forEach(function (key) {
             if (params.has(key)) {
               url.searchParams.set(key, params.get(key));
             }
+            if (!url.searchParams.has(key) && hashParams.has(key)) {
+              url.searchParams.set(key, hashParams.get(key));
+            }
           });
 
-          window.location.replace(url.toString());
-        }
+        window.location.replace(url.toString());
       } catch (e) {
         console.warn("No se pudo redirigir a reset.html", e);
       }
     })();
   </script>
+
 
   
 </head>
