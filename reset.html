@@ -141,7 +141,7 @@
     }
   </style>
 
-  <!-- Supabase JS v2 desde CDN -->
+  <!-- Supabase JS v2 -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
@@ -183,12 +183,12 @@
     </form>
 
     <p class="footnote">
-      Si algo falla, puedes escribir a <strong>info@temotiva.com</strong> y te ayudaremos a recuperar el acceso.
+      Si algo falla, puedes escribir a <strong>info@temotiva.com</strong>.
     </p>
   </div>
 
   <script>
-    // Configura Supabase con tu proyecto
+    // Configura Supabase con tu proyecto (estos son los tuyos correctos)
     const SUPABASE_URL = "https://ejhzxwnhqvcqjqxnuvya.supabase.co";
     const SUPABASE_ANON = "sb_publishable_8nz_638F1vO2JbkFw9DHSw_AxB179qA";
 
@@ -201,18 +201,53 @@
     const messageEl = document.getElementById("message");
     const submitBtn = document.getElementById("submit-btn");
 
-    let passwordRecoveryReady = false;
-
-    // Escuchar el evento PASSWORD_RECOVERY para saber que la sesion es valida
-    client.auth.onAuthStateChange((event, session) => {
-      if (event === "PASSWORD_RECOVERY") {
-        passwordRecoveryReady = true;
-      }
-    });
-
     function setMessage(text, type) {
       messageEl.textContent = text || "";
       messageEl.className = "message" + (type ? " " + type : "");
+    }
+
+    function disableFormWithMessage(msg) {
+      passwordInput.disabled = true;
+      confirmInput.disabled = true;
+      submitBtn.disabled = true;
+      setMessage(msg, "error");
+    }
+
+    async function initRecoverySession() {
+      try {
+        const rawHash = window.location.hash || "";
+        const hash = rawHash.startsWith("#") ? rawHash.substring(1) : rawHash;
+        const params = new URLSearchParams(hash);
+
+        const accessToken = params.get("access_token");
+        const refreshToken = params.get("refresh_token");
+
+        if (accessToken && refreshToken) {
+          const { error } = await client.auth.setSession({
+            access_token: accessToken,
+            refresh_token: refreshToken,
+          });
+
+          if (error) {
+            disableFormWithMessage(
+              "No se pudo validar el enlace. Pide un nuevo correo desde He olvidado mi contraseña."
+            );
+            return;
+          }
+        }
+
+        const { data, error: sessionError } = await client.auth.getSession();
+        if (sessionError || !data.session) {
+          disableFormWithMessage(
+            "El enlace ya no es válido o ha caducado. Pide un nuevo correo desde He olvidado mi contraseña."
+          );
+          return;
+        }
+      } catch (e) {
+        disableFormWithMessage(
+          "Ha ocurrido un error al abrir el enlace. Pide un nuevo correo desde He olvidado mi contraseña."
+        );
+      }
     }
 
     form.addEventListener("submit", async (e) => {
@@ -241,41 +276,30 @@
       setMessage("Guardando nueva contraseña...", null);
 
       try {
-        // Intentar actualizar el usuario con la nueva contraseña
-        const { data, error } = await client.auth.updateUser({
-          password: password,
-        });
+        const { error } = await client.auth.updateUser({ password });
 
         if (error) {
-          // Mensajes amigables
-          if (error.message && error.message.toLowerCase().includes("session")) {
-            setMessage(
-              "El enlace de recuperación ya no es válido o ha caducado. Pide un nuevo email desde la opción 'He olvidado mi contraseña'.",
-              "error"
-            );
-          } else {
-            setMessage(
-              "No se pudo actualizar la contraseña. Inténtalo de nuevo o contacta con info@temotiva.com.",
-              "error"
-            );
+          let msg = "No se pudo actualizar. Inténtalo otra vez.";
+          const m = error.message.toLowerCase();
+          if (m.includes("recovery") || m.includes("expired") || m.includes("session")) {
+            msg =
+              "El enlace ya no es válido. Pide un nuevo correo desde He olvidado mi contraseña.";
           }
+          setMessage(msg, "error");
         } else {
           setMessage(
-            "Tu contraseña se ha actualizado correctamente. Ya puedes iniciar sesión con tu nueva contraseña.",
+            "Tu contraseña se ha actualizado correctamente. Ya puedes iniciar sesión.",
             "success"
           );
-          passwordInput.value = "";
-          confirmInput.value = "";
         }
       } catch (err) {
-        setMessage(
-          "Ha ocurrido un error inesperado. Inténtalo de nuevo en unos minutos.",
-          "error"
-        );
+        setMessage("Error inesperado, prueba de nuevo.", "error");
       } finally {
         submitBtn.disabled = false;
       }
     });
+
+    initRecoverySession();
   </script>
 </body>
 </html>
