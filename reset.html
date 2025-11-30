@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Recuperar contraseña | Temotiva</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial=device-width, initial-scale=1.0">
   <style>
     :root {
       --bg1: #f7f7ff;
@@ -18,11 +18,7 @@
       --success: #27ae60;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
@@ -47,17 +43,10 @@
       text-align: left;
     }
 
-    .icon {
-      font-size: 40px;
-      margin-bottom: 10px;
-      text-align: center;
-    }
-
     h1 {
       font-size: 22px;
       margin-bottom: 8px;
       font-weight: 700;
-      letter-spacing: 0.3px;
       text-align: center;
     }
 
@@ -69,22 +58,17 @@
     }
 
     .info {
-      margin-top: 4px;
-      margin-bottom: 16px;
       text-align: center;
+      margin-bottom: 16px;
       font-size: 14px;
     }
 
-    form {
-      margin-top: 10px;
-    }
-
     label {
-      display: block;
       font-size: 14px;
       font-weight: 600;
       margin-bottom: 6px;
       color: var(--text-main);
+      display: block;
     }
 
     input[type="password"] {
@@ -94,25 +78,18 @@
       border: 1px solid var(--border-soft);
       font-size: 14px;
       margin-bottom: 12px;
-      outline: none;
-    }
-
-    input[type="password"]:focus {
-      border-color: var(--accent-soft);
-      box-shadow: 0 0 0 1px rgba(0, 184, 148, 0.15);
     }
 
     button {
       width: 100%;
       padding: 12px 16px;
       border-radius: 999px;
-      border: none;
-      cursor: pointer;
+      background-color: #111111;
+      color: white;
       font-size: 15px;
       font-weight: 600;
-      background-color: #111111;
-      color: #ffffff;
-      margin-top: 6px;
+      border: none;
+      cursor: pointer;
     }
 
     button:disabled {
@@ -120,82 +97,49 @@
       cursor: default;
     }
 
-    .message {
-      margin-top: 12px;
-      font-size: 14px;
-    }
-
-    .message.error {
-      color: var(--danger);
-    }
-
-    .message.success {
-      color: var(--success);
-    }
+    .message { margin-top: 12px; font-size: 14px; }
+    .message.error { color: var(--danger); }
+    .message.success { color: var(--success); }
 
     .footnote {
       margin-top: 18px;
       font-size: 12px;
-      color: #777777;
+      color: #777;
       text-align: center;
     }
   </style>
 
-  <!-- Supabase JS v2 -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
+
 <body>
   <div class="card">
-    <div class="icon">🔐</div>
     <h1>Restablecer contraseña</h1>
-    <p class="info">
-      Has abierto este enlace para cambiar la contraseña de tu cuenta de Temotiva.
-    </p>
+    <p class="info">Has abierto este enlace para cambiar la contraseña de tu cuenta de Temotiva.</p>
 
-    <p>
-      Elige una nueva contraseña para continuar. Por seguridad, te recomendamos usar al menos 8 caracteres y algo que puedas recordar con facilidad.
-    </p>
+    <p>Elige una nueva contraseña para continuar. Por seguridad, te recomendamos usar al menos 8 caracteres y algo que puedas recordar con facilidad.</p>
 
     <form id="reset-form">
-      <label for="password">Nueva contraseña</label>
-      <input
-        type="password"
-        id="password"
-        name="password"
-        autocomplete="new-password"
-        required
-      >
+      <label>Nueva contraseña</label>
+      <input type="password" id="password" autocomplete="new-password" required>
 
-      <label for="confirm">Repetir nueva contraseña</label>
-      <input
-        type="password"
-        id="confirm"
-        name="confirm"
-        autocomplete="new-password"
-        required
-      >
+      <label>Repetir nueva contraseña</label>
+      <input type="password" id="confirm" autocomplete="new-password" required>
 
-      <button type="submit" id="submit-btn">
-        Cambiar contraseña
-      </button>
+      <button id="submit-btn">Cambiar contraseña</button>
 
-      <div id="message" class="message" aria-live="polite"></div>
+      <div id="message" class="message"></div>
     </form>
 
-    <p class="footnote">
-      Si algo falla, puedes escribir a <strong>info@temotiva.com</strong>.
-    </p>
+    <p class="footnote">Si algo falla, puedes escribir a <strong>info@temotiva.com</strong>.</p>
   </div>
 
   <script>
-    // Configura Supabase con tu proyecto (estos son los tuyos correctos)
     const SUPABASE_URL = "https://ejhzxwnhqvcqjqxnuvya.supabase.co";
     const SUPABASE_ANON = "sb_publishable_8nz_638F1vO2JbkFw9DHSw_AxB179qA";
-
     const { createClient } = supabase;
     const client = createClient(SUPABASE_URL, SUPABASE_ANON);
 
-    const form = document.getElementById("reset-form");
     const passwordInput = document.getElementById("password");
     const confirmInput = document.getElementById("confirm");
     const messageEl = document.getElementById("message");
@@ -203,7 +147,7 @@
 
     function setMessage(text, type) {
       messageEl.textContent = text || "";
-      messageEl.className = "message" + (type ? " " + type : "");
+      messageEl.className = "message " + (type || "");
     }
 
     function disableFormWithMessage(msg) {
@@ -215,52 +159,56 @@
 
     async function initRecoverySession() {
       try {
-        const rawHash = window.location.hash || "";
-        const hash = rawHash.startsWith("#") ? rawHash.substring(1) : rawHash;
-        const params = new URLSearchParams(hash);
+        const url = new URL(window.location.href);
 
-        const accessToken = params.get("access_token");
-        const refreshToken = params.get("refresh_token");
+        // 1) Nuevo flujo moderno: ?code=...
+        const code = url.searchParams.get("code");
 
-        if (accessToken && refreshToken) {
-          const { error } = await client.auth.setSession({
-            access_token: accessToken,
-            refresh_token: refreshToken,
-          });
+        if (code) {
+          const { error } = await client.auth.exchangeCodeForSession(code);
 
           if (error) {
-            disableFormWithMessage(
-              "No se pudo validar el enlace. Pide un nuevo correo desde He olvidado mi contraseña."
-            );
+            disableFormWithMessage("No se pudo validar el enlace. Pide un nuevo correo desde He olvidado mi contraseña.");
             return;
+          }
+        } else {
+          // 2) Flujo antiguo con hash
+          const hash = url.hash.replace("#", "");
+          const params = new URLSearchParams(hash);
+
+          const accessToken = params.get("access_token");
+          const refreshToken = params.get("refresh_token");
+
+          if (accessToken && refreshToken) {
+            const { error } = await client.auth.setSession({
+              access_token: accessToken,
+              refresh_token: refreshToken,
+            });
+
+            if (error) {
+              disableFormWithMessage("No se pudo validar el enlace. Pide un nuevo correo desde He olvidado mi contraseña.");
+              return;
+            }
           }
         }
 
-        const { data, error: sessionError } = await client.auth.getSession();
-        if (sessionError || !data.session) {
-          disableFormWithMessage(
-            "El enlace ya no es válido o ha caducado. Pide un nuevo correo desde He olvidado mi contraseña."
-          );
+        const { data } = await client.auth.getSession();
+        if (!data.session) {
+          disableFormWithMessage("El enlace ya no es válido o ha caducado. Pide un nuevo correo desde He olvidado mi contraseña.");
           return;
         }
+
       } catch (e) {
-        disableFormWithMessage(
-          "Ha ocurrido un error al abrir el enlace. Pide un nuevo correo desde He olvidado mi contraseña."
-        );
+        disableFormWithMessage("Ha ocurrido un error al abrir el enlace. Pide un nuevo correo desde He olvidado mi contraseña.");
       }
     }
 
-    form.addEventListener("submit", async (e) => {
+    document.getElementById("reset-form").addEventListener("submit", async (e) => {
       e.preventDefault();
-      setMessage("", null);
+      setMessage("");
 
       const password = passwordInput.value.trim();
       const confirm = confirmInput.value.trim();
-
-      if (!password || !confirm) {
-        setMessage("Escribe y repite tu nueva contraseña.", "error");
-        return;
-      }
 
       if (password.length < 8) {
         setMessage("La contraseña debe tener al menos 8 caracteres.", "error");
@@ -273,30 +221,21 @@
       }
 
       submitBtn.disabled = true;
-      setMessage("Guardando nueva contraseña...", null);
+      setMessage("Guardando nueva contraseña...");
 
-      try {
-        const { error } = await client.auth.updateUser({ password });
+      const { error } = await client.auth.updateUser({ password });
 
-        if (error) {
-          let msg = "No se pudo actualizar. Inténtalo otra vez.";
-          const m = error.message.toLowerCase();
-          if (m.includes("recovery") || m.includes("expired") || m.includes("session")) {
-            msg =
-              "El enlace ya no es válido. Pide un nuevo correo desde He olvidado mi contraseña.";
-          }
-          setMessage(msg, "error");
-        } else {
-          setMessage(
-            "Tu contraseña se ha actualizado correctamente. Ya puedes iniciar sesión.",
-            "success"
-          );
+      if (error) {
+        let msg = "No se pudo actualizar. Inténtalo otra vez.";
+        if (error.message.toLowerCase().includes("expired")) {
+          msg = "El enlace ya no es válido. Pide un nuevo correo.";
         }
-      } catch (err) {
-        setMessage("Error inesperado, prueba de nuevo.", "error");
-      } finally {
-        submitBtn.disabled = false;
+        setMessage(msg, "error");
+      } else {
+        setMessage("Tu contraseña se ha actualizado correctamente. Ya puedes iniciar sesión.", "success");
       }
+
+      submitBtn.disabled = false;
     });
 
     initRecoverySession();
