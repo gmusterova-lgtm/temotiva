@@ -135,6 +135,29 @@
     }
   </script>
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script>
+    (function () {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        // Si viene de Supabase con type=recovery, mandamos a reset.html
+        if (params.get("type") === "recovery") {
+          var url = new URL(window.location.origin + "/reset.html");
+
+          ["token", "type", "redirect_to", "code"].forEach(function (key) {
+            if (params.has(key)) {
+              url.searchParams.set(key, params.get(key));
+            }
+          });
+
+          window.location.replace(url.toString());
+        }
+      } catch (e) {
+        console.warn("No se pudo redirigir a reset.html", e);
+      }
+    })();
+  </script>
+
+  
 </head>
 <body>
   <a href="#app" class="skip-link">Saltar al contenido principal</a>
