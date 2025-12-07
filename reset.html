@@ -164,13 +164,16 @@
 }
 
 
-        const { data } = await client.auth.getSession();
-        if (!data.session) {
-          disableFormWithMessage(
-            "El enlace ya no es válido o ha caducado. Pide un nuevo correo desde He olvidado mi contraseña."
-          );
-          return;
-        }
+       const { data } = await client.auth.getSession();
+if (!data.session) {
+  // No bloquees; deja usar el formulario
+  setMessage(
+    "Puede que el enlace sea antiguo. Intenta guardar la nueva contraseña.",
+    "error"
+  );
+  return;
+}
+
       } catch (e) {
         disableFormWithMessage(
           "Ha ocurrido un error al abrir el enlace. Pide un nuevo correo desde He olvidado mi contraseña."
