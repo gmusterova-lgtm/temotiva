@@ -195,9 +195,10 @@
       submitBtn.disabled = true;
       setMessage("Guardando nueva contraseña...");
 
-      const { error } = await client.auth.updateUser({ password });
+         const { error } = await client.auth.updateUser({ password });
 
       if (error) {
+        console.log("Supabase error:", error.message);
         let msg = "No se pudo actualizar. Inténtalo otra vez.";
         if (error.message.toLowerCase().includes("expired")) {
           msg = "El enlace ya no es válido. Pide un nuevo correo.";
