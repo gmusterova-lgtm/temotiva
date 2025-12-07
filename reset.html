@@ -151,14 +151,18 @@
         const code = url.searchParams.get("code");
 
         if (code) {
-          const { error } = await client.auth.exchangeCodeForSession(code);
-          if (error) {
-            disableFormWithMessage(
-              "No se pudo validar el enlace. Pide un nuevo correo desde He olvidado mi contraseña."
-            );
-            return;
-          }
-        }
+  const { error } = await client.auth.exchangeCodeForSession(code);
+
+  if (error) {
+    console.log("Supabase error (code):", error.message);
+    // NO deshabilitamos el formulario, solo mostramos aviso suave
+    setMessage(
+      "El enlace puede estar caducado. Si falla al guardar, pide un nuevo correo.",
+      "error"
+    );
+  }
+}
+
 
         const { data } = await client.auth.getSession();
         if (!data.session) {
