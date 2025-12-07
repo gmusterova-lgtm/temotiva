@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Recuperar contraseña | Temotiva</title>
-  <meta name="viewport" content="width=device-width, initial=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-device-width, initial-scale=1.0">
   <style>
     :root {
       --bg1: #f7f7ff;
@@ -137,7 +137,7 @@
   <script>
     const SUPABASE_URL = "https://ejhzxwnhqvcqjqxnuvya.supabase.co";
     const SUPABASE_ANON = "sb_publishable_8nz_638F1vO2JbkFw9DHSw_AxB179qA";
-const { createClient } = window.supabase;
+    const { createClient } = window.supabase;
     const client = createClient(SUPABASE_URL, SUPABASE_ANON);
 
     const passwordInput = document.getElementById("password");
@@ -157,49 +157,21 @@ const { createClient } = window.supabase;
       setMessage(msg, "error");
     }
 
+    // Versión simplificada: no bloquea al entrar
     async function initRecoverySession() {
       try {
-        const url = new URL(window.location.href);
-
-        // 1) Nuevo flujo moderno: ?code=...
-        const code = url.searchParams.get("code");
-
-        if (code) {
-          const { error } = await client.auth.exchangeCodeForSession(code);
-
-          if (error) {
-            disableFormWithMessage("No se pudo validar el enlace. Pide un nuevo correo desde He olvidado mi contraseña.");
-            return;
-          }
-        } else {
-          // 2) Flujo antiguo con hash
-          const hash = url.hash.replace("#", "");
-          const params = new URLSearchParams(hash);
-
-          const accessToken = params.get("access_token");
-          const refreshToken = params.get("refresh_token");
-
-          if (accessToken && refreshToken) {
-            const { error } = await client.auth.setSession({
-              access_token: accessToken,
-              refresh_token: refreshToken,
-            });
-
-            if (error) {
-              disableFormWithMessage("No se pudo validar el enlace. Pide un nuevo correo desde He olvidado mi contraseña.");
-              return;
-            }
-          }
-        }
-
         const { data } = await client.auth.getSession();
-        if (!data.session) {
-          disableFormWithMessage("El enlace ya no es válido o ha caducado. Pide un nuevo correo desde He olvidado mi contraseña.");
+
+        // Si ya hay sesión, usamos el formulario tal cual
+        if (data.session) {
           return;
         }
 
+        // Si no hay sesión, dejamos que el usuario intente cambiarla;
+        // los errores se mostrarán al hacer updateUser.
+        setMessage("");
       } catch (e) {
-        disableFormWithMessage("Ha ocurrido un error al abrir el enlace. Pide un nuevo correo desde He olvidado mi contraseña.");
+        setMessage("");
       }
     }
 
