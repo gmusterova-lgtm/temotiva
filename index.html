@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-K454FHCV');
+  </script>
+  <!-- End Google Tag Manager -->
+
   <!-- Analítica -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DM1M9GM27Z"></script>
   <script>
@@ -136,7 +146,7 @@
   </script>
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-    <script>
+  <script>
     (function () {
       try {
         var search = window.location.search || "";
@@ -171,11 +181,15 @@
       }
     })();
   </script>
-
-
-  
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K454FHCV"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <a href="#app" class="skip-link">Saltar al contenido principal</a>
   <noscript>
     <div style="padding:12px;text-align:center;background:#fff4cd;color:#7a5d00">
@@ -241,7 +255,7 @@
       <li><a href="/blog/">Blog</a></li>
       <li><a href="/temotiva-lab.html">Lab</a></li>
       <li><a href="/ctl.html">CTL</a></li>
-<li><a href="/contacto.html"><strong>Mi cuenta</strong></a></li>
+      <li><a href="/contacto.html"><strong>Mi cuenta</strong></a></li>
     </ul>
 
     <a class="privacy-link" href="/privacidad.html">Privacidad</a>
@@ -431,7 +445,7 @@
         <h2 id="reviews-title" class="section-title">Reseñas</h2>
         <p class="frase">Personas que han probado Temotiva.</p>
 
-                <!-- Reseñas reales desde Google (Tagembed) -->
+        <!-- Reseñas reales desde Google (Tagembed) -->
         <div class="tagembed-widget" style="width:100%;height:100%;overflow:auto;" data-widget-id="310452" data-website="1"></div>
         <script src="https://widget.tagembed.com/embed.min.js" type="text/javascript"></script>
         <!-- Fin widget -->
@@ -875,7 +889,7 @@
     var isStandalone = false;
     try {
       isStandalone =
-        (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) ||
+        (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) ||
         window.navigator.standalone;
     } catch(e){}
     if (isStandalone){
