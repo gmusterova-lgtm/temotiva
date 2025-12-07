@@ -157,24 +157,37 @@
       setMessage(msg, "error");
     }
 
-    // Versión simplificada: no bloquea al entrar
     async function initRecoverySession() {
       try {
-        const { data } = await client.auth.getSession();
+        const url = new URL(window.location.href);
+        const code = url.searchParams.get("code");
 
-        // Si ya hay sesión, usamos el formulario tal cual
-        if (data.session) {
-          return;
+        if (code) {
+          const { error } = await client.auth.exchangeCodeForSession(code);
+
+          if (error) {
+            disableFormWithMessage(
+              "No se pudo validar el enlace. Pide un nuevo correo desde He olvidado mi contraseña."
+            );
+            return;
+          }
         }
 
-        // Si no hay sesión, dejamos que el usuario intente cambiarla;
-        // los errores se mostrarán al hacer updateUser.
-        setMessage("");
+        const { data } = await client.auth.getSession();
+        if (!data.session) {
+          disableFormWithMessage(
+            "El enlace ya no es válido o ha caducado. Pide un nuevo correo desde He olvidado mi contraseña."
+          );
+          return;
+        }
       } catch (e) {
-        setMessage("");
+        disableFormWithMessage(
+          "Ha ocurrido un error al abrir el enlace. Pide un nuevo correo desde He olvidado mi contraseña."
+        );
       }
     }
 
+    
     document.getElementById("reset-form").addEventListener("submit", async (e) => {
       e.preventDefault();
       setMessage("");
