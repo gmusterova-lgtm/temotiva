@@ -151,28 +151,25 @@
         const code = url.searchParams.get("code");
 
         if (code) {
-  const { error } = await client.auth.exchangeCodeForSession(code);
+          const { error } = await client.auth.exchangeCodeForSession(code);
 
-  if (error) {
-    console.log("Supabase error (code):", error.message);
-    // NO deshabilitamos el formulario, solo mostramos aviso suave
-    setMessage(
-      "El enlace puede estar caducado. Si falla al guardar, pide un nuevo correo.",
-      "error"
-    );
-  }
-}
+          if (error) {
+            console.log("Supabase error (code):", error.message);
+            setMessage(
+              "El enlace puede estar caducado. Si falla al guardar, pide un nuevo correo.",
+              "error"
+            );
+          }
+        }
 
-
-       const { data } = await client.auth.getSession();
-if (!data.session) {
-  // No bloquees; deja usar el formulario
-  setMessage(
-    "Puede que el enlace sea antiguo. Intenta guardar la nueva contraseña.",
-    "error"
-  );
-  return;
-}
+        const { data } = await client.auth.getSession();
+        if (!data.session) {
+          setMessage(
+            "Puede que el enlace sea antiguo. Intenta guardar la nueva contraseña.",
+            "error"
+          );
+          return;
+        }
 
       } catch (e) {
         disableFormWithMessage(
@@ -204,6 +201,7 @@ if (!data.session) {
       const { error } = await client.auth.updateUser({ password });
 
       if (error) {
+        console.log("Supabase updateUser error:", error.message);
         setMessage("No se pudo actualizar. Inténtalo otra vez.", "error");
       } else {
         setMessage("Tu contraseña se ha actualizado correctamente. Ya puedes iniciar sesión.", "success");
