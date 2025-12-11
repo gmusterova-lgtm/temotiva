@@ -96,8 +96,6 @@
       text-align: center;
     }
   </style>
-
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
@@ -122,10 +120,13 @@
     <p class="footnote">Si algo falla, escribe a <strong>info@temotiva.com</strong>.</p>
   </div>
 
-  <script>
+  <!-- Nuevo script con ESM y manejo completo de parámetros -->
+  <script type="module">
+    import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
     const SUPABASE_URL = "https://ejhzxwnhqvcqjqxnuvya.supabase.co";
     const SUPABASE_ANON = "sb_publishable_8nz_638F1vO2JbkFw9DHSw_AxB179qA";
-    const { createClient } = window.supabase;
+
     const client = createClient(SUPABASE_URL, SUPABASE_ANON);
 
     const passwordInput = document.getElementById("password");
@@ -148,30 +149,64 @@
     async function initRecoverySession() {
       try {
         const url = new URL(window.location.href);
-        const code = url.searchParams.get("code");
 
-        if (code) {
-          const { error } = await client.auth.exchangeCodeForSession(code);
+        const error = url.searchParams.get("error");
+        const errorDescription = url.searchParams.get("error_description");
+        const type = url.searchParams.get("type");
 
-          if (error) {
-            console.log("Supabase error (code):", error.message);
-            setMessage(
-              "El enlace puede estar caducado. Si falla al guardar, pide un nuevo correo.",
-              "error"
-            );
-          }
-        }
+        const code =
+          url.searchParams.get("code") ||
+          url.searchParams.get("token_hash");
 
-        const { data } = await client.auth.getSession();
-        if (!data.session) {
-          setMessage(
-            "Puede que el enlace sea antiguo. Intenta guardar la nueva contraseña.",
-            "error"
+        if (error) {
+          disableFormWithMessage(
+            decodeURIComponent(
+              errorDescription ||
+              "El enlace no es válido o ha caducado. Pide un nuevo correo desde He olvidado mi contraseña en la app."
+            )
           );
           return;
         }
 
+        if (!code) {
+          disableFormWithMessage(
+            "No se ha encontrado un enlace válido. Pide un nuevo correo desde He olvidado mi contraseña en la app."
+          );
+          return;
+        }
+
+        if (type && type !== "recovery") {
+          disableFormWithMessage(
+            "Este enlace no es de recuperación de contraseña. Pide un nuevo correo desde He olvidado mi contraseña en la app."
+          );
+          return;
+        }
+
+        const { error: exchangeError } = await client.auth.exchangeCodeForSession(code);
+
+        if (exchangeError) {
+          console.log("exchangeCodeForSession error:", exchangeError.message);
+          disableFormWithMessage(
+            "El enlace no es válido o ha caducado. Pide un nuevo correo desde He olvidado mi contraseña en la app."
+          );
+          return;
+        }
+
+        const { data } = await client.auth.getSession();
+        if (!data.session) {
+          disableFormWithMessage(
+            "No se ha podido establecer la sesión. Pide un nuevo correo desde He olvidado mi contraseña en la app."
+          );
+          return;
+        }
+
+        setMessage(
+          "Introduce tu nueva contraseña y guarda los cambios.",
+          "success"
+        );
+
       } catch (e) {
+        console.error("Error inicializando la sesión de recuperación:", e);
         disableFormWithMessage(
           "Ha ocurrido un error al abrir el enlace. Pide un nuevo correo desde He olvidado mi contraseña."
         );
@@ -202,11 +237,12 @@
 
       if (error) {
         console.log("Supabase updateUser error:", error.message);
-        setMessage("No se pudo actualizar. Inténtalo otra vez.", "error");
-      } else {
-        setMessage("Tu contraseña se ha actualizado correctamente. Ya puedes iniciar sesión.", "success");
+        setMessage("No se pudo actualizar. Inténtalo otra vez o pide un nuevo correo.", "error");
+        submitBtn.disabled = false;
+        return;
       }
 
+      setMessage("Tu contraseña se ha actualizado correctamente. Ya puedes iniciar sesión en la app.", "success");
       submitBtn.disabled = false;
     });
 
