@@ -148,9 +148,12 @@
           hash && hash.startsWith("#") ? hash.slice(1) : hash
         );
 
+        var hasCode = params.get("code") || hashParams.get("code");
+
         var isRecovery =
           params.get("type") === "recovery" ||
-          hashParams.get("type") === "recovery";
+          hashParams.get("type") === "recovery" ||
+          hasCode; // ← también consideramos recovery si viene solo code
 
         if (!isRecovery) return;
 
