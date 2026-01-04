@@ -11,16 +11,45 @@
   </script>
   <!-- End Google Tag Manager -->
 
-  <!-- Silktide Cookie Consent -->
-  <script>
-    window.silktideConsentManagerConfig = {
-      language: 'es',
-      position: 'bottom',
-      theme: 'light'
-    };
-  </script>
-  <!-- FIX: URL correcta (la anterior daba 404) -->
+  <!-- Silktide Cookie Consent (NO requiere cuenta, solo carga el script) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@silktide/consent-manager@1/dist/silktide-consent-manager.css">
   <script defer src="https://cdn.jsdelivr.net/npm/@silktide/consent-manager@1/dist/silktide-consent-manager.js"></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", function () {
+      if (!window.silktideConsentManager || typeof window.silktideConsentManager.init !== "function") {
+        console.warn("Silktide Consent Manager no cargó");
+        return;
+      }
+
+      window.silktideConsentManager.init({
+        language: "es",
+        prompt: { position: "bottomCenter" },
+        icon: { position: "bottomLeft" },
+
+        consentTypes: [
+          {
+            id: "essential",
+            label: "Esenciales",
+            description: "Necesarias para que la web funcione.",
+            required: true
+          },
+          {
+            id: "analytics",
+            label: "Analítica",
+            description: "Nos ayuda a entender el uso de la web.",
+            defaultValue: false
+          },
+          {
+            id: "marketing",
+            label: "Marketing",
+            description: "Publicidad y medición de campañas.",
+            defaultValue: false
+          }
+        ]
+      });
+    });
+  </script>
+  <!-- Fin Silktide -->
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
