@@ -1,13 +1,11 @@
 User-agent: *
 Allow: /
 
-# Evitar indexar archivos técnicos y de sistema (PWA, caché, service workers)
+# Evitar indexar archivos técnicos (no afectan al SEO)
 Disallow: /pwabuilder-sw.js
 Disallow: /service-worker.js
 Disallow: /manifest.json
-
-# Evitar indexar rutas temporales si las hubiera
 Disallow: /offline.html
 
-# Sitemap oficial actualizado
+# Sitemap oficial
 Sitemap: https://www.temotiva.com/sitemap.xml
