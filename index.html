@@ -11,7 +11,7 @@
   </script>
   <!-- End Google Tag Manager -->
 
-  <!-- Silktide Cookie Consent (reemplaza Axeptio, sin cuenta, sin límite de visitas) -->
+  <!-- Silktide Cookie Consent -->
   <script>
     window.silktideConsentManagerConfig = {
       language: 'es',
@@ -19,7 +19,7 @@
       theme: 'light'
     };
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/@silktide/consent-manager/dist/consent-manager.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@silktide/consent-manager/dist/consent-manager.js"></script>
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -303,6 +303,40 @@
       </div>
     </section>
 
+    <!-- NUEVAS NOTICIAS -->
+    <section id="noticias" class="section alt reveal" aria-labelledby="news-title">
+      <div class="container">
+        <h2 id="news-title" class="section-title">Te lo cuento, rapidito</h2>
+        <p class="section-text" style="margin-bottom:1rem;">
+          Tres cosas nuevas para que elijas lo que más te sirva ahora.
+        </p>
+
+        <div class="grid grid-cols-3" role="list">
+          <article class="card" role="listitem">
+            <h3>Nuevo libro</h3>
+            <p>El cuerpo avisa antes de explotar, guía práctica de bienestar emocional y autocuidado.</p>
+            <p><a class="btn secondary" href="https://a.co/d/0uDjzpW" target="_blank" rel="noopener noreferrer">Ver en Amazon</a></p>
+          </article>
+
+          <article class="card" role="listitem">
+            <h3>Descarga la app gratis</h3>
+            <p>Accede a Temotiva en segundos y empieza con microprácticas breves para el día a día.</p>
+            <p><a class="btn secondary" href="https://bit.ly/3Kt3U4E" target="_blank" rel="noopener noreferrer">Descargar app</a></p>
+          </article>
+
+          <article class="card" role="listitem">
+            <h3>Talleres, fácil</h3>
+            <p>Apúntate en menos de un minuto y te contactamos con las próximas fechas y temáticas.</p>
+            <p><a class="btn secondary" href="https://forms.gle/76czymwBLwvUSSZK9" target="_blank" rel="noopener noreferrer">Formulario talleres</a></p>
+          </article>
+        </div>
+
+        <p class="section-text" style="margin-top:1rem;">
+          También estamos por aquí: <a href="https://www.instagram.com/temotivalab/" target="_blank" rel="noopener noreferrer">Instagram @temotivalab</a>
+        </p>
+      </div>
+    </section>
+
     <!-- Newsletter -->
     <section id="newsletter" class="section reveal" aria-labelledby="newsletter-title">
       <div class="container">
@@ -535,7 +569,7 @@
 
     /* Header sombra y nav activa por sección */
     var siteHeader = $("#siteHeader");
-    var sections = ["newsletter","mision","producto","ecosistema","impulsa","resenas","contacto"]
+    var sections = ["noticias","newsletter","mision","producto","ecosistema","impulsa","resenas","contacto"]
       .map(function(id){ return document.getElementById(id); })
       .filter(function(el){ return !!el; });
     var navLinks = $all("#mainNav a");
@@ -666,7 +700,7 @@
       items.forEach(function(el){ io.observe(el); });
     })();
 
-    /* Service Worker */
+    /* Service Worker (SOLO UNO: pwabuilder-sw.js) */
     if("serviceWorker" in navigator){
       window.addEventListener("load", function(){
         navigator.serviceWorker.register("/pwabuilder-sw.js", { scope: "/" })
@@ -953,18 +987,6 @@
             event_label: 'Botón Más tarde'
           });
         }
-      });
-    }
-  </script>
-
-  <script>
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", function () {
-        navigator.serviceWorker
-          .register("/sw.js")
-          .catch(function (error) {
-            console.error("Error al registrar el Service Worker:", error);
-          });
       });
     }
   </script>
